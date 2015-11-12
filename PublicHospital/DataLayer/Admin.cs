@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class Person
+    public class Admin
     {
         private int id { get; set; }
         private string firstName { get; set; }
@@ -17,7 +17,7 @@ namespace DataLayer
         private int streetNr { get; set; }
         private string phoneNr { get; set; }
 
-        public Person (int id, string firstName, string lastName, string city, int zip, string street,
+        public Admin (int id, string firstName, string lastName, string city, int zip, string street,
             int streetNr, string phoneNr)
         {
             this.id = id;

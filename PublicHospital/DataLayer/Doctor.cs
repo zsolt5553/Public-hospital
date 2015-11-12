@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    class Doctor : Person
+    class Doctor : Admin
     {
         private string specialty { get; set; }
         private string description { get; set; }
