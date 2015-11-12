@@ -8,6 +8,7 @@ namespace DataLayer
 {
     public class Person
     {
+        private int id { get; set; }
         private string firstName { get; set; }
         private string lastName { get; set; }
         private string city { get; set; }
@@ -16,9 +17,10 @@ namespace DataLayer
         private int streetNr { get; set; }
         private string phoneNr { get; set; }
 
-        public Person (string firstName, string lastName, string city, int zip, string street,
+        public Person (int id, string firstName, string lastName, string city, int zip, string street,
             int streetNr, string phoneNr)
         {
+            this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.city = city;

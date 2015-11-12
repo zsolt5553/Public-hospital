@@ -11,9 +11,9 @@ namespace DataLayer
         private string specialty { get; set; }
         private string description { get; set; }
 
-        public Doctor (string firstName, string lastName, string city, int zip, string street,
+        public Doctor (int id, string firstName, string lastName, string city, int zip, string street,
             int streetNr, string phoneNr, string specialty, string description) :
-                base(firstName, lastName, city, zip, street, streetNr, phoneNr)
+                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr)
         {
             this.specialty = specialty;
             this.description = description;
