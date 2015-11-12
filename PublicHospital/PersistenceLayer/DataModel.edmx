@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PublicHospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="zip" Type="int" Nullable="false" />
+          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street_number" Type="int" Nullable="false" />
+          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="doctor_id" />
+          </Key>
+          <Property Name="doctor_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="zip" Type="int" Nullable="false" />
+          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street_number" Type="int" Nullable="false" />
+          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="specialty" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="description" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Patient_id" />
+          </Key>
+          <Property Name="Patient_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="zip" Type="int" Nullable="false" />
+          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street_number" Type="int" Nullable="false" />
+          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="date_of_birth" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PublicHospitalModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PublicHospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="zip" Type="Int32" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street_number" Type="Int32" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="doctor_id" />
+          </Key>
+          <Property Name="doctor_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="zip" Type="Int32" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street_number" Type="Int32" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="specialty" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Patient_id" />
+          </Key>
+          <Property Name="Patient_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="zip" Type="Int32" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street_number" Type="Int32" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PublicHospitalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PublicHospitalModelStoreContainer" CdmEntityContainer="PublicHospitalEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="PublicHospitalModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="street_number" ColumnName="street_number" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctor">
+            <EntityTypeMapping TypeName="PublicHospitalModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="street_number" ColumnName="street_number" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="specialty" ColumnName="specialty" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient">
+            <EntityTypeMapping TypeName="PublicHospitalModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Patient_id" ColumnName="Patient_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="street_number" ColumnName="street_number" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
