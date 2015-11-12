@@ -7,45 +7,45 @@
       <Schema Namespace="PublicHospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
-            <PropertyRef Name="Admin_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Admin_id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
           <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="street_number" Type="int" Nullable="false" />
-          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="streetNr" Type="int" Nullable="false" />
+          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
-            <PropertyRef Name="doctor_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="doctor_id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
           <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="street_number" Type="int" Nullable="false" />
-          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="streetNr" Type="int" Nullable="false" />
+          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="specialty" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="description" Type="nchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
-            <PropertyRef Name="Patient_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Patient_id" Type="int" Nullable="false" />
-          <Property Name="first_name" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="last_name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
           <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="street_number" Type="int" Nullable="false" />
-          <Property Name="phone_number" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="date_of_birth" Type="int" Nullable="false" />
+          <Property Name="streetNr" Type="int" Nullable="false" />
+          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="dateOfBirth" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PublicHospitalModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
@@ -59,45 +59,45 @@
       <Schema Namespace="PublicHospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Admin">
           <Key>
-            <PropertyRef Name="Admin_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Admin_id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
           <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="street_number" Type="Int32" Nullable="false" />
-          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="streetNr" Type="Int32" Nullable="false" />
+          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
-            <PropertyRef Name="doctor_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="doctor_id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
           <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="street_number" Type="Int32" Nullable="false" />
-          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="streetNr" Type="Int32" Nullable="false" />
+          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="specialty" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
-            <PropertyRef Name="Patient_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Patient_id" Type="Int32" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="last_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
           <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="street_number" Type="Int32" Nullable="false" />
-          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="date_of_birth" Type="Int32" Nullable="false" />
+          <Property Name="streetNr" Type="Int32" Nullable="false" />
+          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="dateOfBirth" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PublicHospitalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
@@ -113,28 +113,28 @@
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="PublicHospitalModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="zip" ColumnName="zip" />
                 <ScalarProperty Name="street" ColumnName="street" />
-                <ScalarProperty Name="street_number" ColumnName="street_number" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="streetNr" ColumnName="streetNr" />
+                <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Doctor">
             <EntityTypeMapping TypeName="PublicHospitalModel.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
-                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="zip" ColumnName="zip" />
                 <ScalarProperty Name="street" ColumnName="street" />
-                <ScalarProperty Name="street_number" ColumnName="street_number" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="streetNr" ColumnName="streetNr" />
+                <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
                 <ScalarProperty Name="specialty" ColumnName="specialty" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
@@ -143,15 +143,15 @@
           <EntitySetMapping Name="Patient">
             <EntityTypeMapping TypeName="PublicHospitalModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
-                <ScalarProperty Name="Patient_id" ColumnName="Patient_id" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="zip" ColumnName="zip" />
                 <ScalarProperty Name="street" ColumnName="street" />
-                <ScalarProperty Name="street_number" ColumnName="street_number" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="streetNr" ColumnName="streetNr" />
+                <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

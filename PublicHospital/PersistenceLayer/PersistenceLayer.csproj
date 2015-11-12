@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F198F3F1-135C-4A2D-869B-0E89A5BE7137}</ProjectGuid>
+    <ProjectGuid>{18EA2999-5BEC-4013-9F34-6A173B3D5DB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PersistenceLayer</RootNamespace>
@@ -78,6 +78,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <EntityDeploy Include="DataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
@@ -104,12 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

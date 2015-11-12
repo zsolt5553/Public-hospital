@@ -14,13 +14,13 @@ namespace PersistenceLayer
     
     public partial class Admin
     {
-        public int Admin_id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
+        public int id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
         public string city { get; set; }
         public int zip { get; set; }
         public string street { get; set; }
-        public int street_number { get; set; }
-        public string phone_number { get; set; }
+        public int streetNr { get; set; }
+        public string phoneNr { get; set; }
     }
 }
