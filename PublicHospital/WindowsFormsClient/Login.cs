@@ -16,5 +16,38 @@ namespace WindowsFormsClient
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            signin();
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                signin();
+            }
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                signin();
+            }
+        }
+
+        private void signin()
+        {
+            if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
+            {
+
+            }
+            else
+            {
+                label1.Text = "Incorrect length";
+            }
+        }
     }
 }
