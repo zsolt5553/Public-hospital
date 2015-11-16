@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer;
 
 namespace PersistenceLayer
 {
-    class AdminDAO
+    public class AdminDAO
     {
-        public Admin GetAdmin (int id)
+        public AdminBDO GetAdmin (int id)
         {
-            Admin admin = null;
+            AdminBDO adminBDO = null;
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var adminObj = (from a in PHEntities.Admin
                              where a.id == id
                              select a).FirstOrDefault();
                 if (adminObj != null)
-                    admin = new Admin()
+                    adminBDO = new AdminBDO()
                     {
                         id = adminObj.id,
                         firstName = adminObj.firstName,
@@ -26,20 +27,20 @@ namespace PersistenceLayer
                         street = adminObj.street,
                         streetNr = adminObj.streetNr,
                         phoneNr = adminObj.phoneNr,
-                        zip = adminObj.zip,
+                        zip = adminObj.zip
                     };
             }
-                return admin;
+                return adminBDO;
         }
 
-        public bool UpdateAdmin(ref Admin admin,
+        public bool UpdateAdmin(ref AdminBDO adminBDO,
             ref string massage)
         {
             massage = "Admin updated successfully";
             var ret = true;
             using (var PHEntites = new PublicHospitalEntities())
             {
-                var adminId = admin.id;
+                var adminId = adminBDO.id;
                 var adminInDb = (from a
                                  in PHEntites.Admin
                                  where a.id == adminId
@@ -47,15 +48,15 @@ namespace PersistenceLayer
                 if (adminInDb == null)
                 {
                     throw new Exception("No admin with id " +
-                                        admin.id);
+                                        adminBDO.id);
                 }
-                adminInDb.firstName = admin.firstName;
-                adminInDb.lastName = admin.lastName;
-                adminInDb.city = admin.city;
-                adminInDb.zip = admin.zip;
-                adminInDb.street = admin.street;
-                adminInDb.streetNr = admin.streetNr;
-                adminInDb.phoneNr = admin.phoneNr;
+                adminInDb.firstName = adminBDO.firstName;
+                adminInDb.lastName = adminBDO.lastName;
+                adminInDb.city = adminBDO.city;
+                adminInDb.zip = adminBDO.zip;
+                adminInDb.street = adminBDO.street;
+                adminInDb.streetNr = adminBDO.streetNr;
+                adminInDb.phoneNr = adminBDO.phoneNr;
                 PHEntites.Admin.Attach(adminInDb);
                 PHEntites.Entry(adminInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

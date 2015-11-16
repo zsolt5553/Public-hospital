@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    class Patient : Admin
+    public class PatientBDO : AdminBDO
     {
-        private DateTime dateOfBirth { get; set; }
-        public Patient(int id, string firstName, string lastName, string city, int zip, string street,
+        public DateTime dateOfBirth { get; set; }
+
+        public PatientBDO () { }
+        public PatientBDO(int id, string firstName, string lastName, string city, int zip, string street,
             int streetNr, string phoneNr, DateTime dateOfBirth) :
                 base(id, firstName, lastName, city, zip, street, streetNr, phoneNr)
         {

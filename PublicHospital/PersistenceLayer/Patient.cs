@@ -22,6 +22,6 @@ namespace PersistenceLayer
         public string street { get; set; }
         public int streetNr { get; set; }
         public string phoneNr { get; set; }
-        public int dateOfBirth { get; set; }
+        public System.DateTime dateOfBirth { get; set; }
     }
 }
