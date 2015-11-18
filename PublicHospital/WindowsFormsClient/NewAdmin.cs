@@ -16,5 +16,10 @@ namespace WindowsFormsClient
         {
             InitializeComponent();
         }
+
+        private void NewAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
