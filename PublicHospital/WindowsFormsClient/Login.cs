@@ -42,7 +42,7 @@ namespace WindowsFormsClient
         {
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-
+                DoctorMenu.
             }
             else
             {
