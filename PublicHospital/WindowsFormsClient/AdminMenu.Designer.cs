@@ -41,6 +41,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Editing doctor\'s database";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -50,6 +51,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Updating schedule";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -60,7 +62,7 @@
             this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // DoctorMenu
+            // AdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +70,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Name = "DoctorMenu";
+            this.Name = "AdminMenu";
             this.Text = "Admin menu";
             this.Load += new System.EventHandler(this.DoctorMenu_Load);
             this.ResumeLayout(false);

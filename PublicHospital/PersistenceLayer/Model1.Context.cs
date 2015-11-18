@@ -13,10 +13,10 @@ namespace DatabaseLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PublicHospitalEntities : DbContext
+    public partial class dmaj0914_3Sem_4_1Entities : DbContext
     {
-        public PublicHospitalEntities()
-            : base("name=PublicHospitalEntities")
+        public dmaj0914_3Sem_4_1Entities()
+            : base("name=dmaj0914_3Sem_4_1Entities")
         {
         }
     
@@ -25,8 +25,5 @@ namespace DatabaseLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Admin> Admin { get; set; }
-        public virtual DbSet<Doctor> Doctor { get; set; }
-        public virtual DbSet<Patient> Patient { get; set; }
     }
 }

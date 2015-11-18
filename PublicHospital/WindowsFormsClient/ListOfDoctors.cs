@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace WindowsFormsClient
         public ListOfDoctors()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
       
@@ -72,6 +74,7 @@ namespace WindowsFormsClient
             this.button1.TabIndex = 0;
             this.button1.Text = "Add new";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -125,6 +128,11 @@ namespace WindowsFormsClient
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Thread(() => new NewDoctor().ShowDialog()).Start();
         }
 
      

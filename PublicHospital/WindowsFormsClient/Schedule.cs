@@ -75,7 +75,7 @@ namespace WindowsFormsClient
                     }
                     else
                     {
-                        dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.White;
+                    //    dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.White;
                     }
                 }
             }
@@ -99,7 +99,7 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            new Appointment().Show();
+         //   new Appointment().Show();
         }
     }
 }
