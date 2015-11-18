@@ -16,6 +16,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(AdminFault))]
+        bool InsertAdmin(ref Admin admin,
+            ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(AdminFault))]
         bool UpdateAdmin(ref Admin admin,
             ref string message);
     }

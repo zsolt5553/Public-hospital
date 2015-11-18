@@ -4,8 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using LogicLayer;
-using DataLayer;
+using ContolLayer;
+using ModelLayer;
 
 namespace ServiceLayer
 {
@@ -40,6 +40,65 @@ namespace ServiceLayer
             TranslateAdminBDOToAdminDTO(adminBDO,
                 admin);
             return admin;
+        }
+
+        public bool InsertAdmin (ref Admin admin,
+            ref string message)
+        {
+            var result = true;
+            if (string.IsNullOrEmpty(admin.firstName))
+            {
+                message = "Admin's first name cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.lastName))
+            {
+                message = "Admin's last name cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.city))
+            {
+                message = "Admin's city cannot be empty";
+                result = false;
+            }
+            else if (admin.zip <= 0)
+            {
+                message = "Admin's zip cannot be empty or smaller or equal to 0";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.street))
+            {
+                message = "Admin's street cannot be empty";
+                result = false;
+            }
+            else if (admin.streetNr <= 0)
+            {
+                message = "Admin's street number cannot be empty or smaller or equal to 0";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.phoneNr))
+            {
+                message = "Admin's phone number cannot be empty";
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var adminBDO = new AdminBDO();
+                    TranslateAdminDTOToAdminBDO(admin,
+                        adminBDO);
+                    result = adminLogic.InsertAdmin(
+                        ref adminBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<AdminFault>
+                        (new AdminFault(msg), msg);
+                }
+            }
+            return result;
         }
 
         public bool UpdateAdmin (ref Admin admin,

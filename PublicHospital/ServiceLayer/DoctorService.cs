@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
-using DataLayer;
-using LogicLayer;
+using ModelLayer;
+using ContolLayer;
 
 namespace ServiceLayer
 {

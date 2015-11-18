@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PersistenceLayer
+namespace DatabaseLayer
 {
     using System;
     using System.Data.Entity;

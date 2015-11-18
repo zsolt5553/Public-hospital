@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
-using PersistenceLayer;
+using ModelLayer;
+using DatabaseLayer;
 
-namespace LogicLayer
+namespace ContolLayer
 {
     public class DoctorLogic
     {

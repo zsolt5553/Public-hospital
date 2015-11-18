@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using ModelLayer;
 
-namespace PersistenceLayer
+namespace DatabaseLayer
 {
     public class PatientDAO
     {
