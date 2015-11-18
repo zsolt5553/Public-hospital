@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsClient
 {
-    public partial class DoctorMenu : Form
+    public partial class NewAdmin : Form
     {
-        public DoctorMenu()
+        public NewAdmin()
         {
             InitializeComponent();
-        }
-
-        private void DoctorMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
