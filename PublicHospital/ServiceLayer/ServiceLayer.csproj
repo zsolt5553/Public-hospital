@@ -65,13 +65,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+    <ProjectReference Include="..\DataLayer\ModelLayer.csproj">
       <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
-      <Name>DataLayer</Name>
+      <Name>ModelLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
+    <ProjectReference Include="..\LogicLayer\ControlLayer.csproj">
       <Project>{0a2ed242-82f0-41ef-a586-d451e5a06b06}</Project>
-      <Name>LogicLayer</Name>
+      <Name>ControlLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

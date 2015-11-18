@@ -46,13 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+    <ProjectReference Include="..\DataLayer\ModelLayer.csproj">
       <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
-      <Name>DataLayer</Name>
+      <Name>ModelLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistenceLayer\PersistenceLayer.csproj">
+    <ProjectReference Include="..\PersistenceLayer\DatabaseLayer.csproj">
       <Project>{18ea2999-5bec-4013-9f34-6a173b3d5db6}</Project>
-      <Name>PersistenceLayer</Name>
+      <Name>DatabaseLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

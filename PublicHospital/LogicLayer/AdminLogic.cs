@@ -16,6 +16,12 @@ namespace LogicLayer
             return adminDAO.GetAdmin(id);
         }
 
+        public bool InsertAdmin (ref AdminBDO adminBDO,
+            ref string massage)
+        {
+            return adminDAO.InsertAdmin(ref adminBDO, ref massage);
+        }
+
         public bool UpdateAdmin (
             ref AdminBDO adminBDO,
             ref string message)
