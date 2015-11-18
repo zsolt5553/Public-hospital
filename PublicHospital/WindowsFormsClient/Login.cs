@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WindowsFormsClient
 {
@@ -42,7 +44,9 @@ namespace WindowsFormsClient
         {
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-                DoctorMenu.
+         
+                new Thread(() => new AdminMenu().ShowDialog()).Start();
+              
             }
             else
             {

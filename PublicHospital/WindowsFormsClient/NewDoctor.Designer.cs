@@ -233,6 +233,9 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewDoctor";
             this.Load += new System.EventHandler(this.NewDoctor_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
