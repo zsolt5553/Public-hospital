@@ -22,5 +22,8 @@ namespace PersistenceLayer
         public string street { get; set; }
         public int streetNr { get; set; }
         public string phoneNr { get; set; }
+        public string login { get; set; }
+        public string pass { get; set; }
+        public string salt { get; set; }
     }
 }

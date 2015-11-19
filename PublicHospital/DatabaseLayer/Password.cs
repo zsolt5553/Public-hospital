@@ -1,4 +1,5 @@
 ﻿using ModelLayer;
+using PersistenceLayer;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -32,7 +33,7 @@ namespace DatabaseLayer
                 return null;
         }
 
-        public bool insertPassword(Admin a)
+        public bool insertPassword(AdminBDO a)
         {
             string[] hashSalt = getFullyHash(a.password);
             string querry = "INSERT INTO Passwords (login, pass, salt) VALUES (@login, @pass, @salt)";
@@ -51,13 +52,15 @@ namespace DatabaseLayer
             }
         }
 
-        public bool deletePassword(Admin a)
+        public bool deletePassword(AdminBDO a)
         {
             string querry = "DELETE Passwords WHERE login = @login";
             try
             {
                 int result = db.Database.ExecuteSqlCommand(querry, new SqlParameter("@login", a.login));
-                return true;
+                if (result == 1)
+                    return true;
+                return false;
             }
             catch (Exception)
             {
@@ -65,7 +68,7 @@ namespace DatabaseLayer
             }
         }
 
-        public bool updatePassword(Admin aOld, Admin aUpdated)
+        public bool updatePassword(ref Admin aOld, Admin aUpdated)
         {
             //if(authenticatePerson() == aOld.login
             //string[] hashSalt = getFullyHash(a.password);
@@ -85,7 +88,7 @@ namespace DatabaseLayer
             }
         }
 
-        private string[] getPasswordSaltDB(String login)
+        private string[] getPasswordSaltDB(string login)
         {
             var admin = db.Passwords.Where(p => p.login == login);
             if (admin.FirstOrDefault() != null)
@@ -112,8 +115,8 @@ namespace DatabaseLayer
 
         private string getSHA512(string password, string salt)
         {
-            SHA512 sha = new SHA512Managed();
-            return Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(string.Concat(salt, password))));
+            Rfc2898DeriveBytes hash = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes(salt), 6000);
+            return Convert.ToBase64String(hash.GetBytes(50));
         }
     }
 }
