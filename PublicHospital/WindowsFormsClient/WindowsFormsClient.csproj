@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,6 +93,11 @@
     <Compile Include="Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service References\AdminServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DoctorMenu.resx">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,9 +132,52 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\AdminServiceRef\service.wsdl" />
+    <None Include="Service References\AdminServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.Admin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.InsertAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.UpdateAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{b1d5fd72-fb90-4503-adfe-03adf3980b5d}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

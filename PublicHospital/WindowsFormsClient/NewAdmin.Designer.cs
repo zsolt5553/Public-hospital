@@ -30,25 +30,25 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.phoneTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.streetNrTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.streetTxt = new System.Windows.Forms.TextBox();
+            this.zipTxt = new System.Windows.Forms.TextBox();
+            this.cityTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastNameTxt = new System.Windows.Forms.TextBox();
+            this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.save = new System.Windows.Forms.Button();
+            this.saveAndNew = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,76 +61,104 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(12, 2);
+            this.panel1.Location = new System.Drawing.Point(16, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(488, 252);
+            this.panel1.Size = new System.Drawing.Size(650, 310);
             this.panel1.TabIndex = 8;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox7);
+            this.panel3.Controls.Add(this.phoneTxt);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.streetNrTxt);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.streetTxt);
+            this.panel3.Controls.Add(this.zipTxt);
+            this.panel3.Controls.Add(this.cityTxt);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(6, 117);
+            this.panel3.Location = new System.Drawing.Point(8, 144);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(457, 130);
+            this.panel3.Size = new System.Drawing.Size(609, 160);
             this.panel3.TabIndex = 6;
             // 
-            // textBox6
+            // phoneTxt
             // 
-            this.textBox6.Location = new System.Drawing.Point(283, 62);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(153, 20);
-            this.textBox6.TabIndex = 11;
+            this.phoneTxt.Location = new System.Drawing.Point(116, 124);
+            this.phoneTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.phoneTxt.Name = "phoneTxt";
+            this.phoneTxt.Size = new System.Drawing.Size(252, 22);
+            this.phoneTxt.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label7.Location = new System.Drawing.Point(5, 123);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 23);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Phone nr.";
+            // 
+            // streetNrTxt
+            // 
+            this.streetNrTxt.Location = new System.Drawing.Point(377, 76);
+            this.streetNrTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.streetNrTxt.Name = "streetNrTxt";
+            this.streetNrTxt.Size = new System.Drawing.Size(203, 22);
+            this.streetNrTxt.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(202, 63);
+            this.label6.Location = new System.Drawing.Point(269, 78);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 19);
+            this.label6.Size = new System.Drawing.Size(89, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "Street nr.";
             // 
-            // textBox5
+            // streetTxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(87, 64);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
+            this.streetTxt.Location = new System.Drawing.Point(116, 79);
+            this.streetTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.streetTxt.Name = "streetTxt";
+            this.streetTxt.Size = new System.Drawing.Size(132, 22);
+            this.streetTxt.TabIndex = 9;
             // 
-            // textBox4
+            // zipTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(283, 15);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(153, 20);
-            this.textBox4.TabIndex = 8;
+            this.zipTxt.Location = new System.Drawing.Point(377, 18);
+            this.zipTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.zipTxt.Name = "zipTxt";
+            this.zipTxt.Size = new System.Drawing.Size(203, 22);
+            this.zipTxt.TabIndex = 8;
             // 
-            // textBox3
+            // cityTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(87, 15);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.cityTxt.Location = new System.Drawing.Point(116, 18);
+            this.cityTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.cityTxt.Name = "cityTxt";
+            this.cityTxt.Size = new System.Drawing.Size(132, 22);
+            this.cityTxt.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(4, 63);
+            this.label5.Location = new System.Drawing.Point(5, 78);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 19);
+            this.label5.Size = new System.Drawing.Size(63, 23);
             this.label5.TabIndex = 7;
             this.label5.Text = "Street";
             // 
@@ -139,9 +167,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(202, 16);
+            this.label4.Location = new System.Drawing.Point(269, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 19);
+            this.label4.Size = new System.Drawing.Size(37, 23);
             this.label4.TabIndex = 6;
             this.label4.Text = "Zip";
             // 
@@ -150,46 +179,51 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(4, 16);
+            this.label3.Location = new System.Drawing.Point(5, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 19);
+            this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 5;
             this.label3.Text = "City";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.lastNameTxt);
+            this.panel2.Controls.Add(this.firstNameTxt);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(7, 68);
+            this.panel2.Location = new System.Drawing.Point(9, 84);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 43);
+            this.panel2.Size = new System.Drawing.Size(607, 52);
             this.panel2.TabIndex = 5;
             // 
-            // textBox2
+            // lastNameTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(282, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 4;
+            this.lastNameTxt.Location = new System.Drawing.Point(376, 15);
+            this.lastNameTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNameTxt.Name = "lastNameTxt";
+            this.lastNameTxt.Size = new System.Drawing.Size(203, 22);
+            this.lastNameTxt.TabIndex = 4;
             // 
-            // textBox1
+            // firstNameTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.firstNameTxt.Location = new System.Drawing.Point(115, 14);
+            this.firstNameTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.firstNameTxt.Name = "firstNameTxt";
+            this.firstNameTxt.Size = new System.Drawing.Size(132, 22);
+            this.firstNameTxt.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Location = new System.Drawing.Point(4, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
+            this.label2.Size = new System.Drawing.Size(94, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Firstname";
             // 
@@ -198,80 +232,69 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(201, 13);
+            this.label1.Location = new System.Drawing.Point(268, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Lastname";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 3);
+            this.flowLayoutPanel1.Controls.Add(this.save);
+            this.flowLayoutPanel1.Controls.Add(this.saveAndNew);
+            this.flowLayoutPanel1.Controls.Add(this.exit);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(463, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(617, 48);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // button1
+            // save
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.save.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
+            this.save.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.save.Location = new System.Drawing.Point(4, 4);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(120, 37);
+            this.save.TabIndex = 0;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // saveAndNew
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(99, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Save and new";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveAndNew.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
+            this.saveAndNew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveAndNew.Location = new System.Drawing.Point(132, 4);
+            this.saveAndNew.Margin = new System.Windows.Forms.Padding(4);
+            this.saveAndNew.Name = "saveAndNew";
+            this.saveAndNew.Size = new System.Drawing.Size(185, 37);
+            this.saveAndNew.TabIndex = 1;
+            this.saveAndNew.Text = "Save and new";
+            this.saveAndNew.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // exit
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(244, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 30);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(4, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 19);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Phone nr.";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(87, 101);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(190, 20);
-            this.textBox7.TabIndex = 13;
+            this.exit.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
+            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.exit.Location = new System.Drawing.Point(325, 4);
+            this.exit.Margin = new System.Windows.Forms.Padding(4);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(120, 37);
+            this.exit.TabIndex = 2;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
             // 
             // NewAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 266);
+            this.ClientSize = new System.Drawing.Size(676, 327);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewAdmin";
             this.Text = "NewAdmin";
             this.Load += new System.EventHandler(this.NewAdmin_Load);
@@ -289,24 +312,24 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox streetNrTxt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox streetTxt;
+        private System.Windows.Forms.TextBox zipTxt;
+        private System.Windows.Forms.TextBox cityTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lastNameTxt;
+        private System.Windows.Forms.TextBox firstNameTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button saveAndNew;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.TextBox phoneTxt;
         private System.Windows.Forms.Label label7;
     }
 }

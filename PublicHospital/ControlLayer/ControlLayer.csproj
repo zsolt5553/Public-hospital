@@ -47,11 +47,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\ModelLayer.csproj">
+    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
       <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistenceLayer\DatabaseLayer.csproj">
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">
       <Project>{18ea2999-5bec-4013-9f34-6a173b3d5db6}</Project>
       <Name>DatabaseLayer</Name>
     </ProjectReference>
