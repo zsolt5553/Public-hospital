@@ -27,7 +27,9 @@ namespace PersistenceLayer
                         street = adminObj.street,
                         streetNr = adminObj.streetNr,
                         phoneNr = adminObj.phoneNr,
-                        zip = adminObj.zip
+                        zip = adminObj.zip,
+                        login = adminObj.login,
+                        pass = adminObj.pass
                     };
             }
                 return adminBDO;
@@ -57,6 +59,7 @@ namespace PersistenceLayer
                 adminInDb.street = adminBDO.street;
                 adminInDb.streetNr = adminBDO.streetNr;
                 adminInDb.phoneNr = adminBDO.phoneNr;
+                //without username and pass
                 PHEntites.Admin.Attach(adminInDb);
                 PHEntites.Entry(adminInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

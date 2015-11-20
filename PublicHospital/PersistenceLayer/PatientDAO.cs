@@ -28,6 +28,8 @@ namespace PersistenceLayer
                         streetNr = patientObj.streetNr,
                         phoneNr = patientObj.phoneNr,
                         zip = patientObj.zip,
+                        login = patientObj.login,
+                        pass = patientObj.pass,
                         dateOfBirth = patientObj.dateOfBirth
                     };
             }
@@ -59,6 +61,7 @@ namespace PersistenceLayer
                 patientInDb.streetNr = patientBDO.streetNr;
                 patientInDb.phoneNr = patientBDO.phoneNr;
                 patientInDb.dateOfBirth = patientBDO.dateOfBirth;
+                //without username and pass
                 PHEntites.Patient.Attach(patientInDb);
                 PHEntites.Entry(patientInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

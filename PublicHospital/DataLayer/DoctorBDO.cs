@@ -10,12 +10,17 @@ namespace DataLayer
     {
         public string specialty { get; set; }
         public string description { get; set; }
+        public bool isDeleted { get; set; }
 
-        public DoctorBDO () { }
-        public DoctorBDO (int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr, string specialty, string description) :
-                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr)
+        public DoctorBDO ()
         {
+            isDeleted = false;
+        }
+        public DoctorBDO (int id, string firstName, string lastName, string city, int zip, string street,
+            int streetNr, string phoneNr, string login, string pass, string specialty, string description) :
+                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr, login,pass)
+        {
+            isDeleted = false;
             this.specialty = specialty;
             this.description = description;
         }

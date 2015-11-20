@@ -16,11 +16,13 @@ namespace DataLayer
         public string street { get; set; }
         public int streetNr { get; set; }
         public string phoneNr { get; set; }
+        public string login { get; set; }
+        public string pass { get; set; }
 
         public AdminBDO() { }
 
         public AdminBDO (int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr)
+            int streetNr, string phoneNr, string login, string pass)
         {
             this.id = id;
             this.firstName = firstName;
@@ -30,6 +32,8 @@ namespace DataLayer
             this.street = street;
             this.streetNr = streetNr;
             this.phoneNr = phoneNr;
+            this.login = login;
+            this.pass = pass;
         }
     }
 }

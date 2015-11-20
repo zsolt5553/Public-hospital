@@ -12,8 +12,8 @@ namespace DataLayer
 
         public PatientBDO () { }
         public PatientBDO(int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr, DateTime dateOfBirth) :
-                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr)
+            int streetNr, string phoneNr, string login, string pass, DateTime dateOfBirth) :
+                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr,login,pass)
         {
             this.dateOfBirth = dateOfBirth;
         }
