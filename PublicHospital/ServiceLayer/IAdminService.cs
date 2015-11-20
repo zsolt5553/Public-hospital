@@ -16,6 +16,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(AdminFault))]
+        bool SaveAdmin(ref Admin admin,
+            ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(AdminFault))]
         bool UpdateAdmin(ref Admin admin,
             ref string message);
     }
@@ -39,6 +44,10 @@ namespace ServiceLayer
         public int streetNr { get; set; }
         [DataMember]
         public string phoneNr { get; set; }
+        [DataMember]
+        public string login { get; set; }
+        [DataMember]
+        public string pass { get; set; }
     }
     [DataContract]
     public class AdminFault

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DatabaseLayer")]
+[assembly: AssemblyTitle("LogicLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DatabaseLayer")]
+[assembly: AssemblyProduct("LogicLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("18ea2999-5bec-4013-9f34-6a173b3d5db6")]
+[assembly: Guid("0a2ed242-82f0-41ef-a586-d451e5a06b06")]
 
 // Version information for an assembly consists of the following four values:
 //

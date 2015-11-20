@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModelLayer;
-using PersistenceLayer;
+using DataLayer;
 
-namespace DatabaseLayer
+namespace PersistenceLayer
 {
     public class DoctorDAO
     {

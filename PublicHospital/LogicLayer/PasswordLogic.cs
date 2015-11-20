@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DBLayer;
-using ModelLayer;
 
-namespace ControlLayer
+namespace LogicLayer
 {
-    public class CtrPassword
+    public class PasswordLogic
     {
-        public CtrPassword()
-        {
-
-        }
+        public PasswordLogic() { }
 
         public Admin authenticatePerson(string login, string password)
         {

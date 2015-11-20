@@ -1,21 +1,15 @@
-﻿using ModelLayer;
-using PersistenceLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseLayer
+namespace PersistenceLayer
 {
-    public class Password
+   public class Password
     {
-        public Password()
-        {
-
-        }
+        public Password() { }
 
         public string authenticatePerson(string login, string password)
         {

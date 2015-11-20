@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
-using ModelLayer;
-using ControlLayer;
+using DataLayer;
+using LogicLayer;
 
 namespace ServiceLayer
 {
@@ -79,6 +79,16 @@ namespace ServiceLayer
             else if (string.IsNullOrEmpty(doctor.phoneNr))
             {
                 message = "Doctor's phone number cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(doctor.login))
+            {
+                message = "Doctor's username cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(doctor.pass))
+            {
+                message = "Doctor's password cannot be empty";
                 result = false;
             }
             else if (string.IsNullOrEmpty(doctor.specialty))

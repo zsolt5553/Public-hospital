@@ -9,9 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PersistenceLayer</RootNamespace>
     <AssemblyName>PersistenceLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +74,7 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorDAO.cs" />
+    <Compile Include="Password.cs" />
     <Compile Include="Patient.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -82,9 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
-      <Name>ModelLayer</Name>
+      <Name>DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,38 @@ namespace PersistenceLayer
                 return adminBDO;
         }
 
+        public bool InsertAdmin(ref AdminBDO adminBDO,
+            ref string massage)
+        {
+            massage = "Admin inserted successfully";
+            var ret = true;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                PHEntities.Admin.Add(new Admin
+                {
+                    id = adminBDO.id,
+                    firstName = adminBDO.firstName,
+                    lastName = adminBDO.lastName,
+                    city = adminBDO.city,
+                    street = adminBDO.street,
+                    streetNr = adminBDO.streetNr,
+                    phoneNr = adminBDO.phoneNr,
+                    zip = adminBDO.zip,
+                    login = adminBDO.login,
+                    // to be changed
+                    pass = adminBDO.pass,
+                    salt = "asaas"
+                });
+                var num = PHEntities.SaveChanges();
+                if (num != 1)
+                {
+                    ret = false;
+                    massage = "Admin was not inserted";
+                }
+            }
+            return ret;
+        }
+
         public bool UpdateAdmin(ref AdminBDO adminBDO,
             ref string massage)
         {
