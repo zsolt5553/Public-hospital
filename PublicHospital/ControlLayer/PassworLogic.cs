@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DBLayer;
 using ModelLayer;
 
-namespace ContolLayer
+namespace ControlLayer
 {
     public class CtrPassword
     {

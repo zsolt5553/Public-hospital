@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ModelLayer;
 using DatabaseLayer;
 
-namespace ContolLayer
+namespace ControlLayer
 {
     public class AdminLogic
     {

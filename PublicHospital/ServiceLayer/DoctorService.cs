@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using ModelLayer;
-using ContolLayer;
+using ControlLayer;
 
 namespace ServiceLayer
 {
