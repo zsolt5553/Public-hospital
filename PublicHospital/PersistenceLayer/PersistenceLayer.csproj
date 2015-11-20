@@ -74,6 +74,7 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DoctorDAO.cs" />
+    <Compile Include="Password.cs" />
     <Compile Include="Patient.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
