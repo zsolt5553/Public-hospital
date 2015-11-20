@@ -13,8 +13,8 @@ namespace ModelLayer
 
         public DoctorBDO () { }
         public DoctorBDO (int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr, string specialty, string description) :
-                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr)
+            int streetNr, string phoneNr, string specialty, string description, string login, string password) :
+                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr, login, password)
         {
             this.specialty = specialty;
             this.description = description;

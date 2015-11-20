@@ -1,4 +1,5 @@
 ﻿using ModelLayer;
+using PersistenceLayer;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,11 +12,9 @@ namespace DatabaseLayer
 {
     public class Password
     {
-        private static aaaEntities db;
-
-        public DBPasswordAccess()
+        public Password()
         {
-            db = new aaaEntities();
+
         }
 
         public string authenticatePerson(string login, string password)
@@ -32,66 +31,23 @@ namespace DatabaseLayer
                 return null;
         }
 
-        public bool insertPassword(Admin a)
+        private string[] getPasswordSaltDB(string login)
         {
-            string[] hashSalt = getFullyHash(a.password);
-            string querry = "INSERT INTO Passwords (login, pass, salt) VALUES (@login, @pass, @salt)";
-            SqlParameter[] parameters = new SqlParameter[3];
-            parameters[0] = new SqlParameter("@login", a.login);
-            parameters[1] = new SqlParameter("@pass", hashSalt[0]);
-            parameters[2] = new SqlParameter("@salt", hashSalt[1]);
-            try
+            using (var PHEntities = new PublicHospitalEntities())
             {
-                int result = db.Database.ExecuteSqlCommand(querry, parameters);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+                var adminBDO = PHEntities.Admin.Where(p => p.login == login);
+                var doctorBDO = PHEntities.Doctor.Where(p => p.login == login);
+                var patientBDO = PHEntities.Patient.Where(p => p.login == login);
+                bool found = false;
+                while (!found)
+                {
 
-        public bool deletePassword(Admin a)
-        {
-            string querry = "DELETE Passwords WHERE login = @login";
-            try
-            {
-                int result = db.Database.ExecuteSqlCommand(querry, new SqlParameter("@login", a.login));
-                return true;
+                }
+                if (admin.FirstOrDefault() != null)
+                    return new string[] { admin.First().pass, admin.First().salt };
+                else
+                    return null;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool updatePassword(Admin aOld, Admin aUpdated)
-        {
-            //if(authenticatePerson() == aOld.login
-            //string[] hashSalt = getFullyHash(a.password);
-            string querry = "UPDATE Passwords SET pass = @pass WHERE login =@login";
-            SqlParameter[] parameters = new SqlParameter[3];
-            //parameters[0] = new SqlParameter("@login", a.login);
-            //parameters[1] = new SqlParameter("@pass", hashSalt[0]);
-            //parameters[2] = new SqlParameter("@salt", hashSalt[1]);
-            try
-            {
-                int result = db.Database.ExecuteSqlCommand(querry, parameters);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        private string[] getPasswordSaltDB(String login)
-        {
-            var admin = db.Passwords.Where(p => p.login == login);
-            if (admin.FirstOrDefault() != null)
-                return new string[] { admin.First().pass, admin.First().salt };
-            else
-                return null;
         }
 
         private string[] getFullyHash(string password)
@@ -99,21 +55,21 @@ namespace DatabaseLayer
             RNGCryptoServiceProvider generate = new RNGCryptoServiceProvider();
             byte[] salt = new byte[20];
             generate.GetBytes(salt);
-            return new string[] { getSHA512(password, Convert.ToBase64String(salt)), Convert.ToBase64String(salt) };
+            return new string[] { getPBKDF2(password, Convert.ToBase64String(salt)), Convert.ToBase64String(salt) };
         }
 
         private bool comparePasswords(string password, string hash, string salt)
         {
-            if (getSHA512(password, salt).Equals(hash))
+            if (getPBKDF2(password, salt).Equals(hash))
                 return true;
             else
                 return false;
         }
 
-        private string getSHA512(string password, string salt)
+        private string getPBKDF2(string password, string salt)
         {
-            SHA512 sha = new SHA512Managed();
-            return Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(string.Concat(salt, password))));
+            Rfc2898DeriveBytes hash = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes(salt), 6000);
+            return Convert.ToBase64String(hash.GetBytes(50));
         }
     }
 }
