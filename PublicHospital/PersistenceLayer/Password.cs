@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -7,17 +9,30 @@ using System.Threading.Tasks;
 
 namespace PersistenceLayer
 {
-   public class Password
+    public class Password
     {
-        public Password() { }
-
-        public string authenticatePerson(string login, string password)
+        public AdminBDO authenticatePerson(string login, string password)
         {
             string[] dbData = getPasswordSaltDB(login);
             if (dbData != null)
             {
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
-                    return login;
+                {
+                    AdminBDO person = null;
+                    switch (dbData[3])
+                    {
+                        case "admin":
+                            person = new AdminDAO().GetAdmin(int.Parse(dbData[3]));
+                            break;
+                        case "doctor":
+                            person = new DoctorDAO().GetDoctor(int.Parse(dbData[3]));
+                            break;
+                        case "patient":
+                            person = new PatientDAO().GetPatient(int.Parse(dbData[3]));
+                            break;
+                    }
+                    return person;
+                }
                 else
                     return null;
             }
@@ -29,18 +44,17 @@ namespace PersistenceLayer
         {
             using (var PHEntities = new PublicHospitalEntities())
             {
-                var adminBDO = PHEntities.Admin.Where(p => p.login == login);
-                var doctorBDO = PHEntities.Doctor.Where(p => p.login == login);
-                var patientBDO = PHEntities.Patient.Where(p => p.login == login);
-                bool found = false;
-                while (!found)
-                {
-
-                }
+                string[] person = null;
+                var admin = PHEntities.Admin.Where(p => p.login == login);
+                var doctor = PHEntities.Doctor.Where(p => p.login == login);
+                var patient = PHEntities.Patient.Where(p => p.login == login);
                 if (admin.FirstOrDefault() != null)
-                    return new string[] { admin.First().pass, admin.First().salt };
-                else
-                    return null;
+                    person = new string[] { admin.First().pass, admin.First().salt, admin.First().id.ToString(), "admin" };
+                if (doctor.FirstOrDefault() != null)
+                    person = new string[] { doctor.First().pass, doctor.First().salt, doctor.First().id.ToString(), "doctor" };
+                if (patient.FirstOrDefault() != null)
+                    person = new string[] { patient.First().pass, patient.First().salt, patient.First().id.ToString(), "patient" };
+                return person;
             }
         }
 

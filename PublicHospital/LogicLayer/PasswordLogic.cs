@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersistenceLayer;
+using DataLayer;
 
 namespace LogicLayer
 {
     public class PasswordLogic
     {
-        public PasswordLogic() { }
-
-        public Admin authenticatePerson(string login, string password)
+        Password pass = new Password();
+        public AdminBDO authenticatePerson(string login, string password, ref string message)
         {
-            if (db.authenticatePerson(login, password) != null)
+            AdminBDO person = pass.authenticatePerson(login, password);
+            if (person != null)
             {
-                return new Admin();
+                message = "Successful authentication";
+                return person;
             }
             else
+            {
+                message = "Try once agin";
                 return null;
+            }
         }
     }
 }
