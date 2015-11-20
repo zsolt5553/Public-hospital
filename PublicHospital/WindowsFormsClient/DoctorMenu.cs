@@ -16,10 +16,5 @@ namespace WindowsFormsClient
         {
             InitializeComponent();
         }
-
-        private void DoctorMenu_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

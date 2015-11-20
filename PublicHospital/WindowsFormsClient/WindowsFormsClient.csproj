@@ -36,8 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,18 +59,6 @@
     <Compile Include="AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewAdmin.Designer.cs">
-      <DependentUpon>NewAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewDoctor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewDoctor.Designer.cs">
-      <DependentUpon>NewDoctor.cs</DependentUpon>
-    </Compile>
     <Compile Include="ListOfDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,17 +73,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Schedule.Designer.cs">
-      <DependentUpon>Schedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\AdminServiceRef\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DoctorMenu.resx">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,12 +81,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListOfDoctors.resx">
       <DependentUpon>ListOfDoctors.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewAdmin.resx">
-      <DependentUpon>NewAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewDoctor.resx">
-      <DependentUpon>NewDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,52 +101,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\AdminServiceRef\service.wsdl" />
-    <None Include="Service References\AdminServiceRef\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AdminServiceRef\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AdminServiceRef\ServiceLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.Admin.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.SaveAdminResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.UpdateAdminResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
-      <Project>{b1d5fd72-fb90-4503-adfe-03adf3980b5d}</Project>
-      <Name>ServiceLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AdminServiceRef\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AdminServiceRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

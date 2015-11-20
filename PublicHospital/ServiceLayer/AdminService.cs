@@ -42,75 +42,6 @@ namespace ServiceLayer
             return admin;
         }
 
-        public bool SaveAdmin(ref Admin admin,
-            ref string message)
-        {
-            var result = true;
-            if (string.IsNullOrEmpty(admin.firstName))
-            {
-                message = "Admin's first name cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.lastName))
-            {
-                message = "Admin's last name cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.city))
-            {
-                message = "Admin's city cannot be empty";
-                result = false;
-            }
-            else if (admin.zip <= 0)
-            {
-                message = "Admin's zip cannot be empty or smaller or equal to 0";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.street))
-            {
-                message = "Admin's street cannot be empty";
-                result = false;
-            }
-            else if (admin.streetNr <= 0)
-            {
-                message = "Admin's street number cannot be empty or smaller or equal to 0";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.phoneNr))
-            {
-                message = "Admin's phone number cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.login))
-            {
-                message = "Admin's username cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.pass))
-            {
-                message = "Admin's password cannot be empty";
-                result = false;
-            }
-            else
-            {
-                try
-                {
-                    var adminBDO = new AdminBDO();
-                    TranslateAdminDTOToAdminBDO(admin,
-                        adminBDO);
-                    result = adminLogic.InsertAdmin(
-                        ref adminBDO, ref message);
-                }
-                catch (Exception e)
-                {
-                    var msg = e.Message;
-                    throw new FaultException<AdminFault>
-                        (new AdminFault(msg), msg);
-                }
-            }
-            return result;
-        }
-
         public bool UpdateAdmin (ref Admin admin,
             ref string message)
         {
@@ -182,8 +113,6 @@ namespace ServiceLayer
             admin.street = adminBDO.street;
             admin.streetNr = adminBDO.streetNr;
             admin.phoneNr = adminBDO.phoneNr;
-            admin.login = adminBDO.login;
-            admin.pass = adminBDO.pass;
         }
 
         private void TranslateAdminDTOToAdminBDO (
@@ -198,8 +127,6 @@ namespace ServiceLayer
             adminBDO.street = admin.street;
             adminBDO.streetNr = admin.streetNr;
             adminBDO.phoneNr = admin.phoneNr;
-            adminBDO.login = admin.login;
-            adminBDO.pass = admin.pass;
         }
     }
 }
