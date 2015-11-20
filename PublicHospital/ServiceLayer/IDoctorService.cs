@@ -40,6 +40,9 @@ namespace ServiceLayer
         public int streetNr { get; set; }
         [DataMember]
         public string phoneNr { get; set; }
+        public string login { get; set; }
+        [DataMember]
+        public string pass { get; set; }
         [DataMember]
         public string specialty { get; set; }
         [DataMember]

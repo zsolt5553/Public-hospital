@@ -29,6 +29,8 @@ namespace DatabaseLayer
                         streetNr = doctorObj.streetNr,
                         phoneNr = doctorObj.phoneNr,
                         zip = doctorObj.zip,
+                        login = doctorObj.login,
+                        pass = doctorObj.pass,
                         description = doctorObj.description,
                         specialty = doctorObj.specialty
                     };
@@ -62,6 +64,7 @@ namespace DatabaseLayer
                 doctorInDb.phoneNr = doctorBDO.phoneNr;
                 doctorInDb.description = doctorBDO.description;
                 doctorInDb.specialty = doctorBDO.specialty;
+                //without username and pass
                 PHEntites.Doctor.Attach(doctorInDb);
                 PHEntites.Entry(doctorInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

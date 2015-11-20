@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServiceLayer;
 
 namespace WindowsFormsClient
 {
     public partial class NewAdmin : Form
     {
-        Admin admin;
+        AdminServiceRef.Admin admin;
         public NewAdmin()
         {
             InitializeComponent();
@@ -26,6 +25,7 @@ namespace WindowsFormsClient
 
         private void button1_Click(object sender, EventArgs e)
         {
+            admin = new AdminServiceRef.Admin();
             string message = "";
             int zip;
             Int32.TryParse(zipTxt.Text, out zip);
@@ -37,11 +37,10 @@ namespace WindowsFormsClient
             admin.zip = zip;
             admin.street = streetTxt.Text;
             admin.streetNr = streetNr;
-            admin.id = 1; // not implemented !!
+            admin.id = 2; // not implemented !!
 
-            AdminServiceRef.IAdminService  adminService =
-                new AdminServiceRef.AdminServiceClient();
-            adminService.InsertAdmin(ref admin, ref message);
+            var client = new AdminServiceRef.AdminServiceClient();
+            client.SaveAdmin(ref admin,ref message);
         }
     }
 }

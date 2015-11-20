@@ -4,8 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using ControlLayer;
-using ModelLayer;
+using LogicLayer;
+using DataLayer;
 
 namespace ServiceLayer
 {
@@ -42,7 +42,7 @@ namespace ServiceLayer
             return admin;
         }
 
-        public bool InsertAdmin (ref Admin admin,
+        public bool SaveAdmin(ref Admin admin,
             ref string message)
         {
             var result = true;
@@ -79,6 +79,16 @@ namespace ServiceLayer
             else if (string.IsNullOrEmpty(admin.phoneNr))
             {
                 message = "Admin's phone number cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.login))
+            {
+                message = "Admin's username cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(admin.pass))
+            {
+                message = "Admin's password cannot be empty";
                 result = false;
             }
             else
@@ -172,6 +182,8 @@ namespace ServiceLayer
             admin.street = adminBDO.street;
             admin.streetNr = adminBDO.streetNr;
             admin.phoneNr = adminBDO.phoneNr;
+            admin.login = adminBDO.login;
+            admin.pass = adminBDO.pass;
         }
 
         private void TranslateAdminDTOToAdminBDO (
@@ -186,6 +198,8 @@ namespace ServiceLayer
             adminBDO.street = admin.street;
             adminBDO.streetNr = admin.streetNr;
             adminBDO.phoneNr = admin.phoneNr;
+            adminBDO.login = admin.login;
+            adminBDO.pass = admin.pass;
         }
     }
 }

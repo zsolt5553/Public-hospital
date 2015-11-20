@@ -15,7 +15,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InsertAdmin">
+  <xs:element name="SaveAdmin">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="admin" nillable="true" type="q2:Admin" />
@@ -23,10 +23,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InsertAdminResponse">
+  <xs:element name="SaveAdminResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="InsertAdminResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SaveAdminResult" type="xs:boolean" />
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="admin" nillable="true" type="q3:Admin" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>

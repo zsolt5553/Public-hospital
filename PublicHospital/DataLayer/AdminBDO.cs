@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLayer
+namespace DataLayer
 {
     public class AdminBDO
     {
@@ -17,12 +17,12 @@ namespace ModelLayer
         public int streetNr { get; set; }
         public string phoneNr { get; set; }
         public string login { get; set; }
-        public string password { get; set; }
+        public string pass { get; set; }
 
         public AdminBDO() { }
 
         public AdminBDO (int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr, string login, string password)
+            int streetNr, string phoneNr, string login, string pass)
         {
             this.id = id;
             this.firstName = firstName;
@@ -33,7 +33,7 @@ namespace ModelLayer
             this.streetNr = streetNr;
             this.phoneNr = phoneNr;
             this.login = login;
-            this.password = password;
+            this.pass = pass;
         }
     }
 }

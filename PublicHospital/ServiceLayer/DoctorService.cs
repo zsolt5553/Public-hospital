@@ -81,6 +81,16 @@ namespace ServiceLayer
                 message = "Doctor's phone number cannot be empty";
                 result = false;
             }
+            else if (string.IsNullOrEmpty(doctor.login))
+            {
+                message = "Doctor's username cannot be empty";
+                result = false;
+            }
+            else if (string.IsNullOrEmpty(doctor.pass))
+            {
+                message = "Doctor's password cannot be empty";
+                result = false;
+            }
             else if (string.IsNullOrEmpty(doctor.specialty))
             {
                 message = "Doctor's specialty cannot be empty";

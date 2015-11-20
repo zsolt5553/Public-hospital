@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModelLayer;
-using DatabaseLayer;
+using DataLayer;
+using PersistenceLayer;
 
-namespace ControlLayer
+namespace LogicLayer
 {
     public class AdminLogic
     {
@@ -16,7 +16,7 @@ namespace ControlLayer
             return adminDAO.GetAdmin(id);
         }
 
-        public bool InsertAdmin (ref AdminBDO adminBDO,
+        public bool InsertAdmin(ref AdminBDO adminBDO,
             ref string massage)
         {
             return adminDAO.InsertAdmin(ref adminBDO, ref massage);

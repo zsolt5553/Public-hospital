@@ -16,13 +16,13 @@
   <wsdl:message name="IAdminService_GetAdmin_AdminFaultFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q1:AdminFault" />
   </wsdl:message>
-  <wsdl:message name="IAdminService_InsertAdmin_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertAdmin" />
+  <wsdl:message name="IAdminService_SaveAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAdmin" />
   </wsdl:message>
-  <wsdl:message name="IAdminService_InsertAdmin_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertAdminResponse" />
+  <wsdl:message name="IAdminService_SaveAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAdminResponse" />
   </wsdl:message>
-  <wsdl:message name="IAdminService_InsertAdmin_AdminFaultFault_FaultMessage">
+  <wsdl:message name="IAdminService_SaveAdmin_AdminFaultFault_FaultMessage">
     <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:AdminFault" />
   </wsdl:message>
   <wsdl:message name="IAdminService_UpdateAdmin_InputMessage">
@@ -40,10 +40,10 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAdminResponse" message="tns:IAdminService_GetAdmin_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAdminService/GetAdminAdminFaultFault" name="AdminFaultFault" message="tns:IAdminService_GetAdmin_AdminFaultFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="InsertAdmin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/InsertAdmin" message="tns:IAdminService_InsertAdmin_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/InsertAdminResponse" message="tns:IAdminService_InsertAdmin_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IAdminService/InsertAdminAdminFaultFault" name="AdminFaultFault" message="tns:IAdminService_InsertAdmin_AdminFaultFault_FaultMessage" />
+    <wsdl:operation name="SaveAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/SaveAdmin" message="tns:IAdminService_SaveAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/SaveAdminResponse" message="tns:IAdminService_SaveAdmin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAdminService/SaveAdminAdminFaultFault" name="AdminFaultFault" message="tns:IAdminService_SaveAdmin_AdminFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateAdmin">
       <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateAdmin" message="tns:IAdminService_UpdateAdmin_InputMessage" />
@@ -65,8 +65,8 @@
         <soap:fault use="literal" name="AdminFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="InsertAdmin">
-      <soap:operation soapAction="http://tempuri.org/IAdminService/InsertAdmin" style="document" />
+    <wsdl:operation name="SaveAdmin">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/SaveAdmin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

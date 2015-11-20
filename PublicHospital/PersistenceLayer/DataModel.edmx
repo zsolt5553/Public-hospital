@@ -4,19 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dmaj0914_3Sem_4_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dmaj0914_3Sem_4_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="city" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
-          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="streetNr" Type="int" Nullable="false" />
-          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="phoneNr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="login" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
@@ -26,31 +26,32 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
-          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="streetNr" Type="int" Nullable="false" />
-          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="specialty" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="description" Type="nchar" MaxLength="200" />
+          <Property Name="phoneNr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" />
           <Property Name="login" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="firstName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="lastName" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="city" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="zip" Type="int" Nullable="false" />
-          <Property Name="street" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="streetNr" Type="int" Nullable="false" />
-          <Property Name="phoneNr" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="phoneNr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="dateOfBirth" Type="datetime" Nullable="false" />
           <Property Name="login" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
@@ -61,7 +62,8 @@
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dmaj0914_3Sem_4_1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -70,51 +72,52 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="city" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
-          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="streetNr" Type="Int32" Nullable="false" />
-          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="login" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
-          <Property Name="pass" Type="String" Nullable="false" MaxLength="68" FixedLength="true" Unicode="true" />
-          <Property Name="salt" Type="String" Nullable="false" MaxLength="28" FixedLength="true" Unicode="true" />
+          <Property Name="phoneNr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
-          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="streetNr" Type="Int32" Nullable="false" />
-          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="specialty" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
-          <Property Name="login" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
-          <Property Name="pass" Type="String" Nullable="false" MaxLength="68" FixedLength="true" Unicode="true" />
-          <Property Name="salt" Type="String" Nullable="false" MaxLength="28" FixedLength="true" Unicode="true" />
+          <Property Name="phoneNr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="city" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="zip" Type="Int32" Nullable="false" />
-          <Property Name="street" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="streetNr" Type="Int32" Nullable="false" />
-          <Property Name="phoneNr" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="phoneNr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="login" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
-          <Property Name="pass" Type="String" Nullable="false" MaxLength="68" FixedLength="true" Unicode="true" />
-          <Property Name="salt" Type="String" Nullable="false" MaxLength="28" FixedLength="true" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PublicHospitalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
@@ -130,9 +133,6 @@
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Admin">
               <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="salt" ColumnName="salt" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -141,15 +141,15 @@
                 <ScalarProperty Name="street" ColumnName="street" />
                 <ScalarProperty Name="streetNr" ColumnName="streetNr" />
                 <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Doctor">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
-                <ScalarProperty Name="salt" ColumnName="salt" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -160,15 +160,16 @@
                 <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
                 <ScalarProperty Name="specialty" ColumnName="specialty" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Patient">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Patient">
               <MappingFragment StoreEntitySet="Patient">
-                <ScalarProperty Name="salt" ColumnName="salt" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -178,6 +179,9 @@
                 <ScalarProperty Name="streetNr" ColumnName="streetNr" />
                 <ScalarProperty Name="phoneNr" ColumnName="phoneNr" />
                 <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

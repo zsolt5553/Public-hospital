@@ -11,8 +11,8 @@
 namespace WindowsFormsClient.AdminServiceRef {
     using System.Runtime.Serialization;
     using System;
-    using ServiceLayer;
-
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Admin", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
@@ -33,6 +33,12 @@ namespace WindowsFormsClient.AdminServiceRef {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string lastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string loginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string passField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string phoneNrField;
@@ -104,6 +110,32 @@ namespace WindowsFormsClient.AdminServiceRef {
                 if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
                     this.lastNameField = value;
                     this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string login {
+            get {
+                return this.loginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.loginField, value) != true)) {
+                    this.loginField = value;
+                    this.RaisePropertyChanged("login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string pass {
+            get {
+                return this.passField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.passField, value) != true)) {
+                    this.passField = value;
+                    this.RaisePropertyChanged("pass");
                 }
             }
         }
@@ -226,14 +258,13 @@ namespace WindowsFormsClient.AdminServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAdminResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AdminServiceRef.Admin> GetAdminAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/InsertAdmin", ReplyAction="http://tempuri.org/IAdminService/InsertAdminResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AdminServiceRef.AdminFault), Action="http://tempuri.org/IAdminService/InsertAdminAdminFaultFault", Name="AdminFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WindowsFormsClient.AdminServiceRef.InsertAdminResponse InsertAdmin(WindowsFormsClient.AdminServiceRef.InsertAdminRequest request);
-        void InsertAdmin(ref ServiceLayer.Admin admin, ref string message);
-
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/SaveAdmin", ReplyAction="http://tempuri.org/IAdminService/SaveAdminResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AdminServiceRef.AdminFault), Action="http://tempuri.org/IAdminService/SaveAdminAdminFaultFault", Name="AdminFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.AdminServiceRef.SaveAdminResponse SaveAdmin(WindowsFormsClient.AdminServiceRef.SaveAdminRequest request);
+        
         // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/InsertAdmin", ReplyAction="http://tempuri.org/IAdminService/InsertAdminResponse")]
-        System.Threading.Tasks.Task<WindowsFormsClient.AdminServiceRef.InsertAdminResponse> InsertAdminAsync(WindowsFormsClient.AdminServiceRef.InsertAdminRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/SaveAdmin", ReplyAction="http://tempuri.org/IAdminService/SaveAdminResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.AdminServiceRef.SaveAdminResponse> SaveAdminAsync(WindowsFormsClient.AdminServiceRef.SaveAdminRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/UpdateAdmin", ReplyAction="http://tempuri.org/IAdminService/UpdateAdminResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AdminServiceRef.AdminFault), Action="http://tempuri.org/IAdminService/UpdateAdminAdminFaultFault", Name="AdminFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
@@ -246,8 +277,8 @@ namespace WindowsFormsClient.AdminServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertAdmin", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InsertAdminRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SaveAdmin", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SaveAdminRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         public WindowsFormsClient.AdminServiceRef.Admin admin;
@@ -255,10 +286,10 @@ namespace WindowsFormsClient.AdminServiceRef {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
         
-        public InsertAdminRequest() {
+        public SaveAdminRequest() {
         }
         
-        public InsertAdminRequest(WindowsFormsClient.AdminServiceRef.Admin admin, string message) {
+        public SaveAdminRequest(WindowsFormsClient.AdminServiceRef.Admin admin, string message) {
             this.admin = admin;
             this.message = message;
         }
@@ -266,11 +297,11 @@ namespace WindowsFormsClient.AdminServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertAdminResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InsertAdminResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SaveAdminResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SaveAdminResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool InsertAdminResult;
+        public bool SaveAdminResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public WindowsFormsClient.AdminServiceRef.Admin admin;
@@ -278,11 +309,11 @@ namespace WindowsFormsClient.AdminServiceRef {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
         
-        public InsertAdminResponse() {
+        public SaveAdminResponse() {
         }
         
-        public InsertAdminResponse(bool InsertAdminResult, WindowsFormsClient.AdminServiceRef.Admin admin, string message) {
-            this.InsertAdminResult = InsertAdminResult;
+        public SaveAdminResponse(bool SaveAdminResult, WindowsFormsClient.AdminServiceRef.Admin admin, string message) {
+            this.SaveAdminResult = SaveAdminResult;
             this.admin = admin;
             this.message = message;
         }
@@ -368,22 +399,22 @@ namespace WindowsFormsClient.AdminServiceRef {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WindowsFormsClient.AdminServiceRef.InsertAdminResponse WindowsFormsClient.AdminServiceRef.IAdminService.InsertAdmin(WindowsFormsClient.AdminServiceRef.InsertAdminRequest request) {
-            return base.Channel.InsertAdmin(request);
+        WindowsFormsClient.AdminServiceRef.SaveAdminResponse WindowsFormsClient.AdminServiceRef.IAdminService.SaveAdmin(WindowsFormsClient.AdminServiceRef.SaveAdminRequest request) {
+            return base.Channel.SaveAdmin(request);
         }
         
-        public bool InsertAdmin(ref WindowsFormsClient.AdminServiceRef.Admin admin, ref string message) {
-            WindowsFormsClient.AdminServiceRef.InsertAdminRequest inValue = new WindowsFormsClient.AdminServiceRef.InsertAdminRequest();
+        public bool SaveAdmin(ref WindowsFormsClient.AdminServiceRef.Admin admin, ref string message) {
+            WindowsFormsClient.AdminServiceRef.SaveAdminRequest inValue = new WindowsFormsClient.AdminServiceRef.SaveAdminRequest();
             inValue.admin = admin;
             inValue.message = message;
-            WindowsFormsClient.AdminServiceRef.InsertAdminResponse retVal = ((WindowsFormsClient.AdminServiceRef.IAdminService)(this)).InsertAdmin(inValue);
+            WindowsFormsClient.AdminServiceRef.SaveAdminResponse retVal = ((WindowsFormsClient.AdminServiceRef.IAdminService)(this)).SaveAdmin(inValue);
             admin = retVal.admin;
             message = retVal.message;
-            return retVal.InsertAdminResult;
+            return retVal.SaveAdminResult;
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsClient.AdminServiceRef.InsertAdminResponse> InsertAdminAsync(WindowsFormsClient.AdminServiceRef.InsertAdminRequest request) {
-            return base.Channel.InsertAdminAsync(request);
+        public System.Threading.Tasks.Task<WindowsFormsClient.AdminServiceRef.SaveAdminResponse> SaveAdminAsync(WindowsFormsClient.AdminServiceRef.SaveAdminRequest request) {
+            return base.Channel.SaveAdminAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

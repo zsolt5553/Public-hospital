@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModelLayer;
-using PersistenceLayer;
+using DataLayer;
 
-namespace DatabaseLayer
+namespace PersistenceLayer
 {
     public class AdminDAO
     {
@@ -28,7 +27,9 @@ namespace DatabaseLayer
                         street = adminObj.street,
                         streetNr = adminObj.streetNr,
                         phoneNr = adminObj.phoneNr,
-                        zip = adminObj.zip
+                        zip = adminObj.zip,
+                        login = adminObj.login,
+                        pass = adminObj.pass
                     };
             }
                 return adminBDO;
@@ -50,7 +51,11 @@ namespace DatabaseLayer
                     street = adminBDO.street,
                     streetNr = adminBDO.streetNr,
                     phoneNr = adminBDO.phoneNr,
-                    zip = adminBDO.zip
+                    zip = adminBDO.zip,
+                    login = adminBDO.login,
+                    // to be changed
+                    pass = adminBDO.pass,
+                    salt = "asaas"
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)
@@ -86,6 +91,7 @@ namespace DatabaseLayer
                 adminInDb.street = adminBDO.street;
                 adminInDb.streetNr = adminBDO.streetNr;
                 adminInDb.phoneNr = adminBDO.phoneNr;
+                //without username and pass
                 PHEntites.Admin.Attach(adminInDb);
                 PHEntites.Entry(adminInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

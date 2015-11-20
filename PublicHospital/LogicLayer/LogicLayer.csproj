@@ -42,18 +42,18 @@
   <ItemGroup>
     <Compile Include="AdminLogic.cs" />
     <Compile Include="DoctorLogic.cs" />
-    <Compile Include="PassworLogic.cs" />
+    <Compile Include="PasswordLogic.cs" />
     <Compile Include="PatientLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{b81cafeb-9678-4370-9102-9f0d2b83b201}</Project>
-      <Name>ModelLayer</Name>
+      <Name>DataLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">
+    <ProjectReference Include="..\PersistenceLayer\PersistenceLayer.csproj">
       <Project>{18ea2999-5bec-4013-9f34-6a173b3d5db6}</Project>
-      <Name>DatabaseLayer</Name>
+      <Name>PersistenceLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

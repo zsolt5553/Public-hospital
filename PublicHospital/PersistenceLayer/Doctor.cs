@@ -27,5 +27,6 @@ namespace PersistenceLayer
         public string login { get; set; }
         public string pass { get; set; }
         public string salt { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

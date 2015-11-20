@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLayer
+namespace DataLayer
 {
     public class PatientBDO : AdminBDO
     {
@@ -12,8 +12,8 @@ namespace ModelLayer
 
         public PatientBDO () { }
         public PatientBDO(int id, string firstName, string lastName, string city, int zip, string street,
-            int streetNr, string phoneNr, DateTime dateOfBirth, string login, string password) :
-                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr, login, password)
+            int streetNr, string phoneNr, string login, string pass, DateTime dateOfBirth) :
+                base(id, firstName, lastName, city, zip, street, streetNr, phoneNr,login,pass)
         {
             this.dateOfBirth = dateOfBirth;
         }
