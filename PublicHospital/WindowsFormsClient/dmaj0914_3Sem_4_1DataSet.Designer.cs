@@ -285,6 +285,14 @@ namespace WindowsFormsClient {
             
             private global::System.Data.DataColumn columnlastName;
             
+            private global::System.Data.DataColumn columncity;
+            
+            private global::System.Data.DataColumn columnzip;
+            
+            private global::System.Data.DataColumn columnstreet;
+            
+            private global::System.Data.DataColumn columnstreetNr;
+            
             private global::System.Data.DataColumn columnphoneNr;
             
             private global::System.Data.DataColumn columnspecialty;
@@ -350,6 +358,38 @@ namespace WindowsFormsClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cityColumn {
+                get {
+                    return this.columncity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn zipColumn {
+                get {
+                    return this.columnzip;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn streetColumn {
+                get {
+                    return this.columnstreet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn streetNrColumn {
+                get {
+                    return this.columnstreetNr;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn phoneNrColumn {
                 get {
                     return this.columnphoneNr;
@@ -409,12 +449,16 @@ namespace WindowsFormsClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DoctorRow AddDoctorRow(int id, string firstName, string lastName, string phoneNr, string specialty, string description) {
+            public DoctorRow AddDoctorRow(int id, string firstName, string lastName, string city, int zip, string street, int streetNr, string phoneNr, string specialty, string description) {
                 DoctorRow rowDoctorRow = ((DoctorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         firstName,
                         lastName,
+                        city,
+                        zip,
+                        street,
+                        streetNr,
                         phoneNr,
                         specialty,
                         description};
@@ -450,6 +494,10 @@ namespace WindowsFormsClient {
                 this.columnid = base.Columns["id"];
                 this.columnfirstName = base.Columns["firstName"];
                 this.columnlastName = base.Columns["lastName"];
+                this.columncity = base.Columns["city"];
+                this.columnzip = base.Columns["zip"];
+                this.columnstreet = base.Columns["street"];
+                this.columnstreetNr = base.Columns["streetNr"];
                 this.columnphoneNr = base.Columns["phoneNr"];
                 this.columnspecialty = base.Columns["specialty"];
                 this.columndescription = base.Columns["description"];
@@ -464,6 +512,14 @@ namespace WindowsFormsClient {
                 base.Columns.Add(this.columnfirstName);
                 this.columnlastName = new global::System.Data.DataColumn("lastName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlastName);
+                this.columncity = new global::System.Data.DataColumn("city", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncity);
+                this.columnzip = new global::System.Data.DataColumn("zip", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzip);
+                this.columnstreet = new global::System.Data.DataColumn("street", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstreet);
+                this.columnstreetNr = new global::System.Data.DataColumn("streetNr", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstreetNr);
                 this.columnphoneNr = new global::System.Data.DataColumn("phoneNr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnphoneNr);
                 this.columnspecialty = new global::System.Data.DataColumn("specialty", typeof(string), null, global::System.Data.MappingType.Element);
@@ -478,6 +534,12 @@ namespace WindowsFormsClient {
                 this.columnfirstName.MaxLength = 50;
                 this.columnlastName.AllowDBNull = false;
                 this.columnlastName.MaxLength = 50;
+                this.columncity.AllowDBNull = false;
+                this.columncity.MaxLength = 50;
+                this.columnzip.AllowDBNull = false;
+                this.columnstreet.AllowDBNull = false;
+                this.columnstreet.MaxLength = 50;
+                this.columnstreetNr.AllowDBNull = false;
                 this.columnphoneNr.AllowDBNull = false;
                 this.columnphoneNr.MaxLength = 50;
                 this.columnspecialty.AllowDBNull = false;
@@ -653,6 +715,50 @@ namespace WindowsFormsClient {
                 }
                 set {
                     this[this.tableDoctor.lastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string city {
+                get {
+                    return ((string)(this[this.tableDoctor.cityColumn]));
+                }
+                set {
+                    this[this.tableDoctor.cityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int zip {
+                get {
+                    return ((int)(this[this.tableDoctor.zipColumn]));
+                }
+                set {
+                    this[this.tableDoctor.zipColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string street {
+                get {
+                    return ((string)(this[this.tableDoctor.streetColumn]));
+                }
+                set {
+                    this[this.tableDoctor.streetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int streetNr {
+                get {
+                    return ((int)(this[this.tableDoctor.streetNrColumn]));
+                }
+                set {
+                    this[this.tableDoctor.streetNrColumn] = value;
                 }
             }
             
@@ -869,35 +975,51 @@ namespace WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("firstName", "firstName");
             tableMapping.ColumnMappings.Add("lastName", "lastName");
+            tableMapping.ColumnMappings.Add("city", "city");
+            tableMapping.ColumnMappings.Add("zip", "zip");
+            tableMapping.ColumnMappings.Add("street", "street");
+            tableMapping.ColumnMappings.Add("streetNr", "streetNr");
             tableMapping.ColumnMappings.Add("phoneNr", "phoneNr");
             tableMapping.ColumnMappings.Add("specialty", "specialty");
             tableMapping.ColumnMappings.Add("description", "description");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Doctor] WHERE (([id] = @Original_id) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([phoneNr] = @Original_phoneNr) AND ([specialty] = @Original_specialty) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Doctor] WHERE (([id] = @Original_id) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([city] = @Original_city) AND ([zip] = @Original_zip) AND ([street] = @Original_street) AND ([streetNr] = @Original_streetNr) AND ([phoneNr] = @Original_phoneNr) AND ([specialty] = @Original_specialty) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_firstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zip", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_street", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streetNr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_specialty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "specialty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Doctor] SET [id] = @id, [firstName] = @firstName, [lastName] = @lastName, [phoneNr] = @phoneNr, [specialty] = @specialty, [description] = @description WHERE (([id] = @Original_id) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([phoneNr] = @Original_phoneNr) AND ([specialty] = @Original_specialty) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)));
-SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Doctor] SET [id] = @id, [firstName] = @firstName, [lastName] = @lastName, [city] = @city, [zip] = @zip, [street] = @street, [streetNr] = @streetNr, [phoneNr] = @phoneNr, [specialty] = @specialty, [description] = @description WHERE (([id] = @Original_id) AND ([firstName] = @Original_firstName) AND ([lastName] = @Original_lastName) AND ([city] = @Original_city) AND ([zip] = @Original_zip) AND ([street] = @Original_street) AND ([streetNr] = @Original_streetNr) AND ([phoneNr] = @Original_phoneNr) AND ([specialty] = @Original_specialty) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)));
+SELECT id, firstName, lastName, city, zip, street, streetNr, phoneNr, specialty, description FROM Doctor WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zip", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@street", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@streetNr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@specialty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "specialty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_firstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zip", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_street", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_streetNr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "streetNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_specialty", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "specialty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -917,7 +1039,8 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, firstName, lastName, phoneNr, specialty, description FROM dbo.Doctor";
+            this._commandCollection[0].CommandText = "SELECT id, firstName, lastName, city, zip, street, streetNr, phoneNr, specialty, " +
+                "description FROM dbo.Doctor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -978,7 +1101,7 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_firstName, string Original_lastName, string Original_phoneNr, string Original_specialty, string Original_description) {
+        public virtual int Delete(int Original_id, string Original_firstName, string Original_lastName, string Original_city, int Original_zip, string Original_street, int Original_streetNr, string Original_phoneNr, string Original_specialty, string Original_description) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_firstName == null)) {
                 throw new global::System.ArgumentNullException("Original_firstName");
@@ -992,25 +1115,39 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_lastName));
             }
+            if ((Original_city == null)) {
+                throw new global::System.ArgumentNullException("Original_city");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_city));
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_zip));
+            if ((Original_street == null)) {
+                throw new global::System.ArgumentNullException("Original_street");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_street));
+            }
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_streetNr));
             if ((Original_phoneNr == null)) {
                 throw new global::System.ArgumentNullException("Original_phoneNr");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_phoneNr));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_phoneNr));
             }
             if ((Original_specialty == null)) {
                 throw new global::System.ArgumentNullException("Original_specialty");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_specialty));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_specialty));
             }
             if ((Original_description == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_description));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1032,7 +1169,27 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id, string firstName, string lastName, string phoneNr, string specialty, string description, int Original_id, string Original_firstName, string Original_lastName, string Original_phoneNr, string Original_specialty, string Original_description) {
+        public virtual int Update(
+                    int id, 
+                    string firstName, 
+                    string lastName, 
+                    string city, 
+                    int zip, 
+                    string street, 
+                    int streetNr, 
+                    string phoneNr, 
+                    string specialty, 
+                    string description, 
+                    int Original_id, 
+                    string Original_firstName, 
+                    string Original_lastName, 
+                    string Original_city, 
+                    int Original_zip, 
+                    string Original_street, 
+                    int Original_streetNr, 
+                    string Original_phoneNr, 
+                    string Original_specialty, 
+                    string Original_description) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id));
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
@@ -1046,56 +1203,84 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(lastName));
             }
+            if ((city == null)) {
+                throw new global::System.ArgumentNullException("city");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(city));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(zip));
+            if ((street == null)) {
+                throw new global::System.ArgumentNullException("street");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(street));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(streetNr));
             if ((phoneNr == null)) {
                 throw new global::System.ArgumentNullException("phoneNr");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(phoneNr));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(phoneNr));
             }
             if ((specialty == null)) {
                 throw new global::System.ArgumentNullException("specialty");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(specialty));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(specialty));
             }
             if ((description == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(description));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(description));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_id));
             if ((Original_firstName == null)) {
                 throw new global::System.ArgumentNullException("Original_firstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_firstName));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_firstName));
             }
             if ((Original_lastName == null)) {
                 throw new global::System.ArgumentNullException("Original_lastName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_lastName));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_lastName));
             }
+            if ((Original_city == null)) {
+                throw new global::System.ArgumentNullException("Original_city");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_city));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_zip));
+            if ((Original_street == null)) {
+                throw new global::System.ArgumentNullException("Original_street");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_street));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_streetNr));
             if ((Original_phoneNr == null)) {
                 throw new global::System.ArgumentNullException("Original_phoneNr");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_phoneNr));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_phoneNr));
             }
             if ((Original_specialty == null)) {
                 throw new global::System.ArgumentNullException("Original_specialty");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_specialty));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_specialty));
             }
             if ((Original_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_description));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1117,8 +1302,27 @@ SELECT id, firstName, lastName, phoneNr, specialty, description FROM Doctor WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string firstName, string lastName, string phoneNr, string specialty, string description, int Original_id, string Original_firstName, string Original_lastName, string Original_phoneNr, string Original_specialty, string Original_description) {
-            return this.Update(Original_id, firstName, lastName, phoneNr, specialty, description, Original_id, Original_firstName, Original_lastName, Original_phoneNr, Original_specialty, Original_description);
+        public virtual int Update(
+                    string firstName, 
+                    string lastName, 
+                    string city, 
+                    int zip, 
+                    string street, 
+                    int streetNr, 
+                    string phoneNr, 
+                    string specialty, 
+                    string description, 
+                    int Original_id, 
+                    string Original_firstName, 
+                    string Original_lastName, 
+                    string Original_city, 
+                    int Original_zip, 
+                    string Original_street, 
+                    int Original_streetNr, 
+                    string Original_phoneNr, 
+                    string Original_specialty, 
+                    string Original_description) {
+            return this.Update(Original_id, firstName, lastName, city, zip, street, streetNr, phoneNr, specialty, description, Original_id, Original_firstName, Original_lastName, Original_city, Original_zip, Original_street, Original_streetNr, Original_phoneNr, Original_specialty, Original_description);
         }
     }
     
