@@ -17,6 +17,17 @@ namespace WindowsFormsClient
         {
             InitializeComponent();
             this.CenterToScreen();
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            dataGridView1.ColumnCount = 5;
+            dataGridView1.Columns[0].Name = "Firstname";
+            dataGridView1.Columns[1].Name = "Lastname";
+            dataGridView1.Columns[2].Name = "Speciality";
+            dataGridView1.Rows.Add(1);
+
         }
 
       
@@ -48,9 +59,10 @@ namespace WindowsFormsClient
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -61,7 +73,7 @@ namespace WindowsFormsClient
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 13);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(456, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(596, 39);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // button1
@@ -100,32 +112,31 @@ namespace WindowsFormsClient
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(466, 376);
+            this.panel1.Size = new System.Drawing.Size(606, 420);
             this.panel1.TabIndex = 6;
             // 
-            // listBox1
+            // dataGridView1
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.ColumnWidth = 1;
-            this.listBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(11, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(452, 301);
-            this.listBox1.TabIndex = 6;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(11, 53);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(592, 364);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ListOfDoctors
             // 
-            this.ClientSize = new System.Drawing.Size(483, 393);
+            this.ClientSize = new System.Drawing.Size(623, 437);
             this.Controls.Add(this.panel1);
             this.Name = "ListOfDoctors";
             this.Text = "List of doctors";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,6 +144,16 @@ namespace WindowsFormsClient
         private void button1_Click(object sender, EventArgs e)
         {
             new Thread(() => new NewDoctor().ShowDialog()).Start();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
      
