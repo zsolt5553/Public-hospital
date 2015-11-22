@@ -22,5 +22,17 @@ namespace WindowsFormsClient.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=kraka.ucn.dk;Initial Catalog=dmaj0914_3Sem_4_1;Persist Security Info=" +
+            "True;User ID=dmaj0914_3Sem_4_1;Password=IsAllowed;MultipleActiveResultSets=True;" +
+            "Application Name=EntityFramework")]
+        public string dmaj0914_3Sem_4_1ConnectionString {
+            get {
+                return ((string)(this["dmaj0914_3Sem_4_1ConnectionString"]));
+            }
+        }
     }
 }
