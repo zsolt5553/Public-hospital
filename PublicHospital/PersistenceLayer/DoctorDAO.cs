@@ -51,22 +51,25 @@ namespace PersistenceLayer
                     doctorBDO = new DoctorBDO();
                     foreach (Doctor doctorObj in listInDb)
                     {
-                        doctorBDO = new DoctorBDO()
+                        if (!doctorObj.isDeleted)
                         {
-                            id = doctorObj.id,
-                        firstName = doctorObj.firstName,
-                        lastName = doctorObj.lastName,
-                        city = doctorObj.city,
-                        street = doctorObj.street,
-                        streetNr = doctorObj.streetNr,
-                        phoneNr = doctorObj.phoneNr,
-                        zip = doctorObj.zip,
-                        login = doctorObj.login,
-                        pass = doctorObj.pass,
-                        description = doctorObj.description,
-                        specialty = doctorObj.specialty
-                        };
-                        doctors.Add(doctorBDO);
+                            doctorBDO = new DoctorBDO()
+                            {
+                                id = doctorObj.id,
+                                firstName = doctorObj.firstName,
+                                lastName = doctorObj.lastName,
+                                city = doctorObj.city,
+                                street = doctorObj.street,
+                                streetNr = doctorObj.streetNr,
+                                phoneNr = doctorObj.phoneNr,
+                                zip = doctorObj.zip,
+                                login = doctorObj.login,
+                                pass = doctorObj.pass,
+                                description = doctorObj.description,
+                                specialty = doctorObj.specialty
+                            };
+                            doctors.Add(doctorBDO);
+                        }
                     }
                 }
             }

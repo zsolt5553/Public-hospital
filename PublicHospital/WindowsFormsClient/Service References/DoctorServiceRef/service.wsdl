@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DoctorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDoctorService_GetDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetDoctor_DoctorFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q1:DoctorFault" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAllDoctors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDoctors" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAllDoctors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAllDoctors_DoctorFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:DoctorFault" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_SaveDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_SaveDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_SaveDoctor_DoctorFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:DoctorFault" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_UpdateDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_UpdateDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:DoctorFault" />
+  </wsdl:message>
+  <wsdl:portType name="IDoctorService">
+    <wsdl:operation name="GetDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetDoctor" message="tns:IDoctorService_GetDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/GetDoctorResponse" message="tns:IDoctorService_GetDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/GetDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_GetDoctor_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDoctors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetAllDoctors" message="tns:IDoctorService_GetAllDoctors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/GetAllDoctorsResponse" message="tns:IDoctorService_GetAllDoctors_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/GetAllDoctorsDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_GetAllDoctors_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/SaveDoctor" message="tns:IDoctorService_SaveDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/SaveDoctorResponse" message="tns:IDoctorService_SaveDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/SaveDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_SaveDoctor_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctor" message="tns:IDoctorService_UpdateDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorResponse" message="tns:IDoctorService_UpdateDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDoctorService" type="tns:IDoctorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/GetDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DoctorFaultFault">
+        <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDoctors">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/GetAllDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DoctorFaultFault">
+        <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/SaveDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DoctorFaultFault">
+        <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/UpdateDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DoctorFaultFault">
+        <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DoctorService">
+    <wsdl:port name="BasicHttpBinding_IDoctorService" binding="tns:BasicHttpBinding_IDoctorService">
+      <soap:address location="http://localhost:8080/ServiceLayer/DoctorService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

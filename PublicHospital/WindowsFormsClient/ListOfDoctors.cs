@@ -54,15 +54,15 @@ namespace WindowsFormsClient
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
+            this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
-            this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -110,14 +110,14 @@ namespace WindowsFormsClient
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(259, 33);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(259, 32);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(165, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 27);
+            this.button3.Size = new System.Drawing.Size(75, 26);
             this.button3.TabIndex = 2;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@ namespace WindowsFormsClient
             // 
             this.button2.Location = new System.Drawing.Point(84, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.Size = new System.Drawing.Size(75, 26);
             this.button2.TabIndex = 1;
             this.button2.Text = "Open";
             this.button2.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@ namespace WindowsFormsClient
             // 
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.Size = new System.Drawing.Size(75, 26);
             this.button1.TabIndex = 0;
             this.button1.Text = "Add new";
             this.button1.UseVisualStyleBackColor = true;
@@ -158,15 +158,29 @@ namespace WindowsFormsClient
             this.descriptionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.doctorBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 42);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 392);
+            this.dataGridView1.Size = new System.Drawing.Size(729, 393);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // doctorBindingSource
+            // 
+            this.doctorBindingSource.DataMember = "Doctor";
+            this.doctorBindingSource.DataSource = this.dmaj0914_3Sem_4_1DataSet;
+            // 
+            // dmaj0914_3Sem_4_1DataSet
+            // 
+            this.dmaj0914_3Sem_4_1DataSet.DataSetName = "dmaj0914_3Sem_4_1DataSet";
+            this.dmaj0914_3Sem_4_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // doctorTableAdapter
+            // 
+            this.doctorTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -209,20 +223,6 @@ namespace WindowsFormsClient
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // doctorBindingSource
-            // 
-            this.doctorBindingSource.DataMember = "Doctor";
-            this.doctorBindingSource.DataSource = this.dmaj0914_3Sem_4_1DataSet;
-            // 
-            // dmaj0914_3Sem_4_1DataSet
-            // 
-            this.dmaj0914_3Sem_4_1DataSet.DataSetName = "dmaj0914_3Sem_4_1DataSet";
-            this.dmaj0914_3Sem_4_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // doctorTableAdapter
-            // 
-            this.doctorTableAdapter.ClearBeforeFill = true;
             // 
             // ListOfDoctors
             // 

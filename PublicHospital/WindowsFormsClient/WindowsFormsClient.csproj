@@ -125,6 +125,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\DoctorServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PasswordService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +205,25 @@
     <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.UpdateAdminResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\DoctorServiceRef\service.wsdl" />
+    <None Include="Service References\DoctorServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.SaveDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.UpdateDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PasswordService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -225,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
+    <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
     <WCFMetadataStorage Include="Service References\PasswordService\" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +289,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PasswordService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

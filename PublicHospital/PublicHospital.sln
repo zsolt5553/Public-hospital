@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsClient", "WindowsFormsClient\WindowsFormsClient.csproj", "{CC54DF3F-B3F2-4125-874D-E0DC4C6A374D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B1D5FD72-FB90-4503-ADFE-03ADF3980B5D} = {B1D5FD72-FB90-4503-ADFE-03ADF3980B5D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{B81CAFEB-9678-4370-9102-9F0D2B83B201}"
 EndProject
