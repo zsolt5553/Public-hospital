@@ -84,6 +84,7 @@ namespace ServiceLayer
             else if (patient.dateOfBirth == null)
             {
                 //checking to do
+
                 message = "Patient's date of birth cannot be empty";
                 result = false;
             }
