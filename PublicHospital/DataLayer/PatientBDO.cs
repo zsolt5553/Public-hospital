@@ -17,10 +17,5 @@ namespace DataLayer
         {
             this.dateOfBirth = dateOfBirth;
         }
-
-        public override string ToString()
-        {
-            return "admin";
-        }
     }
 }
