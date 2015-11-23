@@ -42,7 +42,7 @@ namespace ServiceLayer
             return admin;
         }
 
-        public bool SaveAdmin(ref Admin admin,
+        private bool AdminCheck(ref Admin admin,
             ref string message)
         {
             var result = true;
@@ -91,6 +91,17 @@ namespace ServiceLayer
                 message = "Admin's password cannot be empty";
                 result = false;
             }
+            return result;
+        }
+
+        public bool SaveAdmin(ref Admin admin,
+            ref string message)
+        {
+            var result = true;
+            if (!AdminCheck(ref admin, ref message))
+            {
+                result = false;
+            }
             else
             {
                 try
@@ -115,39 +126,8 @@ namespace ServiceLayer
             ref string message)
         {
             var result = true;
-            if (string.IsNullOrEmpty(admin.firstName))
+            if (!AdminCheck(ref admin, ref message))
             {
-                message = "Admin's first name cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.lastName))
-            {
-                message = "Admin's last name cannot be empty";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.city))
-            {
-                message = "Admin's city cannot be empty";
-                result = false;
-            }
-            else if (admin.zip <= 0)
-            {
-                message = "Admin's zip cannot be empty or smaller or equal to 0";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.street))
-            {
-                message = "Admin's street cannot be empty";
-                result = false;
-            }
-            else if (admin.streetNr <= 0)
-            {
-                message = "Admin's street number cannot be empty or smaller or equal to 0";
-                result = false;
-            }
-            else if (string.IsNullOrEmpty(admin.phoneNr))
-            {
-                message = "Admin's phone number cannot be empty";
                 result = false;
             }
             else

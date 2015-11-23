@@ -8,12 +8,14 @@ using System.Text;
 
 namespace ServiceLayer
 {
+    [ServiceKnownType(typeof(Admin))]
+    [ServiceKnownType(typeof(Doctor))]
     [ServiceContract]
     public interface IPasswordService
     {
         [OperationContract]
         [FaultContract(typeof(PasswordFault))]
-        int[] authenticatePerson(string login, string password, ref string message);
+        People authenticatePerson(string login, string password, ref string message);
     }
 
     [DataContract]
@@ -26,5 +28,18 @@ namespace ServiceLayer
 
         [DataMember]
         public string FaultMessage;
+    }
+
+    [DataContract]
+    [KnownType(typeof(Admin))]
+    [KnownType(typeof(Doctor))]
+    public class People
+    {
+        [DataMember]
+        public Admin aa { get; }
+        [DataMember]
+        public Doctor dd { get; }
+        [DataMember]
+        public Doctor pp { get; }
     }
 }
