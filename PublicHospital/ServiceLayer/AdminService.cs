@@ -170,7 +170,7 @@ namespace ServiceLayer
             return result;
         }
 
-        private void TranslateAdminBDOToAdminDTO (
+        public void TranslateAdminBDOToAdminDTO (
             AdminBDO adminBDO,
             Admin admin)
         {

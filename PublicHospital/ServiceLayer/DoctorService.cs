@@ -116,7 +116,7 @@ namespace ServiceLayer
             return result;
         }
 
-        private void TranslateDoctorBDOToDoctorDTO(
+        public void TranslateDoctorBDOToDoctorDTO(
             DoctorBDO doctorBDO,
             Doctor doctor)
         {

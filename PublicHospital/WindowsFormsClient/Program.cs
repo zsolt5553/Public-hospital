@@ -30,7 +30,7 @@ namespace WindowsFormsClient
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NewAdmin());
+            Application.Run(new Login());
 
         }
     }

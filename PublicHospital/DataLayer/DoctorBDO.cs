@@ -24,5 +24,10 @@ namespace DataLayer
             this.specialty = specialty;
             this.description = description;
         }
+
+        public override string ToString()
+        {
+            return "doctor";
+        }
     }
 }

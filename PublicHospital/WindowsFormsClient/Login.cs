@@ -14,6 +14,7 @@ namespace WindowsFormsClient
 {
     public partial class Login : Form
     {
+
         public Login()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace WindowsFormsClient
         {
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-         
+                
                 new Thread(() => new AdminMenu().ShowDialog()).Start();
               
             }

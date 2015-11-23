@@ -8,20 +8,14 @@ using System.Text;
 
 namespace ServiceLayer
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IPasswordService" in both code and config file together.
+    [ServiceKnownType(typeof(Admin))]
+    [ServiceKnownType(typeof(Doctor))]
     [ServiceContract]
     public interface IPasswordService
     {
         [OperationContract]
         [FaultContract(typeof(PasswordFault))]
-        AdminBDO authenticatePerson(string login, string password);
-    }
-
-    [DataContract]
-    public class Password
-    {
-        [DataMember]
-        public int id { get; }
+        People authenticatePerson(string login, string password, ref string message);
     }
 
     [DataContract]
@@ -34,5 +28,18 @@ namespace ServiceLayer
 
         [DataMember]
         public string FaultMessage;
+    }
+
+    [DataContract]
+    [KnownType(typeof(Admin))]
+    [KnownType(typeof(Doctor))]
+    public class People
+    {
+        [DataMember]
+        public Admin aa { get; }
+        [DataMember]
+        public Doctor dd { get; }
+        [DataMember]
+        public Doctor pp { get; }
     }
 }

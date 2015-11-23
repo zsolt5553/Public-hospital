@@ -35,5 +35,10 @@ namespace DataLayer
             this.login = login;
             this.pass = pass;
         }
+
+        public override string ToString()
+        {
+            return "patient";
+        }
     }
 }
