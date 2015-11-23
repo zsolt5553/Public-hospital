@@ -16,6 +16,11 @@ namespace LogicLayer
             return doctorDAO.GetDoctor(id);
         }
 
+        public List<DoctorBDO> GetAllDoctors()
+        {
+            return doctorDAO.GetAllDoctors();
+        }
+
         public bool InsertDoctor(ref DoctorBDO doctorBDO,
             ref string massage)
         {

@@ -15,8 +15,8 @@ namespace PersistenceLayer
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var doctorObj = (from a in PHEntities.Doctor
-                                where a.id == id
-                                select a).FirstOrDefault();
+                                 where a.id == id
+                                 select a).FirstOrDefault();
                 if (doctorObj != null)
                     doctorBDO = new DoctorBDO()
                     {
@@ -35,6 +35,42 @@ namespace PersistenceLayer
                     };
             }
             return doctorBDO;
+        }
+
+        public List<DoctorBDO> GetAllDoctors()
+        {
+            List<DoctorBDO> doctors = null;
+            DoctorBDO doctorBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from d in PHEntities.Doctor
+                                select d).ToList();
+                if (listInDb != null)
+                {
+                    doctors = new List<DoctorBDO>();
+                    doctorBDO = new DoctorBDO();
+                    foreach (Doctor doctorObj in listInDb)
+                    {
+                        doctorBDO = new DoctorBDO()
+                        {
+                            id = doctorObj.id,
+                        firstName = doctorObj.firstName,
+                        lastName = doctorObj.lastName,
+                        city = doctorObj.city,
+                        street = doctorObj.street,
+                        streetNr = doctorObj.streetNr,
+                        phoneNr = doctorObj.phoneNr,
+                        zip = doctorObj.zip,
+                        login = doctorObj.login,
+                        pass = doctorObj.pass,
+                        description = doctorObj.description,
+                        specialty = doctorObj.specialty
+                        };
+                        doctors.Add(doctorBDO);
+                    }
+                }
+            }
+            return doctors;
         }
 
         private int GetNextID()

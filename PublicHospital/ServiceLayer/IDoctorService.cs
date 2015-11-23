@@ -17,6 +17,10 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
+        List<Doctor> GetAllDoctors();
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
         bool SaveDoctor(ref Doctor doctor,
             ref string message);
 
