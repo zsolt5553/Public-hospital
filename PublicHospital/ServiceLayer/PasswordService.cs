@@ -25,14 +25,14 @@ namespace ServiceLayer
     //            var reason = "authenticatePerson exception";
     //            throw new FaultException<PasswordFault>(new PasswordFault(msg), reason);
     //        }
-    //        if (adminBDO.GetType() == typeof(AdminBDO))
+    //        if(adminBDO.GetType() == typeof(AdminBDO))
     //        {
     //            var admin = new Admin();
     //            AdminService a = new AdminService();
     //            a.TranslateAdminBDOToAdminDTO(adminBDO, admin);
     //            return new People();
     //        }
-    //        else if (adminBDO.GetType() == typeof(PatientBDO))
+    //        else if(adminBDO.GetType() == typeof(PatientBDO))
     //        {
     //            var patient = new Admin();
     //            AdminService a = new AdminService();
