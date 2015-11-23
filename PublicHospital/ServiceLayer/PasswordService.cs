@@ -49,5 +49,10 @@ namespace ServiceLayer
             else
                 return null;
         }
+
+        public DataLayer.AdminBDO authenticatePerson(string login, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -75,7 +75,7 @@ namespace WindowsFormsClient
                     }
                     else
                     {
-                    //    dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.White;
+               //       dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
                     }
                 }
             }
@@ -101,5 +101,9 @@ namespace WindowsFormsClient
         {
          //   new Appointment().Show();
         }
+
+     
+
+       
     }
 }
