@@ -50,29 +50,25 @@ namespace WindowsFormsClient
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
+            this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,33 +113,6 @@ namespace WindowsFormsClient
             this.tableLayoutPanel2.Size = new System.Drawing.Size(259, 25);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(165, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 19);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(84, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 19);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Open";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 19);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add new";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -156,10 +125,6 @@ namespace WindowsFormsClient
             this.idDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.zipDataGridViewTextBoxColumn,
-            this.streetDataGridViewTextBoxColumn,
-            this.streetNrDataGridViewTextBoxColumn,
             this.phoneNrDataGridViewTextBoxColumn,
             this.specialtyDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn});
@@ -173,17 +138,16 @@ namespace WindowsFormsClient
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(729, 400);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // doctorBindingSource
-            // 
-            this.doctorBindingSource.DataMember = "Doctor";
-            this.doctorBindingSource.DataSource = this.dmaj0914_3Sem_4_1DataSet;
             // 
             // dmaj0914_3Sem_4_1DataSet
             // 
             this.dmaj0914_3Sem_4_1DataSet.DataSetName = "dmaj0914_3Sem_4_1DataSet";
             this.dmaj0914_3Sem_4_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // doctorBindingSource
+            // 
+            this.doctorBindingSource.DataMember = "Doctor";
+            this.doctorBindingSource.DataSource = this.dmaj0914_3Sem_4_1DataSet;
             // 
             // doctorTableAdapter
             // 
@@ -210,34 +174,6 @@ namespace WindowsFormsClient
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "city";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "city";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zipDataGridViewTextBoxColumn
-            // 
-            this.zipDataGridViewTextBoxColumn.DataPropertyName = "zip";
-            this.zipDataGridViewTextBoxColumn.HeaderText = "zip";
-            this.zipDataGridViewTextBoxColumn.Name = "zipDataGridViewTextBoxColumn";
-            this.zipDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // streetDataGridViewTextBoxColumn
-            // 
-            this.streetDataGridViewTextBoxColumn.DataPropertyName = "street";
-            this.streetDataGridViewTextBoxColumn.HeaderText = "street";
-            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
-            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // streetNrDataGridViewTextBoxColumn
-            // 
-            this.streetNrDataGridViewTextBoxColumn.DataPropertyName = "streetNr";
-            this.streetNrDataGridViewTextBoxColumn.HeaderText = "streetNr";
-            this.streetNrDataGridViewTextBoxColumn.Name = "streetNrDataGridViewTextBoxColumn";
-            this.streetNrDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // phoneNrDataGridViewTextBoxColumn
             // 
             this.phoneNrDataGridViewTextBoxColumn.DataPropertyName = "phoneNr";
@@ -259,6 +195,33 @@ namespace WindowsFormsClient
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 19);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(84, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 19);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(165, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 19);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // ListOfDoctors
             // 
             this.ClientSize = new System.Drawing.Size(735, 437);
@@ -271,15 +234,15 @@ namespace WindowsFormsClient
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-       //     new Thread(() => new NewDoctor().ShowDialog()).Start();
+            new Thread(() => new NewDoctor().ShowDialog()).Start();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -299,22 +262,7 @@ namespace WindowsFormsClient
 
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int id = 0;
-            UpdateDoctor update = new UpdateDoctor(id);
-            update.Show();
-
-        }
-
-
-
-
-        public object id { get; set; }
-
-        private void adminBindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+     
+        
     }
 }
