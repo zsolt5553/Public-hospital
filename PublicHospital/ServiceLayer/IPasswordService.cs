@@ -35,11 +35,11 @@ namespace ServiceLayer
     [KnownType(typeof(Doctor))]
     public class People
     {
-        [DataMember]
-        public Admin aa { get; }
-        [DataMember]
-        public Doctor dd { get; }
-        [DataMember]
-        public Doctor pp { get; }
+        //[DataMember]
+        //public Admin aa { get; }
+        //[DataMember]
+        //public Doctor dd { get; }
+      //  [DataMember]
+    //    public Doctor pp { get; }
     }
 }
