@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsClient
 {
-    partial class UpdateDoctor
+    partial class NewAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -288,16 +288,16 @@
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
             // 
-            // UpdateDoctor
+            // NewAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 327);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UpdateDoctor";
-            this.Text = "UpdateDoctor";
-            this.Load += new System.EventHandler(this.UpdateDoctor_Load);
+            this.Name = "NewAdmin";
+            this.Text = "NewAdmin";
+            this.Load += new System.EventHandler(this.NewAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

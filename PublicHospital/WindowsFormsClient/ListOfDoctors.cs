@@ -138,6 +138,7 @@ namespace WindowsFormsClient
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(729, 400);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // dmaj0914_3Sem_4_1DataSet
             // 
@@ -201,7 +202,7 @@ namespace WindowsFormsClient
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 19);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Add new";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -210,7 +211,7 @@ namespace WindowsFormsClient
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 19);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Open";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -219,7 +220,7 @@ namespace WindowsFormsClient
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 19);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
+            this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // ListOfDoctors
@@ -242,7 +243,7 @@ namespace WindowsFormsClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Thread(() => new NewDoctor().ShowDialog()).Start();
+       //     new Thread(() => new NewDoctor().ShowDialog()).Start();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -260,6 +261,17 @@ namespace WindowsFormsClient
             // TODO: This line of code loads data into the 'dmaj0914_3Sem_4_1DataSet.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this.dmaj0914_3Sem_4_1DataSet.Doctor);
 
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+      //    string value =
+      //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
+      //      int value2 = Int32.Parse(TextBoxD1.Text);
+      //      DoctorUpdate doctorUpdate = new DoctorUpdate(value.parse);
+      //      doctorUpdate.Show();
+      //      doctorUpdate.set
+      //    System.Console.WriteLine(value);
         }
 
      

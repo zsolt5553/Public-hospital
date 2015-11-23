@@ -10,22 +10,15 @@ using System.Windows.Forms;
 
 namespace WindowsFormsClient
 {
-    public partial class UpdateDoctor : Form
+    public partial class NewAdmin : Form
     {
         AdminServiceRef.Admin admin;
-        private int id;
-        public UpdateDoctor()
+        public NewAdmin()
         {
             InitializeComponent();
         }
 
-        public UpdateDoctor(int id)
-        {
-            // TODO: Complete member initialization
-            this.id = id;
-        }
-
-        private void UpdateDoctor_Load(object sender, EventArgs e)
+        private void NewAdmin_Load(object sender, EventArgs e)
         {
 
         }
