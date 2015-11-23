@@ -10,7 +10,7 @@ using LogicLayer;
 
 namespace ServiceLayer
 {
-    public class PatientService
+    public class PatientService : IPatientService
     {
         PatientLogic patientLogic = new PatientLogic();
 
