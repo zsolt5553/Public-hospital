@@ -11,19 +11,20 @@ namespace LogicLayer
     public class PasswordLogic
     {
         Password pass = new Password();
-        //public AdminBDO authenticatePerson(string login, string password, ref string message)
-        //{
-        //    AdminBDO person = pass.authenticatePerson(login, password);
-        //    if (person != null)
-        //    {
-        //        message = "Successful authentication";
-        //        return person;
-        //    }
-        //    else
-        //    {
-        //        message = "Try once agin";
-        //        return null;
-        //    }
-        //}
+
+        public int[] authenticatePerson(string login, string password, ref string message)
+        {
+            int[] idAndType = pass.authenticatePerson(login, password);
+            if (idAndType != null)
+            {
+                message = "Successful authentication";
+                return idAndType;
+            }
+            else
+            {
+                message = "Try once again.";
+                return null;
+            }
+        }
     }
 }

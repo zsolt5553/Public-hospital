@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WindowsFormsClient.PasswordService;
 
 namespace WindowsFormsClient
 {
     public partial class Login : Form
     {
-
         public Login()
         {
             InitializeComponent();
@@ -45,8 +44,12 @@ namespace WindowsFormsClient
         {
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-                
-                new Thread(() => new AdminMenu().ShowDialog()).Start();
+                string message = null;
+                var passwordClient = new PasswordServiceClient();
+                int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
+                label1.Text = message;
+                if (idAndType != null)
+                    new Thread(() => new AdminMenu().ShowDialog()).Start();
               
             }
             else
