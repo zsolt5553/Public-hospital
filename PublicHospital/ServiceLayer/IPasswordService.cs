@@ -21,7 +21,7 @@ namespace ServiceLayer
     public class Password
     {
         [DataMember]
-        public int id { get; }
+        public int id { get; set; }
     }
 
     [DataContract]

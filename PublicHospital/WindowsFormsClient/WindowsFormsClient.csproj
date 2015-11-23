@@ -93,6 +93,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dmaj0914_3Sem_4_1DataSet.cs">
+      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dmaj0914_3Sem_4_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +113,12 @@
     </Compile>
     <Compile Include="AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDoctor.Designer.cs">
+      <DependentUpon>UpdateDoctor.cs</DependentUpon>
     </Compile>
     <Compile Include="ListOfDoctors.cs">
       <SubType>Form</SubType>
@@ -165,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDoctor.resx">
+      <DependentUpon>UpdateDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dmaj0914_3Sem_4_1DataSet.xsc">
       <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
