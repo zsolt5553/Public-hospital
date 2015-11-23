@@ -59,6 +59,8 @@ namespace PersistenceLayer
         {
             massage = "Admin inserted successfully";
             var ret = true;
+            Password passObj = new Password();
+            string[] passAndSalt = passObj.getFullyHash(adminBDO.pass);
             using (var PHEntities = new PublicHospitalEntities())
             {
                 PHEntities.Admin.Add(new Admin
@@ -72,9 +74,9 @@ namespace PersistenceLayer
                     phoneNr = adminBDO.phoneNr,
                     zip = adminBDO.zip,
                     login = adminBDO.login,
-                    // to be changed
-                    pass = adminBDO.pass,
-                    salt = "asaas"
+                    
+                    pass = passAndSalt[0],
+                    salt = passAndSalt[1]
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)
