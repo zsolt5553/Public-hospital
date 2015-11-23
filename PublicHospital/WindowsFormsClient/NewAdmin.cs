@@ -37,10 +37,17 @@ namespace WindowsFormsClient
             admin.zip = zip;
             admin.street = streetTxt.Text;
             admin.streetNr = streetNr;
-            admin.id = 2; // not implemented !!
+            admin.phoneNr = phoneTxt.Text;
+            admin.login = usernameTxt.Text;
+            admin.pass = passwordTxt.Text;
 
             var client = new AdminServiceRef.AdminServiceClient();
             client.SaveAdmin(ref admin,ref message);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
