@@ -264,14 +264,13 @@ namespace WindowsFormsClient
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-      //    string value =
-      //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
-      //      int value2 = Int32.Parse(TextBoxD1.Text);
-      //      DoctorUpdate doctorUpdate = new DoctorUpdate(value.parse);
-      //      doctorUpdate.Show();
-      //      doctorUpdate.set
-      //    System.Console.WriteLine(value);
+        {     
+            string value = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
+            int value2 = Int32.Parse(value);
+            DoctorUpdate doctorUpdate = new DoctorUpdate(value2);
+            doctorUpdate.Show();
+            
+            System.Console.WriteLine(value);
         }
 
      
