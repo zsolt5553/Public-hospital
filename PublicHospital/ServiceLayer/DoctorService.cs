@@ -42,7 +42,7 @@ namespace ServiceLayer
             return doctor;
         }
 
-        public bool UpdateDoctor(ref Doctor doctor,
+        private bool DoctorCheck(ref Doctor doctor,
             ref string message)
         {
             var result = true;
@@ -96,6 +96,45 @@ namespace ServiceLayer
                 message = "Doctor's specialty cannot be empty";
                 result = false;
             }
+            return result;
+        }
+
+        public bool SaveDoctor(ref Doctor doctor,
+            ref string message)
+        {
+            var result = true;
+            if (!DoctorCheck(ref doctor, ref message))
+            {
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var doctorBDO = new DoctorBDO();
+                    TranslateDoctorDTOToDoctorBDO(doctor,
+                        doctorBDO);
+                    result = doctorLogic.InsertDoctor(
+                        ref doctorBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<DoctorFault>
+                        (new DoctorFault(msg), msg);
+                }
+            }
+            return result;
+        }
+
+        public bool UpdateDoctor(ref Doctor doctor,
+            ref string message)
+        {
+            var result = true;
+            if (!DoctorCheck(ref doctor, ref message))
+            {
+                result = false;
+            }
             else
             {
                 try
@@ -130,6 +169,8 @@ namespace ServiceLayer
             doctor.phoneNr = doctorBDO.phoneNr;
             doctor.specialty = doctorBDO.specialty;
             doctor.description = doctorBDO.description;
+            doctor.login = doctorBDO.login;
+            doctor.pass = doctorBDO.pass;
         }
 
         private void TranslateDoctorDTOToDoctorBDO(
@@ -146,6 +187,8 @@ namespace ServiceLayer
             doctorBDO.phoneNr = doctor.phoneNr;
             doctorBDO.specialty = doctor.specialty;
             doctorBDO.description = doctor.description;
+            doctorBDO.login = doctor.login;
+            doctorBDO.pass = doctor.pass;
         }
     }
 }

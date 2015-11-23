@@ -17,6 +17,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
+        bool SaveDoctor(ref Doctor doctor,
+            ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
         bool UpdateDoctor(ref Doctor doctor,
             ref string message);
     }
