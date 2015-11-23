@@ -35,6 +35,25 @@ namespace PersistenceLayer
                 return adminBDO;
         }
 
+        private int GetNextID()
+        {
+            int nextID = -1;
+
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var ids = (from a in PHEntities.Admin select a.id).ToList();
+                nextID = ids.Max();
+            };
+
+            if (nextID == -1)
+            {
+                throw new Exception("Admin id couldn't be generated");
+            } else
+            {
+                return nextID + 1;
+            } 
+        }
+
         public bool InsertAdmin(ref AdminBDO adminBDO,
             ref string massage)
         {
@@ -44,7 +63,7 @@ namespace PersistenceLayer
             {
                 PHEntities.Admin.Add(new Admin
                 {
-                    id = adminBDO.id,
+                    id = GetNextID(),
                     firstName = adminBDO.firstName,
                     lastName = adminBDO.lastName,
                     city = adminBDO.city,

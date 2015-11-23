@@ -36,6 +36,27 @@ namespace PersistenceLayer
             return patientBDO;
         }
 
+        private int GetNextID()
+        {
+            int nextID = -1;
+
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var ids = (from a in PHEntities.Patient select a.id).ToList();
+                nextID = ids.Max();
+            };
+
+            if (nextID == -1)
+            {
+                throw new Exception("Patient id couldn't be generated");
+            }
+            else
+            {
+                return nextID + 1;
+            }
+        }
+
+
         public bool UpdatePatient(ref PatientBDO patientBDO,
             ref string massage)
         {
