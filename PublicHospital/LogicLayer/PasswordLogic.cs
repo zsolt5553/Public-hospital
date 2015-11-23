@@ -22,7 +22,7 @@ namespace LogicLayer
             }
             else
             {
-                message = "Try once agin";
+                message = "Try once again.";
                 return null;
             }
         }
