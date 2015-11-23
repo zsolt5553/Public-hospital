@@ -25,10 +25,10 @@ namespace PersistenceLayer
                             idAndType = new int[] { int.Parse(dbData[3]), 0 };
                             break;
                         case "doctor":
-                            idAndType = new int[] { int.Parse(dbData[3]), 0 };
+                            idAndType = new int[] { int.Parse(dbData[3]), 1 };
                             break;
                         case "patient":
-                            idAndType = new PatientDAO().GetPatient(int.Parse(dbData[3]));
+                            idAndType = new int[] { int.Parse(dbData[3]), 2 };
                             break;
                     }
                     return idAndType;
