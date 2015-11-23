@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c0b848b2-d49b-4d96-af67-0cf14b5052fc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/ServiceLayer/PasswordService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6121e2e4-dfd1-44ab-ae5c-d078531b7dea" SourceId="1" SourceUrl="http://localhost:8733/ServiceLayer/PasswordService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d0fd0731-49b0-42a8-9eae-e717ff5cbae7" SourceId="1" SourceUrl="http://localhost:8733/ServiceLayer/PasswordService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a3a2b014-0b44-42cc-b8a4-eb8273df5421" SourceId="1" SourceUrl="http://localhost:8733/ServiceLayer/PasswordService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="aa42645c-3b0f-42ae-a817-171cab095316" SourceId="1" SourceUrl="http://localhost:8733/ServiceLayer/PasswordService/mex" />
+    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="b7685a36-a7d3-4498-9fe2-39182d2d65c0" SourceId="1" SourceUrl="http://localhost:8733/ServiceLayer/PasswordService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
