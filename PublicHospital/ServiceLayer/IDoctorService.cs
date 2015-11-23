@@ -49,6 +49,7 @@ namespace ServiceLayer
         public int streetNr { get; set; }
         [DataMember]
         public string phoneNr { get; set; }
+        [DataMember]
         public string login { get; set; }
         [DataMember]
         public string pass { get; set; }

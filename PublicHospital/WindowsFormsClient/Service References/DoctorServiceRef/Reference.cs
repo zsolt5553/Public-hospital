@@ -38,6 +38,9 @@ namespace WindowsFormsClient.DoctorServiceRef {
         private string lastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string loginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string passField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -126,6 +129,19 @@ namespace WindowsFormsClient.DoctorServiceRef {
                 if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
                     this.lastNameField = value;
                     this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string login {
+            get {
+                return this.loginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.loginField, value) != true)) {
+                    this.loginField = value;
+                    this.RaisePropertyChanged("login");
                 }
             }
         }

@@ -57,12 +57,12 @@ namespace WindowsFormsClient
             this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
             this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -150,12 +150,12 @@ namespace WindowsFormsClient
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.phoneNrDataGridViewTextBoxColumn,
-            this.specialtyDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
+            this.specialtyDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.doctorBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 41);
@@ -182,12 +182,12 @@ namespace WindowsFormsClient
             // 
             this.doctorTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -195,6 +195,13 @@ namespace WindowsFormsClient
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "firstName";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -216,13 +223,6 @@ namespace WindowsFormsClient
             this.specialtyDataGridViewTextBoxColumn.HeaderText = "specialty";
             this.specialtyDataGridViewTextBoxColumn.Name = "specialtyDataGridViewTextBoxColumn";
             this.specialtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ListOfDoctors
             // 
@@ -263,10 +263,19 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {     
-            string value = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-            int value2 = Int32.Parse(value);
-            DoctorUpdate doctorUpdate = new DoctorUpdate(value2);
-            doctorUpdate.Show();
+            string value = dataGridView1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            int value2 = -1;
+            Int32.TryParse(value,out value2);
+            if (value2 != -1)
+            {
+                new Thread(() => new DoctorUpdate(value2).ShowDialog()).Start();
+            }
+            else
+            {
+                // do something
+            }
+            //DoctorUpdate doctorUpdate = new DoctorUpdate(value2);
+            //doctorUpdate.Show();
             
             System.Console.WriteLine(value);
         }
