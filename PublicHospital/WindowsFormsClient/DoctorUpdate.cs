@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using ServiceLayer;
+
 
 namespace WindowsFormsClient
 {
@@ -21,10 +21,19 @@ namespace WindowsFormsClient
 
         private void setDoctor(int id)
         {
-      //       DoctorService doctorService = new DoctorService();
-
-     //        textBox4.Text = doctorService.GetDoctor(id).city;
-
+            AdminServiceRef.IAdminService doctorService = new AdminServiceRef.AdminServiceClient();
+            firstname.Text = doctorService.GetAdmin(id).city;
+            lastname.Text = doctorService.GetAdmin(id).city;
+            city.Text = doctorService.GetAdmin(id).city;
+            zip.Text = doctorService.GetAdmin(id).city;
+            street.Text = doctorService.GetAdmin(id).city;
+            streetnr.Text = doctorService.GetAdmin(id).city;
+            firstname.Text = doctorService.GetAdmin(id).city;
+            phonenr.Text = doctorService.GetAdmin(id).city;
+            password.Text = doctorService.GetAdmin(id).city;
+            username.Text = doctorService.GetAdmin(id).city;
+            description.Text = doctorService.GetAdmin(id).city;
+            speciality.Text = doctorService.GetAdmin(id).city;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -53,6 +62,21 @@ namespace WindowsFormsClient
         }
 
         private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }
