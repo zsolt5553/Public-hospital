@@ -19,16 +19,19 @@ namespace PersistenceLayer
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
                 {
                     int[] idAndType = null;
+                    int id;
+                    Int32.TryParse(dbData[2], out id);
                     switch (dbData[3])
                     {
                         case "admin":
-                            idAndType = new int[] { int.Parse(dbData[3]), 0 };
+                            
+                            idAndType = new int[] { id, 0 };
                             break;
                         case "doctor":
-                            idAndType = new int[] { int.Parse(dbData[3]), 1 };
+                            idAndType = new int[] { id, 1 };
                             break;
                         case "patient":
-                            idAndType = new int[] { int.Parse(dbData[3]), 2 };
+                            idAndType = new int[] { id, 2 };
                             break;
                     }
                     return idAndType;

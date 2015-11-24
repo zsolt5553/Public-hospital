@@ -44,20 +44,25 @@ namespace WindowsFormsClient
         private void signin()
         {
          
-            string message = null;
+            string message = "";
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
                 
                 var passwordClient = new PasswordServiceClient();
                 int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
-                label1.Text = message;
                 if (idAndType != null)
+                {
                     new Thread(() => new AdminMenu().ShowDialog()).Start();
+                    Dispose();
+                }
+                else
+                {
+                    new Thread(() => new ErrorWindow("Wrong username or password").ShowDialog()).Start();
+                }    
             }
             else
             {
                 new Thread(() => new ErrorWindow("Incorrect length").ShowDialog()).Start();
-                label1.Text = "Incorrect length";
             }
         }
     }
