@@ -17,7 +17,6 @@ namespace WindowsFormsClient
             InitializeComponent();
             hourColum();
             doctorColumns();
-            CalculateWeekNumber();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -105,31 +104,7 @@ namespace WindowsFormsClient
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            CalculateWeekNumber();
-        }
-
-        private void CalculateWeekNumber()
-        {
-            int dayOfTheYear = dateTimePicker1.Value.DayOfYear;
-
-            label1.Text ="Week " +((dayOfTheYear + 6) / 7).ToString("0");
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-          dateTimePicker1.Value=  dateTimePicker1.Value.AddDays(7);
-       
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           dateTimePicker1.Value=  dateTimePicker1.Value.AddDays(-7);
+            //label1.Text = (1 + (dateTimePicker1.Value. / 7)).ToString("0");
         }
 
      

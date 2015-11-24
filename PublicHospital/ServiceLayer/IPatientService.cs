@@ -4,34 +4,24 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ServiceLayer
 {
     [ServiceContract]
-    public interface IDoctorService
+    public interface IPatientService
     {
         [OperationContract]
-        [FaultContract(typeof(DoctorFault))]
-        Doctor GetDoctor(int id);
+        [FaultContract(typeof(PatientFault))]
+        Patient GetPatient(int id);
 
         [OperationContract]
-        [FaultContract(typeof(DoctorFault))]
-        List<Doctor> GetAllDoctors();
-
-        [OperationContract]
-        [FaultContract(typeof(DoctorFault))]
-        bool SaveDoctor(ref Doctor doctor,
-            ref string message);
-
-        [OperationContract]
-        [FaultContract(typeof(DoctorFault))]
-        bool UpdateDoctor(ref Doctor doctor,
+        [FaultContract(typeof(PatientFault))]
+        bool UpdatePatient(ref Patient Patient,
             ref string message);
     }
 
     [DataContract]
-    public class Doctor
+    public class Patient
     {
         [DataMember]
         public int id { get; set; }
@@ -50,18 +40,16 @@ namespace ServiceLayer
         [DataMember]
         public string phoneNr { get; set; }
         [DataMember]
+        public DateTime dateOfBirth { get; set; }
+        [DataMember]
         public string login { get; set; }
         [DataMember]
         public string pass { get; set; }
-        [DataMember]
-        public string specialty { get; set; }
-        [DataMember]
-        public string description { get; set; }
     }
     [DataContract]
-    public class DoctorFault
+    public class PatientFault
     {
-        public DoctorFault(string msg)
+        public PatientFault(string msg)
         {
             FaultMessage = msg;
         }
@@ -70,3 +58,4 @@ namespace ServiceLayer
         public string FaultMessage;
     }
 }
+

@@ -21,19 +21,20 @@ namespace WindowsFormsClient
 
         private void setDoctor(int id)
         {
-            AdminServiceRef.IAdminService doctorService = new AdminServiceRef.AdminServiceClient();
-            firstname.Text = doctorService.GetAdmin(id).city;
-            lastname.Text = doctorService.GetAdmin(id).city;
-            city.Text = doctorService.GetAdmin(id).city;
-            zip.Text = doctorService.GetAdmin(id).city;
-            street.Text = doctorService.GetAdmin(id).city;
-            streetnr.Text = doctorService.GetAdmin(id).city;
-            firstname.Text = doctorService.GetAdmin(id).city;
-            phonenr.Text = doctorService.GetAdmin(id).city;
-            password.Text = doctorService.GetAdmin(id).city;
-            username.Text = doctorService.GetAdmin(id).city;
-            description.Text = doctorService.GetAdmin(id).city;
-            speciality.Text = doctorService.GetAdmin(id).city;
+            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+
+            firstname.Text = doc.firstName;
+            lastname.Text = doc.lastName;
+            city.Text = doc.city;
+            zip.Text = doc.zip.ToString();
+            street.Text = doc.street;
+            streetnr.Text = doc.streetNr.ToString();
+            phonenr.Text = doc.phoneNr;
+            password.Text = doc.pass;
+            username.Text = doc.login;
+            description.Text = doc.description;
+            speciality.Text = doc.specialty;
         }
 
         private void label2_Click(object sender, EventArgs e)

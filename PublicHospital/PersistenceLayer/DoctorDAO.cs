@@ -15,8 +15,8 @@ namespace PersistenceLayer
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var doctorObj = (from a in PHEntities.Doctor
-                                where a.id == id
-                                select a).FirstOrDefault();
+                                 where a.id == id
+                                 select a).FirstOrDefault();
                 if (doctorObj != null)
                     doctorBDO = new DoctorBDO()
                     {
@@ -35,6 +35,45 @@ namespace PersistenceLayer
                     };
             }
             return doctorBDO;
+        }
+
+        public List<DoctorBDO> GetAllDoctors()
+        {
+            List<DoctorBDO> doctors = null;
+            DoctorBDO doctorBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from d in PHEntities.Doctor
+                                select d).ToList();
+                if (listInDb != null)
+                {
+                    doctors = new List<DoctorBDO>();
+                    doctorBDO = new DoctorBDO();
+                    foreach (Doctor doctorObj in listInDb)
+                    {
+                        if (!doctorObj.isDeleted)
+                        {
+                            doctorBDO = new DoctorBDO()
+                            {
+                                id = doctorObj.id,
+                                firstName = doctorObj.firstName,
+                                lastName = doctorObj.lastName,
+                                city = doctorObj.city,
+                                street = doctorObj.street,
+                                streetNr = doctorObj.streetNr,
+                                phoneNr = doctorObj.phoneNr,
+                                zip = doctorObj.zip,
+                                login = doctorObj.login,
+                                pass = doctorObj.pass,
+                                description = doctorObj.description,
+                                specialty = doctorObj.specialty
+                            };
+                            doctors.Add(doctorBDO);
+                        }
+                    }
+                }
+            }
+            return doctors;
         }
 
         private int GetNextID()
@@ -57,6 +96,39 @@ namespace PersistenceLayer
             }
         }
 
+        public bool InsertDoctor(ref DoctorBDO doctorBDO,
+            ref string massage)
+        {
+            massage = "Doctor inserted successfully";
+            var ret = true;
+            Password passObj = new Password();
+            string[] passAndSalt = passObj.getFullyHash(doctorBDO.pass);
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                PHEntities.Doctor.Add(new Doctor
+                {
+                    id = GetNextID(),
+                    firstName = doctorBDO.firstName,
+                    lastName = doctorBDO.lastName,
+                    city = doctorBDO.city,
+                    street = doctorBDO.street,
+                    streetNr = doctorBDO.streetNr,
+                    phoneNr = doctorBDO.phoneNr,
+                    zip = doctorBDO.zip,
+                    login = doctorBDO.login,
+
+                    pass = passAndSalt[0],
+                    salt = passAndSalt[1]
+                });
+                var num = PHEntities.SaveChanges();
+                if (num != 1)
+                {
+                    ret = false;
+                    massage = "Doctor was not inserted";
+                }
+            }
+            return ret;
+        }
 
         public bool UpdateDoctor(ref DoctorBDO doctorBDO,
             ref string massage)
