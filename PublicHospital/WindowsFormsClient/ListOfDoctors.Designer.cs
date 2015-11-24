@@ -20,7 +20,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn specialtyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dataTableBindingSource;
-        private System.Windows.Forms.BindingSource doctorBindingSource1;
+   //     private System.Windows.Forms.BindingSource doctorBindingSource1;
         private System.Windows.Forms.BindingSource doctorBindingSource2;
     }
 }

@@ -277,7 +277,7 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {     
-            string value = dataGridView1.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            string value = dataGridView1.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
             int value2 = -1;
             Int32.TryParse(value,out value2);
             if (value2 != -1)
