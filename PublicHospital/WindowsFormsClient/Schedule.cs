@@ -104,7 +104,7 @@ namespace WindowsFormsClient
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            //label1.Text = (1 + (dateTimePicker1.Value. / 7)).ToString("0");
+            label1.Text = (1 + (dateTimePicker1.Value. / 7)).ToString("0");
         }
 
      
