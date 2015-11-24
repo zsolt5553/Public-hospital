@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace WindowsFormsClient
 
         private void CalculateWeekNumber()
         {
-            label1.Text = "Week" +(1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
+            label1.Text = "Week" + (1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
         }
 
 
@@ -57,9 +58,9 @@ namespace WindowsFormsClient
             }
         }
 
-        private void CreateColumns( )
+        private void CreateColumns()
         {
-           
+
             dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-CheckIfNotMonday());
             for (int i = 0; i < 7; i++)
             {
@@ -71,48 +72,80 @@ namespace WindowsFormsClient
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
 
             }
-            CreateCells();
+            CreateCells(1);
         }
-            private void CreateCells()
+        private void CreateCells(int id)
+        {
+           DoctorServiceRef.Doctor doc = GetDoctor(id);
+            
+            for (int i = 0; i < 7; i++)
             {
-                GetDoctor(1);
-                for (int i = 0; i < 7; i++)
+                for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                 {
-                    for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
+
+                    if ( doc.firstName.Equals("Adam"))
                     {
 
-                        if (true)
-                        {
-
-                            dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
-                        }
-                        else
-                        {
-                            //       dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
-                        }
+                        dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                               dataGridView1.Rows[i2].Cells[i+1].Style.BackColor = Color.Red;
                     }
                 }
             }
-    
-        
-        private DoctorServiceRef.Doctor GetDoctor(int id)
-        {
-            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
-            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
-            label2.Text = doc.firstName;
-            return doc;
-
         }
+
         private void UpdateColumns()
         {
-
-
-           for (int i = 1; i < 8; i++)
+            for (int i = 1; i < 8; i++)
             {
                 dataGridView1.Columns[i].HeaderText = dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString();
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
+            DateTime myDate = DateTime.Parse(colum + row);
+           
+            Console.WriteLine(myDate.ToString());
+
+            new Thread(() => new Appointment(myDate,1).ShowDialog()).Start();
+        }
+
+        private void WeekForward(object sender, EventArgs e)
+        {
+
+            UpdateColumns();
+            CalculateWeekNumber();
+        }
+
+        private void WeekPrevious(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-14);
+            UpdateColumns();
+            CalculateWeekNumber();
+        }
+
+        private void SearchDoctor(object sender, EventArgs e)
+        {
+            string value = textBox1.Text;
+            int value2 = -1;
+            Int32.TryParse(value, out value2);
+            if (value2 != -1)
+            {
+                CreateCells(value2);
+            
+            }
+            else
+            {
+                // do something
+            }
+        }
+
 
         private int CheckIfNotMonday()
         {
@@ -135,8 +168,13 @@ namespace WindowsFormsClient
             return daynumber;
         }
 
-
-
+        private DoctorServiceRef.Doctor GetDoctor(int id)
+        {
+            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+            label2.Text = doc.firstName;
+            return doc;
+        }
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -153,50 +191,6 @@ namespace WindowsFormsClient
                 dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.White;
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
-            Console.WriteLine(row);
-            Console.WriteLine(colum);
-
-
-
-        }
-
-        private void WeekForward(object sender, EventArgs e)
-        {
-
-            UpdateColumns();
-            CalculateWeekNumber();
-        }
-
-        private void WeekPrevious(object sender, EventArgs e)
-        {
-            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-14);
-            UpdateColumns();
-            CalculateWeekNumber();
-        }
-
-        private void SearchDoctor(object sender, EventArgs e)
-        {
-          
-           
-
-             string value = textBox1.Text;
-            int value2 = -1;
-            Int32.TryParse(value,out value2);
-            if (value2 != -1)
-            {
-                GetDoctor(value2);
-            }
-            else
-            {
-                // do something
-            }
-        }
-
 
     }
 }

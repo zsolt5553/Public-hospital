@@ -32,12 +32,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -107,10 +107,10 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel2.Controls.Add(this.button2, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
@@ -125,19 +125,9 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 25);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(590, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(14, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.Value = new System.DateTime(2015, 11, 24, 0, 0, 0, 0);
-            this.dateTimePicker1.Visible = false;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(389, 3);
+            this.button2.Location = new System.Drawing.Point(401, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 19);
             this.button2.TabIndex = 4;
@@ -182,6 +172,16 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(62, 20);
             this.textBox1.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(590, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(14, 20);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.Value = new System.DateTime(2015, 11, 24, 0, 0, 0, 0);
+            this.dateTimePicker1.Visible = false;
             // 
             // label2
             // 

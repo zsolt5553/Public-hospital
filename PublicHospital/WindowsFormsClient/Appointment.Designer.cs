@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+           
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.zipTxt = new System.Windows.Forms.TextBox();
-            this.cityTxt = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.appointmentDate = new System.Windows.Forms.TextBox();
+            this.doctor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,8 +43,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.save = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,8 +65,8 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.zipTxt);
-            this.panel3.Controls.Add(this.cityTxt);
+            this.panel3.Controls.Add(this.appointmentDate);
+            this.panel3.Controls.Add(this.doctor);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(6, 117);
@@ -73,19 +74,37 @@
             this.panel3.Size = new System.Drawing.Size(380, 130);
             this.panel3.TabIndex = 6;
             // 
-            // zipTxt
+            // textBox1
             // 
-            this.zipTxt.Location = new System.Drawing.Point(87, 53);
-            this.zipTxt.Name = "zipTxt";
-            this.zipTxt.Size = new System.Drawing.Size(174, 20);
-            this.zipTxt.TabIndex = 8;
+            this.textBox1.Location = new System.Drawing.Point(87, 91);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
+            this.textBox1.TabIndex = 10;
             // 
-            // cityTxt
+            // label1
             // 
-            this.cityTxt.Location = new System.Drawing.Point(87, 15);
-            this.cityTxt.Name = "cityTxt";
-            this.cityTxt.Size = new System.Drawing.Size(174, 20);
-            this.cityTxt.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(4, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 19);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Service";
+            // 
+            // appointmentDate
+            // 
+            this.appointmentDate.Location = new System.Drawing.Point(87, 53);
+            this.appointmentDate.Name = "appointmentDate";
+            this.appointmentDate.Size = new System.Drawing.Size(174, 20);
+            this.appointmentDate.TabIndex = 8;
+            // 
+            // doctor
+            // 
+            this.doctor.Location = new System.Drawing.Point(87, 15);
+            this.doctor.Name = "doctor";
+            this.doctor.Size = new System.Drawing.Size(174, 20);
+            this.doctor.TabIndex = 5;
             // 
             // label4
             // 
@@ -169,24 +188,6 @@
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(4, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 19);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Service";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(87, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 10;
-            // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,8 +212,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox zipTxt;
-        private System.Windows.Forms.TextBox cityTxt;
+        private System.Windows.Forms.TextBox appointmentDate;
+        private System.Windows.Forms.TextBox doctor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
