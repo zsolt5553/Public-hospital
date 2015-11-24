@@ -154,6 +154,9 @@ namespace PersistenceLayer
                     streetNr = doctorBDO.streetNr,
                     phoneNr = doctorBDO.phoneNr,
                     zip = doctorBDO.zip,
+                    specialty = doctorBDO.specialty,
+                    description = doctorBDO.description,
+                    isDeleted = doctorBDO.isDeleted,
                     login = doctorBDO.login,
 
                     pass = passAndSalt[0],
