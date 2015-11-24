@@ -297,6 +297,13 @@ namespace WindowsFormsClient.DoctorServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorTableDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        System.Data.DataTable GetDoctorTable();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetDoctorTableAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/SaveDoctor", ReplyAction="http://tempuri.org/IDoctorService/SaveDoctorResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/SaveDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.DoctorServiceRef.SaveDoctorResponse SaveDoctor(WindowsFormsClient.DoctorServiceRef.SaveDoctorRequest request);
@@ -443,6 +450,14 @@ namespace WindowsFormsClient.DoctorServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync() {
             return base.Channel.GetAllDoctorsAsync();
+        }
+        
+        public System.Data.DataTable GetDoctorTable() {
+            return base.Channel.GetDoctorTable();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetDoctorTableAsync() {
+            return base.Channel.GetDoctorTableAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

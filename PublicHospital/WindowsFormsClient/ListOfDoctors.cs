@@ -57,18 +57,22 @@ namespace WindowsFormsClient
             this.doctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
             this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,12 +154,12 @@ namespace WindowsFormsClient
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.descriptionDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.phoneNrDataGridViewTextBoxColumn,
-            this.specialtyDataGridViewTextBoxColumn});
+            this.specialtyDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.doctorBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 41);
@@ -182,19 +186,9 @@ namespace WindowsFormsClient
             // 
             this.doctorTableAdapter.ClearBeforeFill = true;
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // dataTableBindingSource
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "firstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "firstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataTableBindingSource.DataSource = typeof(System.Data.DataTable);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -202,6 +196,13 @@ namespace WindowsFormsClient
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "firstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "firstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -224,6 +225,17 @@ namespace WindowsFormsClient
             this.specialtyDataGridViewTextBoxColumn.Name = "specialtyDataGridViewTextBoxColumn";
             this.specialtyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // doctorBindingSource1
+            // 
+            this.doctorBindingSource1.DataSource = typeof(WindowsFormsClient.DoctorServiceRef.Doctor);
+            // 
             // ListOfDoctors
             // 
             this.ClientSize = new System.Drawing.Size(735, 437);
@@ -238,6 +250,8 @@ namespace WindowsFormsClient
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

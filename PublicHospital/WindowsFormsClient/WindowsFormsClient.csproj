@@ -177,6 +177,7 @@
     <None Include="dmaj0914_3Sem_4_1DataSet.xss">
       <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -213,6 +214,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DoctorServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\System.Data.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.Doctor.datasource">
