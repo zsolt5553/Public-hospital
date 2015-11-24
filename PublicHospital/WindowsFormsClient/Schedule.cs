@@ -14,8 +14,12 @@ namespace WindowsFormsClient
     public partial class Schedule : Form
     {
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
-        
+        AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
+        AppointmentServiceRef.Appointment app;
+
+    
+        
         private int doctorId=1;
         public Schedule()
         {
