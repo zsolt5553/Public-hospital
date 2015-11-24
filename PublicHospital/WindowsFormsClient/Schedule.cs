@@ -12,20 +12,25 @@ namespace WindowsFormsClient
 {
     public partial class Schedule : Form
     {
+        DateTime thisDay = DateTime.Today;
         public Schedule()
         {
             InitializeComponent();
-            hourColum();
-            doctorColumns();
+            CreateRows();
+            CreateColumns();
+            CalculateWeekNumber();
+
+
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+
+        private void CalculateWeekNumber()
         {
-                 label1.Text = (1 + (dateTimePicker1.Value.Day / 7)).ToString("0");
+            label1.Text = "Week" +(1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
         }
 
 
-        private void hourColum()
+        private void CreateRows()
         {
             int startH = 7;
             int startM = 0;
@@ -52,29 +57,86 @@ namespace WindowsFormsClient
             }
         }
 
-        private void doctorColumns()
+        private void CreateColumns( )
         {
-            string[] weeks = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
-            for (int i = 0; i < weeks.Length; i++)
+           
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-CheckIfNotMonday());
+            for (int i = 0; i < 7; i++)
             {
-                dataGridView1.Columns.Add("d" + i, weeks[i]);
+
+                dataGridView1.Columns.Add("d" + i, dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString());
                 dataGridView1.Columns[i + 1].HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 dataGridView1.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.BottomCenter;
-                for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+
+            }
+            CreateCells();
+        }
+            private void CreateCells()
+            {
+                GetDoctor(1);
+                for (int i = 0; i < 7; i++)
                 {
-                    if (true)
+                    for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                     {
-                        dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
-                    }
-                    else
-                    {
-               //       dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
+
+                        if (true)
+                        {
+
+                            dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            //       dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
+                        }
                     }
                 }
             }
+    
+        
+        private DoctorServiceRef.Doctor GetDoctor(int id)
+        {
+            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+            label2.Text = doc.firstName;
+            return doc;
+
         }
+        private void UpdateColumns()
+        {
+
+
+           for (int i = 1; i < 8; i++)
+            {
+                dataGridView1.Columns[i].HeaderText = dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString();
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+            }
+        }
+
+        private int CheckIfNotMonday()
+        {
+            int daynumber = 0;
+            Boolean found = false;
+            string[] days = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            int i = 0;
+            while (!found && i < days.Length)
+            {
+                if (days[i].Equals(dateTimePicker1.Value.DayOfWeek.ToString()))
+                {
+                    daynumber = i;
+                    found = true;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return daynumber;
+        }
+
+
+
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -94,21 +156,47 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         //   new Appointment().Show();
+            string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
+            Console.WriteLine(row);
+            Console.WriteLine(colum);
+
+
+
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void WeekForward(object sender, EventArgs e)
         {
 
+            UpdateColumns();
+            CalculateWeekNumber();
         }
 
-        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        private void WeekPrevious(object sender, EventArgs e)
         {
-            label1.Text = (1 + (dateTimePicker1.Value. / 7)).ToString("0");
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-14);
+            UpdateColumns();
+            CalculateWeekNumber();
         }
 
-     
+        private void SearchDoctor(object sender, EventArgs e)
+        {
+          
+           
 
-       
+             string value = textBox1.Text;
+            int value2 = -1;
+            Int32.TryParse(value,out value2);
+            if (value2 != -1)
+            {
+                GetDoctor(value2);
+            }
+            else
+            {
+                // do something
+            }
+        }
+
+
     }
 }
