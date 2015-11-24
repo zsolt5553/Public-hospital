@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using DataLayer;
 using LogicLayer;
+using System.Data;
 
 namespace ServiceLayer
 {
@@ -40,6 +41,32 @@ namespace ServiceLayer
             TranslateDoctorBDOToDoctorDTO(doctorBDO,
                 doctor);
             return doctor;
+        }
+
+        public DataSet GetDoctorTable()
+        {
+            DataTable doctorTable;
+            try
+            {
+                doctorTable = doctorLogic.GetDoctorTable();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetDoctorTable exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (doctorTable == null)
+            {
+                var msg = "GetDoctorTable is empty";
+                var reason = "GetDoctorTable empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(doctorTable);
+            return dataSet;
         }
 
         public List<Doctor> GetAllDoctors()
