@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminLogic.cs" />
+    <Compile Include="AppointmentLogic.cs" />
     <Compile Include="DoctorLogic.cs" />
     <Compile Include="PasswordLogic.cs" />
     <Compile Include="PatientLogic.cs" />

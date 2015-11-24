@@ -54,8 +54,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentService.cs" />
     <Compile Include="DoctorService.cs" />
     <Compile Include="IAdminService.cs" />
+    <Compile Include="IAppointmentService.cs" />
     <Compile Include="IDoctorService.cs" />
     <Compile Include="IPasswordService.cs" />
     <Compile Include="IPatientService.cs" />

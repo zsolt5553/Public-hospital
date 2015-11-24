@@ -26,7 +26,9 @@ namespace PersistenceLayer
         }
     
         public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Appointment> Appointment { get; set; }
         public virtual DbSet<Doctor> Doctor { get; set; }
         public virtual DbSet<Patient> Patient { get; set; }
+        public virtual DbSet<Visit> Visit { get; set; }
     }
 }
