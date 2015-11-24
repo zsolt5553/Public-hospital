@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServiceLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiceLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DataLayer" />
+  <xs:complexType name="Appointment">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataLayer" minOccurs="0" name="doctor" nillable="true" type="q1:DoctorBDO" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataLayer" minOccurs="0" name="patient" nillable="true" type="q2:PatientBDO" />
+      <xs:element minOccurs="0" name="serviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Appointment" nillable="true" type="tns:Appointment" />
+  <xs:complexType name="AppointmentFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppointmentFault" nillable="true" type="tns:AppointmentFault" />
+</xs:schema>
