@@ -13,7 +13,9 @@ namespace WindowsFormsClient
 {
     public partial class Schedule : Form
     {
-        DateTime thisDay = DateTime.Today;
+        DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+        DoctorServiceRef.Doctor doc;
+        private int doctorId;
         public Schedule()
         {
             InitializeComponent();
@@ -72,11 +74,11 @@ namespace WindowsFormsClient
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
 
             }
-            CreateCells(1);
+            CreateCells(doctorId);
         }
         private void CreateCells(int id)
         {
-           DoctorServiceRef.Doctor doc = GetDoctor(id);
+           doc = GetDoctor(id);
             
             for (int i = 0; i < 7; i++)
             {
@@ -137,6 +139,7 @@ namespace WindowsFormsClient
             Int32.TryParse(value, out value2);
             if (value2 != -1)
             {
+                doctorId = value2;
                 CreateCells(value2);
             
             }
@@ -170,7 +173,7 @@ namespace WindowsFormsClient
 
         private DoctorServiceRef.Doctor GetDoctor(int id)
         {
-            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+           
             DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
             label2.Text = doc.firstName;
             return doc;
