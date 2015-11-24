@@ -17,6 +17,7 @@ namespace WindowsFormsClient
         public Login()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,18 +43,19 @@ namespace WindowsFormsClient
 
         private void signin()
         {
+            string message = null;
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-                string message = null;
+                
                 var passwordClient = new PasswordServiceClient();
                 int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
                 label1.Text = message;
                 if (idAndType != null)
                     new Thread(() => new AdminMenu().ShowDialog()).Start();
-              
             }
             else
             {
+                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
                 label1.Text = "Incorrect length";
             }
         }

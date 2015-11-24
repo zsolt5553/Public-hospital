@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -75,8 +76,14 @@ namespace WindowsFormsClient
             doctor.pass = passwordTxt.Text;
 
             var client = new DoctorServiceRef.DoctorServiceClient();
-            client.SaveDoctor(ref doctor, ref message);
-            Console.WriteLine(message);
+            if (client.SaveDoctor(ref doctor, ref message))
+            {
+                Dispose();
+            }
+            else
+            {
+                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+            }
         }
     }
 }
