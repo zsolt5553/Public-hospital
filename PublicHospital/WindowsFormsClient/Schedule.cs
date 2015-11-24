@@ -15,7 +15,7 @@ namespace WindowsFormsClient
     {
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         DoctorServiceRef.Doctor doc;
-        private int doctorId;
+        private int doctorId=1;
         public Schedule()
         {
             InitializeComponent();
@@ -109,15 +109,21 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
-            DateTime myDate = DateTime.Parse(colum + row);
-           
-            Console.WriteLine(myDate.ToString());
-
-            new Thread(() => new Appointment(myDate,1).ShowDialog()).Start();
+            String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
+            if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Green]")))
+            {
+                new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
+              
+            }
+            else
+            {
+                string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
+                DateTime myDate = DateTime.Parse(colum + row);
+                Console.WriteLine(a);
+                new Thread(() => new Appointment(myDate, doctorId).ShowDialog()).Start();
+            }
         }
-
         private void WeekForward(object sender, EventArgs e)
         {
 
@@ -181,10 +187,10 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
-            }
+            //if (e.RowIndex >= 0)
+            //{
+            //    dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
+            //}
         }
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
