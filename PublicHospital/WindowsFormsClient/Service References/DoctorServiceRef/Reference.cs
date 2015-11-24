@@ -299,10 +299,10 @@ namespace WindowsFormsClient.DoctorServiceRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorTableDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        System.Data.DataTable GetDoctorTable();
+        System.Data.DataSet GetDoctorTable();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> GetDoctorTableAsync();
+        System.Threading.Tasks.Task<System.Data.DataSet> GetDoctorTableAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/SaveDoctor", ReplyAction="http://tempuri.org/IDoctorService/SaveDoctorResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/SaveDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
@@ -452,11 +452,11 @@ namespace WindowsFormsClient.DoctorServiceRef {
             return base.Channel.GetAllDoctorsAsync();
         }
         
-        public System.Data.DataTable GetDoctorTable() {
+        public System.Data.DataSet GetDoctorTable() {
             return base.Channel.GetDoctorTable();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> GetDoctorTableAsync() {
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetDoctorTableAsync() {
             return base.Channel.GetDoctorTableAsync();
         }
         

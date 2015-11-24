@@ -19,7 +19,9 @@ namespace LogicLayer
 
         public DataTable GetDoctorTable()
         {
+
             return doctorDAO.GetDoctorTable();
+            
         }
 
         public List<DoctorBDO> GetAllDoctors()

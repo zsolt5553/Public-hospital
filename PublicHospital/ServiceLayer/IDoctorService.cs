@@ -22,7 +22,7 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
-        DataTable GetDoctorTable();
+        DataSet GetDoctorTable();
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]

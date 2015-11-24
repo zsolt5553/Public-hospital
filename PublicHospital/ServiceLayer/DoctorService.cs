@@ -43,7 +43,7 @@ namespace ServiceLayer
             return doctor;
         }
 
-        public DataTable GetDoctorTable()
+        public DataSet GetDoctorTable()
         {
             DataTable doctorTable;
             try
@@ -64,7 +64,9 @@ namespace ServiceLayer
                 throw new FaultException<DoctorFault>
                     (new DoctorFault(msg), reason);
             }
-            return doctorTable;
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(doctorTable);
+            return dataSet;
         }
 
         public List<Doctor> GetAllDoctors()

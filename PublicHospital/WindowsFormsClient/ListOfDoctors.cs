@@ -64,7 +64,7 @@ namespace WindowsFormsClient
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.doctorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -72,7 +72,7 @@ namespace WindowsFormsClient
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -232,9 +232,9 @@ namespace WindowsFormsClient
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // doctorBindingSource1
+            // doctorBindingSource2
             // 
-            this.doctorBindingSource1.DataSource = typeof(WindowsFormsClient.DoctorServiceRef.Doctor);
+            this.doctorBindingSource2.DataSource = typeof(WindowsFormsClient.DoctorServiceRef.Doctor);
             // 
             // ListOfDoctors
             // 
@@ -251,7 +251,7 @@ namespace WindowsFormsClient
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
