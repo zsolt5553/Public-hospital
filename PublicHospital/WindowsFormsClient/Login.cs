@@ -43,6 +43,7 @@ namespace WindowsFormsClient
 
         private void signin()
         {
+         
             string message = null;
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
@@ -55,7 +56,7 @@ namespace WindowsFormsClient
             }
             else
             {
-                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+                new Thread(() => new ErrorWindow("Incorrect length").ShowDialog()).Start();
                 label1.Text = "Incorrect length";
             }
         }
