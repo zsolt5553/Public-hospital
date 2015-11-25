@@ -153,6 +153,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\getDoctorTable\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PasswordService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -283,6 +288,28 @@
     <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.UpdateDoctorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\getDoctorTable\service.wsdl" />
+    <None Include="Service References\getDoctorTable\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getDoctorTable\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getDoctorTable\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getDoctorTable\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\getDoctorTable\WindowsFormsClient.getDoctorTable.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\getDoctorTable\WindowsFormsClient.getDoctorTable.SaveDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\getDoctorTable\WindowsFormsClient.getDoctorTable.UpdateDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PasswordService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -310,6 +337,7 @@
     <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
     <WCFMetadataStorage Include="Service References\AppointmentServiceRef\" />
     <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
+    <WCFMetadataStorage Include="Service References\getDoctorTable\" />
     <WCFMetadataStorage Include="Service References\PasswordService\" />
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +401,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\getDoctorTable\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\getDoctorTable\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\getDoctorTable\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -33,6 +33,36 @@ namespace PersistenceLayer
             return appointmentBDO;
         }
 
+        public List<AppointmentBDO> GetAllAppointments()
+        {
+            List<AppointmentBDO> appointments = null;
+            AppointmentBDO appointmentBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from d in PHEntities.Appointment
+                                select d).ToList();
+                if (listInDb != null)
+                {
+                    appointments = new List<AppointmentBDO>();
+                    appointmentBDO = new AppointmentBDO();
+                    foreach (Appointment appointmentObj in listInDb)
+                    {
+                        if (appointmentObj != null)
+                        {
+                            appointmentBDO = new AppointmentBDO()
+                            {
+                                id = appointmentObj.id,
+                              
+                              
+                            };
+                            appointments.Add(appointmentBDO);
+                        }
+                    }
+                }
+            }
+            return appointments;
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
             ref string massage)
         {

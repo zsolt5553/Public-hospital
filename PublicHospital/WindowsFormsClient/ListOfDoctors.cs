@@ -58,13 +58,21 @@ namespace WindowsFormsClient
             this.dmaj0914_3Sem_4_1DataSet = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSet();
             this.doctorTableAdapter = new WindowsFormsClient.dmaj0914_3Sem_4_1DataSetTableAdapters.DoctorTableAdapter();
             this.dataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.doctorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,6 +81,8 @@ namespace WindowsFormsClient
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,13 +164,19 @@ namespace WindowsFormsClient
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
+            this.loginDataGridViewTextBoxColumn,
+            this.passDataGridViewTextBoxColumn,
             this.phoneNrDataGridViewTextBoxColumn,
             this.specialtyDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.doctorBindingSource;
+            this.streetDataGridViewTextBoxColumn,
+            this.streetNrDataGridViewTextBoxColumn,
+            this.zipDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.doctorBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 41);
             this.dataGridView1.Name = "dataGridView1";
@@ -190,12 +206,31 @@ namespace WindowsFormsClient
             // 
             this.dataTableBindingSource.DataSource = typeof(System.Data.DataTable);
             // 
-            // idDataGridViewTextBoxColumn
+            // doctorBindingSource2
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.doctorBindingSource2.DataSource = typeof(WindowsFormsClient.DoctorServiceRef.Doctor);
+            // 
+            // dataTableBindingSource1
+            // 
+            this.dataTableBindingSource1.DataSource = typeof(System.Data.DataTable);
+            // 
+            // doctorBindingSource1
+            // 
+            this.doctorBindingSource1.DataSource = typeof(WindowsFormsClient.getDoctorTable.Doctor);
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "city";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "city";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -204,12 +239,33 @@ namespace WindowsFormsClient
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // lastNameDataGridViewTextBoxColumn
             // 
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "lastName";
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "lastName";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "login";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passDataGridViewTextBoxColumn
+            // 
+            this.passDataGridViewTextBoxColumn.DataPropertyName = "pass";
+            this.passDataGridViewTextBoxColumn.HeaderText = "pass";
+            this.passDataGridViewTextBoxColumn.Name = "passDataGridViewTextBoxColumn";
+            this.passDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phoneNrDataGridViewTextBoxColumn
             // 
@@ -225,16 +281,26 @@ namespace WindowsFormsClient
             this.specialtyDataGridViewTextBoxColumn.Name = "specialtyDataGridViewTextBoxColumn";
             this.specialtyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // streetDataGridViewTextBoxColumn
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.streetDataGridViewTextBoxColumn.DataPropertyName = "street";
+            this.streetDataGridViewTextBoxColumn.HeaderText = "street";
+            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
+            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // doctorBindingSource2
+            // streetNrDataGridViewTextBoxColumn
             // 
-            this.doctorBindingSource2.DataSource = typeof(WindowsFormsClient.DoctorServiceRef.Doctor);
+            this.streetNrDataGridViewTextBoxColumn.DataPropertyName = "streetNr";
+            this.streetNrDataGridViewTextBoxColumn.HeaderText = "streetNr";
+            this.streetNrDataGridViewTextBoxColumn.Name = "streetNrDataGridViewTextBoxColumn";
+            this.streetNrDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zipDataGridViewTextBoxColumn
+            // 
+            this.zipDataGridViewTextBoxColumn.DataPropertyName = "zip";
+            this.zipDataGridViewTextBoxColumn.HeaderText = "zip";
+            this.zipDataGridViewTextBoxColumn.Name = "zipDataGridViewTextBoxColumn";
+            this.zipDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ListOfDoctors
             // 
@@ -252,6 +318,8 @@ namespace WindowsFormsClient
             ((System.ComponentModel.ISupportInitialize)(this.dmaj0914_3Sem_4_1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

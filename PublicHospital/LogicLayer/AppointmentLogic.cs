@@ -16,6 +16,11 @@ namespace LogicLayer
             return appointmentDAO.GetAppointment(id);
         }
 
+        public List<AppointmentBDO> GetAllAppointments()
+        {
+            return appointmentDAO.GetAllAppointments();
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
             ref string massage)
         {
