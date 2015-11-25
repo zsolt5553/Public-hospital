@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 using PersistenceLayer;
+using System.Data;
 
 namespace LogicLayer
 {
@@ -31,6 +32,11 @@ namespace LogicLayer
                 return patientDAO.UpdatePatient(ref patientBDO,
                     ref message);
             }
+        }
+
+        public DataTable GetAllpatients()
+        {
+            return patientDAO.GetAllpatients();
         }
     }
 }

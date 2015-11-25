@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using System.Data;
 
 namespace PersistenceLayer
 {
@@ -93,6 +94,44 @@ namespace PersistenceLayer
                 }
             }
             return ret;
+        }
+
+        public DataTable GetAllpatients()
+        {
+            DataTable patients = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var table = from p in PHEntities.Patient select p;
+                if (table != null)
+                {
+                    patients = CopyGenericToDataTable<Patient>(table);
+                }
+            }
+            return patients;
+        }
+
+        private DataTable CopyGenericToDataTable<T>(IQueryable<T> items)
+        {
+            var properties = typeof(T).GetProperties();
+            var result = new DataTable();
+
+            foreach (var property in properties)
+            {
+                result.Columns.Add(property.Name, property.PropertyType);
+            }
+
+            foreach (var item in items)
+            {
+                var row = result.NewRow();
+
+                foreach (var property in properties)
+                {
+                    var itemValue = property.GetValue(item, new Object[] { });
+                    row[property.Name] = itemValue;
+                }
+                result.Rows.Add(row);
+            }
+            return result;
         }
     }
 }

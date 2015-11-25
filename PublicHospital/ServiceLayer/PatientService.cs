@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using DataLayer;
 using LogicLayer;
+using System.Data;
 
 namespace ServiceLayer
 {
@@ -163,6 +164,32 @@ namespace ServiceLayer
             patientBDO.dateOfBirth = patient.dateOfBirth;
             patientBDO.login = patient.login;
             patientBDO.pass = patient.pass;
+        }
+
+        public DataSet GetAllpatients()
+        {
+            DataTable patientTable;
+            try
+            {
+                patientTable = patientLogic.GetAllpatients();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetAllpatients exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (patientTable == null)
+            {
+                var msg = "GetAllpatients is empty";
+                var reason = "patientTable empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(patientTable);
+            return dataSet;
         }
     }
 }
