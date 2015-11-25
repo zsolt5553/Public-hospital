@@ -94,6 +94,12 @@
     <Compile Include="ErrorWindow.Designer.cs">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListOfPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfPatients.Designer.cs">
+      <DependentUpon>ListOfPatients.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListOfDoctors.resx">
       <DependentUpon>ListOfDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfPatients.resx">
+      <DependentUpon>ListOfPatients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -17,8 +17,7 @@ namespace WindowsFormsClient
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
         AppointmentServiceRef.Appointment app;
-
-    
+  
         
         private int doctorId=1;
         public Schedule()
@@ -27,7 +26,7 @@ namespace WindowsFormsClient
             CreateRows();
             CreateColumns();
             CalculateWeekNumber();
-
+                
 
         }
 
@@ -186,7 +185,7 @@ namespace WindowsFormsClient
         {
            
             DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
-            label2.Text = doc.firstName;
+            label2.Text ="Doctor: " + doc.firstName;
             return doc;
         }
 
