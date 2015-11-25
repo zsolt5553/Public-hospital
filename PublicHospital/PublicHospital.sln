@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsClient", "Windo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{B81CAFEB-9678-4370-9102-9F0D2B83B201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{91E7F24C-8B89-450A-890D-08E4C399B544}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{0A2ED242-82F0-41EF-A586-D451E5A06B06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceLayer", "PersistenceLayer\PersistenceLayer.csproj", "{18EA2999-5BEC-4013-9F34-6A173B3D5DB6}"
@@ -32,10 +30,6 @@ Global
 		{B81CAFEB-9678-4370-9102-9F0D2B83B201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81CAFEB-9678-4370-9102-9F0D2B83B201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81CAFEB-9678-4370-9102-9F0D2B83B201}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91E7F24C-8B89-450A-890D-08E4C399B544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91E7F24C-8B89-450A-890D-08E4C399B544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91E7F24C-8B89-450A-890D-08E4C399B544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91E7F24C-8B89-450A-890D-08E4C399B544}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A2ED242-82F0-41EF-A586-D451E5A06B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A2ED242-82F0-41EF-A586-D451E5A06B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A2ED242-82F0-41EF-A586-D451E5A06B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
