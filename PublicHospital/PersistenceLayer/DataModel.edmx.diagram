@@ -5,9 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e7baa1c5238443a69a12a865a68ad41d" Name="Diagram1" ZoomLevel="96">
-        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Doctor" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Patient" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Admin" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Doctor" Width="1.5" PointX="4.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Patient" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Appointment" Width="1.5" PointX="9.75" PointY="1.625" />
+        <EntityTypeShape EntityType="dmaj0914_3Sem_4_1Model.Visit" Width="1.5" PointX="12.875" PointY="2.125" />
+        <AssociationConnector Association="dmaj0914_3Sem_4_1Model.FK__Visit__Ap_Id__2C3393D0" />
+        <AssociationConnector Association="dmaj0914_3Sem_4_1Model.FK__Appointme__idDoc__300424B4" />
+        <AssociationConnector Association="dmaj0914_3Sem_4_1Model.FK__Appointme__idPat__2F10007B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

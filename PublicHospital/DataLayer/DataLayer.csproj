@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentBDO.cs" />
+    <Compile Include="VisitBDO.cs" />
     <Compile Include="DoctorBDO.cs" />
     <Compile Include="AdminBDO.cs" />
     <Compile Include="PatientBDO.cs" />

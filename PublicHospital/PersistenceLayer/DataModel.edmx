@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dmaj0914_3Sem_4_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dmaj0914_3Sem_4_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="id" />
@@ -20,6 +20,17 @@
           <Property Name="login" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="serviceType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idPatient" Type="int" />
+          <Property Name="idDoctor" Type="int" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
@@ -57,13 +68,71 @@
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
         </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Ap_Id" />
+          </Key>
+          <Property Name="Ap_Id" Type="int" Nullable="false" />
+          <Property Name="patientProblem" Type="text" />
+          <Property Name="symptom" Type="text" />
+          <Property Name="advice" Type="text" />
+        </EntityType>
+        <Association Name="FK__Appointme__idDoc__300424B4">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="idDoctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__idPat__2F10007B">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="idPatient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Visit__Ap_Id__32E0915F">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Ap_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="dmaj0914_3Sem_4_1ModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Appointme__idDoc__300424B4" Association="Self.FK__Appointme__idDoc__300424B4">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__idPat__2F10007B" Association="Self.FK__Appointme__idPat__2F10007B">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Visit__Ap_Id__32E0915F" Association="Self.FK__Visit__Ap_Id__32E0915F">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dmaj0914_3Sem_4_1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -101,6 +170,7 @@
           <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Appointment" Relationship="dmaj0914_3Sem_4_1Model.FK__Appointme__idDoc__300424B4" FromRole="Doctor" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -118,12 +188,87 @@
           <Property Name="login" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Appointment" Relationship="dmaj0914_3Sem_4_1Model.FK__Appointme__idPat__2F10007B" FromRole="Patient" ToRole="Appointment" />
         </EntityType>
         <EntityContainer Name="PublicHospitalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" />
           <EntitySet Name="Patient" EntityType="Self.Patient" />
+          <EntitySet Name="Appointment" EntityType="dmaj0914_3Sem_4_1Model.Appointment" />
+          <EntitySet Name="Visit" EntityType="dmaj0914_3Sem_4_1Model.Visit" />
+          <AssociationSet Name="FK__Visit__Ap_Id__2C3393D0" Association="dmaj0914_3Sem_4_1Model.FK__Visit__Ap_Id__2C3393D0">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__idDoc__300424B4" Association="dmaj0914_3Sem_4_1Model.FK__Appointme__idDoc__300424B4">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__idPat__2F10007B" Association="dmaj0914_3Sem_4_1Model.FK__Appointme__idPat__2F10007B">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="String" Nullable="false" />
+          <Property Name="serviceType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Visit" Relationship="dmaj0914_3Sem_4_1Model.FK__Visit__Ap_Id__2C3393D0" FromRole="Appointment" ToRole="Visit" />
+          <Property Name="idPatient" Type="Int32" />
+          <Property Name="idDoctor" Type="Int32" />
+          <NavigationProperty Name="Doctor" Relationship="dmaj0914_3Sem_4_1Model.FK__Appointme__idDoc__300424B4" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="dmaj0914_3Sem_4_1Model.FK__Appointme__idPat__2F10007B" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Ap_Id" />
+          </Key>
+          <Property Name="Ap_Id" Type="Int32" Nullable="false" />
+          <Property Name="patientProblem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="symptom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="advice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Appointment" Relationship="dmaj0914_3Sem_4_1Model.FK__Visit__Ap_Id__2C3393D0" FromRole="Visit" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK__Visit__Ap_Id__2C3393D0">
+          <End Type="dmaj0914_3Sem_4_1Model.Appointment" Role="Appointment" Multiplicity="1" />
+          <End Type="dmaj0914_3Sem_4_1Model.Visit" Role="Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Ap_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__idDoc__300424B4">
+          <End Type="dmaj0914_3Sem_4_1Model.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="dmaj0914_3Sem_4_1Model.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="idDoctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__idPat__2F10007B">
+          <End Type="dmaj0914_3Sem_4_1Model.Patient" Role="Patient" Multiplicity="0..1" />
+          <End Type="dmaj0914_3Sem_4_1Model.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="idPatient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -182,6 +327,28 @@
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
                 <ScalarProperty Name="salt" ColumnName="salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointment">
+            <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="idDoctor" ColumnName="idDoctor" />
+                <ScalarProperty Name="idPatient" ColumnName="idPatient" />
+                <ScalarProperty Name="serviceType" ColumnName="serviceType" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visit">
+            <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Visit">
+              <MappingFragment StoreEntitySet="Visit">
+                <ScalarProperty Name="advice" ColumnName="advice" />
+                <ScalarProperty Name="symptom" ColumnName="symptom" />
+                <ScalarProperty Name="patientProblem" ColumnName="patientProblem" />
+                <ScalarProperty Name="Ap_Id" ColumnName="Ap_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

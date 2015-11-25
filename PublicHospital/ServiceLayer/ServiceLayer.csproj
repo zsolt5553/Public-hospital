@@ -50,10 +50,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentService.cs" />
+    <Compile Include="IAppointmentService.cs" />
     <Compile Include="DoctorService.cs" />
     <Compile Include="IAdminService.cs" />
     <Compile Include="IDoctorService.cs" />
