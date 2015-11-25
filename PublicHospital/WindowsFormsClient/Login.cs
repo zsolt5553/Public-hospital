@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsClient.PasswordService;
+using WindowsFormsClient.AdminServiceRef;
+using WindowsFormsClient.DoctorServiceRef;
 
 namespace WindowsFormsClient
 {
@@ -47,13 +49,24 @@ namespace WindowsFormsClient
             string message = "";
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-                
                 var passwordClient = new PasswordServiceClient();
                 int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
                 if (idAndType != null)
                 {
-                    new Thread(() => new AdminMenu().ShowDialog()).Start();
-                    Dispose();
+                    if(idAndType[1] == 0)
+                    {
+                        var adminClient = new AdminServiceClient().GetAdmin(idAndType[0]);
+                        new Thread(() => new AdminMenu().ShowDialog()).Start();
+                        Dispose();
+                    }
+                    else if(idAndType[1] == 1)
+                    {
+                        var doctorClient = new DoctorServiceClient().GetDoctor(idAndType[0]);
+                        new Thread(() => new DoctorMenu().ShowDialog()).Start();
+                        Dispose();
+                    }
+                    else
+                        new Thread(() => new ErrorWindow("Wrong username or password").ShowDialog()).Start();
                 }
                 else
                 {
