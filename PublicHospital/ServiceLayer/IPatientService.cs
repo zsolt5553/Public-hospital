@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -18,6 +19,10 @@ namespace ServiceLayer
         [FaultContract(typeof(PatientFault))]
         bool UpdatePatient(ref Patient Patient,
             ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(PatientFault))]
+        DataSet GetAllpatients();
     }
 
     [DataContract]

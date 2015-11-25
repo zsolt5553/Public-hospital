@@ -71,6 +71,9 @@
     <Compile Include="Appointment.Designer.cs">
       <DependentUpon>Appointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="dmaj0914_3Sem_4_1DataSet.cs">
+      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dmaj0914_3Sem_4_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +157,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\PasswordService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PatientService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -299,6 +307,25 @@
     <None Include="Service References\PasswordService\WindowsFormsClient.PasswordService.authenticatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PatientService\service.wsdl" />
+    <None Include="Service References\PatientService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.UpdatePatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -311,6 +338,7 @@
     <WCFMetadataStorage Include="Service References\AppointmentServiceRef\" />
     <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
     <WCFMetadataStorage Include="Service References\PasswordService\" />
+    <WCFMetadataStorage Include="Service References\PatientService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
@@ -373,6 +401,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
