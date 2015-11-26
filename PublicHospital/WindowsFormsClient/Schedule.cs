@@ -34,6 +34,7 @@ namespace WindowsFormsClient
         private void CalculateWeekNumber()
         {
             label1.Text = "Week" + (1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
+        
         }
 
 
@@ -82,12 +83,13 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-           doc = GetDoctor(id);
+          
             
             for (int i = 0; i < 7; i++)
             {
                 for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                 {
+                  ///  app.doctor.id.Equals()
 
                     if ( doc.firstName.Equals("Adam"))
                     {

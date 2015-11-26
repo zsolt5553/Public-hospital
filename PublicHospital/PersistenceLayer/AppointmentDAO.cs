@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 
+
 namespace PersistenceLayer
 {
     public class AppointmentDAO
@@ -31,6 +32,41 @@ namespace PersistenceLayer
                     };
             }
             return appointmentBDO;
+        }
+
+        public List<AppointmentBDO> GetAllAppointments()
+        {
+            List<AppointmentBDO> appointments = null;
+            AppointmentBDO appointmentBDO = null;
+            DoctorDAO doctorObj = null;
+            PatientDAO patentObj = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from d in PHEntities.Appointment
+                                select d).ToList();
+                if (listInDb != null)
+                {
+                    appointments = new List<AppointmentBDO>();
+                    appointmentBDO = new AppointmentBDO();
+                    foreach (Appointment appointmentObj in listInDb)
+                    {
+                        if (appointmentObj != null)
+                        {
+                            appointmentBDO = new AppointmentBDO()
+                            {
+                                id = appointmentObj.id,
+                                doctor = doctorObj.GetDoctor(appointmentObj.Doctor.id),
+                                patient = patentObj.GetPatient(appointmentObj.Patient.id),
+                                time = appointmentObj.time,
+                                serviceType = appointmentObj.serviceType
+                              
+                            };
+                            appointments.Add(appointmentBDO);
+                        }
+                    }
+                }
+            }
+            return appointments;
         }
 
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
