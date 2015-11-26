@@ -16,6 +16,7 @@ namespace WindowsFormsClient
         public DoctorMenu()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void DoctorMenu_Load(object sender, EventArgs e)
@@ -31,6 +32,11 @@ namespace WindowsFormsClient
         private void button1_Click(object sender, EventArgs e)
         {
             new Thread(() => new Schedule().ShowDialog()).Start();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

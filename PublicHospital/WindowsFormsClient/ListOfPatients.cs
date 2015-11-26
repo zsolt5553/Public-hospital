@@ -17,7 +17,7 @@ namespace WindowsFormsClient
         {
             InitializeComponent();
             this.CenterToScreen();
-            AddColumns();
+            FillTabe();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -25,11 +25,8 @@ namespace WindowsFormsClient
             
         }
 
-        private void AddColumns()
+        private void FillTabe()
         {
-            //var patientClient = new PatientServiceClient();
-            //DataSet patientsTable = patientClient.GetAllpatients();
-            //dataGridView1.Columns.Add("0", patientsTable.Tables[0].ToString());
             List<Patient> patientList = new PatientServiceClient().GetAllpatients().ToList();
             string[] days = new string[] { "ID", "First name", "Last name", "City", "Street", "Phone", "Date of birth" };
             for (int i = 0; i < days.Length; i++)
