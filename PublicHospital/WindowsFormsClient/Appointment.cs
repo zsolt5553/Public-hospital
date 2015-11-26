@@ -12,19 +12,26 @@ namespace WindowsFormsClient
 {
     public partial class Appointment : Form
     {
-        public Appointment(DateTime date, int id)
+        public Appointment(DateTime date, int doctorId, int patientId, string serviceType)
         {
             InitializeComponent();
             this.CenterToScreen();
-            SetDeatils(date, id);
+            SetDeatils(date, doctorId,patientId,serviceType);
         }
 
-        private void SetDeatils(DateTime date, int id)
+        private void SetDeatils(DateTime date, int doctorId,int patientId, string serviceType)
         {
             DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
-            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(doctorId);
+
+            PatientService.IPatientService patientservice = new PatientService.PatientServiceClient();
+            PatientService.Patient patient = patientservice.GetPatient(patientId);
+
             doctor.Text = doc.firstName + " " + doc.lastName;
+            patientName.Text = patient.firstName + " " + patient.lastName;
             appointmentDate.Text = date.ToString();
+            serviceTypeTXT.Text = serviceType;
+
         }
     }
 }

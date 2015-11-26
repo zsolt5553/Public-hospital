@@ -447,6 +447,13 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointment", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAllAppointments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/UpdateAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse UpdateAppointment(WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentRequest request);
@@ -533,6 +540,14 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id) {
             return base.Channel.GetAppointmentAsync(id);
+        }
+        
+        public WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAllAppointments() {
+            return base.Channel.GetAllAppointments();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
+            return base.Channel.GetAllAppointmentsAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

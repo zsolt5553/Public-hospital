@@ -71,14 +71,6 @@
     <Compile Include="Appointment.Designer.cs">
       <DependentUpon>Appointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="dmaj0914_3Sem_4_1DataSet.cs">
-      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dmaj0914_3Sem_4_1DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DoctorMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,17 +201,6 @@
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dmaj0914_3Sem_4_1DataSet.xsc">
-      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dmaj0914_3Sem_4_1DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dmaj0914_3Sem_4_1DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dmaj0914_3Sem_4_1DataSet.xss">
-      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">

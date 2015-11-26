@@ -38,28 +38,51 @@ namespace PersistenceLayer
         {
             List<AppointmentBDO> appointments = null;
             AppointmentBDO appointmentBDO = null;
-            DoctorDAO doctorObj = null;
-            PatientDAO patentObj = null;
+            PatientBDO patientBDO = null;
+            DoctorBDO doctorBDO = null;
+
             using (var PHEntities = new PublicHospitalEntities())
             {
-                var listInDb = (from d in PHEntities.Appointment
-                                select d).ToList();
+                var listInDb = (from Appointment in PHEntities.Appointment
+                                from Doctor in PHEntities.Doctor
+                                from Patient in PHEntities.Patient
+                                where Appointment.idDoctor == Doctor.id &&
+                                Appointment.idPatient == Patient.id
+                                select new
+                                {
+                                    Appointment.id,
+                                    Appointment.time,
+                                    Appointment.serviceType,
+                                    Doctor.firstName,
+                                    Doctor.lastName,
+                                    DoctorId = Doctor.id,
+                                    Column1 = Patient.firstName,
+                                    Column2 = Patient.lastName
+                                });
                 if (listInDb != null)
                 {
                     appointments = new List<AppointmentBDO>();
                     appointmentBDO = new AppointmentBDO();
-                    foreach (Appointment appointmentObj in listInDb)
+                   
+                    foreach (var mergedList in listInDb)
                     {
-                        if (appointmentObj != null)
+                        if (mergedList != null)
                         {
+                            doctorBDO = new DoctorBDO();
+                            patientBDO = new PatientBDO();
+                            doctorBDO.firstName = mergedList.firstName;
+                            doctorBDO.lastName = mergedList.lastName;
+                            doctorBDO.id = mergedList.DoctorId;
+                            patientBDO.firstName = mergedList.Column1;
+                            patientBDO.lastName = mergedList.Column2;
                             appointmentBDO = new AppointmentBDO()
                             {
-                                id = appointmentObj.id,
-                                doctor = doctorObj.GetDoctor(appointmentObj.Doctor.id),
-                                patient = patentObj.GetPatient(appointmentObj.Patient.id),
-                                time = appointmentObj.time,
-                                serviceType = appointmentObj.serviceType
-                              
+                                id = mergedList.id,
+                                time = mergedList.time,
+                                serviceType = mergedList.serviceType,
+                                doctor = doctorBDO,
+                                patient = patientBDO
+
                             };
                             appointments.Add(appointmentBDO);
                         }
@@ -104,8 +127,8 @@ namespace PersistenceLayer
                 var appointmentId = appointmentBDO.id;
                 var appointmentInDb = (from a
                                  in PHEntites.Appointment
-                                 where a.id == appointmentId
-                                 select a).FirstOrDefault();
+                                       where a.id == appointmentId
+                                       select a).FirstOrDefault();
                 if (appointmentInDb == null)
                 {
                     throw new Exception("No appointment with id " +

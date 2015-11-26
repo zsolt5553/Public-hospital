@@ -16,6 +16,7 @@ namespace WindowsFormsClient
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
+       
         AppointmentServiceRef.Appointment app;
   
         
@@ -83,22 +84,37 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
+            List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
+             appointmentList.AddRange(appointmentService.GetAllAppointments());
+            doc = doctorService.GetDoctor(id);
+        
+            Console.WriteLine(appointmentList.ElementAt(2).doctor.id);
+            Console.WriteLine(appointmentList.ElementAt(1).doctor.id);
+
+     Console.WriteLine(appointmentService.GetAllAppointments()[2].patient.firstName);
+     Console.WriteLine(appointmentService.GetAllAppointments()[0].patient.lastName);
           
-            
             for (int i = 0; i < 7; i++)
             {
                 for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                 {
-                  ///  app.doctor.id.Equals()
-
-                    if ( doc.firstName.Equals("Adam"))
+                    for (int i3 = 0; i3 < appointmentList.Count; i3++)
                     {
+                        if (appointmentList.ElementAt(i3).doctor.id == doc.id)
+                        {
+                            string row = dataGridView1.Rows[i2].Cells[0].Value.ToString();
+                            string colum = dataGridView1.Columns[i].HeaderCell.Value.ToString();
+                            DateTime myDate = DateTime.Parse(colum + row);
+                            if (myDate.Equals(appointmentList.ElementAt(i3).time))
+                            {
+                                dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
+                            }
 
-                        dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
-                    }
-                    else
-                    {
-                               dataGridView1.Rows[i2].Cells[i+1].Style.BackColor = Color.Red;
+                        }
                     }
                 }
             }
@@ -127,7 +143,7 @@ namespace WindowsFormsClient
                 string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
                 DateTime myDate = DateTime.Parse(colum + row);
                 Console.WriteLine(a);
-                new Thread(() => new Appointment(myDate, doctorId).ShowDialog()).Start();
+                new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
             }
         }
         private void WeekForward(object sender, EventArgs e)
@@ -207,5 +223,9 @@ namespace WindowsFormsClient
             }
         }
 
+
+        public string serviceType { get; set; }
+
+        public int patientId { get; set; }
     }
 }

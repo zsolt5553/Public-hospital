@@ -76,10 +76,6 @@ namespace ServiceLayer
             return appointments;
         }
 
-
-
-
-
         public bool UpdateAppointment(ref Appointment Appointment,
             ref string message)
         {

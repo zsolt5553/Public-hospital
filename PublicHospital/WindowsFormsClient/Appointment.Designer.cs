@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-           
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.serviceTypeTXT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.appointmentDate = new System.Windows.Forms.TextBox();
             this.doctor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.firstNameTxt = new System.Windows.Forms.TextBox();
+            this.patientName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.save = new System.Windows.Forms.Button();
@@ -63,7 +62,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.serviceTypeTXT);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.appointmentDate);
             this.panel3.Controls.Add(this.doctor);
@@ -74,12 +73,12 @@
             this.panel3.Size = new System.Drawing.Size(380, 130);
             this.panel3.TabIndex = 6;
             // 
-            // textBox1
+            // serviceTypeTXT
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 10;
+            this.serviceTypeTXT.Location = new System.Drawing.Point(87, 91);
+            this.serviceTypeTXT.Name = "serviceTypeTXT";
+            this.serviceTypeTXT.Size = new System.Drawing.Size(174, 20);
+            this.serviceTypeTXT.TabIndex = 10;
             // 
             // label1
             // 
@@ -131,19 +130,19 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.firstNameTxt);
+            this.panel2.Controls.Add(this.patientName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(7, 68);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(379, 43);
             this.panel2.TabIndex = 5;
             // 
-            // firstNameTxt
+            // patientName
             // 
-            this.firstNameTxt.Location = new System.Drawing.Point(86, 13);
-            this.firstNameTxt.Name = "firstNameTxt";
-            this.firstNameTxt.Size = new System.Drawing.Size(174, 20);
-            this.firstNameTxt.TabIndex = 3;
+            this.patientName.Location = new System.Drawing.Point(86, 13);
+            this.patientName.Name = "patientName";
+            this.patientName.Size = new System.Drawing.Size(174, 20);
+            this.patientName.TabIndex = 3;
             // 
             // label2
             // 
@@ -210,14 +209,14 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox serviceTypeTXT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox appointmentDate;
         private System.Windows.Forms.TextBox doctor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox firstNameTxt;
+        private System.Windows.Forms.TextBox patientName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button save;
