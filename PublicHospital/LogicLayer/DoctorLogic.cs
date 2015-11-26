@@ -17,6 +17,11 @@ namespace LogicLayer
             return doctorDAO.GetDoctor(id);
         }
 
+        public DoctorBDO GetDoctorByName(String name)
+        {
+            return doctorDAO.GetDoctorByName(name);
+        }
+
         public DataTable GetDoctorTable()
         {
 

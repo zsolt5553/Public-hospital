@@ -38,6 +38,35 @@ namespace PersistenceLayer
             return doctorBDO;
         }
 
+        public DoctorBDO GetDoctorByName(String name)
+        {
+            DoctorBDO doctorBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var doctorObj = (from a in PHEntities.Doctor
+                                 where a.firstName + a.lastName == name
+                                 select a).FirstOrDefault();
+                if (doctorObj != null)
+                    doctorBDO = new DoctorBDO()
+                    {
+                        id = doctorObj.id,
+                        firstName = doctorObj.firstName,
+                        lastName = doctorObj.lastName,
+                        city = doctorObj.city,
+                        street = doctorObj.street,
+                        streetNr = doctorObj.streetNr,
+                        phoneNr = doctorObj.phoneNr,
+                        zip = doctorObj.zip,
+                        login = doctorObj.login,
+                        pass = doctorObj.pass,
+                        description = doctorObj.description,
+                        specialty = doctorObj.specialty
+                    };
+            }
+            return doctorBDO;
+        }
+
+
         public DataTable GetDoctorTable()
         {
             DataTable doctors = null;

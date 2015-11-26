@@ -43,6 +43,35 @@ namespace ServiceLayer
             return doctor;
         }
 
+        public Doctor GetDoctorByName(string name)
+        {
+            DoctorBDO doctorBDO = null;
+            try
+            {
+                doctorBDO = doctorLogic.GetDoctorByName(name);
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetDoctor exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (doctorBDO == null)
+            {
+                var msg =
+                    string.Format("No doctor found for id {0}",
+                    name);
+                var reason = "GetDoctor empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            var doctor = new Doctor();
+            TranslateDoctorBDOToDoctorDTO(doctorBDO,
+                doctor);
+            return doctor;
+        }
+
         public DataSet GetDoctorTable()
         {
             DataTable doctorTable;

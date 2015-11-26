@@ -15,6 +15,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetDoctorByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoctorByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetDoctorByNameResult" nillable="true" type="q2:Doctor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllDoctors">
     <xs:complexType>
       <xs:sequence />
@@ -23,7 +37,7 @@
   <xs:element name="GetAllDoctorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllDoctorsResult" nillable="true" type="q2:ArrayOfDoctor" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllDoctorsResult" nillable="true" type="q3:ArrayOfDoctor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +68,7 @@
   <xs:element name="SaveDoctor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q3:Doctor" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q4:Doctor" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -63,7 +77,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SaveDoctorResult" type="xs:boolean" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q4:Doctor" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q5:Doctor" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -71,7 +85,7 @@
   <xs:element name="UpdateDoctor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q5:Doctor" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q6:Doctor" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -80,7 +94,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateDoctorResult" type="xs:boolean" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q6:Doctor" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="doctor" nillable="true" type="q7:Doctor" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

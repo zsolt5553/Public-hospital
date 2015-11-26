@@ -18,6 +18,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
+        Doctor GetDoctorByName(string name);
+
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
         List<Doctor> GetAllDoctors();
 
         [OperationContract]

@@ -290,6 +290,13 @@ namespace WindowsFormsClient.DoctorServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctor", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorByName", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorByNameResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorByNameDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.DoctorServiceRef.Doctor GetDoctorByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorByName", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorByNameResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetAllDoctorsDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.DoctorServiceRef.Doctor[] GetAllDoctors();
@@ -442,6 +449,14 @@ namespace WindowsFormsClient.DoctorServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorAsync(int id) {
             return base.Channel.GetDoctorAsync(id);
+        }
+        
+        public WindowsFormsClient.DoctorServiceRef.Doctor GetDoctorByName(string name) {
+            return base.Channel.GetDoctorByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name) {
+            return base.Channel.GetDoctorByNameAsync(name);
         }
         
         public WindowsFormsClient.DoctorServiceRef.Doctor[] GetAllDoctors() {

@@ -92,6 +92,7 @@ namespace WindowsFormsClient
             appointmentList.AddRange(appointmentService.GetAllAppointments());
             
             doc = doctorService.GetDoctor(id);
+           
             GetDoctor(id);
                              
             for (int i = 1; i < 8; i++)
