@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,25 +13,33 @@ namespace WindowsFormsClient
 {
     public partial class Schedule : Form
     {
-        public Schedule()//(DateTime date)
+        DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+        AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
+        DoctorServiceRef.Doctor doc;
+        AppointmentServiceRef.Appointment app;
+  
+        
+        private int doctorId=1;
+        public Schedule()
         {
             InitializeComponent();
-            hourColum();
-            doctorColumns();
+            CreateRows();
+            CreateColumns();
+            CalculateWeekNumber();
+                
+
         }
 
-        private void hourColum()
+
+        private void CalculateWeekNumber()
         {
-            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //dataGridView1.Rows[0] = dataGridView1.Height / 6;
-            //dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //this.dataGridView1.BorderStyle = BorderStyle.None;
-            //dataGridView1.RowHeadersVisible = false;
-            //DateTime date = new DateTime(2008, 5, 1, 8, 30, 0);//rok,dzień,miesiąc,h,m,s
-            //list[0] = new string[] { "aaa", "1." + Environment.NewLine + "aaa", "aaa" };
-            //int countRows = (((endH - startH) * 60) + (endM - startM)) / timeVisitM;
-            //string[][] list = new string[countRows][];
-            //dataGridView1.Rows[i2].Cells[i].Value = "aaa";
+            label1.Text = "Week" + (1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
+        
+        }
+
+
+        private void CreateRows()
+        {
             int startH = 7;
             int startM = 0;
             int endH = 15;
@@ -56,54 +65,147 @@ namespace WindowsFormsClient
             }
         }
 
-        private void doctorColumns()
+        private void CreateColumns()
         {
-            string[] weeks = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-            for (int i = 0; i < weeks.Length; i++)//dataGridView1.ColumnCount dodawanie do komórek
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-CheckIfNotMonday());
+            for (int i = 0; i < 7; i++)
             {
-                //dataGridView1.Columns.Add("d" + i, list[i][0] + Environment.NewLine + "" + list[i][1]);//dodawanie kolumn
-                dataGridView1.Columns.Add("d" + i, weeks[i]);//dodawanie kolumn
+
+                dataGridView1.Columns.Add("d" + i, dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString());
                 dataGridView1.Columns[i + 1].HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 dataGridView1.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.BottomCenter;
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+
+            }
+            CreateCells(doctorId);
+        }
+        private void CreateCells(int id)
+        {
+          
+            
+            for (int i = 0; i < 7; i++)
+            {
                 for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                 {
-                    if (true)
+                  ///  app.doctor.id.Equals()
+
+                    if ( doc.firstName.Equals("Adam"))
                     {
+
                         dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
                     }
                     else
                     {
-               //       dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
+                               dataGridView1.Rows[i2].Cells[i+1].Style.BackColor = Color.Red;
                     }
                 }
             }
         }
 
-        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void UpdateColumns()
         {
-            if (e.RowIndex >= 0)// && e.ColumnIndex != 0)
-            {//dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightBlue;
-                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
-            }
-        }
-
-        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)// && e.ColumnIndex != 0)
-            {//dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
-                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.White;
+            for (int i = 1; i < 8; i++)
+            {
+                dataGridView1.Columns[i].HeaderText = dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString();
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
             }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         //   new Appointment().Show();
+            String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
+            if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Green]")))
+            {
+                new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
+              
+            }
+            else
+            {
+                string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
+                DateTime myDate = DateTime.Parse(colum + row);
+                Console.WriteLine(a);
+                new Thread(() => new Appointment(myDate, doctorId).ShowDialog()).Start();
+            }
+        }
+        private void WeekForward(object sender, EventArgs e)
+        {
+
+            UpdateColumns();
+            CalculateWeekNumber();
         }
 
-     
+        private void WeekPrevious(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-14);
+            UpdateColumns();
+            CalculateWeekNumber();
+        }
 
-       
+        private void SearchDoctor(object sender, EventArgs e)
+        {
+            string value = textBox1.Text;
+            int value2 = -1;
+            Int32.TryParse(value, out value2);
+            if (value2 != -1)
+            {
+                doctorId = value2;
+                CreateCells(value2);
+            
+            }
+            else
+            {
+                // do something
+            }
+        }
+
+
+        private int CheckIfNotMonday()
+        {
+            int daynumber = 0;
+            Boolean found = false;
+            string[] days = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            int i = 0;
+            while (!found && i < days.Length)
+            {
+                if (days[i].Equals(dateTimePicker1.Value.DayOfWeek.ToString()))
+                {
+                    daynumber = i;
+                    found = true;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return daynumber;
+        }
+
+        private DoctorServiceRef.Doctor GetDoctor(int id)
+        {
+           
+            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+            label2.Text ="Doctor: " + doc.firstName;
+            return doc;
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex >= 0)
+            //{
+            //    dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
+            //}
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.White;
+            }
+        }
+
     }
 }

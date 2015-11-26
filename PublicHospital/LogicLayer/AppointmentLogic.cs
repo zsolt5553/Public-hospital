@@ -16,6 +16,11 @@ namespace LogicLayer
             return appointmentDAO.GetAppointment(id);
         }
 
+        public List<AppointmentBDO> GetAllAppointments()
+        {
+            return appointmentDAO.GetAllAppointments();
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
             ref string massage)
         {
@@ -26,7 +31,7 @@ namespace LogicLayer
             ref AppointmentBDO appointmentBDO,
             ref string message)
         {
-            var appointmentInDb = Getappointment(appointmentBDO.id);
+            var appointmentInDb = GetAppointment(appointmentBDO.id);
             if (appointmentInDb == null)
             {
                 message = "cannot fetch appointment with this ID";

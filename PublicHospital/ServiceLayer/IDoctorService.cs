@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -14,6 +15,19 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
         Doctor GetDoctor(int id);
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
+        List<Doctor> GetAllDoctors();
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
+        DataSet GetDoctorTable();
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
+        bool SaveDoctor(ref Doctor doctor,
+            ref string message);
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
@@ -40,6 +54,7 @@ namespace ServiceLayer
         public int streetNr { get; set; }
         [DataMember]
         public string phoneNr { get; set; }
+        [DataMember]
         public string login { get; set; }
         [DataMember]
         public string pass { get; set; }

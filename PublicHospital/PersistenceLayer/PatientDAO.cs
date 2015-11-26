@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using System.Data;
 
 namespace PersistenceLayer
 {
@@ -35,6 +36,27 @@ namespace PersistenceLayer
             }
             return patientBDO;
         }
+
+        private int GetNextID()
+        {
+            int nextID = -1;
+
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var ids = (from a in PHEntities.Patient select a.id).ToList();
+                nextID = ids.Max();
+            };
+
+            if (nextID == -1)
+            {
+                throw new Exception("Patient id couldn't be generated");
+            }
+            else
+            {
+                return nextID + 1;
+            }
+        }
+
 
         public bool UpdatePatient(ref PatientBDO patientBDO,
             ref string massage)
@@ -73,5 +95,74 @@ namespace PersistenceLayer
             }
             return ret;
         }
+
+        public List<PatientBDO> GetAllpatients()
+        {
+            List<PatientBDO> patientList = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var patientDatabase = from p in PHEntities.Patient select p;
+                if ((patientDatabase.FirstOrDefault() != null))
+                {
+                    patientList = new List<PatientBDO>();
+                    foreach (var patient in patientDatabase)
+                    {
+                        patientList.Add(new PatientBDO()
+                        {
+                            id = patient.id,
+                            firstName = patient.firstName,
+                            lastName = patient.lastName,
+                            city = patient.city,
+                            street = patient.street,
+                            streetNr = patient.streetNr,
+                            phoneNr = patient.phoneNr,
+                            zip = patient.zip,
+                            login = patient.login,
+                            pass = patient.pass,
+                            dateOfBirth = patient.dateOfBirth
+                        });
+                    }
+                }
+            }
+            return patientList;
+        }
+
+        //public DataTable GetAllpatients()
+        //{
+        //    DataTable patients = null;
+        //    using (var PHEntities = new PublicHospitalEntities())
+        //    {
+        //        var table = from p in PHEntities.Patient select p;
+        //        if (table != null)
+        //        {
+        //            patients = CopyGenericToDataTable<Patient>(table);
+        //        }
+        //    }
+        //    return patients;
+        //}
+
+        //private DataTable CopyGenericToDataTable<T>(IQueryable<T> items)
+        //{
+        //    var properties = typeof(T).GetProperties();
+        //    var result = new DataTable();
+
+        //    foreach (var property in properties)
+        //    {
+        //        result.Columns.Add(property.Name, property.PropertyType);
+        //    }
+
+        //    foreach (var item in items)
+        //    {
+        //        var row = result.NewRow();
+
+        //        foreach (var property in properties)
+        //        {
+        //            var itemValue = property.GetValue(item, new Object[] { });
+        //            row[property.Name] = itemValue;
+        //        }
+        //        result.Rows.Add(row);
+        //    }
+        //    return result;
+        //}
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using LogicLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -7,16 +9,23 @@ using System.Text;
 
 namespace ServiceLayer
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "PasswordService" in both code and config file together.
     public class PasswordService : IPasswordService
     {
-        public void DoWork()
+        PasswordLogic pas = new PasswordLogic();
+        public int[] authenticatePerson(string login, string password, ref string message)
         {
-        }
-
-        public DataLayer.AdminBDO authenticatePerson(string login, string password)
-        {
-            throw new NotImplementedException();
+            int[] idAndType = null;
+            try
+            {
+                idAndType = pas.authenticatePerson(login, password, ref message);
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "authenticatePerson exception";
+                throw new FaultException<PasswordFault>(new PasswordFault(msg), reason);
+            }
+            return idAndType;
         }
     }
 }

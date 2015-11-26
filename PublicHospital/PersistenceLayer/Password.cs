@@ -11,27 +11,30 @@ namespace PersistenceLayer
 {
     public class Password
     {
-        public AdminBDO authenticatePerson(string login, string password)
+        public int[] authenticatePerson(string login, string password)
         {
             string[] dbData = getPasswordSaltDB(login);
             if (dbData != null)
             {
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
                 {
-                    AdminBDO person = null;
+                    int[] idAndType = null;
+                    int id;
+                    Int32.TryParse(dbData[2], out id);
                     switch (dbData[3])
                     {
                         case "admin":
-                            person = new AdminDAO().GetAdmin(int.Parse(dbData[3]));
+                            
+                            idAndType = new int[] { id, 0 };
                             break;
                         case "doctor":
-                            person = new DoctorDAO().GetDoctor(int.Parse(dbData[3]));
+                            idAndType = new int[] { id, 1 };
                             break;
                         case "patient":
-                            person = new PatientDAO().GetPatient(int.Parse(dbData[3]));
+                            idAndType = new int[] { id, 2 };
                             break;
                     }
-                    return person;
+                    return idAndType;
                 }
                 else
                     return null;
@@ -45,8 +48,8 @@ namespace PersistenceLayer
             using (var PHEntities = new PublicHospitalEntities())
             {
                 string[] person = null;
-                var admin = PHEntities.Admin.Where(p => p.login == login);
-                var doctor = PHEntities.Doctor.Where(p => p.login == login);
+                var admin = PHEntities.Admin.Where(a => a.login == login);
+                var doctor = PHEntities.Doctor.Where(d => d.login == login);
                 var patient = PHEntities.Patient.Where(p => p.login == login);
                 if (admin.FirstOrDefault() != null)
                     person = new string[] { admin.First().pass, admin.First().salt, admin.First().id.ToString(), "admin" };
@@ -58,7 +61,7 @@ namespace PersistenceLayer
             }
         }
 
-        private string[] getFullyHash(string password)
+        public string[] getFullyHash(string password)
         {
             RNGCryptoServiceProvider generate = new RNGCryptoServiceProvider();
             byte[] salt = new byte[20];

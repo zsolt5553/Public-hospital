@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 
+
 namespace PersistenceLayer
 {
     public class AppointmentDAO
@@ -33,6 +34,41 @@ namespace PersistenceLayer
             return appointmentBDO;
         }
 
+        public List<AppointmentBDO> GetAllAppointments()
+        {
+            List<AppointmentBDO> appointments = null;
+            AppointmentBDO appointmentBDO = null;
+            DoctorDAO doctorObj = null;
+            PatientDAO patentObj = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from d in PHEntities.Appointment
+                                select d).ToList();
+                if (listInDb != null)
+                {
+                    appointments = new List<AppointmentBDO>();
+                    appointmentBDO = new AppointmentBDO();
+                    foreach (Appointment appointmentObj in listInDb)
+                    {
+                        if (appointmentObj != null)
+                        {
+                            appointmentBDO = new AppointmentBDO()
+                            {
+                                id = appointmentObj.id,
+                                doctor = doctorObj.GetDoctor(appointmentObj.Doctor.id),
+                                patient = patentObj.GetPatient(appointmentObj.Patient.id),
+                                time = appointmentObj.time,
+                                serviceType = appointmentObj.serviceType
+                              
+                            };
+                            appointments.Add(appointmentBDO);
+                        }
+                    }
+                }
+            }
+            return appointments;
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
             ref string massage)
         {
@@ -43,7 +79,7 @@ namespace PersistenceLayer
                 PHEntities.Appointment.Add(new Appointment
                 {
                     id = appointmentBDO.id,
-                    time = appointmentBDO.time.Date.ToString("yyyy-MM-dd HH:mm:ss"),
+                    time = appointmentBDO.time.Date,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
                     idDoctor = appointmentBDO.patient.id
@@ -76,7 +112,7 @@ namespace PersistenceLayer
                                         appointmentBDO.id);
                 }
                 appointmentInDb.id = appointmentBDO.id;
-                appointmentInDb.time = appointmentBDO.time.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                appointmentInDb.time = appointmentBDO.time.Date;
                 appointmentInDb.serviceType = appointmentBDO.serviceType;
                 appointmentInDb.idPatient = appointmentBDO.patient.id;
                 appointmentInDb.idDoctor = appointmentBDO.patient.id;
@@ -94,4 +130,4 @@ namespace PersistenceLayer
         }
     }
 }
-}
+

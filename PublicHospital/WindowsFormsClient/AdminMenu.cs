@@ -45,9 +45,16 @@ namespace WindowsFormsClient
             new Thread(() => new Schedule().ShowDialog()).Start(); 
         }
 
+       
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new Thread(() => new NewAdmin().ShowDialog()).Start();
+        }
+
         private void button2_Click_1(object sender, EventArgs e)
         {
-            
+            Dispose();
         }
     }
 }

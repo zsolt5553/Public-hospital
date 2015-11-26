@@ -15,14 +15,13 @@ namespace PersistenceLayer
     public partial class Appointment
     {
         public int id { get; set; }
-        public string date { get; set; }
-        public string time { get; set; }
+        public System.DateTime time { get; set; }
         public string serviceType { get; set; }
         public Nullable<int> idPatient { get; set; }
         public Nullable<int> idDoctor { get; set; }
     
-        public virtual Visit Visit { get; set; }
         public virtual Doctor Doctor { get; set; }
         public virtual Patient Patient { get; set; }
+        public virtual Visit Visit { get; set; }
     }
 }

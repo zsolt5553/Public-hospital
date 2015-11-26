@@ -35,16 +35,37 @@ namespace PersistenceLayer
                 return adminBDO;
         }
 
+        private int GetNextID()
+        {
+            int nextID = -1;
+
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var ids = (from a in PHEntities.Admin select a.id).ToList();
+                nextID = ids.Max();
+            };
+
+            if (nextID == -1)
+            {
+                throw new Exception("Admin id couldn't be generated");
+            } else
+            {
+                return nextID + 1;
+            } 
+        }
+
         public bool InsertAdmin(ref AdminBDO adminBDO,
             ref string massage)
         {
             massage = "Admin inserted successfully";
             var ret = true;
+            Password passObj = new Password();
+            string[] passAndSalt = passObj.getFullyHash(adminBDO.pass);
             using (var PHEntities = new PublicHospitalEntities())
             {
                 PHEntities.Admin.Add(new Admin
                 {
-                    id = adminBDO.id,
+                    id = GetNextID(),
                     firstName = adminBDO.firstName,
                     lastName = adminBDO.lastName,
                     city = adminBDO.city,
@@ -53,9 +74,9 @@ namespace PersistenceLayer
                     phoneNr = adminBDO.phoneNr,
                     zip = adminBDO.zip,
                     login = adminBDO.login,
-                    // to be changed
-                    pass = adminBDO.pass,
-                    salt = "asaas"
+                    
+                    pass = passAndSalt[0],
+                    salt = passAndSalt[1]
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)

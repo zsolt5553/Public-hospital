@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace WindowsFormsClient
         public NewAdmin()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void NewAdmin_Load(object sender, EventArgs e)
@@ -37,10 +39,30 @@ namespace WindowsFormsClient
             admin.zip = zip;
             admin.street = streetTxt.Text;
             admin.streetNr = streetNr;
-            admin.id = 2; // not implemented !!
+            admin.phoneNr = phoneTxt.Text;
+            admin.login = usernameTxt.Text;
+            admin.pass = passwordTxt.Text;
 
             var client = new AdminServiceRef.AdminServiceClient();
-            client.SaveAdmin(ref admin,ref message);
+            
+            if (client.SaveAdmin(ref admin, ref message))
+            {
+                Dispose();
+            }
+            else
+            {
+                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

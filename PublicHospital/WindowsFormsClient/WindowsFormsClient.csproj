@@ -65,6 +65,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointment.Designer.cs">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dmaj0914_3Sem_4_1DataSet.cs">
+      <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dmaj0914_3Sem_4_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +90,18 @@
     </Compile>
     <Compile Include="AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfPatients.Designer.cs">
+      <DependentUpon>ListOfPatients.cs</DependentUpon>
     </Compile>
     <Compile Include="NewAdmin.cs">
       <SubType>Form</SubType>
@@ -125,14 +146,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\AppointmentServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DoctorServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PasswordService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PatientService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Appointment.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorMenu.resx">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListOfDoctors.resx">
       <DependentUpon>ListOfDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfPatients.resx">
+      <DependentUpon>ListOfPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewAdmin.resx">
       <DependentUpon>NewAdmin.cs</DependentUpon>
@@ -167,6 +220,8 @@
     <None Include="dmaj0914_3Sem_4_1DataSet.xss">
       <DependentUpon>dmaj0914_3Sem_4_1DataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,25 +250,92 @@
     <None Include="Service References\AdminServiceRef\WindowsFormsClient.AdminServiceRef.UpdateAdminResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AppointmentServiceRef\DataLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\service.wsdl" />
+    <None Include="Service References\AppointmentServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.Appointment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service.wsdl" />
+    <None Include="Service References\DoctorServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.SaveDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.UpdateDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PasswordService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordService\service.wsdl" />
+    <None Include="Service References\PasswordService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordService\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordService\WindowsFormsClient.PasswordService.authenticatePersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PatientService\service.wsdl" />
+    <None Include="Service References\PatientService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.UpdatePatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
-      <Project>{0a2ed242-82f0-41ef-a586-d451e5a06b06}</Project>
-      <Name>LogicLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
-      <Project>{b1d5fd72-fb90-4503-adfe-03adf3980b5d}</Project>
-      <Name>ServiceLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
+    <WCFMetadataStorage Include="Service References\AppointmentServiceRef\" />
+    <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
+    <WCFMetadataStorage Include="Service References\PasswordService\" />
+    <WCFMetadataStorage Include="Service References\PatientService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
@@ -243,6 +365,54 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PasswordService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PasswordService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PasswordService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

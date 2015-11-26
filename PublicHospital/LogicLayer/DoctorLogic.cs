@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 using PersistenceLayer;
+using System.Data;
 
 namespace LogicLayer
 {
@@ -14,6 +15,24 @@ namespace LogicLayer
         public DoctorBDO GetDoctor(int id)
         {
             return doctorDAO.GetDoctor(id);
+        }
+
+        public DataTable GetDoctorTable()
+        {
+
+            return doctorDAO.GetDoctorTable();
+            
+        }
+
+        public List<DoctorBDO> GetAllDoctors()
+        {
+            return doctorDAO.GetAllDoctors();
+        }
+
+        public bool InsertDoctor(ref DoctorBDO doctorBDO,
+            ref string massage)
+        {
+            return doctorDAO.InsertDoctor(ref doctorBDO, ref massage);
         }
 
         public bool UpdateDoctor(

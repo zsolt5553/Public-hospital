@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WindowsFormsClient.PasswordService;
+using WindowsFormsClient.AdminServiceRef;
+using WindowsFormsClient.DoctorServiceRef;
 
 namespace WindowsFormsClient
 {
@@ -17,6 +19,7 @@ namespace WindowsFormsClient
         public Login()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,15 +45,37 @@ namespace WindowsFormsClient
 
         private void signin()
         {
+         
+            string message = "";
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
-         
-                new Thread(() => new AdminMenu().ShowDialog()).Start();
-              
+                var passwordClient = new PasswordServiceClient();
+                int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
+                if (idAndType != null)
+                {
+                    if(idAndType[1] == 0)
+                    {
+                        var adminClient = new AdminServiceClient().GetAdmin(idAndType[0]);
+                        new Thread(() => new AdminMenu().ShowDialog()).Start();
+                        Dispose();
+                    }
+                    else if(idAndType[1] == 1)
+                    {
+                        var doctorClient = new DoctorServiceClient().GetDoctor(idAndType[0]);
+                        new Thread(() => new DoctorMenu().ShowDialog()).Start();
+                        Dispose();
+                    }
+                    else
+                        new Thread(() => new ErrorWindow("Wrong username or password").ShowDialog()).Start();
+                }
+                else
+                {
+                    new Thread(() => new ErrorWindow("Wrong username or password").ShowDialog()).Start();
+                }    
             }
             else
             {
-                label1.Text = "Incorrect length";
+                new Thread(() => new ErrorWindow("Incorrect length").ShowDialog()).Start();
             }
         }
     }

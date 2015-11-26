@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using DataLayer;
 using LogicLayer;
+using System.Data;
 
 namespace ServiceLayer
 {
@@ -42,7 +43,65 @@ namespace ServiceLayer
             return doctor;
         }
 
-        public bool UpdateDoctor(ref Doctor doctor,
+        public DataSet GetDoctorTable()
+        {
+            DataTable doctorTable;
+            try
+            {
+                doctorTable = doctorLogic.GetDoctorTable();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetDoctorTable exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (doctorTable == null)
+            {
+                var msg = "GetDoctorTable is empty";
+                var reason = "GetDoctorTable empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(doctorTable);
+            return dataSet;
+        }
+
+        public List<Doctor> GetAllDoctors()
+        {
+            List<DoctorBDO> doctorsList;
+            try
+            {
+                doctorsList = doctorLogic.GetAllDoctors();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetAllDoctors exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (doctorsList == null)
+            {
+                var msg ="ListOfDoctors is empty";
+                var reason = "ListOfDoctors empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            List<Doctor> doctors = new List<Doctor>();
+            foreach (DoctorBDO doc in doctorsList)
+            {
+                var doctor = new Doctor();
+                TranslateDoctorBDOToDoctorDTO(doc,
+                    doctor);
+                doctors.Add(doctor);
+            }
+            return doctors;
+        }
+
+        private bool DoctorCheck(ref Doctor doctor,
             ref string message)
         {
             var result = true;
@@ -96,6 +155,45 @@ namespace ServiceLayer
                 message = "Doctor's specialty cannot be empty";
                 result = false;
             }
+            return result;
+        }
+
+        public bool SaveDoctor(ref Doctor doctor,
+            ref string message)
+        {
+            var result = true;
+            if (!DoctorCheck(ref doctor, ref message))
+            {
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var doctorBDO = new DoctorBDO();
+                    TranslateDoctorDTOToDoctorBDO(doctor,
+                        doctorBDO);
+                    result = doctorLogic.InsertDoctor(
+                        ref doctorBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<DoctorFault>
+                        (new DoctorFault(msg), msg);
+                }
+            }
+            return result;
+        }
+
+        public bool UpdateDoctor(ref Doctor doctor,
+            ref string message)
+        {
+            var result = true;
+            if (!DoctorCheck(ref doctor, ref message))
+            {
+                result = false;
+            }
             else
             {
                 try
@@ -116,7 +214,7 @@ namespace ServiceLayer
             return result;
         }
 
-        private void TranslateDoctorBDOToDoctorDTO(
+        public void TranslateDoctorBDOToDoctorDTO(
             DoctorBDO doctorBDO,
             Doctor doctor)
         {
@@ -130,6 +228,8 @@ namespace ServiceLayer
             doctor.phoneNr = doctorBDO.phoneNr;
             doctor.specialty = doctorBDO.specialty;
             doctor.description = doctorBDO.description;
+            doctor.login = doctorBDO.login;
+            doctor.pass = doctorBDO.pass;
         }
 
         private void TranslateDoctorDTOToDoctorBDO(
@@ -146,6 +246,8 @@ namespace ServiceLayer
             doctorBDO.phoneNr = doctor.phoneNr;
             doctorBDO.specialty = doctor.specialty;
             doctorBDO.description = doctor.description;
+            doctorBDO.login = doctor.login;
+            doctorBDO.pass = doctor.pass;
         }
     }
 }
