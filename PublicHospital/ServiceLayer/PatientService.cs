@@ -166,12 +166,18 @@ namespace ServiceLayer
             patientBDO.pass = patient.pass;
         }
 
-        public DataSet GetAllpatients()
+        public List<Patient> GetAllpatients()
         {
-            DataTable patientTable;
+            List<Patient> aaa = new List<Patient>();
             try
             {
-                patientTable = patientLogic.GetAllpatients();
+                List<PatientBDO> patientTable = patientLogic.GetAllpatients();
+                foreach (PatientBDO pBDO in patientTable)
+                {
+                    var patient = new Patient();
+                    TranslatePatientBDOToPatientDTO(pBDO, patient);
+                    aaa.Add(patient);
+                }
             }
             catch (Exception e)
             {
@@ -180,16 +186,40 @@ namespace ServiceLayer
                 throw new FaultException<DoctorFault>
                     (new DoctorFault(msg), reason);
             }
-            if (patientTable == null)
+            if (aaa == null)
             {
                 var msg = "GetAllpatients is empty";
                 var reason = "patientTable empty";
                 throw new FaultException<DoctorFault>
                     (new DoctorFault(msg), reason);
             }
-            DataSet dataSet = new DataSet();
-            dataSet.Tables.Add(patientTable);
-            return dataSet;
+            return aaa;
         }
+
+        //public DataSet GetAllpatients()
+        //{
+        //    DataTable patientTable;
+        //    try
+        //    {
+        //        patientTable = patientLogic.GetAllpatients();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        var msg = e.Message;
+        //        var reason = "GetAllpatients exception";
+        //        throw new FaultException<DoctorFault>
+        //            (new DoctorFault(msg), reason);
+        //    }
+        //    if (patientTable == null)
+        //    {
+        //        var msg = "GetAllpatients is empty";
+        //        var reason = "patientTable empty";
+        //        throw new FaultException<DoctorFault>
+        //            (new DoctorFault(msg), reason);
+        //    }
+        //    DataSet dataSet = new DataSet();
+        //    dataSet.Tables.Add(patientTable);
+        //    return dataSet;
+        //}
     }
 }

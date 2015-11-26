@@ -22,7 +22,7 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(PatientFault))]
-        DataSet GetAllpatients();
+        List<Patient> GetAllpatients();
     }
 
     [DataContract]

@@ -284,10 +284,10 @@ namespace WindowsFormsClient.PatientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAllpatients", ReplyAction="http://tempuri.org/IPatientService/GetAllpatientsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.PatientService.PatientFault), Action="http://tempuri.org/IPatientService/GetAllpatientsPatientFaultFault", Name="PatientFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        System.Data.DataSet GetAllpatients();
+        WindowsFormsClient.PatientService.Patient[] GetAllpatients();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAllpatients", ReplyAction="http://tempuri.org/IPatientService/GetAllpatientsResponse")]
-        System.Threading.Tasks.Task<System.Data.DataSet> GetAllpatientsAsync();
+        System.Threading.Tasks.Task<WindowsFormsClient.PatientService.Patient[]> GetAllpatientsAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -388,11 +388,11 @@ namespace WindowsFormsClient.PatientService {
             return base.Channel.UpdatePatientAsync(request);
         }
         
-        public System.Data.DataSet GetAllpatients() {
+        public WindowsFormsClient.PatientService.Patient[] GetAllpatients() {
             return base.Channel.GetAllpatients();
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllpatientsAsync() {
+        public System.Threading.Tasks.Task<WindowsFormsClient.PatientService.Patient[]> GetAllpatientsAsync() {
             return base.Channel.GetAllpatientsAsync();
         }
     }
