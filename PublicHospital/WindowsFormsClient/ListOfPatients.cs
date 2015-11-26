@@ -27,11 +27,22 @@ namespace WindowsFormsClient
 
         private void AddColumns()
         {
-            var passwordClient = new PatientServiceClient();
-            DataSet patientsTable = passwordClient.GetAllpatients();
-            dataGridView1.Columns.Add("aaa", patientsTable.Tables[0].ToString());
-            string a = patientsTable.Tables[0].ToString();
+            //var patientClient = new PatientServiceClient();
+            //DataSet patientsTable = patientClient.GetAllpatients();
+            //dataGridView1.Columns.Add("0", patientsTable.Tables[0].ToString());
+            List<Patient> patientList = new PatientServiceClient().GetAllpatients().ToList();
+            string[] days = new string[] { "ID", "First name", "Last name", "City", "Street", "Phone", "Date of birth" };
+            for (int i = 0; i < days.Length; i++)
+            {
+                dataGridView1.Columns.Add(i.ToString(), days[i]);
+            }
 
+            for (int i = 0; i < patientList.Count; i++)
+            {
+                dataGridView1.Rows.Add(patientList[i].id, patientList[i].firstName, patientList[i].lastName,
+                    patientList[i].city, patientList[i].street+" "+patientList[i].streetNr, patientList[i].phoneNr,
+                    patientList[i].dateOfBirth.ToShortDateString());
+            }
         }
     }
 }

@@ -314,9 +314,6 @@
     <None Include="Service References\PatientService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PatientService\service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PatientService\ServiceLayer.xsd">
       <SubType>Designer</SubType>
     </None>

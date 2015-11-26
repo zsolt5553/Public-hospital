@@ -34,7 +34,7 @@ namespace LogicLayer
             }
         }
 
-        public DataTable GetAllpatients()
+        public List<PatientBDO> GetAllpatients()
         {
             return patientDAO.GetAllpatients();
         }

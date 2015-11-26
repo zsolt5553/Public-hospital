@@ -96,42 +96,73 @@ namespace PersistenceLayer
             return ret;
         }
 
-        public DataTable GetAllpatients()
+        public List<PatientBDO> GetAllpatients()
         {
-            DataTable patients = null;
+            List<PatientBDO> patientList = null;
             using (var PHEntities = new PublicHospitalEntities())
             {
-                var table = from p in PHEntities.Patient select p;
-                if (table != null)
+                var patientDatabase = from p in PHEntities.Patient select p;
+                if ((patientDatabase.FirstOrDefault() != null))
                 {
-                    patients = CopyGenericToDataTable<Patient>(table);
+                    patientList = new List<PatientBDO>();
+                    foreach (var patient in patientDatabase)
+                    {
+                        patientList.Add(new PatientBDO()
+                        {
+                            id = patient.id,
+                            firstName = patient.firstName,
+                            lastName = patient.lastName,
+                            city = patient.city,
+                            street = patient.street,
+                            streetNr = patient.streetNr,
+                            phoneNr = patient.phoneNr,
+                            zip = patient.zip,
+                            login = patient.login,
+                            pass = patient.pass,
+                            dateOfBirth = patient.dateOfBirth
+                        });
+                    }
                 }
             }
-            return patients;
+            return patientList;
         }
 
-        private DataTable CopyGenericToDataTable<T>(IQueryable<T> items)
-        {
-            var properties = typeof(T).GetProperties();
-            var result = new DataTable();
+        //public DataTable GetAllpatients()
+        //{
+        //    DataTable patients = null;
+        //    using (var PHEntities = new PublicHospitalEntities())
+        //    {
+        //        var table = from p in PHEntities.Patient select p;
+        //        if (table != null)
+        //        {
+        //            patients = CopyGenericToDataTable<Patient>(table);
+        //        }
+        //    }
+        //    return patients;
+        //}
 
-            foreach (var property in properties)
-            {
-                result.Columns.Add(property.Name, property.PropertyType);
-            }
+        //private DataTable CopyGenericToDataTable<T>(IQueryable<T> items)
+        //{
+        //    var properties = typeof(T).GetProperties();
+        //    var result = new DataTable();
 
-            foreach (var item in items)
-            {
-                var row = result.NewRow();
+        //    foreach (var property in properties)
+        //    {
+        //        result.Columns.Add(property.Name, property.PropertyType);
+        //    }
 
-                foreach (var property in properties)
-                {
-                    var itemValue = property.GetValue(item, new Object[] { });
-                    row[property.Name] = itemValue;
-                }
-                result.Rows.Add(row);
-            }
-            return result;
-        }
+        //    foreach (var item in items)
+        //    {
+        //        var row = result.NewRow();
+
+        //        foreach (var property in properties)
+        //        {
+        //            var itemValue = property.GetValue(item, new Object[] { });
+        //            row[property.Name] = itemValue;
+        //        }
+        //        result.Rows.Add(row);
+        //    }
+        //    return result;
+        //}
     }
 }
