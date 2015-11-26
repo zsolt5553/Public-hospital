@@ -57,7 +57,8 @@ namespace PersistenceLayer
                                     Doctor.lastName,
                                     DoctorId = Doctor.id,
                                     Column1 = Patient.firstName,
-                                    Column2 = Patient.lastName
+                                    Column2 = Patient.lastName,
+                                    Column3 = Patient.id
                                 });
                 if (listInDb != null)
                 {
@@ -75,6 +76,7 @@ namespace PersistenceLayer
                             doctorBDO.id = mergedList.DoctorId;
                             patientBDO.firstName = mergedList.Column1;
                             patientBDO.lastName = mergedList.Column2;
+                            patientBDO.id = mergedList.Column3;
                             appointmentBDO = new AppointmentBDO()
                             {
                                 id = mergedList.id,

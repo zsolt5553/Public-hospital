@@ -16,11 +16,16 @@ namespace WindowsFormsClient
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
+        PatientService.Patient patient;
+        List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
+           
        
         AppointmentServiceRef.Appointment app;
   
         
         private int doctorId=1;
+        private string serviceType;
+        private int patientId;
         public Schedule()
         {
             InitializeComponent();
@@ -84,17 +89,11 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-            List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
-             appointmentList.AddRange(appointmentService.GetAllAppointments());
+            appointmentList.AddRange(appointmentService.GetAllAppointments());
             doc = doctorService.GetDoctor(id);
-        
-            Console.WriteLine(appointmentList.ElementAt(2).doctor.id);
-            Console.WriteLine(appointmentList.ElementAt(1).doctor.id);
-
-     Console.WriteLine(appointmentService.GetAllAppointments()[2].patient.firstName);
-     Console.WriteLine(appointmentService.GetAllAppointments()[0].patient.lastName);
-          
-            for (int i = 0; i < 7; i++)
+            GetDoctor(id);
+                             
+            for (int i = 1; i < 8; i++)
             {
                 for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                 {
@@ -107,11 +106,11 @@ namespace WindowsFormsClient
                             DateTime myDate = DateTime.Parse(colum + row);
                             if (myDate.Equals(appointmentList.ElementAt(i3).time))
                             {
-                                dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Red;
+                                dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
                             }
                             else
                             {
-                                dataGridView1.Rows[i2].Cells[i + 1].Style.BackColor = Color.Green;
+                                dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
                             }
 
                         }
@@ -135,14 +134,23 @@ namespace WindowsFormsClient
             if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Green]")))
             {
                 new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
-              
+
             }
             else
             {
                 string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
                 DateTime myDate = DateTime.Parse(colum + row);
-                Console.WriteLine(a);
+
+                for (int i3 = 0; i3 < appointmentList.Count; i3++)
+                {
+
+                    if (appointmentList.ElementAt(i3).doctor.id == doc.id && appointmentList.ElementAt(i3).time.Equals(myDate))
+                    {
+                        patientId = appointmentList.ElementAt(i3).patient.id;
+                        serviceType = appointmentList.ElementAt(i3).serviceType;
+                     }                                                      
+                }
                 new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
             }
         }
@@ -151,6 +159,7 @@ namespace WindowsFormsClient
 
             UpdateColumns();
             CalculateWeekNumber();
+            CreateCells(doctorId);
         }
 
         private void WeekPrevious(object sender, EventArgs e)
@@ -158,6 +167,8 @@ namespace WindowsFormsClient
             dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-14);
             UpdateColumns();
             CalculateWeekNumber();
+            CreateCells(doctorId);
+           
         }
 
         private void SearchDoctor(object sender, EventArgs e)
@@ -224,8 +235,6 @@ namespace WindowsFormsClient
         }
 
 
-        public string serviceType { get; set; }
 
-        public int patientId { get; set; }
     }
 }
