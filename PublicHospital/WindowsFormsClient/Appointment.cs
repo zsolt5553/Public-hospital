@@ -33,5 +33,10 @@ namespace WindowsFormsClient
             serviceTypeTXT.Text = serviceType;
 
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
     }
 }

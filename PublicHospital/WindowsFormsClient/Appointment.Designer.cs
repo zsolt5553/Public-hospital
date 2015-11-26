@@ -75,9 +75,11 @@
             // 
             // serviceTypeTXT
             // 
+            this.serviceTypeTXT.Enabled = false;
+            this.serviceTypeTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serviceTypeTXT.Location = new System.Drawing.Point(87, 91);
             this.serviceTypeTXT.Name = "serviceTypeTXT";
-            this.serviceTypeTXT.Size = new System.Drawing.Size(174, 20);
+            this.serviceTypeTXT.Size = new System.Drawing.Size(174, 22);
             this.serviceTypeTXT.TabIndex = 10;
             // 
             // label1
@@ -93,16 +95,20 @@
             // 
             // appointmentDate
             // 
+            this.appointmentDate.Enabled = false;
+            this.appointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentDate.Location = new System.Drawing.Point(87, 53);
             this.appointmentDate.Name = "appointmentDate";
-            this.appointmentDate.Size = new System.Drawing.Size(174, 20);
+            this.appointmentDate.Size = new System.Drawing.Size(174, 22);
             this.appointmentDate.TabIndex = 8;
             // 
             // doctor
             // 
+            this.doctor.Enabled = false;
+            this.doctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctor.Location = new System.Drawing.Point(87, 15);
             this.doctor.Name = "doctor";
-            this.doctor.Size = new System.Drawing.Size(174, 20);
+            this.doctor.Size = new System.Drawing.Size(174, 22);
             this.doctor.TabIndex = 5;
             // 
             // label4
@@ -139,9 +145,11 @@
             // 
             // patientName
             // 
+            this.patientName.Enabled = false;
+            this.patientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientName.Location = new System.Drawing.Point(86, 13);
             this.patientName.Name = "patientName";
-            this.patientName.Size = new System.Drawing.Size(174, 20);
+            this.patientName.Size = new System.Drawing.Size(174, 22);
             this.patientName.TabIndex = 3;
             // 
             // label2
@@ -186,6 +194,7 @@
             this.exit.TabIndex = 2;
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // Appointment
             // 

@@ -16,22 +16,22 @@ namespace WindowsFormsClient
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
-        PatientService.Patient patient;
         List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
-           
-       
-        AppointmentServiceRef.Appointment app;
-  
-        
+        List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
+        List<String> doctorsName = new List<String>();
         private int doctorId=1;
         private string serviceType;
         private int patientId;
+        private string doctorName;
         public Schedule()
         {
+            getAllDoctorName();
             InitializeComponent();
             CreateRows();
             CreateColumns();
             CalculateWeekNumber();
+          
+           
                 
 
         }
@@ -90,6 +90,7 @@ namespace WindowsFormsClient
         private void CreateCells(int id)
         {
             appointmentList.AddRange(appointmentService.GetAllAppointments());
+            
             doc = doctorService.GetDoctor(id);
             GetDoctor(id);
                              
@@ -130,29 +131,36 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
-            if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Green]")))
+            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
             {
-                new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
-
-            }
-            else
-            {
-                string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
-                DateTime myDate = DateTime.Parse(colum + row);
-
-                for (int i3 = 0; i3 < appointmentList.Count; i3++)
+                String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
+                if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Green]")))
                 {
+                    new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
 
-                    if (appointmentList.ElementAt(i3).doctor.id == doc.id && appointmentList.ElementAt(i3).time.Equals(myDate))
-                    {
-                        patientId = appointmentList.ElementAt(i3).patient.id;
-                        serviceType = appointmentList.ElementAt(i3).serviceType;
-                     }                                                      
                 }
-                new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
+                else
+                {
+                    string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    string colum = dataGridView1.Columns[e.ColumnIndex].HeaderCell.Value.ToString();
+                    DateTime myDate = DateTime.Parse(colum + row);
+
+                    for (int i3 = 0; i3 < appointmentList.Count; i3++)
+                    {
+
+                        if (appointmentList.ElementAt(i3).doctor.id == doc.id && appointmentList.ElementAt(i3).time.Equals(myDate))
+                        {
+                            patientId = appointmentList.ElementAt(i3).patient.id;
+                            serviceType = appointmentList.ElementAt(i3).serviceType;
+                        }
+                    }
+                    new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
+                }
             }
+            
+             
+             new Thread(() => new ErrorWindow("Choose a date"));
+            
         }
         private void WeekForward(object sender, EventArgs e)
         {
@@ -220,10 +228,11 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0)
-            //{
-            //    dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
-            //}
+            if (e.RowIndex >= 0)
+            {
+               dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
+               dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.Red;
+            }
         }
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -231,6 +240,25 @@ namespace WindowsFormsClient
             if (e.RowIndex >= 0)
             {
                 dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.White;
+                dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.Red;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            doctorName = comboBox1.Text;
+         
+          
+        }
+        public void getAllDoctorName()
+        {
+            doctorList.AddRange(doctorService.GetAllDoctors());
+           
+            doctorsName = new List<String>();
+
+            for (int i =0; i < doctorList.Count; i++)
+            {
+                doctorsName.Add(doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
             }
         }
 
