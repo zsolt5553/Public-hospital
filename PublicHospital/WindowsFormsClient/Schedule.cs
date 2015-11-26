@@ -56,6 +56,7 @@ namespace WindowsFormsClient
             {
                 if (startM == 0)
                     dataGridView1.Rows.Add(new string[] { startH + ":00" });
+                   
                 else
                     dataGridView1.Rows.Add(new string[] { startH + ":" + startM });
                 startM += timeVisitM;
@@ -79,9 +80,10 @@ namespace WindowsFormsClient
             {
 
                 dataGridView1.Columns.Add("d" + i, dateTimePicker1.Value.Date.ToShortDateString() + "\n" + dateTimePicker1.Value.DayOfWeek.ToString());
-                dataGridView1.Columns[i + 1].HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+                dataGridView1.Columns[i].HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
                 dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 dataGridView1.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.BottomCenter;
+                dataGridView1.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(208, 221, 238);
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
 
             }
@@ -232,7 +234,7 @@ namespace WindowsFormsClient
             if (e.RowIndex >= 0)
             {
                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
-               dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.Red;
+               dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.LightBlue;
             }
         }
 
@@ -240,8 +242,8 @@ namespace WindowsFormsClient
         {
             if (e.RowIndex >= 0)
             {
-                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.White;
-                dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.Red;
+                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.FromArgb(208, 221, 238);
+                dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.FromArgb(208, 221, 238);
             }
         }
 
@@ -263,6 +265,7 @@ namespace WindowsFormsClient
             }
         }
 
+      
 
 
     }
