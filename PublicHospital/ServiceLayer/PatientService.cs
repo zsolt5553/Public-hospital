@@ -198,8 +198,8 @@ namespace ServiceLayer
 
         public Patient GetAppointmentsHistoryPatient(int id, ref string message)
         {
-            var patient = new Patient();
-            var patientBDO = new PatientBDO();
+            var patient = GetPatient(id);
+            PatientBDO patientBDO = new PatientBDO();
             try
             {
                 TranslatePatientDTOToPatientBDO(patient, patientBDO);

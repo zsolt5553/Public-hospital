@@ -168,7 +168,6 @@ namespace PersistenceLayer
             {
                 int patientID = patient.id;
                 var appointments = PHEntities.Appointment.Where(a => a.idPatient == patientID);
-                //List<AppointmentBDO> appointmentList = null;
                 if (appointments.FirstOrDefault() != null)
                 {
                     VisitDAO visitDAO = new VisitDAO();
@@ -180,8 +179,8 @@ namespace PersistenceLayer
                             id = appointment.id,
                             time = Convert.ToDateTime(appointment.time),
                             serviceType = appointment.serviceType,
-                            patient = patientDAO.GetPatient(appointment.idPatient.Value),
-                            doctor = doctorDAO.GetDoctor(appointment.idDoctor.Value),
+                            patient = patient,
+                            doctor = new DoctorDAO().GetDoctor(appointment.idDoctor.Value),
                             visit = visitDAO.GetVisit(appointment.id)
                         });
                     }
