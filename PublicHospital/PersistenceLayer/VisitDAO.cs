@@ -85,10 +85,8 @@ namespace PersistenceLayer
             return ret;
         }
 
-        public bool UpdateVisit(ref VisitBDO VisitBDO,
-            ref string massage)
+        public bool UpdateVisit(ref VisitBDO VisitBDO)
         {
-            massage = "Visit updated successfully";
             var ret = true;
             using (var PHEntites = new PublicHospitalEntities())
             {
@@ -113,7 +111,6 @@ namespace PersistenceLayer
                 if (num != 1)
                 {
                     ret = false;
-                    massage = "Visit was not updated";
                 }
             }
             return ret;
