@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DataLayer" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPatientService_GetPatient_InputMessage">
@@ -34,6 +35,15 @@
   <wsdl:message name="IPatientService_GetAllpatients_PatientFaultFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:PatientFault" />
   </wsdl:message>
+  <wsdl:message name="IPatientService_GetAppointmentsHistoryPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetAppointmentsHistoryPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_GetAppointmentsHistoryPatient_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
+  </wsdl:message>
   <wsdl:portType name="IPatientService">
     <wsdl:operation name="GetPatient">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetPatient" message="tns:IPatientService_GetPatient_InputMessage" />
@@ -49,6 +59,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetAllpatients" message="tns:IPatientService_GetAllpatients_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetAllpatientsResponse" message="tns:IPatientService_GetAllpatients_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/GetAllpatientsPatientFaultFault" name="PatientFaultFault" message="tns:IPatientService_GetAllpatients_PatientFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatient" message="tns:IPatientService_GetAppointmentsHistoryPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatientResponse" message="tns:IPatientService_GetAppointmentsHistoryPatient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatientAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IPatientService_GetAppointmentsHistoryPatient_AppointmentFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPatientService" type="tns:IPatientService">
@@ -87,6 +102,18 @@
       </wsdl:output>
       <wsdl:fault name="PatientFaultFault">
         <soap:fault use="literal" name="PatientFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

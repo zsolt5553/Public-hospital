@@ -288,6 +288,15 @@
     <None Include="Service References\PasswordService\WindowsFormsClient.PasswordService.authenticatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PatientService\DataLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\DataLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\DataLayer2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PatientService\service.wsdl" />
     <None Include="Service References\PatientService\service.xsd">
       <SubType>Designer</SubType>
@@ -297,6 +306,9 @@
     </None>
     <None Include="Service References\PatientService\ServiceLayer.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PatientService\WindowsFormsClient.PatientService.Patient.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

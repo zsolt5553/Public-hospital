@@ -20,10 +20,13 @@ namespace WindowsFormsClient
             FillTabe();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-        }
+            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
+            {
+                String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
+                //new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
+            }
 
         private void FillTabe()
         {

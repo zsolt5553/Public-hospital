@@ -196,6 +196,29 @@ namespace ServiceLayer
             return aaa;
         }
 
+        public Patient GetAppointmentsHistoryPatient(int id, ref string message)
+        {
+            var patient = new Patient();
+            var patientBDO = new PatientBDO();
+            try
+            {
+                TranslatePatientDTOToPatientBDO(patient, patientBDO);
+                bool succesfull = new AppointmentLogic().GetAppointmentsHistoryPatient(ref patientBDO, ref message);
+                if (succesfull == true)
+                {
+                    TranslatePatientBDOToPatientDTO(patientBDO, patient);
+                    return patient;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                throw new FaultException<PatientFault>(new PatientFault(msg), msg);
+            }
+        }
+
         //public DataSet GetAllpatients()
         //{
         //    DataTable patientTable;
