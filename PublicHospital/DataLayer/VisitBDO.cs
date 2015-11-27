@@ -23,6 +23,7 @@ namespace DataLayer
             this.symptom = symptom;
             this.advice = advice;
             this.appoint = appoint;
+            appoint.visit = this;
         }
     }
 }
