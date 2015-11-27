@@ -12,10 +12,14 @@ namespace PersistenceLayer
     {
         private PatientDAO patientDAO;
         private DoctorDAO doctorDAO;
+        private VisitDAO visitDAO;
 
         public AppointmentBDO GetAppointment(int id)
         {
             AppointmentBDO appointmentBDO = null;
+            VisitBDO visitBDO = null;
+
+            visitBDO = visitDAO.GetVisit(id);
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var appointmentObj = (from a in PHEntities.Appointment
@@ -28,7 +32,8 @@ namespace PersistenceLayer
                         time = Convert.ToDateTime(appointmentObj.time),
                         serviceType = appointmentObj.serviceType,
                         patient = patientDAO.GetPatient(appointmentObj.idPatient.Value),
-                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value)
+                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value),
+                        visit = visitBDO
                     };
             }
             return appointmentBDO;
@@ -56,9 +61,10 @@ namespace PersistenceLayer
                                     Doctor.firstName,
                                     Doctor.lastName,
                                     DoctorId = Doctor.id,
-                                    Column1 = Patient.firstName,
-                                    Column2 = Patient.lastName,
+                                    PatientFirst = Patient.firstName,
+                                    PatientLast = Patient.lastName,
                                     Column3 = Patient.id
+
                                 });
                 if (listInDb != null)
                 {
@@ -74,8 +80,8 @@ namespace PersistenceLayer
                             doctorBDO.firstName = mergedList.firstName;
                             doctorBDO.lastName = mergedList.lastName;
                             doctorBDO.id = mergedList.DoctorId;
-                            patientBDO.firstName = mergedList.Column1;
-                            patientBDO.lastName = mergedList.Column2;
+                            patientBDO.firstName = mergedList.PatientFirst;
+                            patientBDO.lastName = mergedList.PatientLast;
                             patientBDO.id = mergedList.Column3;
                             appointmentBDO = new AppointmentBDO()
                             {
@@ -83,8 +89,8 @@ namespace PersistenceLayer
                                 time = mergedList.time,
                                 serviceType = mergedList.serviceType,
                                 doctor = doctorBDO,
-                                patient = patientBDO
-
+                                patient = patientBDO,
+                                visit = visitDAO.GetVisit(mergedList.id)
                             };
                             appointments.Add(appointmentBDO);
                         }
@@ -144,8 +150,9 @@ namespace PersistenceLayer
                 //without username and pass
                 PHEntites.Appointment.Attach(appointmentInDb);
                 PHEntites.Entry(appointmentInDb).State = System.Data.Entity.EntityState.Modified;
+
                 var num = PHEntites.SaveChanges();
-                if (num != 1)
+                if (num != 1 )
                 {
                     ret = false;
                     massage = "appointment was not updated";

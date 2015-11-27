@@ -18,14 +18,14 @@ namespace DataLayer
         public AppointmentBDO(){ }
 
         public AppointmentBDO(int id, DateTime time, string serviceType, 
-            PatientBDO patient, DoctorBDO doctor, VisitBDO visit)
+            PatientBDO patient, DoctorBDO doctor)
         {
             this.id = id;
             this.time = time;
             this.serviceType = serviceType;
             this.patient = patient;
             this.doctor = doctor;
-            this.visit = visit;
+            this.visit = new VisitBDO();
         }
     }
 }
