@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 using PersistenceLayer;
-
 namespace LogicLayer
 {
     public class AppointmentLogic
@@ -15,21 +14,18 @@ namespace LogicLayer
         {
             return appointmentDAO.GetAppointment(id);
         }
-
         public List<AppointmentBDO> GetAllAppointments()
         {
             return appointmentDAO.GetAllAppointments();
         }
-
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
-            ref string massage)
+        ref string massage)
         {
             return appointmentDAO.InsertAppointment(ref appointmentBDO, ref massage);
         }
-
         public bool UpdateAppointment(
-            ref AppointmentBDO appointmentBDO,
-            ref string message)
+        ref AppointmentBDO appointmentBDO,
+        ref string message)
         {
             var appointmentInDb = GetAppointment(appointmentBDO.id);
             if (appointmentInDb == null)
@@ -40,7 +36,7 @@ namespace LogicLayer
             else
             {
                 return appointmentDAO.Updateappointment(ref appointmentBDO,
-                    ref message);
+                ref message);
             }
         }
     }

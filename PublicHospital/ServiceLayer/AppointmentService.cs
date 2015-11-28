@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 using LogicLayer;
 using DataLayer;
 using System.ServiceModel;
-
 namespace ServiceLayer
 {
     public class AppointmentService : IAppointmentService
     {
         private DoctorService doctorService;
-
         AppointmentLogic AppointmentLogic = new AppointmentLogic();
-
         public Appointment GetAppointment(int id)
         {
             AppointmentBDO AppointmentBDO = null;
@@ -27,23 +24,22 @@ namespace ServiceLayer
                 var msg = e.Message;
                 var reason = "GetAppointment exception";
                 throw new FaultException<AppointmentFault>
-                    (new AppointmentFault(msg), reason);
+                (new AppointmentFault(msg), reason);
             }
             if (AppointmentBDO == null)
             {
                 var msg =
-                    string.Format("No Appointment found for id {0}",
-                    id);
+                string.Format("No Appointment found for id {0}",
+                id);
                 var reason = "GetAppointment empty";
                 throw new FaultException<AppointmentFault>
-                    (new AppointmentFault(msg), reason);
+                (new AppointmentFault(msg), reason);
             }
             var Appointment = new Appointment();
             TranslateAppointmentBDOToAppointmentDTO(AppointmentBDO,
-                Appointment);
+            Appointment);
             return Appointment;
         }
-
         public List<Appointment> GetAllAppointments()
         {
             List<AppointmentBDO> appointmentList;
@@ -56,28 +52,27 @@ namespace ServiceLayer
                 var msg = e.Message;
                 var reason = "GetAllDoctors exception";
                 throw new FaultException<DoctorFault>
-                    (new DoctorFault(msg), reason);
+                (new DoctorFault(msg), reason);
             }
             if (appointmentList == null)
             {
                 var msg = "ListOfDoctors is empty";
                 var reason = "ListOfDoctors empty";
                 throw new FaultException<DoctorFault>
-                    (new DoctorFault(msg), reason);
+                (new DoctorFault(msg), reason);
             }
             List<Appointment> appointments = new List<Appointment>();
             foreach (AppointmentBDO doc in appointmentList)
             {
                 var appointment = new Appointment();
                 TranslateAppointmentBDOToAppointmentDTO(doc,
-                    appointment);
+                appointment);
                 appointments.Add(appointment);
             }
             return appointments;
         }
-
         public bool UpdateAppointment(ref Appointment Appointment,
-            ref string message)
+        ref string message)
         {
             var result = true;
             if (Appointment.doctor.Equals(null))
@@ -106,23 +101,22 @@ namespace ServiceLayer
                 {
                     var AppointmentBDO = new AppointmentBDO();
                     TranslateAppointmentDTOToAppointmentBDO(Appointment,
-                        AppointmentBDO);
+                    AppointmentBDO);
                     result = AppointmentLogic.UpdateAppointment(
-                        ref AppointmentBDO, ref message);
+                    ref AppointmentBDO, ref message);
                 }
                 catch (Exception e)
                 {
                     var msg = e.Message;
                     throw new FaultException<AppointmentFault>
-                        (new AppointmentFault(msg), msg);
+                    (new AppointmentFault(msg), msg);
                 }
             }
             return result;
         }
-
         private void TranslateAppointmentBDOToAppointmentDTO(
-            AppointmentBDO AppointmentBDO,
-            Appointment Appointment)
+        AppointmentBDO AppointmentBDO,
+        Appointment Appointment)
         {
             Appointment.id = AppointmentBDO.id;
             Appointment.patient = AppointmentBDO.patient;
@@ -130,10 +124,9 @@ namespace ServiceLayer
             Appointment.time = AppointmentBDO.time;
             Appointment.doctor = AppointmentBDO.doctor;
         }
-
         private void TranslateAppointmentDTOToAppointmentBDO(
-            Appointment Appointment,
-            AppointmentBDO AppointmentBDO)
+        Appointment Appointment,
+        AppointmentBDO AppointmentBDO)
         {
             AppointmentBDO.id = Appointment.id;
             AppointmentBDO.patient = Appointment.patient;
@@ -142,5 +135,4 @@ namespace ServiceLayer
             AppointmentBDO.doctor = Appointment.doctor;
         }
     }
-
 }

@@ -4,22 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
-
-
 namespace PersistenceLayer
 {
     public class AppointmentDAO
     {
         private PatientDAO patientDAO;
         private DoctorDAO doctorDAO;
-        private VisitDAO visitDAO;
-
         public AppointmentBDO GetAppointment(int id)
         {
             AppointmentBDO appointmentBDO = null;
-            VisitBDO visitBDO = null;
-
-            visitBDO = visitDAO.GetVisit(id);
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var appointmentObj = (from a in PHEntities.Appointment
@@ -32,20 +25,17 @@ namespace PersistenceLayer
                         time = Convert.ToDateTime(appointmentObj.time),
                         serviceType = appointmentObj.serviceType,
                         patient = patientDAO.GetPatient(appointmentObj.idPatient.Value),
-                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value),
-                        visit = visitBDO
+                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value)
                     };
             }
             return appointmentBDO;
         }
-
         public List<AppointmentBDO> GetAllAppointments()
         {
             List<AppointmentBDO> appointments = null;
             AppointmentBDO appointmentBDO = null;
             PatientBDO patientBDO = null;
             DoctorBDO doctorBDO = null;
-
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var listInDb = (from Appointment in PHEntities.Appointment
@@ -61,16 +51,14 @@ namespace PersistenceLayer
                                     Doctor.firstName,
                                     Doctor.lastName,
                                     DoctorId = Doctor.id,
-                                    PatientFirst = Patient.firstName,
-                                    PatientLast = Patient.lastName,
+                                    Column1 = Patient.firstName,
+                                    Column2 = Patient.lastName,
                                     Column3 = Patient.id
-
                                 });
                 if (listInDb != null)
                 {
                     appointments = new List<AppointmentBDO>();
                     appointmentBDO = new AppointmentBDO();
-                   
                     foreach (var mergedList in listInDb)
                     {
                         if (mergedList != null)
@@ -80,8 +68,8 @@ namespace PersistenceLayer
                             doctorBDO.firstName = mergedList.firstName;
                             doctorBDO.lastName = mergedList.lastName;
                             doctorBDO.id = mergedList.DoctorId;
-                            patientBDO.firstName = mergedList.PatientFirst;
-                            patientBDO.lastName = mergedList.PatientLast;
+                            patientBDO.firstName = mergedList.Column1;
+                            patientBDO.lastName = mergedList.Column2;
                             patientBDO.id = mergedList.Column3;
                             appointmentBDO = new AppointmentBDO()
                             {
@@ -89,8 +77,7 @@ namespace PersistenceLayer
                                 time = mergedList.time,
                                 serviceType = mergedList.serviceType,
                                 doctor = doctorBDO,
-                                patient = patientBDO,
-                                visit = visitDAO.GetVisit(mergedList.id)
+                                patient = patientBDO
                             };
                             appointments.Add(appointmentBDO);
                         }
@@ -99,9 +86,8 @@ namespace PersistenceLayer
             }
             return appointments;
         }
-
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
-            ref string massage)
+        ref string massage)
         {
             massage = "Appointment inserted successfully";
             var ret = true;
@@ -124,9 +110,8 @@ namespace PersistenceLayer
             }
             return ret;
         }
-
         public bool Updateappointment(ref AppointmentBDO appointmentBDO,
-            ref string massage)
+        ref string massage)
         {
             massage = "appointment updated successfully";
             var ret = true;
@@ -134,13 +119,13 @@ namespace PersistenceLayer
             {
                 var appointmentId = appointmentBDO.id;
                 var appointmentInDb = (from a
-                                 in PHEntites.Appointment
+                in PHEntites.Appointment
                                        where a.id == appointmentId
                                        select a).FirstOrDefault();
                 if (appointmentInDb == null)
                 {
                     throw new Exception("No appointment with id " +
-                                        appointmentBDO.id);
+                    appointmentBDO.id);
                 }
                 appointmentInDb.id = appointmentBDO.id;
                 appointmentInDb.time = appointmentBDO.time.Date;
@@ -150,9 +135,8 @@ namespace PersistenceLayer
                 //without username and pass
                 PHEntites.Appointment.Attach(appointmentInDb);
                 PHEntites.Entry(appointmentInDb).State = System.Data.Entity.EntityState.Modified;
-
                 var num = PHEntites.SaveChanges();
-                if (num != 1 )
+                if (num != 1)
                 {
                     ret = false;
                     massage = "appointment was not updated";
@@ -162,4 +146,3 @@ namespace PersistenceLayer
         }
     }
 }
-
