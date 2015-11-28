@@ -48,6 +48,9 @@ namespace ServiceLayer
         public string login { get; set; }
         [DataMember]
         public string pass { get; set; }
+        [DataMember]
+        public byte[] RowVersion { get; set; }
+
     }
     [DataContract]
     public class AdminFault

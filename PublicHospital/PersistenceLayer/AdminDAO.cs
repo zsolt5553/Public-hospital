@@ -29,7 +29,8 @@ namespace PersistenceLayer
                         phoneNr = adminObj.phoneNr,
                         zip = adminObj.zip,
                         login = adminObj.login,
-                        pass = adminObj.pass
+                        pass = adminObj.pass,
+                        RowVersion = adminObj.rowVersion
                     };
             }
                 return adminBDO;
@@ -74,7 +75,7 @@ namespace PersistenceLayer
                     phoneNr = adminBDO.phoneNr,
                     zip = adminBDO.zip,
                     login = adminBDO.login,
-                    
+                    rowVersion = adminBDO.RowVersion,
                     pass = passAndSalt[0],
                     salt = passAndSalt[1]
                 });
@@ -112,10 +113,14 @@ namespace PersistenceLayer
                 adminInDb.street = adminBDO.street;
                 adminInDb.streetNr = adminBDO.streetNr;
                 adminInDb.phoneNr = adminBDO.phoneNr;
+                adminInDb.rowVersion = adminBDO.RowVersion;
                 //without username and pass
                 PHEntites.Admin.Attach(adminInDb);
                 PHEntites.Entry(adminInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+
+                adminBDO.RowVersion = adminInDb.rowVersion;
+
                 if (num != 1)
                 {
                     ret = false;

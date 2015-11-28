@@ -139,6 +139,7 @@ namespace ServiceLayer
                         adminBDO);
                     result = adminLogic.UpdateAdmin(
                         ref adminBDO, ref message);
+                    admin.RowVersion = adminBDO.RowVersion;
                 }
                 catch (Exception e)
                 {
@@ -164,6 +165,7 @@ namespace ServiceLayer
             admin.phoneNr = adminBDO.phoneNr;
             admin.login = adminBDO.login;
             admin.pass = adminBDO.pass;
+            admin.RowVersion = adminBDO.RowVersion;
         }
 
         private void TranslateAdminDTOToAdminBDO (
@@ -180,6 +182,7 @@ namespace ServiceLayer
             adminBDO.phoneNr = admin.phoneNr;
             adminBDO.login = admin.login;
             adminBDO.pass = admin.pass;
+            adminBDO.RowVersion = admin.RowVersion;
         }
     }
 }

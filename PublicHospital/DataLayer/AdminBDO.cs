@@ -18,6 +18,8 @@ namespace DataLayer
         public string phoneNr { get; set; }
         public string login { get; set; }
         public string pass { get; set; }
+        public byte[] RowVersion { get; set; }
+
 
         public AdminBDO() { }
 

@@ -22,7 +22,6 @@ namespace WindowsFormsClient
         private int doctorId=1;
         private string serviceType;
         private int patientId;
-        private string doctorName;
         public Schedule()
         {
             getAllDoctorName();
@@ -91,8 +90,7 @@ namespace WindowsFormsClient
             appointmentList.AddRange(appointmentService.GetAllAppointments());
             
             doc = doctorService.GetDoctor(id);
-           
-            //GetDoctor(id);
+          
                              
             for (int i = 1; i < 8; i++)
             {
