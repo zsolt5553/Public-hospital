@@ -8,9 +8,19 @@
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataLayer" minOccurs="0" name="patient" nillable="true" type="q2:PatientBDO" />
       <xs:element minOccurs="0" name="serviceType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="visit" nillable="true" type="tns:Visit" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Appointment" nillable="true" type="tns:Appointment" />
+  <xs:complexType name="Visit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="advice" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="patientProblem" type="xs:int" />
+      <xs:element minOccurs="0" name="symptom" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Visit" nillable="true" type="tns:Visit" />
   <xs:complexType name="AppointmentFault">
     <xs:sequence>
       <xs:element minOccurs="0" name="FaultMessage" nillable="true" type="xs:string" />

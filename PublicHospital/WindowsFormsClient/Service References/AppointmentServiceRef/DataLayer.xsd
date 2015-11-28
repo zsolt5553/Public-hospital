@@ -31,10 +31,38 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:AdminBDO">
         <xs:sequence>
+          <xs:element minOccurs="0" name="appointmentsHistory" nillable="true" type="tns:ArrayOfAppointmentBDO" />
           <xs:element minOccurs="0" name="dateOfBirth" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PatientBDO" nillable="true" type="tns:PatientBDO" />
+  <xs:complexType name="ArrayOfAppointmentBDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppointmentBDO" nillable="true" type="tns:AppointmentBDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppointmentBDO" nillable="true" type="tns:ArrayOfAppointmentBDO" />
+  <xs:complexType name="AppointmentBDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doctor" nillable="true" type="tns:DoctorBDO" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="patient" nillable="true" type="tns:PatientBDO" />
+      <xs:element minOccurs="0" name="serviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="visit" nillable="true" type="tns:VisitBDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppointmentBDO" nillable="true" type="tns:AppointmentBDO" />
+  <xs:complexType name="VisitBDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="advice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="appoint" nillable="true" type="tns:AppointmentBDO" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="patientProblem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="symptom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VisitBDO" nillable="true" type="tns:VisitBDO" />
 </xs:schema>

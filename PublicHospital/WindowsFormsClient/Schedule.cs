@@ -31,10 +31,6 @@ namespace WindowsFormsClient
             CreateRows();
             CreateColumns();
             CalculateWeekNumber();
-          
-           
-                
-
         }
 
 
