@@ -261,7 +261,7 @@ namespace ServiceLayer
             doctor.pass = doctorBDO.pass;
         }
 
-        private void TranslateDoctorDTOToDoctorBDO(
+        public void TranslateDoctorDTOToDoctorBDO(
             Doctor doctor,
             DoctorBDO doctorBDO)
         {

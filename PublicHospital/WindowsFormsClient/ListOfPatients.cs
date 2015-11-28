@@ -24,12 +24,15 @@ namespace WindowsFormsClient
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string message = null;
-            int id = -1;
-            Int32.TryParse(dataGridView1.Rows[e.RowIndex].Cells[0].ToString(), out id);
-            var patient = new PatientServiceClient().GetAppointmentsHistoryPatient(id, ref message);
-            if(message != null)
+            int id = 0;
+            Int32.TryParse(dataGridView1.SelectedRows[e.RowIndex].Cells[0].Value.ToString(), out id);
+            Patient patient = new PatientServiceClient().GetAppointmentsHistoryPatient(id, ref message);
+            if (patient != null)
+            {
+                new Thread(() => new PatientHistory(patient).ShowDialog()).Start();
+            }
+            else
                 new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
-            //new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
         }
 
         private void FillTabe()
