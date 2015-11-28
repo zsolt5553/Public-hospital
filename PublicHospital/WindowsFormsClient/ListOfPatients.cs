@@ -27,6 +27,7 @@ namespace WindowsFormsClient
                 String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
                 //new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
             }
+        }
 
         private void FillTabe()
         {
