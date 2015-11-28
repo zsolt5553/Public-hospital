@@ -19,6 +19,9 @@ namespace PersistenceLayer
                                       where a.id == id
                                       select a).FirstOrDefault();
                 if (appointmentObj != null)
+                {
+                    patientDAO = new PatientDAO();
+                    doctorDAO = new DoctorDAO();
                     appointmentBDO = new AppointmentBDO()
                     {
                         id = appointmentObj.id,
@@ -27,6 +30,7 @@ namespace PersistenceLayer
                         patient = patientDAO.GetPatient(appointmentObj.idPatient.Value),
                         doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value)
                     };
+                } 
             }
             return appointmentBDO;
         }
@@ -58,7 +62,6 @@ namespace PersistenceLayer
                 if (listInDb != null)
                 {
                     appointments = new List<AppointmentBDO>();
-                    appointmentBDO = new AppointmentBDO();
                     foreach (var mergedList in listInDb)
                     {
                         if (mergedList != null)

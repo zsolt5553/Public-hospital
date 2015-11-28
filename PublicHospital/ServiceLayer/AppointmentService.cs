@@ -10,7 +10,6 @@ namespace ServiceLayer
 {
     public class AppointmentService : IAppointmentService
     {
-        private DoctorService doctorService;
         AppointmentLogic AppointmentLogic = new AppointmentLogic();
         public Appointment GetAppointment(int id)
         {
@@ -50,16 +49,16 @@ namespace ServiceLayer
             catch (Exception e)
             {
                 var msg = e.Message;
-                var reason = "GetAllDoctors exception";
-                throw new FaultException<DoctorFault>
-                (new DoctorFault(msg), reason);
+                var reason = "GetAllAppointments exception";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
             }
             if (appointmentList == null)
             {
-                var msg = "ListOfDoctors is empty";
-                var reason = "ListOfDoctors empty";
-                throw new FaultException<DoctorFault>
-                (new DoctorFault(msg), reason);
+                var msg = "ListOfAppointments is empty";
+                var reason = "ListOfAppointments empty";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
             }
             List<Appointment> appointments = new List<Appointment>();
             foreach (AppointmentBDO doc in appointmentList)

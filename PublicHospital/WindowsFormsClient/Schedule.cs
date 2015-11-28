@@ -92,7 +92,7 @@ namespace WindowsFormsClient
             
             doc = doctorService.GetDoctor(id);
            
-            GetDoctor(id);
+            //GetDoctor(id);
                              
             for (int i = 1; i < 8; i++)
             {
@@ -231,7 +231,7 @@ namespace WindowsFormsClient
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
             string value = stringUntilThatChar(comboBox1.Text);
             int value2 = -1;
             Int32.TryParse(value, out value2);
