@@ -27,13 +27,10 @@ namespace WindowsFormsClient
         {
             getAllDoctorName();
             InitializeComponent();
+            this.comboBox1.Items.AddRange(doctorsName.ToArray());
             CreateRows();
             CreateColumns();
             CalculateWeekNumber();
-          
-           
-                
-
         }
 
 
@@ -182,22 +179,7 @@ namespace WindowsFormsClient
            
         }
 
-        private void SearchDoctor(object sender, EventArgs e)
-        {
-            string value = textBox1.Text;
-            int value2 = -1;
-            Int32.TryParse(value, out value2);
-            if (value2 != -1)
-            {
-                doctorId = value2;
-                CreateCells(value2);
-            
-            }
-            else
-            {
-                // do something
-            }
-        }
+      
 
 
         private int CheckIfNotMonday()
@@ -225,7 +207,7 @@ namespace WindowsFormsClient
         {
            
             DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
-            label2.Text ="Doctor: " + doc.firstName;
+          
             return doc;
         }
 
@@ -249,9 +231,30 @@ namespace WindowsFormsClient
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            doctorName = comboBox1.Text;
-         
-          
+
+            string value = stringUntilThatChar(comboBox1.Text);
+            int value2 = -1;
+            Int32.TryParse(value, out value2);
+            if (value2 != -1)
+            {
+                doctorId = value2;
+                CreateCells(value2);
+
+            }
+            else
+            {
+                // do something
+            }
+        }
+        public static string stringUntilThatChar(string s)
+        {
+            int l = s.IndexOf(")");
+            if (l > 0)
+            {
+                return s.Substring(1, l-1);
+            }
+            return "";
+
         }
         public void getAllDoctorName()
         {
@@ -261,7 +264,7 @@ namespace WindowsFormsClient
 
             for (int i =0; i < doctorList.Count; i++)
             {
-                doctorsName.Add(doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
+                doctorsName.Add("(" + doctorList.ElementAt(i).id +") " + doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
             }
         }
 

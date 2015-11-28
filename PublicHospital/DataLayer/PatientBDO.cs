@@ -9,6 +9,7 @@ namespace DataLayer
     public class PatientBDO : AdminBDO
     {
         public DateTime dateOfBirth { get; set; }
+        public List<AppointmentBDO> appointmentsHistory { get; set; }
 
         public PatientBDO () { }
         public PatientBDO(int id, string firstName, string lastName, string city, int zip, string street,

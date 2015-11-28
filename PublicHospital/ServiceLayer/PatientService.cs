@@ -149,7 +149,7 @@ namespace ServiceLayer
             patient.pass = patientBDO.pass;
         }
 
-        private void TranslatePatientDTOToPatientBDO(
+        public void TranslatePatientDTOToPatientBDO(
             Patient patient,
             PatientBDO patientBDO)
         {
@@ -194,6 +194,52 @@ namespace ServiceLayer
                     (new DoctorFault(msg), reason);
             }
             return aaa;
+        }
+
+        public Patient GetAppointmentsHistoryPatient(int id, ref string message)
+        {
+            Patient patient = GetPatient(id);
+            PatientBDO patientBDO = new PatientBDO();
+            try
+            {
+                TranslatePatientDTOToPatientBDO(patient, patientBDO);
+                bool succesfull = new AppointmentLogic().GetAppointmentsHistoryPatient(ref patientBDO, ref message);
+                if (succesfull == true)
+                {
+                    TranslatePatientBDOToPatientDTO(patientBDO, patient);
+                    patient.appointmentsHistory = new List<Appointment>();
+                    foreach (var appointment in patientBDO.appointmentsHistory)
+                    {
+                        Doctor doctorDTO = new Doctor();
+                        new DoctorService().TranslateDoctorBDOToDoctorDTO(appointment.doctor, doctorDTO);
+                        patient.appointmentsHistory.Add(new Appointment
+                        {
+                            id = appointment.id,
+                            serviceType = appointment.serviceType,
+                            doctor = doctorDTO,
+                            time = appointment.time
+                        });
+                        if (appointment.visit != null)
+                        {
+                            patient.appointmentsHistory.Last().visit = new Visit
+                            {
+                                id = appointment.visit.id,
+                                advice = appointment.visit.advice,
+                                patientProblem = appointment.visit.patientProblem,
+                                symptom = appointment.visit.symptom
+                            };
+                        }
+                    }
+                    return patient;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                throw new FaultException<PatientFault>(new PatientFault(msg), msg);
+            }
         }
 
         //public DataSet GetAllpatients()

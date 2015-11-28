@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsClient
 {
-    partial class ListOfPatients
+    partial class PatientHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -47,19 +47,18 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(928, 486);
+            this.dataGridView1.Size = new System.Drawing.Size(692, 432);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // ListOfPatients
+            // PatientHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 486);
+            this.ClientSize = new System.Drawing.Size(692, 432);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ListOfPatients";
-            this.Text = "List of patints";
+            this.Name = "PatientHistory";
+            this.Text = "PatientHistory";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

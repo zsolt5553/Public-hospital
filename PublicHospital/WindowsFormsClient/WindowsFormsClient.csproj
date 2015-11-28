@@ -125,6 +125,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientHistory.Designer.cs">
+      <DependentUpon>PatientHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs">
@@ -158,6 +164,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="VisitDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitDetails.Designer.cs">
+      <DependentUpon>VisitDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Appointment.resx">
       <DependentUpon>Appointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +200,9 @@
     <EmbeddedResource Include="NewDoctor.resx">
       <DependentUpon>NewDoctor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PatientHistory.resx">
+      <DependentUpon>PatientHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -200,6 +215,9 @@
     </Compile>
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitDetails.resx">
+      <DependentUpon>VisitDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -288,6 +306,12 @@
     <None Include="Service References\PasswordService\WindowsFormsClient.PasswordService.authenticatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PatientService\DataLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\DataLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PatientService\service.wsdl" />
     <None Include="Service References\PatientService\service.xsd">
       <SubType>Designer</SubType>
@@ -297,6 +321,9 @@
     </None>
     <None Include="Service References\PatientService\ServiceLayer.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PatientService\WindowsFormsClient.PatientService.Patient.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

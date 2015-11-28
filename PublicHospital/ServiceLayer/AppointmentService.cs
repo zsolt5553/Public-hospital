@@ -118,21 +118,29 @@ namespace ServiceLayer
         AppointmentBDO AppointmentBDO,
         Appointment Appointment)
         {
+            Doctor doctorDTO = new Doctor();
+            new DoctorService().TranslateDoctorBDOToDoctorDTO(AppointmentBDO.doctor, doctorDTO);
+            Patient patientDTO = new Patient();
+            new PatientService().TranslatePatientBDOToPatientDTO(AppointmentBDO.patient, patientDTO);
             Appointment.id = AppointmentBDO.id;
-            Appointment.patient = AppointmentBDO.patient;
+            Appointment.patient = patientDTO;
             Appointment.serviceType = AppointmentBDO.serviceType;
             Appointment.time = AppointmentBDO.time;
-            Appointment.doctor = AppointmentBDO.doctor;
+            Appointment.doctor = doctorDTO;
         }
         private void TranslateAppointmentDTOToAppointmentBDO(
         Appointment Appointment,
         AppointmentBDO AppointmentBDO)
         {
+            DoctorBDO doctorBDO = new DoctorBDO();
+            new DoctorService().TranslateDoctorDTOToDoctorBDO(Appointment.doctor, doctorBDO);
+            PatientBDO patientBDO = new PatientBDO();
+            new PatientService().TranslatePatientDTOToPatientBDO(Appointment.patient, patientBDO);
             AppointmentBDO.id = Appointment.id;
-            AppointmentBDO.patient = Appointment.patient;
+            AppointmentBDO.patient = patientBDO;
             AppointmentBDO.serviceType = Appointment.serviceType;
             AppointmentBDO.time = Appointment.time;
-            AppointmentBDO.doctor = Appointment.doctor;
+            AppointmentBDO.doctor = doctorBDO;
         }
     }
 }

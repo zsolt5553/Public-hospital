@@ -23,6 +23,10 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(PatientFault))]
         List<Patient> GetAllpatients();
+
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
+        Patient GetAppointmentsHistoryPatient(int id, ref string message);
     }
 
     [DataContract]
@@ -50,6 +54,8 @@ namespace ServiceLayer
         public string login { get; set; }
         [DataMember]
         public string pass { get; set; }
+        [DataMember]
+        public List<Appointment> appointmentsHistory { get; set; }
     }
     [DataContract]
     public class PatientFault

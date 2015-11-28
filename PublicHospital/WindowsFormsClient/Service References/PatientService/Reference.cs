@@ -23,6 +23,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -62,6 +65,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.PatientService.Appointment[] appointmentsHistory {
+            get {
+                return this.appointmentsHistoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.appointmentsHistoryField, value) != true)) {
+                    this.appointmentsHistoryField = value;
+                    this.RaisePropertyChanged("appointmentsHistory");
+                }
             }
         }
         
@@ -220,9 +236,493 @@ namespace WindowsFormsClient.PatientService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Appointment", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class Appointment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.PatientService.Doctor doctorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.PatientService.Patient patientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string serviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime timeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.PatientService.Visit visitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.PatientService.Doctor doctor {
+            get {
+                return this.doctorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.doctorField, value) != true)) {
+                    this.doctorField = value;
+                    this.RaisePropertyChanged("doctor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.PatientService.Patient patient {
+            get {
+                return this.patientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.patientField, value) != true)) {
+                    this.patientField = value;
+                    this.RaisePropertyChanged("patient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string serviceType {
+            get {
+                return this.serviceTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.serviceTypeField, value) != true)) {
+                    this.serviceTypeField = value;
+                    this.RaisePropertyChanged("serviceType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime time {
+            get {
+                return this.timeField;
+            }
+            set {
+                if ((this.timeField.Equals(value) != true)) {
+                    this.timeField = value;
+                    this.RaisePropertyChanged("time");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.PatientService.Visit visit {
+            get {
+                return this.visitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.visitField, value) != true)) {
+                    this.visitField = value;
+                    this.RaisePropertyChanged("visit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Doctor", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class Doctor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string firstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string loginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string passField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string phoneNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string specialtyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string streetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int streetNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int zipField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string city {
+            get {
+                return this.cityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cityField, value) != true)) {
+                    this.cityField = value;
+                    this.RaisePropertyChanged("city");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string firstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.firstNameField, value) != true)) {
+                    this.firstNameField = value;
+                    this.RaisePropertyChanged("firstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
+                    this.lastNameField = value;
+                    this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string login {
+            get {
+                return this.loginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.loginField, value) != true)) {
+                    this.loginField = value;
+                    this.RaisePropertyChanged("login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string pass {
+            get {
+                return this.passField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.passField, value) != true)) {
+                    this.passField = value;
+                    this.RaisePropertyChanged("pass");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string phoneNr {
+            get {
+                return this.phoneNrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.phoneNrField, value) != true)) {
+                    this.phoneNrField = value;
+                    this.RaisePropertyChanged("phoneNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string specialty {
+            get {
+                return this.specialtyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.specialtyField, value) != true)) {
+                    this.specialtyField = value;
+                    this.RaisePropertyChanged("specialty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string street {
+            get {
+                return this.streetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.streetField, value) != true)) {
+                    this.streetField = value;
+                    this.RaisePropertyChanged("street");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int streetNr {
+            get {
+                return this.streetNrField;
+            }
+            set {
+                if ((this.streetNrField.Equals(value) != true)) {
+                    this.streetNrField = value;
+                    this.RaisePropertyChanged("streetNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int zip {
+            get {
+                return this.zipField;
+            }
+            set {
+                if ((this.zipField.Equals(value) != true)) {
+                    this.zipField = value;
+                    this.RaisePropertyChanged("zip");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Visit", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class Visit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string adviceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string patientProblemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string symptomField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string advice {
+            get {
+                return this.adviceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.adviceField, value) != true)) {
+                    this.adviceField = value;
+                    this.RaisePropertyChanged("advice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string patientProblem {
+            get {
+                return this.patientProblemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.patientProblemField, value) != true)) {
+                    this.patientProblemField = value;
+                    this.RaisePropertyChanged("patientProblem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string symptom {
+            get {
+                return this.symptomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.symptomField, value) != true)) {
+                    this.symptomField = value;
+                    this.RaisePropertyChanged("symptom");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PatientFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
     [System.SerializableAttribute()]
     public partial class PatientFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaultMessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaultMessage {
+            get {
+                return this.FaultMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaultMessageField, value) != true)) {
+                    this.FaultMessageField = value;
+                    this.RaisePropertyChanged("FaultMessage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+    [System.SerializableAttribute()]
+    public partial class AppointmentFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -288,6 +788,15 @@ namespace WindowsFormsClient.PatientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAllpatients", ReplyAction="http://tempuri.org/IPatientService/GetAllpatientsResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.PatientService.Patient[]> GetAllpatientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatient", ReplyAction="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatientResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.PatientService.AppointmentFault), Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatientAppointmentFaultF" +
+            "ault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse GetAppointmentsHistoryPatient(WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatient", ReplyAction="http://tempuri.org/IPatientService/GetAppointmentsHistoryPatientResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse> GetAppointmentsHistoryPatientAsync(WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -330,6 +839,46 @@ namespace WindowsFormsClient.PatientService {
         public UpdatePatientResponse(bool UpdatePatientResult, WindowsFormsClient.PatientService.Patient Patient, string message) {
             this.UpdatePatientResult = UpdatePatientResult;
             this.Patient = Patient;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAppointmentsHistoryPatient", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetAppointmentsHistoryPatientRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public GetAppointmentsHistoryPatientRequest() {
+        }
+        
+        public GetAppointmentsHistoryPatientRequest(int id, string message) {
+            this.id = id;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAppointmentsHistoryPatientResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetAppointmentsHistoryPatientResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatientResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public GetAppointmentsHistoryPatientResponse() {
+        }
+        
+        public GetAppointmentsHistoryPatientResponse(WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatientResult, string message) {
+            this.GetAppointmentsHistoryPatientResult = GetAppointmentsHistoryPatientResult;
             this.message = message;
         }
     }
@@ -394,6 +943,24 @@ namespace WindowsFormsClient.PatientService {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.PatientService.Patient[]> GetAllpatientsAsync() {
             return base.Channel.GetAllpatientsAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse WindowsFormsClient.PatientService.IPatientService.GetAppointmentsHistoryPatient(WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest request) {
+            return base.Channel.GetAppointmentsHistoryPatient(request);
+        }
+        
+        public WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatient(int id, ref string message) {
+            WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest inValue = new WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest();
+            inValue.id = id;
+            inValue.message = message;
+            WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse retVal = ((WindowsFormsClient.PatientService.IPatientService)(this)).GetAppointmentsHistoryPatient(inValue);
+            message = retVal.message;
+            return retVal.GetAppointmentsHistoryPatientResult;
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse> GetAppointmentsHistoryPatientAsync(WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest request) {
+            return base.Channel.GetAppointmentsHistoryPatientAsync(request);
         }
     }
 }
