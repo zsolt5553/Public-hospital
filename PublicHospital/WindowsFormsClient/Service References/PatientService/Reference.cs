@@ -1147,7 +1147,7 @@ namespace WindowsFormsClient.PatientService {
     public partial class GetAppointmentsHistoryPatientRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WindowsFormsClient.PatientService.Patient patient;
+        public int id;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -1155,8 +1155,8 @@ namespace WindowsFormsClient.PatientService {
         public GetAppointmentsHistoryPatientRequest() {
         }
         
-        public GetAppointmentsHistoryPatientRequest(WindowsFormsClient.PatientService.Patient patient, string message) {
-            this.patient = patient;
+        public GetAppointmentsHistoryPatientRequest(int id, string message) {
+            this.id = id;
             this.message = message;
         }
     }
@@ -1170,17 +1170,13 @@ namespace WindowsFormsClient.PatientService {
         public WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatientResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WindowsFormsClient.PatientService.Patient patient;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
         
         public GetAppointmentsHistoryPatientResponse() {
         }
         
-        public GetAppointmentsHistoryPatientResponse(WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatientResult, WindowsFormsClient.PatientService.Patient patient, string message) {
+        public GetAppointmentsHistoryPatientResponse(WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatientResult, string message) {
             this.GetAppointmentsHistoryPatientResult = GetAppointmentsHistoryPatientResult;
-            this.patient = patient;
             this.message = message;
         }
     }
@@ -1252,12 +1248,11 @@ namespace WindowsFormsClient.PatientService {
             return base.Channel.GetAppointmentsHistoryPatient(request);
         }
         
-        public WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatient(ref WindowsFormsClient.PatientService.Patient patient, ref string message) {
+        public WindowsFormsClient.PatientService.Patient GetAppointmentsHistoryPatient(int id, ref string message) {
             WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest inValue = new WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientRequest();
-            inValue.patient = patient;
+            inValue.id = id;
             inValue.message = message;
             WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse retVal = ((WindowsFormsClient.PatientService.IPatientService)(this)).GetAppointmentsHistoryPatient(inValue);
-            patient = retVal.patient;
             message = retVal.message;
             return retVal.GetAppointmentsHistoryPatientResult;
         }

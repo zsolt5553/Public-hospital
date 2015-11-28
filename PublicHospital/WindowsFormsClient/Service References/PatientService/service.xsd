@@ -47,7 +47,7 @@
   <xs:element name="GetAppointmentsHistoryPatient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="patient" nillable="true" type="q5:Patient" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -55,8 +55,7 @@
   <xs:element name="GetAppointmentsHistoryPatientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsHistoryPatientResult" nillable="true" type="q6:Patient" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="patient" nillable="true" type="q7:Patient" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsHistoryPatientResult" nillable="true" type="q5:Patient" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsClient.PatientService;
@@ -22,17 +23,19 @@ namespace WindowsFormsClient
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
-            {
-                String a = (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString());
-                //new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
-            }
+            string message = null;
+            int id = -1;
+            Int32.TryParse(dataGridView1.Rows[e.RowIndex].Cells[0].ToString(), out id);
+            var patient = new PatientServiceClient().GetAppointmentsHistoryPatient(id, ref message);
+            if(message != null)
+                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+            //new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
         }
 
         private void FillTabe()
         {
             List<Patient> patientList = new PatientServiceClient().GetAllpatients().ToList();
-            string[] days = new string[] { "ID", "First name", "Last name", "City", "Street", "Phone", "Date of birth" };
+            string[] days = new string[] { "ID", "First name", "Last name", "City", "Street", "Phone", "ZIP", "Date of birth" };
             for (int i = 0; i < days.Length; i++)
             {
                 dataGridView1.Columns.Add(i.ToString(), days[i]);
@@ -42,7 +45,7 @@ namespace WindowsFormsClient
             {
                 dataGridView1.Rows.Add(patientList[i].id, patientList[i].firstName, patientList[i].lastName,
                     patientList[i].city, patientList[i].street+" "+patientList[i].streetNr, patientList[i].phoneNr,
-                    patientList[i].dateOfBirth.ToShortDateString());
+                    patientList[i].zip, patientList[i].dateOfBirth.ToShortDateString());
             }
         }
     }
