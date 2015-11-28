@@ -37,9 +37,9 @@ namespace ServiceLayer
         [DataMember]
         public string serviceType { get; set; }
         [DataMember]
-        public PatientBDO patient { get; set; }
+        public Patient patient { get; set; }
         [DataMember]
-        public DoctorBDO doctor { get; set; }
+        public Doctor doctor { get; set; }
         [DataMember]
         public Visit visit { get; set; }
 
@@ -63,10 +63,10 @@ namespace ServiceLayer
         [DataMember]
         public int id { get; set; }
         [DataMember]
-        public int patientProblem { get; set; }
+        public string patientProblem { get; set; }
         [DataMember]
-        public int symptom { get; set; }
+        public string symptom { get; set; }
         [DataMember]
-        public int advice { get; set; }
+        public string advice { get; set; }
     }
 }

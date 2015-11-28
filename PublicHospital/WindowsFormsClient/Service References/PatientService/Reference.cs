@@ -244,13 +244,13 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.DoctorBDO doctorField;
+        private WindowsFormsClient.PatientService.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.PatientBDO patientField;
+        private WindowsFormsClient.PatientService.Patient patientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string serviceTypeField;
@@ -272,7 +272,7 @@ namespace WindowsFormsClient.PatientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.DoctorBDO doctor {
+        public WindowsFormsClient.PatientService.Doctor doctor {
             get {
                 return this.doctorField;
             }
@@ -298,7 +298,7 @@ namespace WindowsFormsClient.PatientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.PatientBDO patient {
+        public WindowsFormsClient.PatientService.Patient patient {
             get {
                 return this.patientField;
             }
@@ -361,204 +361,18 @@ namespace WindowsFormsClient.PatientService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorBDO", Namespace="http://schemas.datacontract.org/2004/07/DataLayer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Doctor", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
     [System.SerializableAttribute()]
-    public partial class DoctorBDO : WindowsFormsClient.PatientService.AdminBDO {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool isDeletedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string specialtyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool isDeleted {
-            get {
-                return this.isDeletedField;
-            }
-            set {
-                if ((this.isDeletedField.Equals(value) != true)) {
-                    this.isDeletedField = value;
-                    this.RaisePropertyChanged("isDeleted");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string specialty {
-            get {
-                return this.specialtyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.specialtyField, value) != true)) {
-                    this.specialtyField = value;
-                    this.RaisePropertyChanged("specialty");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PatientBDO", Namespace="http://schemas.datacontract.org/2004/07/DataLayer")]
-    [System.SerializableAttribute()]
-    public partial class PatientBDO : WindowsFormsClient.PatientService.AdminBDO {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.AppointmentBDO[] appointmentsHistoryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateOfBirthField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.AppointmentBDO[] appointmentsHistory {
-            get {
-                return this.appointmentsHistoryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.appointmentsHistoryField, value) != true)) {
-                    this.appointmentsHistoryField = value;
-                    this.RaisePropertyChanged("appointmentsHistory");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime dateOfBirth {
-            get {
-                return this.dateOfBirthField;
-            }
-            set {
-                if ((this.dateOfBirthField.Equals(value) != true)) {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("dateOfBirth");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Visit", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-    [System.SerializableAttribute()]
-    public partial class Visit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int adviceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int patientProblemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int symptomField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int advice {
-            get {
-                return this.adviceField;
-            }
-            set {
-                if ((this.adviceField.Equals(value) != true)) {
-                    this.adviceField = value;
-                    this.RaisePropertyChanged("advice");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int patientProblem {
-            get {
-                return this.patientProblemField;
-            }
-            set {
-                if ((this.patientProblemField.Equals(value) != true)) {
-                    this.patientProblemField = value;
-                    this.RaisePropertyChanged("patientProblem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int symptom {
-            get {
-                return this.symptomField;
-            }
-            set {
-                if ((this.symptomField.Equals(value) != true)) {
-                    this.symptomField = value;
-                    this.RaisePropertyChanged("symptom");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdminBDO", Namespace="http://schemas.datacontract.org/2004/07/DataLayer")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsClient.PatientService.PatientBDO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsClient.PatientService.DoctorBDO))]
-    public partial class AdminBDO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Doctor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string firstNameField;
@@ -577,6 +391,9 @@ namespace WindowsFormsClient.PatientService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string phoneNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string specialtyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string streetField;
@@ -606,6 +423,19 @@ namespace WindowsFormsClient.PatientService {
                 if ((object.ReferenceEquals(this.cityField, value) != true)) {
                     this.cityField = value;
                     this.RaisePropertyChanged("city");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
                 }
             }
         }
@@ -689,6 +519,19 @@ namespace WindowsFormsClient.PatientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string specialty {
+            get {
+                return this.specialtyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.specialtyField, value) != true)) {
+                    this.specialtyField = value;
+                    this.RaisePropertyChanged("specialty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string street {
             get {
                 return this.streetField;
@@ -739,143 +582,15 @@ namespace WindowsFormsClient.PatientService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AppointmentBDO", Namespace="http://schemas.datacontract.org/2004/07/DataLayer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Visit", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
     [System.SerializableAttribute()]
-    public partial class AppointmentBDO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.DoctorBDO doctorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.PatientBDO patientField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string serviceTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime timeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.VisitBDO visitField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.DoctorBDO doctor {
-            get {
-                return this.doctorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.doctorField, value) != true)) {
-                    this.doctorField = value;
-                    this.RaisePropertyChanged("doctor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.PatientBDO patient {
-            get {
-                return this.patientField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.patientField, value) != true)) {
-                    this.patientField = value;
-                    this.RaisePropertyChanged("patient");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string serviceType {
-            get {
-                return this.serviceTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.serviceTypeField, value) != true)) {
-                    this.serviceTypeField = value;
-                    this.RaisePropertyChanged("serviceType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime time {
-            get {
-                return this.timeField;
-            }
-            set {
-                if ((this.timeField.Equals(value) != true)) {
-                    this.timeField = value;
-                    this.RaisePropertyChanged("time");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.VisitBDO visit {
-            get {
-                return this.visitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.visitField, value) != true)) {
-                    this.visitField = value;
-                    this.RaisePropertyChanged("visit");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VisitBDO", Namespace="http://schemas.datacontract.org/2004/07/DataLayer")]
-    [System.SerializableAttribute()]
-    public partial class VisitBDO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Visit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string adviceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsClient.PatientService.AppointmentBDO appointField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
@@ -905,19 +620,6 @@ namespace WindowsFormsClient.PatientService {
                 if ((object.ReferenceEquals(this.adviceField, value) != true)) {
                     this.adviceField = value;
                     this.RaisePropertyChanged("advice");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsClient.PatientService.AppointmentBDO appoint {
-            get {
-                return this.appointField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.appointField, value) != true)) {
-                    this.appointField = value;
-                    this.RaisePropertyChanged("appoint");
                 }
             }
         }
