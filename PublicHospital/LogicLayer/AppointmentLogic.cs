@@ -39,5 +39,10 @@ namespace LogicLayer
                 ref message);
             }
         }
+
+        public bool GetAppointmentsHistoryPatient(ref PatientBDO patientBDO, ref string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
