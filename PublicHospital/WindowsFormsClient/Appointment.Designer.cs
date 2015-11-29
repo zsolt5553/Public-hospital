@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.serviceTypeTXT = new System.Windows.Forms.TextBox();
@@ -170,29 +171,31 @@
             this.flowLayoutPanel1.Controls.Add(this.exit);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(386, 39);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(386, 59);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // save
             // 
+            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
             this.save.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.save.Location = new System.Drawing.Point(3, 3);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(90, 30);
+            this.save.Size = new System.Drawing.Size(56, 55);
             this.save.TabIndex = 0;
-            this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             // 
             // exit
             // 
+            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
             this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exit.Location = new System.Drawing.Point(99, 3);
+            this.exit.Location = new System.Drawing.Point(65, 3);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(90, 30);
+            this.exit.Size = new System.Drawing.Size(52, 55);
             this.exit.TabIndex = 2;
-            this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
@@ -200,8 +203,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(201)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(421, 296);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Appointment";
             this.Text = "Appointment";
             this.panel1.ResumeLayout(false);

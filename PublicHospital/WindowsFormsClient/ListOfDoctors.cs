@@ -46,6 +46,7 @@ namespace WindowsFormsClient
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListOfDoctors));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -149,8 +150,10 @@ namespace WindowsFormsClient
             // 
             // ListOfDoctors
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(201)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(735, 437);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListOfDoctors";
             this.Text = "List of doctors";
             this.Load += new System.EventHandler(this.ListOfDoctors_Load_1);

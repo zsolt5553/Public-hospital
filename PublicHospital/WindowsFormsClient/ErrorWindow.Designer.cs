@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorWindow));
             this.errorText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -35,19 +36,19 @@
             // 
             this.errorText.AutoSize = true;
             this.errorText.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorText.Location = new System.Drawing.Point(45, 43);
-            this.errorText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.errorText.Location = new System.Drawing.Point(34, 35);
             this.errorText.Name = "errorText";
-            this.errorText.Size = new System.Drawing.Size(0, 31);
+            this.errorText.Size = new System.Drawing.Size(0, 24);
             this.errorText.TabIndex = 0;
             // 
             // ErrorWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 129);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(201)))), ((int)(((byte)(227)))));
+            this.ClientSize = new System.Drawing.Size(548, 105);
             this.Controls.Add(this.errorText);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ErrorWindow";
             this.Text = "ErrorWindow";
             this.ResumeLayout(false);
