@@ -62,6 +62,15 @@
   <wsdl:message name="IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage">
     <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:DoctorFault" />
   </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q7:AppointmentFault" />
+  </wsdl:message>
   <wsdl:portType name="IDoctorService">
     <wsdl:operation name="GetDoctor">
       <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetDoctor" message="tns:IDoctorService_GetDoctor_InputMessage" />
@@ -92,6 +101,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctor" message="tns:IDoctorService_UpdateDoctor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorResponse" message="tns:IDoctorService_UpdateDoctor_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorResponse" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_AppointmentFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDoctorService" type="tns:IDoctorService">
@@ -166,6 +180,18 @@
       </wsdl:output>
       <wsdl:fault name="DoctorFaultFault">
         <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

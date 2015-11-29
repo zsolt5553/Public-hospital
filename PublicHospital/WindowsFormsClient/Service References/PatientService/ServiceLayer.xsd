@@ -36,6 +36,7 @@
   <xs:element name="Appointment" nillable="true" type="tns:Appointment" />
   <xs:complexType name="Doctor">
     <xs:sequence>
+      <xs:element minOccurs="0" name="appointmentsHistory" nillable="true" type="tns:ArrayOfAppointment" />
       <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />

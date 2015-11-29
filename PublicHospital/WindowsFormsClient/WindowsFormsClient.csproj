@@ -281,6 +281,9 @@
     <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.Doctor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.SaveDoctorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
