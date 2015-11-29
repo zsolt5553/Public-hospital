@@ -40,9 +40,9 @@ namespace LogicLayer
             }
         }
 
-        public bool GetAppointmentsHistoryPatient(ref PatientBDO patientBDO, ref string message)
+        public bool GetAppointmentsHistoryPatient(ref PatientBDO patient, ref string message)
         {
-            throw new NotImplementedException();
+            return appointmentDAO.GetAppointmentsHistoryPatient(ref patient, ref message);
         }
     }
 }

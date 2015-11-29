@@ -24,9 +24,9 @@ namespace ServiceLayer
         [FaultContract(typeof(PatientFault))]
         List<Patient> GetAllpatients();
 
-        //[OperationContract]
-        //[FaultContract(typeof(AppointmentFault))]
-        //Patient GetAppointmentsHistoryPatient(int id, ref string message);
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
+        Patient GetAppointmentsHistoryPatient(int id, ref string message);
     }
 
     [DataContract]
@@ -69,4 +69,3 @@ namespace ServiceLayer
         public string FaultMessage;
     }
 }
-
