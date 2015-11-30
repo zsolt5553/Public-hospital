@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top" style="padding: 25px; background-color: #FFFFFF; border-bottom-style: groove; border-bottom-width: 5px; line-height: 30ex; vertical-align: 30%; border-bottom-color: #808080;">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="padding: 20px 15px 15px 15px; background-color: #FFFFFF; border-bottom-style: groove; border-bottom-width: 5px; border-bottom-color: #808080;">
             <div class="container" style="background-color: #FFFFFF; background-position: 100%">
                 <div class="navbar-header" style="background-color: #FFFFFF; background-position: 100%">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

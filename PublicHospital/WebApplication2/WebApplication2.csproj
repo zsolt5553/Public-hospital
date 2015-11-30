@@ -168,6 +168,9 @@
     <Content Include="Images\hospitalLogo.png" />
     <Content Include="Images\hospital_1300x400.jpg" />
     <Content Include="Images\hosplogo.png" />
+    <Content Include="Images\Scrubs - Zach Braff In Hospital.jpg" />
+    <Content Include="Images\Scrubs - Zach Braff In Hospital1.jpg" />
+    <Content Include="Images\Scrubs - Zach Braff In Hospital11.jpg" />
     <Content Include="Images\servicetype.jpg" />
     <Content Include="Images\visithosp.jpg" />
     <Content Include="packages.config" />
