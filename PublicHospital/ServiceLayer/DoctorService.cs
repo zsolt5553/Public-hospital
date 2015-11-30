@@ -135,7 +135,7 @@ namespace ServiceLayer
             }
             if (doctorsList == null)
             {
-                var msg ="ListOfDoctors is empty";
+                var msg = "ListOfDoctors is empty";
                 var reason = "ListOfDoctors empty";
                 throw new FaultException<DoctorFault>
                     (new DoctorFault(msg), reason);
@@ -301,6 +301,52 @@ namespace ServiceLayer
             doctorBDO.login = doctor.login;
             doctorBDO.pass = doctor.pass;
             doctorBDO.RowVersion = doctor.RowVersion;
+        }
+
+        public Doctor GetAppointmentsHistoryDoctor(int id, ref string message)
+        {
+            Doctor doctor = GetDoctor(id);
+            DoctorBDO doctorBDO = new DoctorBDO();
+            try
+            {
+                TranslateDoctorDTOToDoctorBDO(doctor, doctorBDO);
+                bool succesfull = new AppointmentLogic().GetAppointmentsHistoryDoctor(ref doctorBDO, ref message);
+                if (succesfull == true)
+                {
+                    TranslateDoctorBDOToDoctorDTO(doctorBDO, doctor);
+                    doctor.appointmentsHistory = new List<Appointment>();
+                    foreach (var appointment in doctorBDO.appointmentsHistory)
+                    {
+                        Patient patientDTO = new Patient();
+                        new PatientService().TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
+                        doctor.appointmentsHistory.Add(new Appointment
+                        {
+                            id = appointment.id,
+                            serviceType = appointment.serviceType,
+                            patient = patientDTO,
+                            time = appointment.time
+                        });
+                        if (appointment.visit != null)
+                        {
+                            doctor.appointmentsHistory.Last().visit = new Visit
+                            {
+                                id = appointment.visit.id,
+                                advice = appointment.visit.advice,
+                                patientProblem = appointment.visit.patientProblem,
+                                symptom = appointment.visit.symptom
+                            };
+                        }
+                    }
+                    return doctor;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                throw new FaultException<PatientFault>(new PatientFault(msg), msg);
+            }
         }
     }
 }

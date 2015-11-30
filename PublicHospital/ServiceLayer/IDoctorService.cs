@@ -42,6 +42,10 @@ namespace ServiceLayer
         [FaultContract(typeof(DoctorFault))]
         bool UpdateDoctor(ref Doctor doctor,
             ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
+        Doctor GetAppointmentsHistoryDoctor(int id, ref string message);
     }
 
     [DataContract]
@@ -71,6 +75,8 @@ namespace ServiceLayer
         public string specialty { get; set; }
         [DataMember]
         public string description { get; set; }
+        [DataMember]
+        public List<Appointment> appointmentsHistory { get; set; }
         [DataMember]
         public byte[] RowVersion { get; set; }
     }
