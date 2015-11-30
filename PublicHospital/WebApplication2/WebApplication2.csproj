@@ -161,8 +161,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\appointmentMake.jpg" />
+    <Content Include="Images\doctorgondolkodik.jpg" />
+    <Content Include="Images\history.jpg" />
     <Content Include="Images\hospital.jpg" />
     <Content Include="Images\hospitalLogo.png" />
+    <Content Include="Images\hospital_1300x400.jpg" />
+    <Content Include="Images\hosplogo.png" />
+    <Content Include="Images\servicetype.jpg" />
+    <Content Include="Images\visithosp.jpg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

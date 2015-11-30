@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     </div><!--end_col-md-3-->
     </div><!--end_row-->
-    <div class="jumbotron" style="background-image: url('Images/hospital.jpg');">
+    <div class="jumbotron" style="background-image: url('Images/hospital_1300x400.jpg');">
     </div>
     <!--end_.jumbo-->
     </div><!--end_container-->
@@ -13,35 +13,47 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <h2>Getting started</h2>
+                    <h2>Making an appointment</h2>
                     <p>
-                        ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/appointmentMake.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
                     </p>
-                    <p>
-                        <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                    </p>
+                  
                 </div>
                 <div class="col-md-4">
-                    <h2>Get more libraries</h2>
+                    <h2>Service type</h2>
                     <p>
-                        NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/servicetype.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
                     </p>
-                    <p>
-                        <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-                    </p>
-                </div>
+                      </div>
                 <div class="col-md-4">
-                    <h2>Web Hosting</h2>
-                    <p style="background-image: url('Images/hospital.jpg')">
-                        You can easily find a web hosting company that offers the right mix of features and price for your applications.
-                    </p>
+                       </div>
+                <div class="col-md-4">
+                    <h2>Doctors</h2>
                     <p>
-                        <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950" media="screen">Learn more &raquo;</a>
+                        <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Images/doctorgondolkodik.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
                     </p>
-                </div>
+                      </div>
+                <div class="col-md-4">
+                  
             </div>
+                <br> 
+                   <div class="col-md-4">
+                    <h2>Visiting the hospital</h2>
+                    <p>
+                        <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Images/visithosp.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                    </p>
+                      </div>
+                <div class="col-md-4">
 
         </div>
+                    <div class="col-md-4">
+                    <h2>History</h2>
+                    <p>
+                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Images/history.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                    </p>
+                      </div>
+                <div class="col-md-4">
+    </div>
+    </div>
     </div>
 </asp:Content>
