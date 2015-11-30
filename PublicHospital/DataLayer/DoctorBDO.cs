@@ -11,6 +11,7 @@ namespace DataLayer
         public string specialty { get; set; }
         public string description { get; set; }
         public bool isDeleted { get; set; }
+        public List<AppointmentBDO> appointmentsHistory { get; set; }
 
         public DoctorBDO ()
         {

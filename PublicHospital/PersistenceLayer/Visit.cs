@@ -18,6 +18,7 @@ namespace PersistenceLayer
         public string patientProblem { get; set; }
         public string symptom { get; set; }
         public string advice { get; set; }
+        public byte[] rowVersion { get; set; }
     
         public virtual Appointment Appointment { get; set; }
     }

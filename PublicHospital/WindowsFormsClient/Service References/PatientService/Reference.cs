@@ -369,6 +369,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -411,6 +414,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.PatientService.Appointment[] appointmentsHistory {
+            get {
+                return this.appointmentsHistoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.appointmentsHistoryField, value) != true)) {
+                    this.appointmentsHistoryField = value;
+                    this.RaisePropertyChanged("appointmentsHistory");
+                }
             }
         }
         

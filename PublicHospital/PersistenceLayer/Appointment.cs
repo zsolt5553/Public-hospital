@@ -19,6 +19,7 @@ namespace PersistenceLayer
         public string serviceType { get; set; }
         public Nullable<int> idPatient { get; set; }
         public Nullable<int> idDoctor { get; set; }
+        public byte[] rowVersion { get; set; }
     
         public virtual Doctor Doctor { get; set; }
         public virtual Patient Patient { get; set; }

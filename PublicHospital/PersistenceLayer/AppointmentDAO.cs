@@ -28,7 +28,8 @@ namespace PersistenceLayer
                         time = Convert.ToDateTime(appointmentObj.time),
                         serviceType = appointmentObj.serviceType,
                         patient = patientDAO.GetPatient(appointmentObj.idPatient.Value),
-                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value)
+                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value),
+                        rowVersion = appointmentObj.rowVersion
                     };
                 } 
             }
@@ -102,7 +103,8 @@ namespace PersistenceLayer
                     time = appointmentBDO.time.Date,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
-                    idDoctor = appointmentBDO.patient.id
+                    idDoctor = appointmentBDO.patient.id,
+                    rowVersion = appointmentBDO.rowVersion
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)
@@ -135,10 +137,13 @@ namespace PersistenceLayer
                 appointmentInDb.serviceType = appointmentBDO.serviceType;
                 appointmentInDb.idPatient = appointmentBDO.patient.id;
                 appointmentInDb.idDoctor = appointmentBDO.patient.id;
+                appointmentInDb.rowVersion = appointmentBDO.rowVersion;
                 //without username and pass
                 PHEntites.Appointment.Attach(appointmentInDb);
                 PHEntites.Entry(appointmentInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+
+                appointmentBDO.rowVersion = appointmentInDb.rowVersion;
                 if (num != 1)
                 {
                     ret = false;
@@ -166,7 +171,6 @@ namespace PersistenceLayer
                             id = appointment.id,
                             time = Convert.ToDateTime(appointment.time),
                             serviceType = appointment.serviceType,
-                            patient = patient,
                             doctor = new DoctorDAO().GetDoctor(appointment.idDoctor.Value),
                             visit = visitDAO.GetVisit(appointment.id)
                         });
@@ -174,6 +178,42 @@ namespace PersistenceLayer
                     if (appointmentList != null)
                     {
                         patient.appointmentsHistory = appointmentList;
+                        succesful = true;
+                    }
+                    else
+                        message = "Appointment list is empty";
+                }
+                else
+                    message = "Can not get id from the database appointment";
+            }
+            return succesful;
+        }
+
+        public bool GetAppointmentsHistoryDoctor(ref DoctorBDO doctor, ref string message)
+        {
+            bool succesful = false;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                int doctorID = doctor.id;
+                var appointments = PHEntities.Appointment.Where(a => a.idDoctor == doctorID);
+                if (appointments.FirstOrDefault() != null)
+                {
+                    VisitDAO visitDAO = new VisitDAO();
+                    List<AppointmentBDO> appointmentList = new List<AppointmentBDO>();
+                    foreach (var appointment in appointments)
+                    {
+                        appointmentList.Add(new AppointmentBDO()
+                        {
+                            id = appointment.id,
+                            time = Convert.ToDateTime(appointment.time),
+                            serviceType = appointment.serviceType,
+                            patient = new PatientDAO().GetPatient(appointment.idPatient.Value),
+                            visit = visitDAO.GetVisit(appointment.id)
+                        });
+                    }
+                    if (appointmentList != null)
+                    {
+                        doctor.appointmentsHistory = appointmentList;
                         succesful = true;
                     }
                     else

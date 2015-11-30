@@ -31,7 +31,8 @@ namespace PersistenceLayer
                         zip = patientObj.zip,
                         login = patientObj.login,
                         pass = patientObj.pass,
-                        dateOfBirth = patientObj.dateOfBirth
+                        dateOfBirth = patientObj.dateOfBirth,
+                        RowVersion = patientObj.rowVersion
                     };
             }
             return patientBDO;
@@ -83,10 +84,12 @@ namespace PersistenceLayer
                 patientInDb.streetNr = patientBDO.streetNr;
                 patientInDb.phoneNr = patientBDO.phoneNr;
                 patientInDb.dateOfBirth = patientBDO.dateOfBirth;
+                patientInDb.rowVersion = patientBDO.RowVersion;
                 //without username and pass
                 PHEntites.Patient.Attach(patientInDb);
                 PHEntites.Entry(patientInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+                patientBDO.RowVersion = patientInDb.rowVersion;
                 if (num != 1)
                 {
                     ret = false;
@@ -119,7 +122,8 @@ namespace PersistenceLayer
                             zip = patient.zip,
                             login = patient.login,
                             pass = patient.pass,
-                            dateOfBirth = patient.dateOfBirth
+                            dateOfBirth = patient.dateOfBirth,
+                            RowVersion = patient.rowVersion
                         });
                     }
                 }

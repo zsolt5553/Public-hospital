@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a8e15e72-af63-42cb-b791-8d90967176e3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b5f6a42-a5e9-4160-9231-293a5256582e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8080/ServiceLayer/DoctorService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="7921e461-2f1e-4f51-9f59-7a6c6eb47353" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="54de53fd-5fa1-48e2-b729-06d8f65cf9b6" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="711e584b-220e-4584-8cd3-4a47db28e81e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
-    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="18108dc1-e5ba-497a-8650-1db7f9b0945f" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="0fc15444-79a7-458a-8a1e-8c4f5a89f54b" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="55e4ad1c-a61e-4cca-a4f9-639a8b95b1b6" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7af4ed1c-bbdf-4422-a528-b6a6253b2e22" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ea17573e-3e78-48c6-b898-80a776fa398e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="2daeefd1-f3d6-44bd-af7f-43bdd0657a06" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="be6e47f9-5fbd-424c-ac16-eb859372432e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

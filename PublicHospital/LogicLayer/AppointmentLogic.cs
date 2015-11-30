@@ -44,5 +44,10 @@ namespace LogicLayer
         {
             return appointmentDAO.GetAppointmentsHistoryPatient(ref patient, ref message);
         }
+
+        public bool GetAppointmentsHistoryDoctor(ref DoctorBDO doctor, ref string message)
+        {
+            return appointmentDAO.GetAppointmentsHistoryDoctor(ref doctor, ref message);
+        }
     }
 }

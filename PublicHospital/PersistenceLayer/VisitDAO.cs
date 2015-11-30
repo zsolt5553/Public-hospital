@@ -23,7 +23,8 @@ namespace PersistenceLayer
                         id = VisitObj.Ap_Id,
                         patientProblem = VisitObj.patientProblem,
                         symptom = VisitObj.symptom,
-                        advice = VisitObj.advice
+                        advice = VisitObj.advice,
+                        rowVersion = VisitObj.rowVersion
                     };
             }
             return VisitBDO;
@@ -50,8 +51,8 @@ namespace PersistenceLayer
                                 id = VisitObj.Ap_Id,
                                 patientProblem = VisitObj.patientProblem,
                                 symptom = VisitObj.symptom,
-                                advice = VisitObj.advice
-
+                                advice = VisitObj.advice,
+                                rowVersion = VisitObj.rowVersion
                             };
                             Visits.Add(VisitBDO);
                         }
@@ -73,7 +74,8 @@ namespace PersistenceLayer
                     Ap_Id = VisitBDO.id,
                     advice = VisitBDO.advice,
                     symptom = VisitBDO.symptom,
-                    patientProblem = VisitBDO.patientProblem
+                    patientProblem = VisitBDO.patientProblem,
+                    rowVersion = VisitBDO.rowVersion
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)
@@ -104,10 +106,12 @@ namespace PersistenceLayer
                 VisitInDb.advice = VisitBDO.advice;
                 VisitInDb.symptom = VisitBDO.symptom;
                 VisitInDb.patientProblem = VisitBDO.patientProblem;
+                VisitInDb.rowVersion = VisitBDO.rowVersion;
                 //without username and pass
                 PHEntites.Visit.Attach(VisitInDb);
                 PHEntites.Entry(VisitInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+                VisitBDO.rowVersion = VisitInDb.rowVersion;
                 if (num != 1)
                 {
                     ret = false;

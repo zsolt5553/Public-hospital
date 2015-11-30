@@ -121,6 +121,7 @@ namespace ServiceLayer
                         patientBDO);
                     result = patientLogic.UpdatePatient(
                         ref patientBDO, ref message);
+                    patient.RowVersion = patientBDO.RowVersion;
                 }
                 catch (Exception e)
                 {
@@ -147,6 +148,7 @@ namespace ServiceLayer
             patient.dateOfBirth = patientBDO.dateOfBirth;
             patient.login = patientBDO.login;
             patient.pass = patientBDO.pass;
+            patient.RowVersion = patientBDO.RowVersion;
         }
 
         public void TranslatePatientDTOToPatientBDO(
@@ -164,6 +166,7 @@ namespace ServiceLayer
             patientBDO.dateOfBirth = patient.dateOfBirth;
             patientBDO.login = patient.login;
             patientBDO.pass = patient.pass;
+            patientBDO.RowVersion = patient.RowVersion;
         }
 
         public List<Patient> GetAllpatients()

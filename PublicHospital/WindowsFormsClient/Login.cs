@@ -62,7 +62,7 @@ namespace WindowsFormsClient
                     else if(idAndType[1] == 1)
                     {
                         var doctorClient = new DoctorServiceClient().GetDoctor(idAndType[0]);
-                        new Thread(() => new DoctorMenu().ShowDialog()).Start();
+                        new Thread(() => new DoctorMenu(doctorClient).ShowDialog()).Start();
                         Dispose();
                     }
                     else

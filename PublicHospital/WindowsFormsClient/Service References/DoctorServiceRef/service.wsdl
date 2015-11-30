@@ -26,6 +26,15 @@
   <wsdl:message name="IDoctorService_GetDoctorByName_DoctorFaultFault_FaultMessage">
     <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:DoctorFault" />
   </wsdl:message>
+  <wsdl:message name="IDoctorService_DeleteDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_DeleteDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_DeleteDoctor_DoctorFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:DoctorFault" />
+  </wsdl:message>
   <wsdl:message name="IDoctorService_GetAllDoctors_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDoctors" />
   </wsdl:message>
@@ -33,7 +42,7 @@
     <wsdl:part name="parameters" element="tns:GetAllDoctorsResponse" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_GetAllDoctors_DoctorFaultFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:DoctorFault" />
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:DoctorFault" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_GetDoctorTable_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDoctorTable" />
@@ -42,7 +51,7 @@
     <wsdl:part name="parameters" element="tns:GetDoctorTableResponse" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_GetDoctorTable_DoctorFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:DoctorFault" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:DoctorFault" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_SaveDoctor_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveDoctor" />
@@ -51,7 +60,7 @@
     <wsdl:part name="parameters" element="tns:SaveDoctorResponse" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_SaveDoctor_DoctorFaultFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:DoctorFault" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:DoctorFault" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_UpdateDoctor_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateDoctor" />
@@ -60,7 +69,16 @@
     <wsdl:part name="parameters" element="tns:UpdateDoctorResponse" />
   </wsdl:message>
   <wsdl:message name="IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:DoctorFault" />
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q7:DoctorFault" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsHistoryDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_GetAppointmentsHistoryDoctor_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q8:AppointmentFault" />
   </wsdl:message>
   <wsdl:portType name="IDoctorService">
     <wsdl:operation name="GetDoctor">
@@ -72,6 +90,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetDoctorByName" message="tns:IDoctorService_GetDoctorByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/GetDoctorByNameResponse" message="tns:IDoctorService_GetDoctorByName_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/GetDoctorByNameDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_GetDoctorByName_DoctorFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/DeleteDoctor" message="tns:IDoctorService_DeleteDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/DeleteDoctorResponse" message="tns:IDoctorService_DeleteDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/DeleteDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_DeleteDoctor_DoctorFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllDoctors">
       <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetAllDoctors" message="tns:IDoctorService_GetAllDoctors_InputMessage" />
@@ -93,6 +116,11 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorResponse" message="tns:IDoctorService_UpdateDoctor_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/UpdateDoctorDoctorFaultFault" name="DoctorFaultFault" message="tns:IDoctorService_UpdateDoctor_DoctorFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorResponse" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IDoctorService_GetAppointmentsHistoryDoctor_AppointmentFaultFault_FaultMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDoctorService" type="tns:IDoctorService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -110,6 +138,18 @@
     </wsdl:operation>
     <wsdl:operation name="GetDoctorByName">
       <soap:operation soapAction="http://tempuri.org/IDoctorService/GetDoctorByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DoctorFaultFault">
+        <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/DeleteDoctor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -166,6 +206,18 @@
       </wsdl:output>
       <wsdl:fault name="DoctorFaultFault">
         <soap:fault use="literal" name="DoctorFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsHistoryDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
