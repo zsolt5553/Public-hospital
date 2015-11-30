@@ -20,6 +20,10 @@ namespace ServiceLayer
         [FaultContract(typeof(DoctorFault))]
         Doctor GetDoctorByName(string name);
 
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
+        bool DeleteDoctor(ref Doctor doctor,
+            ref string message);
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
@@ -67,6 +71,8 @@ namespace ServiceLayer
         public string specialty { get; set; }
         [DataMember]
         public string description { get; set; }
+        [DataMember]
+        public byte[] RowVersion { get; set; }
     }
     [DataContract]
     public class DoctorFault

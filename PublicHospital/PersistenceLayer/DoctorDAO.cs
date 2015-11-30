@@ -32,7 +32,8 @@ namespace PersistenceLayer
                         login = doctorObj.login,
                         pass = doctorObj.pass,
                         description = doctorObj.description,
-                        specialty = doctorObj.specialty
+                        specialty = doctorObj.specialty,
+                        RowVersion = doctorObj.rowVersion
                     };
             }
             return doctorBDO;
@@ -60,7 +61,8 @@ namespace PersistenceLayer
                         login = doctorObj.login,
                         pass = doctorObj.pass,
                         description = doctorObj.description,
-                        specialty = doctorObj.specialty
+                        specialty = doctorObj.specialty,
+                        RowVersion = doctorObj.rowVersion
                     };
             }
             return doctorBDO;
@@ -134,7 +136,8 @@ namespace PersistenceLayer
                                 login = doctorObj.login,
                                 pass = doctorObj.pass,
                                 description = doctorObj.description,
-                                specialty = doctorObj.specialty
+                                specialty = doctorObj.specialty,
+                                RowVersion = doctorObj.rowVersion
                             };
                             doctors.Add(doctorBDO);
                         }
@@ -187,7 +190,7 @@ namespace PersistenceLayer
                     description = doctorBDO.description,
                     isDeleted = doctorBDO.isDeleted,
                     login = doctorBDO.login,
-
+                    rowVersion = doctorBDO.RowVersion,
                     pass = passAndSalt[0],
                     salt = passAndSalt[1]
                 });
@@ -200,6 +203,40 @@ namespace PersistenceLayer
             }
             return ret;
         }
+
+        public bool DeleteDoctor (ref DoctorBDO doctorBDO, 
+            ref string message)
+        {
+            message = "Doctor deleted successfully";
+            var ret = true;
+            using (var PHEntites = new PublicHospitalEntities())
+            {
+                var doctorId = doctorBDO.id;
+                var doctorInDb = (from a
+                                 in PHEntites.Doctor
+                                  where a.id == doctorId
+                                  select a).FirstOrDefault();
+                if (doctorInDb == null)
+                {
+                    throw new Exception("No doctor with id " +
+                                        doctorBDO.id);
+                }
+                doctorInDb.isDeleted = doctorBDO.isDeleted;
+                doctorInDb.rowVersion = doctorBDO.RowVersion;
+                PHEntites.Doctor.Attach(doctorInDb);
+                PHEntites.Entry(doctorInDb).State = System.Data.Entity.EntityState.Modified;
+                var num = PHEntites.SaveChanges();
+                doctorBDO.RowVersion = doctorInDb.rowVersion;
+
+                if (num != 1)
+                {
+                    ret = false;
+                    message = "Doctor was not deleted";
+                }
+            }
+            return ret;
+        }
+        
 
         public bool UpdateDoctor(ref DoctorBDO doctorBDO,
             ref string massage)
@@ -227,10 +264,13 @@ namespace PersistenceLayer
                 doctorInDb.phoneNr = doctorBDO.phoneNr;
                 doctorInDb.description = doctorBDO.description;
                 doctorInDb.specialty = doctorBDO.specialty;
+                doctorInDb.rowVersion = doctorBDO.RowVersion;
                 //without username and pass
                 PHEntites.Doctor.Attach(doctorInDb);
                 PHEntites.Entry(doctorInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+                doctorBDO.RowVersion = doctorInDb.rowVersion;
+
                 if (num != 1)
                 {
                     ret = false;

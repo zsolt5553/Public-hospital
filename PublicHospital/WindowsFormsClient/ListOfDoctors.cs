@@ -8,21 +8,41 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsClient.DoctorServiceRef;
 
 namespace WindowsFormsClient
 {
     public partial class ListOfDoctors : Form
     {
+        private int docId = -1;
+
         public ListOfDoctors()
         {
             InitializeComponent();
             this.CenterToScreen();
-            
+            string[] days = new string[] { "ID", "First name", "Last name", "City", "Street", "Phone", "ZIP", "Specialty" };
+            for (int i = 0; i < days.Length; i++)
+            {
+                dataGridView1.Columns.Add(i.ToString(), days[i]);
+            }
+            FillTable();
         }
 
-      
+        private void FillTable()
+        {
+            List<Doctor> docList = new DoctorServiceClient().GetAllDoctors().ToList();
+            
 
-      
+            for (int i = 0; i < docList.Count; i++)
+            {
+                dataGridView1.Rows.Add(docList[i].id, docList[i].firstName, docList[i].lastName,
+                    docList[i].city, docList[i].street + " " + docList[i].streetNr, docList[i].phoneNr,
+                    docList[i].zip, docList[i].specialty);
+            }
+        }
+
+
+
 
         private void urlButton_Click(object sender, EventArgs e)
         {
@@ -110,6 +130,7 @@ namespace WindowsFormsClient
             this.button3.TabIndex = 2;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -119,6 +140,7 @@ namespace WindowsFormsClient
             this.button2.TabIndex = 1;
             this.button2.Text = "Open";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -139,6 +161,7 @@ namespace WindowsFormsClient
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 41);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -192,16 +215,9 @@ namespace WindowsFormsClient
             Int32.TryParse(value,out value2);
             if (value2 != -1)
             {
-                new Thread(() => new DoctorUpdate(value2).ShowDialog()).Start();
+                docId = value2;
+                new Thread(() => new DoctorUpdate(docId).ShowDialog()).Start();
             }
-            else
-            {
-                // do something
-            }
-            //DoctorUpdate doctorUpdate = new DoctorUpdate(value2);
-            //doctorUpdate.Show();
-            
-            System.Console.WriteLine(value);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -209,7 +225,29 @@ namespace WindowsFormsClient
             new Thread(() => new NewDoctor().ShowDialog()).Start();
         }
 
-     
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            var client = new DoctorServiceClient();
+            var doctor = client.GetDoctor(docId);
+            var ret = client.DeleteDoctor(ref doctor, ref message);
+            if(!ret)
+            {
+                new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+            }
+            else
+            {
+                dataGridView1.Rows.Clear();
+                FillTable();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (docId != -1)
+            {
+                new Thread(() => new DoctorUpdate(docId).ShowDialog()).Start();
+            }
+        }
     }
 }

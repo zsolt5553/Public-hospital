@@ -28,7 +28,8 @@ namespace PersistenceLayer
                         time = Convert.ToDateTime(appointmentObj.time),
                         serviceType = appointmentObj.serviceType,
                         patient = patientDAO.GetPatient(appointmentObj.idPatient.Value),
-                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value)
+                        doctor = doctorDAO.GetDoctor(appointmentObj.idDoctor.Value),
+                        rowVersion = appointmentObj.rowVersion
                     };
                 } 
             }
@@ -102,7 +103,8 @@ namespace PersistenceLayer
                     time = appointmentBDO.time.Date,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
-                    idDoctor = appointmentBDO.patient.id
+                    idDoctor = appointmentBDO.patient.id,
+                    rowVersion = appointmentBDO.rowVersion
                 });
                 var num = PHEntities.SaveChanges();
                 if (num != 1)
@@ -135,10 +137,13 @@ namespace PersistenceLayer
                 appointmentInDb.serviceType = appointmentBDO.serviceType;
                 appointmentInDb.idPatient = appointmentBDO.patient.id;
                 appointmentInDb.idDoctor = appointmentBDO.patient.id;
+                appointmentInDb.rowVersion = appointmentBDO.rowVersion;
                 //without username and pass
                 PHEntites.Appointment.Attach(appointmentInDb);
                 PHEntites.Entry(appointmentInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();
+
+                appointmentBDO.rowVersion = appointmentInDb.rowVersion;
                 if (num != 1)
                 {
                     ret = false;

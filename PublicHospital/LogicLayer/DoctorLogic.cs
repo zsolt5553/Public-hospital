@@ -34,6 +34,13 @@ namespace LogicLayer
             return doctorDAO.GetAllDoctors();
         }
 
+        public bool DeleteDoctor(ref DoctorBDO doctorBDO,
+            ref string message)
+        {
+            doctorBDO.isDeleted = true;
+            return doctorDAO.DeleteDoctor(ref doctorBDO, ref message);
+        }
+
         public bool InsertDoctor(ref DoctorBDO doctorBDO,
             ref string massage)
         {

@@ -42,6 +42,9 @@ namespace ServiceLayer
         public Doctor doctor { get; set; }
         [DataMember]
         public Visit visit { get; set; }
+        [DataMember]
+        public byte[] RowVersion { get; set; }
+
 
     }
 
@@ -68,5 +71,8 @@ namespace ServiceLayer
         public string symptom { get; set; }
         [DataMember]
         public string advice { get; set; }
+        [DataMember]
+        public byte[] RowVersion { get; set; }
+
     }
 }

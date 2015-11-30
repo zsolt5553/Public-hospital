@@ -278,6 +278,9 @@
     <None Include="Service References\DoctorServiceRef\ServiceLayer.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\DoctorServiceRef\WindowsFormsClient.DoctorServiceRef.Doctor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -372,18 +375,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\DoctorServiceRef\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DoctorServiceRef\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DoctorServiceRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\PatientService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -415,6 +406,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AdminServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorServiceRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

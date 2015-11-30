@@ -103,6 +103,7 @@ namespace ServiceLayer
                     AppointmentBDO);
                     result = AppointmentLogic.UpdateAppointment(
                     ref AppointmentBDO, ref message);
+                    Appointment.RowVersion = AppointmentBDO.rowVersion;
                 }
                 catch (Exception e)
                 {
@@ -126,6 +127,7 @@ namespace ServiceLayer
             Appointment.serviceType = AppointmentBDO.serviceType;
             Appointment.time = AppointmentBDO.time;
             Appointment.doctor = doctorDTO;
+            Appointment.RowVersion = AppointmentBDO.rowVersion;
         }
         private void TranslateAppointmentDTOToAppointmentBDO(
         Appointment Appointment,
@@ -140,6 +142,7 @@ namespace ServiceLayer
             AppointmentBDO.serviceType = Appointment.serviceType;
             AppointmentBDO.time = Appointment.time;
             AppointmentBDO.doctor = doctorBDO;
+            AppointmentBDO.rowVersion = Appointment.RowVersion;
         }
     }
 }

@@ -23,6 +23,9 @@ namespace WindowsFormsClient.DoctorServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -65,6 +68,19 @@ namespace WindowsFormsClient.DoctorServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -297,6 +313,14 @@ namespace WindowsFormsClient.DoctorServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorByName", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorByNameResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/DeleteDoctor", ReplyAction="http://tempuri.org/IDoctorService/DeleteDoctorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/DeleteDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse DeleteDoctor(WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/DeleteDoctor", ReplyAction="http://tempuri.org/IDoctorService/DeleteDoctorResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse> DeleteDoctorAsync(WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetAllDoctorsDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.DoctorServiceRef.Doctor[] GetAllDoctors();
@@ -326,6 +350,50 @@ namespace WindowsFormsClient.DoctorServiceRef {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/UpdateDoctor", ReplyAction="http://tempuri.org/IDoctorService/UpdateDoctorResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.UpdateDoctorResponse> UpdateDoctorAsync(WindowsFormsClient.DoctorServiceRef.UpdateDoctorRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDoctor", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteDoctorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsClient.DoctorServiceRef.Doctor doctor;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public DeleteDoctorRequest() {
+        }
+        
+        public DeleteDoctorRequest(WindowsFormsClient.DoctorServiceRef.Doctor doctor, string message) {
+            this.doctor = doctor;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDoctorResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteDoctorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool DeleteDoctorResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WindowsFormsClient.DoctorServiceRef.Doctor doctor;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string message;
+        
+        public DeleteDoctorResponse() {
+        }
+        
+        public DeleteDoctorResponse(bool DeleteDoctorResult, WindowsFormsClient.DoctorServiceRef.Doctor doctor, string message) {
+            this.DeleteDoctorResult = DeleteDoctorResult;
+            this.doctor = doctor;
+            this.message = message;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -457,6 +525,25 @@ namespace WindowsFormsClient.DoctorServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name) {
             return base.Channel.GetDoctorByNameAsync(name);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse WindowsFormsClient.DoctorServiceRef.IDoctorService.DeleteDoctor(WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest request) {
+            return base.Channel.DeleteDoctor(request);
+        }
+        
+        public bool DeleteDoctor(ref WindowsFormsClient.DoctorServiceRef.Doctor doctor, ref string message) {
+            WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest inValue = new WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest();
+            inValue.doctor = doctor;
+            inValue.message = message;
+            WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse retVal = ((WindowsFormsClient.DoctorServiceRef.IDoctorService)(this)).DeleteDoctor(inValue);
+            doctor = retVal.doctor;
+            message = retVal.message;
+            return retVal.DeleteDoctorResult;
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.DoctorServiceRef.DeleteDoctorResponse> DeleteDoctorAsync(WindowsFormsClient.DoctorServiceRef.DeleteDoctorRequest request) {
+            return base.Channel.DeleteDoctorAsync(request);
         }
         
         public WindowsFormsClient.DoctorServiceRef.Doctor[] GetAllDoctors() {

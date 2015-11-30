@@ -13,6 +13,8 @@ namespace DataLayer
         public PatientBDO patient { get; set; }
         public DoctorBDO doctor { get; set; }
         public VisitBDO visit { get; set; }
+        public byte[] rowVersion { get; set; }
+
         public AppointmentBDO() { }
         public AppointmentBDO(int id, DateTime time, string serviceType,
         PatientBDO patient, DoctorBDO doctor, VisitBDO visit)

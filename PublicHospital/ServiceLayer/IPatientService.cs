@@ -55,6 +55,8 @@ namespace ServiceLayer
         [DataMember]
         public string pass { get; set; }
         [DataMember]
+        public byte[] RowVersion { get; set; }
+        [DataMember]
         public List<Appointment> appointmentsHistory { get; set; }
     }
     [DataContract]

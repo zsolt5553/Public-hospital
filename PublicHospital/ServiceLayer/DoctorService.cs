@@ -43,6 +43,27 @@ namespace ServiceLayer
             return doctor;
         }
 
+        public bool DeleteDoctor(ref Doctor doctor,
+            ref string message)
+        {
+            var result = false;
+            try
+            {
+                var doctorBDO = new DoctorBDO();
+                TranslateDoctorDTOToDoctorBDO(doctor,
+                    doctorBDO);
+                result = doctorLogic.DeleteDoctor(
+                    ref doctorBDO, ref message);
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), msg);
+            }
+            return result;
+        }  
+
         public Doctor GetDoctorByName(string name)
         {
             DoctorBDO doctorBDO = null;
@@ -232,6 +253,7 @@ namespace ServiceLayer
                         doctorBDO);
                     result = doctorLogic.UpdateDoctor(
                         ref doctorBDO, ref message);
+                    doctor.RowVersion = doctorBDO.RowVersion;
                 }
                 catch (Exception e)
                 {
@@ -259,6 +281,7 @@ namespace ServiceLayer
             doctor.description = doctorBDO.description;
             doctor.login = doctorBDO.login;
             doctor.pass = doctorBDO.pass;
+            doctor.RowVersion = doctorBDO.RowVersion;
         }
 
         public void TranslateDoctorDTOToDoctorBDO(
@@ -277,6 +300,7 @@ namespace ServiceLayer
             doctorBDO.description = doctor.description;
             doctorBDO.login = doctor.login;
             doctorBDO.pass = doctor.pass;
+            doctorBDO.RowVersion = doctor.RowVersion;
         }
     }
 }

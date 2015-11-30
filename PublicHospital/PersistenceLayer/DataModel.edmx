@@ -31,6 +31,7 @@
           <Property Name="serviceType" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="idPatient" Type="int" />
           <Property Name="idDoctor" Type="int" />
+          <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
@@ -50,6 +51,7 @@
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
+          <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -67,6 +69,7 @@
           <Property Name="login" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
+          <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -76,6 +79,7 @@
           <Property Name="patientProblem" Type="text" />
           <Property Name="symptom" Type="text" />
           <Property Name="advice" Type="text" />
+          <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <Association Name="FK__Appointme__idDoc__300424B4">
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
@@ -165,6 +169,7 @@
           <NavigationProperty Name="Doctor" Relationship="Self.FK__Appointme__idDoc__300424B4" FromRole="Appointment" ToRole="Doctor" />
           <NavigationProperty Name="Patient" Relationship="Self.FK__Appointme__idPat__2F10007B" FromRole="Appointment" ToRole="Patient" />
           <NavigationProperty Name="Visit" Relationship="Self.FK__Visit__Ap_Id__32E0915F" FromRole="Appointment" ToRole="Visit" />
+          <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
@@ -185,6 +190,7 @@
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__idDoc__300424B4" FromRole="Doctor" ToRole="Appointment" />
+          <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -203,6 +209,7 @@
           <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__idPat__2F10007B" FromRole="Patient" ToRole="Appointment" />
+          <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -213,6 +220,7 @@
           <Property Name="symptom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="advice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Visit__Ap_Id__32E0915F" FromRole="Visit" ToRole="Appointment" />
+          <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <Association Name="FK__Appointme__idDoc__300424B4">
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
@@ -296,6 +304,7 @@
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="time" ColumnName="time" />
                 <ScalarProperty Name="serviceType" ColumnName="serviceType" />
@@ -307,6 +316,7 @@
           <EntitySetMapping Name="Doctor">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -327,6 +337,7 @@
           <EntitySetMapping Name="Patient">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -345,6 +356,7 @@
           <EntitySetMapping Name="Visit">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Visit">
               <MappingFragment StoreEntitySet="Visit">
+                <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="Ap_Id" ColumnName="Ap_Id" />
                 <ScalarProperty Name="patientProblem" ColumnName="patientProblem" />
                 <ScalarProperty Name="symptom" ColumnName="symptom" />
