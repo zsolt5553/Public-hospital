@@ -4,8 +4,8 @@
        </div>
         <div class="jumbotron" style="border: thin groove #000000; background-image: url('http://localhost:56391/Images/Scrubs - Zach Braff In Hospital11.jpg'); ">
     </div>
-    <!--end_.jumbo-->
-    </div><!--end_container-->
+   
+    </div>
     <div class="container" style="background-color: #CCCCCC; margin-bottom: 50px; white-space: nowrap;">
         <div class="row">
             <div class="col-md-9">

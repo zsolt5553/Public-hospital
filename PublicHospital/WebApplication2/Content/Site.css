@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
     height: 253px;
 }
 
@@ -11,6 +11,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     height: 56px;
+     width: 90%;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -23,11 +24,16 @@ input[type="email"] {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
-        margin-top: 20px;
+        margin-top: 10px;
         height : 300px;
     }
     .body-content {
         padding: 0;
     }
+    .container {
+    width: 100%;
+ 
+    
+    } 
 
 }
