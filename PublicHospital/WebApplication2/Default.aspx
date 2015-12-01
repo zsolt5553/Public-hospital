@@ -12,24 +12,24 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                   <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">Making an appointment</h2>
+                   <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;" itemscope="itemscope">Making an appointment</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/appointmentMake.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/appointmentMake.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Appointment.aspx" />
                     </p>
                   
                 </div>
                 <div class="col-md-4">
-                    <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">Service type</h2>
+                    <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;" itemscope="itemscope">Service type</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/servicetype.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/servicetype.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Services.aspx" />
                     </p>
                       </div>
                 <div class="col-md-4">
                        </div>
                 <div class="col-md-4">
-                    <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">Doctors</h2>
+                    <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;" itemscope="itemscope">Doctors</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Images/doctorgondolkodik.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                        <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Images/doctorgondolkodik.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Doctors.aspx" />
                     </p>
                       </div>
                 <div class="col-md-4">
