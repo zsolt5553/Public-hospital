@@ -125,7 +125,7 @@ namespace ServiceLayer
                 result = false;
             }
             return result;
-        } 
+        }
 
         public bool UpdateAppointment(ref Appointment Appointment,
         ref string message)

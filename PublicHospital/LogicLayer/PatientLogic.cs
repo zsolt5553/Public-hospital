@@ -18,7 +18,7 @@ namespace LogicLayer
         }
 
         public bool InsertPatient(ref PatientBDO patientBDO,
-                                    ref string massage)
+                                   ref string massage)
         {
             return patientDAO.InsertPatient(ref patientBDO, ref massage);
         }

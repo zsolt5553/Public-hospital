@@ -16,15 +16,6 @@
   <wsdl:message name="IPatientService_GetPatient_PatientFaultFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q1:PatientFault" />
   </wsdl:message>
-  <wsdl:message name="IPatientService_SavePatient_InputMessage">
-    <wsdl:part name="parameters" element="tns:SavePatient" />
-  </wsdl:message>
-  <wsdl:message name="IPatientService_SavePatient_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SavePatientResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPatientService_SavePatient_PatientFaultFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:PatientFault" />
-  </wsdl:message>
   <wsdl:message name="IPatientService_UpdatePatient_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePatient" />
   </wsdl:message>
@@ -32,6 +23,15 @@
     <wsdl:part name="parameters" element="tns:UpdatePatientResponse" />
   </wsdl:message>
   <wsdl:message name="IPatientService_UpdatePatient_PatientFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:PatientFault" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_SavePatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_SavePatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_SavePatient_PatientFaultFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:PatientFault" />
   </wsdl:message>
   <wsdl:message name="IPatientService_GetAllpatients_InputMessage">
@@ -58,15 +58,15 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/GetPatientResponse" message="tns:IPatientService_GetPatient_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/GetPatientPatientFaultFault" name="PatientFaultFault" message="tns:IPatientService_GetPatient_PatientFaultFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SavePatient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/SavePatient" message="tns:IPatientService_SavePatient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/SavePatientResponse" message="tns:IPatientService_SavePatient_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/SavePatientPatientFaultFault" name="PatientFaultFault" message="tns:IPatientService_SavePatient_PatientFaultFault_FaultMessage" />
-    </wsdl:operation>
     <wsdl:operation name="UpdatePatient">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/UpdatePatient" message="tns:IPatientService_UpdatePatient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientResponse" message="tns:IPatientService_UpdatePatient_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/UpdatePatientPatientFaultFault" name="PatientFaultFault" message="tns:IPatientService_UpdatePatient_PatientFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/SavePatient" message="tns:IPatientService_SavePatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/SavePatientResponse" message="tns:IPatientService_SavePatient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPatientService/SavePatientPatientFaultFault" name="PatientFaultFault" message="tns:IPatientService_SavePatient_PatientFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllpatients">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/GetAllpatients" message="tns:IPatientService_GetAllpatients_InputMessage" />
@@ -93,8 +93,8 @@
         <soap:fault use="literal" name="PatientFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="SavePatient">
-      <soap:operation soapAction="http://tempuri.org/IPatientService/SavePatient" style="document" />
+    <wsdl:operation name="UpdatePatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/UpdatePatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -105,8 +105,8 @@
         <soap:fault use="literal" name="PatientFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="UpdatePatient">
-      <soap:operation soapAction="http://tempuri.org/IPatientService/UpdatePatient" style="document" />
+    <wsdl:operation name="SavePatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/SavePatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
