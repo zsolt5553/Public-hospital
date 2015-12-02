@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c2763d59-4225-4a90-b0b4-629f0d436d2a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cdcfa09a-0cfb-4ec8-9e1e-fdc1e01d7111" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8080/ServiceLayer/AppointmentService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="05194b9c-369c-4e87-bf63-89b915e14ea5" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f366d43f-a673-4ba8-acbd-f3f2650a3a22" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="aa8c2b78-f9e7-4486-9fb3-6b877b2c76e7" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
-    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="6440c05e-3e0d-40c4-9a5c-b388f7723f5f" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c9e5a4a7-5c02-484a-ac64-2cf6cb8f8910" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6162e3e2-ea06-40dc-81ab-9c3220c9349c" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9dc67c8e-a78a-4e97-ac5e-fb5456eb9d6d" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
+    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="bc5e4bd6-2ddd-4902-89bc-cd78474f057d" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

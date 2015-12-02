@@ -242,7 +242,8 @@ namespace ServiceLayer
                     foreach (var appointment in patientBDO.appointmentsHistory)
                     {
                         Patient patientDTO = new Patient();
-                        new PatientService().TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
+                        //new PatientService().TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
+                        TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
                         patient.appointmentsHistory.Add(new Appointment
                         {
                             id = appointment.id,
