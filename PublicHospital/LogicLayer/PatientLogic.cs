@@ -17,6 +17,12 @@ namespace LogicLayer
             return patientDAO.GetPatient(id);
         }
 
+        public bool InsertPatient(ref PatientBDO patientBDO,
+                                    ref string massage)
+        {
+            return patientDAO.InsertPatient(ref patientBDO, ref massage);
+        }
+
         public bool UpdatePatient(
             ref PatientBDO patientBDO,
             ref string message)

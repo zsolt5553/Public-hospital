@@ -39,6 +39,35 @@ namespace ServiceLayer
             Appointment);
             return Appointment;
         }
+
+        public bool SaveAppointment(ref Appointment appointment,
+            ref string message)
+        {
+            var result = true;
+            if (!AppointmentCheck(ref appointment, ref message))
+            {
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var appointmentBDO = new AppointmentBDO();
+                    TranslateAppointmentDTOToAppointmentBDO(appointment,
+                        appointmentBDO);
+                    result = AppointmentLogic.InsertAppointment(
+                        ref appointmentBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<AppointmentFault>
+                        (new AppointmentFault(msg), msg);
+                }
+            }
+            return result;
+        }
+
         public List<Appointment> GetAllAppointments()
         {
             List<AppointmentBDO> appointmentList;
@@ -70,7 +99,8 @@ namespace ServiceLayer
             }
             return appointments;
         }
-        public bool UpdateAppointment(ref Appointment Appointment,
+
+        public bool AppointmentCheck(ref Appointment Appointment,
         ref string message)
         {
             var result = true;
@@ -92,6 +122,17 @@ namespace ServiceLayer
             if (String.IsNullOrEmpty(Appointment.serviceType))
             {
                 message = "Appointment needs a serviceType.";
+                result = false;
+            }
+            return result;
+        } 
+
+        public bool UpdateAppointment(ref Appointment Appointment,
+        ref string message)
+        {
+            var result = true;
+            if (!AppointmentCheck(ref Appointment, ref message))
+            {
                 result = false;
             }
             else

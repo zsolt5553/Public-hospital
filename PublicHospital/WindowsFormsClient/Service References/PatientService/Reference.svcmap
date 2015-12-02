@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6f0d973a-fe26-4470-b26c-f86d5f7a568f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e8f4159b-454f-4e14-8b42-1142290e2ec4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8080/ServiceLayer/PatientService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="7766d4b1-9d22-4135-a403-e7c5d7d6eb8c" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="74a06c09-58a7-4e47-8250-5d70c077d257" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cc94ab63-0a16-49c6-9844-417166fb9adc" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
-    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="ea446f4f-58bd-423a-b3a7-d571bb762738" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e760701d-c28a-4a13-8281-c3bcd7b3fb34" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="08ce24e4-e596-4727-8127-0062243c0cd9" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ace9907d-216e-4630-a457-320fd48e4b2d" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
+    <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="a9b03070-c5ce-46b3-92e4-fb5a1f91dc0e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/PatientService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

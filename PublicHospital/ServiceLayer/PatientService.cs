@@ -44,6 +44,34 @@ namespace ServiceLayer
             return patient;
         }
 
+        public bool SavePatient(ref Patient patient,
+            ref string message)
+        {
+            var result = true;
+            if (!PatientCheck(ref patient, ref message))
+            {
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var patientBDO = new PatientBDO();
+                    TranslatePatientDTOToPatientBDO(patient,
+                        patientBDO);
+                    result = patientLogic.InsertPatient(
+                        ref patientBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<PatientFault>
+                        (new PatientFault(msg), msg);
+                }
+            }
+            return result;
+        }
+
         private bool PatientCheck(ref Patient patient,
             ref string message)
         {
@@ -186,15 +214,15 @@ namespace ServiceLayer
             {
                 var msg = e.Message;
                 var reason = "GetAllpatients exception";
-                throw new FaultException<DoctorFault>
-                    (new DoctorFault(msg), reason);
+                throw new FaultException<PatientFault>
+                    (new PatientFault(msg), reason);
             }
             if (aaa == null)
             {
                 var msg = "GetAllpatients is empty";
                 var reason = "patientTable empty";
-                throw new FaultException<DoctorFault>
-                    (new DoctorFault(msg), reason);
+                throw new FaultException<PatientFault>
+                    (new PatientFault(msg), reason);
             }
             return aaa;
         }
@@ -213,13 +241,13 @@ namespace ServiceLayer
                     patient.appointmentsHistory = new List<Appointment>();
                     foreach (var appointment in patientBDO.appointmentsHistory)
                     {
-                        Doctor doctorDTO = new Doctor();
-                        new DoctorService().TranslateDoctorBDOToDoctorDTO(appointment.doctor, doctorDTO);
+                        Patient patientDTO = new Patient();
+                        new PatientService().TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
                         patient.appointmentsHistory.Add(new Appointment
                         {
                             id = appointment.id,
                             serviceType = appointment.serviceType,
-                            doctor = doctorDTO,
+                            patient = patientDTO,
                             time = appointment.time
                         });
                         if (appointment.visit != null)
@@ -256,15 +284,15 @@ namespace ServiceLayer
         //    {
         //        var msg = e.Message;
         //        var reason = "GetAllpatients exception";
-        //        throw new FaultException<DoctorFault>
-        //            (new DoctorFault(msg), reason);
+        //        throw new FaultException<PatientFault>
+        //            (new PatientFault(msg), reason);
         //    }
         //    if (patientTable == null)
         //    {
         //        var msg = "GetAllpatients is empty";
         //        var reason = "patientTable empty";
-        //        throw new FaultException<DoctorFault>
-        //            (new DoctorFault(msg), reason);
+        //        throw new FaultException<PatientFault>
+        //            (new PatientFault(msg), reason);
         //    }
         //    DataSet dataSet = new DataSet();
         //    dataSet.Tables.Add(patientTable);
