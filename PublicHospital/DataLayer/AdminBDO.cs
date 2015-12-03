@@ -19,6 +19,7 @@ namespace DataLayer
         public string login { get; set; }
         public string pass { get; set; }
         public byte[] RowVersion { get; set; }
+        public string sessionID { get; set; }
 
 
         public AdminBDO() { }

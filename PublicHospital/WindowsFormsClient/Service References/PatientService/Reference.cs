@@ -23,6 +23,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -50,6 +53,9 @@ namespace WindowsFormsClient.PatientService {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string streetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -65,6 +71,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -186,6 +205,19 @@ namespace WindowsFormsClient.PatientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string street {
             get {
                 return this.streetField;
@@ -244,6 +276,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -268,6 +303,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -369,6 +417,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -396,6 +447,9 @@ namespace WindowsFormsClient.PatientService {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string specialtyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -414,6 +468,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -535,6 +602,19 @@ namespace WindowsFormsClient.PatientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string specialty {
             get {
                 return this.specialtyField;
@@ -606,6 +686,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string adviceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -624,6 +707,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         

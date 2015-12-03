@@ -58,6 +58,8 @@ namespace ServiceLayer
         public byte[] RowVersion { get; set; }
         [DataMember]
         public List<Appointment> appointmentsHistory { get; set; }
+        [DataMember]
+        public string sessionID { get; set; }
     }
     [DataContract]
     public class PatientFault

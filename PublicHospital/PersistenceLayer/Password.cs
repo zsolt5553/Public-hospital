@@ -11,27 +11,24 @@ namespace PersistenceLayer
 {
     public class Password
     {
-        public int[] authenticatePerson(string login, string password)
+        public string[] authenticatePerson(string login, string password)
         {
             string[] dbData = getPasswordSaltDB(login);
             if (dbData != null)
             {
                 if (comparePasswords(password, dbData[0], dbData[1]) == true)
                 {
-                    int[] idAndType = null;
-                    int id;
-                    Int32.TryParse(dbData[2], out id);
+                    string[] idAndType = null;
                     switch (dbData[3])
                     {
                         case "admin":
-                            
-                            idAndType = new int[] { id, 0 };
+                            idAndType = new string[] { dbData[2], "0", setSessionIdDB(dbData[2]) };
                             break;
                         case "doctor":
-                            idAndType = new int[] { id, 1 };
+                            idAndType = new string[] { dbData[2], "1", setSessionIdDB(dbData[2]) };
                             break;
                         case "patient":
-                            idAndType = new int[] { id, 2 };
+                            idAndType = new string[] { dbData[2], "2", setSessionIdDB(dbData[2]) };
                             break;
                     }
                     return idAndType;
@@ -52,21 +49,75 @@ namespace PersistenceLayer
                 var doctor = PHEntities.Doctor.Where(d => d.login == login);
                 var patient = PHEntities.Patient.Where(p => p.login == login);
                 if (admin.FirstOrDefault() != null)
-                    person = new string[] { admin.First().pass, admin.First().salt, admin.First().id.ToString(), "admin" };
-                if (doctor.FirstOrDefault() != null)
+                    person = new string[] { admin.First().pass, admin.First().salt, admin.First().id.ToString(), "admin", };
+                else if (doctor.FirstOrDefault() != null)
+                {
                     person = new string[] { doctor.First().pass, doctor.First().salt, doctor.First().id.ToString(), "doctor" };
-                if (patient.FirstOrDefault() != null)
+                }
+                else if (patient.FirstOrDefault() != null)
+                {
                     person = new string[] { patient.First().pass, patient.First().salt, patient.First().id.ToString(), "patient" };
+                }
                 return person;
             }
         }
 
+        private string setSessionIdDB(string id)
+        {
+            string sessionID = getSessionID();
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                string sql = @"UPDATE Admin SET sessionID = {0} WHERE Id = {1}";
+                int changes = PHEntities.Database.ExecuteSqlCommand(sql, sessionID, id);
+                if (changes != 1)
+                    sessionID = null;
+            }
+            return sessionID;
+        }
+
+        private string getSessionIdDB(int id)
+        {
+            string sessionID = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var admin = from a in PHEntities.Admin where a.id == id select a;
+                var doctor = from a in PHEntities.Doctor where a.id == id select a;
+                var patient = from a in PHEntities.Patient where a.id == id select a;
+                if (admin.FirstOrDefault() != null)
+                    sessionID = admin.First().sessionID.ToString();
+                else if (doctor.FirstOrDefault() != null)
+                    sessionID = doctor.First().sessionID.ToString();
+                else if (patient.FirstOrDefault() != null)
+                    sessionID = patient.First().sessionID.ToString();
+            }
+            return sessionID;
+        }
+
         public string[] getFullyHash(string password)
         {
+            string salt = getRandomNumber(20);
+            return new string[] { getPBKDF2(password, salt), salt };
+        }
+
+        public bool compareSessionID(AdminBDO person)
+        {
+            if (getSessionIdDB(person.id).Equals(person.sessionID))
+                return true;
+            else
+                return false;
+        }
+
+        private string getRandomNumber(int byteSize)
+        {
             RNGCryptoServiceProvider generate = new RNGCryptoServiceProvider();
-            byte[] salt = new byte[20];
-            generate.GetBytes(salt);
-            return new string[] { getPBKDF2(password, Convert.ToBase64String(salt)), Convert.ToBase64String(salt) };
+            byte[] number = new byte[byteSize];
+            generate.GetBytes(number);
+            return Convert.ToBase64String(number);
+        }
+
+        private string getSessionID()
+        {
+            return getRandomNumber(30);
         }
 
         private bool comparePasswords(string password, string hash, string salt)

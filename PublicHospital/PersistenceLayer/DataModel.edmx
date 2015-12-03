@@ -21,6 +21,7 @@
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
           <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="sessionID" Type="nchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
@@ -52,6 +53,7 @@
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
           <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="sessionID" Type="nchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -70,6 +72,7 @@
           <Property Name="pass" Type="nchar" MaxLength="68" Nullable="false" />
           <Property Name="salt" Type="nchar" MaxLength="28" Nullable="false" />
           <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="sessionID" Type="nchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -156,6 +159,7 @@
           <Property Name="pass" Type="String" MaxLength="68" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <Property Name="sessionID" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
@@ -191,6 +195,7 @@
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__idDoc__300424B4" FromRole="Doctor" ToRole="Appointment" />
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <Property Name="sessionID" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -210,6 +215,7 @@
           <Property Name="salt" Type="String" MaxLength="28" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__idPat__2F10007B" FromRole="Patient" ToRole="Appointment" />
           <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
+          <Property Name="sessionID" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -286,6 +292,7 @@
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Admin">
               <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
                 <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -316,6 +323,7 @@
           <EntitySetMapping Name="Doctor">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
                 <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -337,6 +345,7 @@
           <EntitySetMapping Name="Patient">
             <EntityTypeMapping TypeName="dmaj0914_3Sem_4_1Model.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
                 <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
