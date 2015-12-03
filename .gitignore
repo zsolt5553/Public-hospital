@@ -210,3 +210,5 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/PublicHospital/WindowsFormsClient/Properties/DataSources/System.Data.DataSet.datasource
+/PublicHospital/WindowsFormsClient/Service References/PatientService/WindowsFormsClient.PatientService.GetAppointmentsHistoryPatientResponse.datasource
