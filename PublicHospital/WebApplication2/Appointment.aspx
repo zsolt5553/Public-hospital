@@ -11,14 +11,9 @@
        <br> 
     <asp:Label ID="Label1" runat="server" Text="Choose a desired date"></asp:Label>
        <br> 
-    <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
 
     <div>
-           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText="sds" Height="146px" Width="244px">
-               <Columns>
-                   <asp:BoundField DataField="dd" SortExpression="dd" />
-               </Columns>
-           </asp:GridView>
+           <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
            <br> 
            <br> 
     

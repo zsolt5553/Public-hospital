@@ -37,5 +37,8 @@ namespace DataLayer
             this.login = login;
             this.pass = pass;
         }
+
+
+     
     }
 }
