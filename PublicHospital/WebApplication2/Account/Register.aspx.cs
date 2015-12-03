@@ -11,26 +11,35 @@ namespace WebApplication2.Account
 {
     public partial class Register : Page
     {
-        protected void CreateUser_Click(object sender, EventArgs e)
+        protected void RegisterPatient(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
-            if (result.Succeeded)
+            String message = "";
+            int zip;
+            int.TryParse(Zip.Text, out zip);
+            int streetNr;
+            int.TryParse(StreetNr.Text,out streetNr);
+            DateTime dateOfBirth;
+            DateTime.TryParse(DateOfBirth.Text,out dateOfBirth);
+            PatientsServiceRef.Patient patient = new PatientsServiceRef.Patient()
             {
-                IdentityHelper.SignIn(manager, user, isPersistent: false);
+                firstName = FName.Text,
+                lastName = LName.Text,
+                city = City.Text,
+                zip = zip,
+                street = Street.Text,
+                streetNr = streetNr,
+                phoneNr = Phone.Text,
+                dateOfBirth = dateOfBirth,
+                login = Username.Text,
+                pass = Password.Text
+            };
+            var client = new PatientsServiceRef.PatientServiceClient();
+            client.SavePatient(ref patient,ref message);
+        }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
         }
     }
 }
