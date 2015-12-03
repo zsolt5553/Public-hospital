@@ -17,6 +17,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{B1D5FD72-FB90-4503-ADFE-03ADF3980B5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{E1F5F93E-E836-43EA-9016-CB39050B214B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B1D5FD72-FB90-4503-ADFE-03ADF3980B5D} = {B1D5FD72-FB90-4503-ADFE-03ADF3980B5D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2.Tests", "WebApplication2.Tests\WebApplication2.Tests.csproj", "{5AE086A5-2425-4180-835A-D6D364A8E2B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceLayerTests", "PersistenceLayerTests\PersistenceLayerTests.csproj", "{304E576D-F19C-40B6-A908-0513FC915526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +55,14 @@ Global
 		{E1F5F93E-E836-43EA-9016-CB39050B214B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1F5F93E-E836-43EA-9016-CB39050B214B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1F5F93E-E836-43EA-9016-CB39050B214B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AE086A5-2425-4180-835A-D6D364A8E2B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AE086A5-2425-4180-835A-D6D364A8E2B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AE086A5-2425-4180-835A-D6D364A8E2B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AE086A5-2425-4180-835A-D6D364A8E2B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304E576D-F19C-40B6-A908-0513FC915526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304E576D-F19C-40B6-A908-0513FC915526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304E576D-F19C-40B6-A908-0513FC915526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304E576D-F19C-40B6-A908-0513FC915526}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

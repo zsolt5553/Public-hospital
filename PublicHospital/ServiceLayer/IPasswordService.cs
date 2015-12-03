@@ -13,7 +13,7 @@ namespace ServiceLayer
     {
         [OperationContract]
         [FaultContract(typeof(PasswordFault))]
-        int[] authenticatePerson(string login, string password, ref string message);
+        string[] authenticatePerson(string login, string password, ref string message);
     }
 
     [DataContract]

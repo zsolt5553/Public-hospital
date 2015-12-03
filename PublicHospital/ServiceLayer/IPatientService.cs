@@ -17,12 +17,12 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(PatientFault))]
-        bool SavePatient(ref Patient patient,
+        bool UpdatePatient(ref Patient Patient,
             ref string message);
 
         [OperationContract]
         [FaultContract(typeof(PatientFault))]
-        bool UpdatePatient(ref Patient Patient,
+        bool SavePatient(ref Patient patient,
             ref string message);
 
         [OperationContract]
@@ -63,6 +63,8 @@ namespace ServiceLayer
         public byte[] RowVersion { get; set; }
         [DataMember]
         public List<Appointment> appointmentsHistory { get; set; }
+        [DataMember]
+        public string sessionID { get; set; }
     }
     [DataContract]
     public class PatientFault

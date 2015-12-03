@@ -12,9 +12,9 @@ namespace LogicLayer
     {
         Password pass = new Password();
 
-        public int[] authenticatePerson(string login, string password, ref string message)
+        public string[] authenticatePerson(string login, string password, ref string message)
         {
-            int[] idAndType = pass.authenticatePerson(login, password);
+            string[] idAndType = pass.authenticatePerson(login, password);
             if (idAndType != null)
             {
                 message = "Successful authentication";

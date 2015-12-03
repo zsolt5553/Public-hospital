@@ -300,14 +300,12 @@
     </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctors.aspx.cs">
       <DependentUpon>Doctors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Doctors.aspx.designer.cs">
       <DependentUpon>Doctors.aspx</DependentUpon>

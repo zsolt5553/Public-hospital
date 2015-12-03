@@ -214,15 +214,15 @@ namespace ServiceLayer
             {
                 var msg = e.Message;
                 var reason = "GetAllpatients exception";
-                throw new FaultException<PatientFault>
-                    (new PatientFault(msg), reason);
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
             }
             if (aaa == null)
             {
                 var msg = "GetAllpatients is empty";
                 var reason = "patientTable empty";
-                throw new FaultException<PatientFault>
-                    (new PatientFault(msg), reason);
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
             }
             return aaa;
         }
@@ -241,14 +241,13 @@ namespace ServiceLayer
                     patient.appointmentsHistory = new List<Appointment>();
                     foreach (var appointment in patientBDO.appointmentsHistory)
                     {
-                        Patient patientDTO = new Patient();
-                        //new PatientService().TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
-                        TranslatePatientBDOToPatientDTO(appointment.patient, patientDTO);
+                        Doctor doctorDTO = new Doctor();
+                        new DoctorService().TranslateDoctorBDOToDoctorDTO(appointment.doctor, doctorDTO);
                         patient.appointmentsHistory.Add(new Appointment
                         {
                             id = appointment.id,
                             serviceType = appointment.serviceType,
-                            patient = patientDTO,
+                            doctor = doctorDTO,
                             time = appointment.time
                         });
                         if (appointment.visit != null)
@@ -285,15 +284,15 @@ namespace ServiceLayer
         //    {
         //        var msg = e.Message;
         //        var reason = "GetAllpatients exception";
-        //        throw new FaultException<PatientFault>
-        //            (new PatientFault(msg), reason);
+        //        throw new FaultException<DoctorFault>
+        //            (new DoctorFault(msg), reason);
         //    }
         //    if (patientTable == null)
         //    {
         //        var msg = "GetAllpatients is empty";
         //        var reason = "patientTable empty";
-        //        throw new FaultException<PatientFault>
-        //            (new PatientFault(msg), reason);
+        //        throw new FaultException<DoctorFault>
+        //            (new DoctorFault(msg), reason);
         //    }
         //    DataSet dataSet = new DataSet();
         //    dataSet.Tables.Add(patientTable);

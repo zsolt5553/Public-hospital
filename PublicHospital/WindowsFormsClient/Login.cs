@@ -45,23 +45,26 @@ namespace WindowsFormsClient
 
         private void signin()
         {
-         
-            string message = "";
+            string message = null;
             if (textBox1.TextLength > 3 || textBox2.TextLength > 3)
             {
                 var passwordClient = new PasswordServiceClient();
-                int[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
+                string[] idAndType = passwordClient.authenticatePerson(textBox1.Text, textBox2.Text, ref message);
                 if (idAndType != null)
                 {
-                    if(idAndType[1] == 0)
+                    int id = -1;
+                    Int32.TryParse(idAndType[0], out id);
+                    if (idAndType[1].Equals("0"))
                     {
-                        var adminClient = new AdminServiceClient().GetAdmin(idAndType[0]);
+                        Admin adminClient = new AdminServiceClient().GetAdmin(id);
+                        adminClient.sessionID = idAndType[2];
                         new Thread(() => new AdminMenu().ShowDialog()).Start();
                         Dispose();
                     }
-                    else if(idAndType[1] == 1)
+                    else if(idAndType[1].Equals("1"))
                     {
-                        var doctorClient = new DoctorServiceClient().GetDoctor(idAndType[0]);
+                        var doctorClient = new DoctorServiceClient().GetDoctor(id);
+                        doctorClient.sessionID = idAndType[2];
                         new Thread(() => new DoctorMenu(doctorClient).ShowDialog()).Start();
                         Dispose();
                     }
