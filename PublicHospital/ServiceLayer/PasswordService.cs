@@ -12,9 +12,9 @@ namespace ServiceLayer
     public class PasswordService : IPasswordService
     {
         PasswordLogic pas = new PasswordLogic();
-        public int[] authenticatePerson(string login, string password, ref string message)
+        public string[] authenticatePerson(string login, string password, ref string message)
         {
-            int[] idAndType = null;
+            string[] idAndType = null;
             try
             {
                 idAndType = pas.authenticatePerson(login, password, ref message);

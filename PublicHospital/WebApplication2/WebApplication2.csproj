@@ -46,6 +46,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -157,8 +159,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
-    <Content Include="Services.aspx" />
-    <Content Include="Doctors.aspx" />
+    <Content Include="Appointment.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -176,17 +177,19 @@
     <Content Include="Images\Scrubs - Zach Braff In Hospital11.jpg" />
     <Content Include="Images\servicetype.jpg" />
     <Content Include="Images\visithosp.jpg" />
+    <Content Include="JavaScripts\LoginJavaScript.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="Appointment.aspx" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\LoginJavaScript.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -211,10 +214,93 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <None Include="Service References\AdminServiceRef\service.wsdl" />
+    <None Include="Service References\AdminServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\AdminServiceRef\WebApplication2.AdminServiceRef.Admin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminServiceRef\WebApplication2.AdminServiceRef.SaveAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminServiceRef\WebApplication2.AdminServiceRef.UpdateAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\AppointmentServiceRef\service.wsdl" />
+    <None Include="Service References\AppointmentServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\AdminServiceRef\configuration.svcinfo" />
+    <None Include="Service References\AdminServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.Appointment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.SaveAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\DoctorServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\DoctorServiceRef\configuration.svcinfo" />
+    <None Include="Service References\DoctorServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AppointmentServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\AppointmentServiceRef\configuration.svcinfo" />
+    <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PasswordServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordServiceRef\service.wsdl" />
+    <None Include="Service References\PasswordServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PasswordServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\PasswordServiceRef\WebApplication2.PasswordServiceRef.authenticatePersonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PatientsServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\PatientsServiceRef\configuration.svcinfo" />
+    <None Include="Service References\PatientsServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PasswordServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\PasswordServiceRef\configuration.svcinfo" />
+    <None Include="Service References\PasswordServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -222,6 +308,56 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <None Include="Service References\DoctorServiceRef\service.wsdl" />
+    <None Include="Service References\DoctorServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\DoctorServiceRef\WebApplication2.DoctorServiceRef.DeleteDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DoctorServiceRef\WebApplication2.DoctorServiceRef.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DoctorServiceRef\WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DoctorServiceRef\WebApplication2.DoctorServiceRef.SaveDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DoctorServiceRef\WebApplication2.DoctorServiceRef.UpdateDoctorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PatientsServiceRef\service.wsdl" />
+    <None Include="Service References\PatientsServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientsServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PatientsServiceRef\ServiceLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\PatientsServiceRef\WebApplication2.PatientsServiceRef.GetAppointmentsHistoryPatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PatientsServiceRef\WebApplication2.PatientsServiceRef.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PatientsServiceRef\WebApplication2.PatientsServiceRef.SavePatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PatientsServiceRef\WebApplication2.PatientsServiceRef.UpdatePatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -293,19 +429,12 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Services.aspx.cs">
-      <DependentUpon>Services.aspx</DependentUpon>
+    <Compile Include="Appointment.aspx.cs">
+      <DependentUpon>Appointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Services.aspx.designer.cs">
-      <DependentUpon>Services.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Doctors.aspx.cs">
-      <DependentUpon>Doctors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Doctors.aspx.designer.cs">
-      <DependentUpon>Doctors.aspx</DependentUpon>
+    <Compile Include="Appointment.aspx.designer.cs">
+      <DependentUpon>Appointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -337,6 +466,31 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AdminServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AppointmentServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DoctorServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PasswordServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PatientsServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,16 +513,19 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Appointment.aspx.cs">
-      <DependentUpon>Appointment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Appointment.aspx.designer.cs">
-      <DependentUpon>Appointment.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdminServiceRef\" />
+    <WCFMetadataStorage Include="Service References\AppointmentServiceRef\" />
+    <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
+    <WCFMetadataStorage Include="Service References\PasswordServiceRef\" />
+    <WCFMetadataStorage Include="Service References\PatientsServiceRef\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

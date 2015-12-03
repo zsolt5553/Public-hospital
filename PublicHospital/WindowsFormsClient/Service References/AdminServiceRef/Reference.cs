@@ -207,7 +207,9 @@ namespace WindowsFormsClient.AdminServiceRef {
                 }
             }
         }
-        
+
+        public string sessionID { get; internal set; }
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {

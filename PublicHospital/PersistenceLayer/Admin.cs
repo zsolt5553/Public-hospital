@@ -26,5 +26,6 @@ namespace PersistenceLayer
         public string pass { get; set; }
         public string salt { get; set; }
         public byte[] rowVersion { get; set; }
+        public string sessionID { get; set; }
     }
 }

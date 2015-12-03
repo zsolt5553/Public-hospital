@@ -12,6 +12,7 @@
       <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="phoneNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sessionID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="specialty" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="streetNr" type="xs:int" />
@@ -49,6 +50,7 @@
       <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="phoneNr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sessionID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="streetNr" type="xs:int" />
       <xs:element minOccurs="0" name="zip" type="xs:int" />
