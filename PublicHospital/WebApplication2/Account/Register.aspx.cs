@@ -13,7 +13,28 @@ namespace WebApplication2.Account
     {
         protected void RegisterPatient(object sender, EventArgs e)
         {
-
+            String message = "";
+            int zip;
+            int.TryParse(Zip.Text, out zip);
+            int streetNr;
+            int.TryParse(StreetNr.Text,out streetNr);
+            DateTime dateOfBirth;
+            DateTime.TryParse(DateOfBirth.Text,out dateOfBirth);
+            PatientsServiceRef.Patient patient = new PatientsServiceRef.Patient()
+            {
+                firstName = FName.Text,
+                lastName = LName.Text,
+                city = City.Text,
+                zip = zip,
+                street = Street.Text,
+                streetNr = streetNr,
+                phoneNr = Phone.Text,
+                dateOfBirth = dateOfBirth,
+                login = Username.Text,
+                pass = Password.Text
+            };
+            var client = new PatientsServiceRef.PatientServiceClient();
+            client.SavePatient(ref patient,ref message);
         }
 
         protected void Page_Load(object sender, EventArgs e)
