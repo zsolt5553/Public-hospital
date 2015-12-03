@@ -289,22 +289,6 @@
     <Content Include="Service References\PasswordServiceRef\WebApplication2.PasswordServiceRef.authenticatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\PasswordService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PasswordService\service.wsdl" />
-    <None Include="Service References\PasswordService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PasswordService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PasswordService\ServiceLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Service References\PasswordService\WebApplication2.PasswordService.authenticatePersonResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\PatientsServiceRef\configuration91.svcinfo" />
     <None Include="Service References\PatientsServiceRef\configuration.svcinfo" />
     <None Include="Service References\PatientsServiceRef\Reference.svcmap">
@@ -314,12 +298,6 @@
     <None Include="Service References\PasswordServiceRef\configuration91.svcinfo" />
     <None Include="Service References\PasswordServiceRef\configuration.svcinfo" />
     <None Include="Service References\PasswordServiceRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\PasswordService\configuration91.svcinfo" />
-    <None Include="Service References\PasswordService\configuration.svcinfo" />
-    <None Include="Service References\PasswordService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -508,11 +486,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\PasswordService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\PatientsServiceRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -552,7 +525,6 @@
     <WCFMetadataStorage Include="Service References\AppointmentServiceRef\" />
     <WCFMetadataStorage Include="Service References\DoctorServiceRef\" />
     <WCFMetadataStorage Include="Service References\PasswordServiceRef\" />
-    <WCFMetadataStorage Include="Service References\PasswordService\" />
     <WCFMetadataStorage Include="Service References\PatientsServiceRef\" />
   </ItemGroup>
   <PropertyGroup>

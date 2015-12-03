@@ -101,7 +101,7 @@ namespace WebApplication2.PasswordServiceRef {
     public partial class authenticatePersonResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int[] authenticatePersonResult;
+        public string[] authenticatePersonResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -109,7 +109,7 @@ namespace WebApplication2.PasswordServiceRef {
         public authenticatePersonResponse() {
         }
         
-        public authenticatePersonResponse(int[] authenticatePersonResult, string message) {
+        public authenticatePersonResponse(string[] authenticatePersonResult, string message) {
             this.authenticatePersonResult = authenticatePersonResult;
             this.message = message;
         }
@@ -147,7 +147,7 @@ namespace WebApplication2.PasswordServiceRef {
             return base.Channel.authenticatePerson(request);
         }
         
-        public int[] authenticatePerson(string login, string password, ref string message) {
+        public string[] authenticatePerson(string login, string password, ref string message) {
             WebApplication2.PasswordServiceRef.authenticatePersonRequest inValue = new WebApplication2.PasswordServiceRef.authenticatePersonRequest();
             inValue.login = login;
             inValue.password = password;
