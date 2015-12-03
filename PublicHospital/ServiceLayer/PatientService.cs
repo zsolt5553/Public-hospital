@@ -44,6 +44,34 @@ namespace ServiceLayer
             return patient;
         }
 
+        public bool SavePatient(ref Patient patient,
+            ref string message)
+        {
+            var result = true;
+            if (!PatientCheck(ref patient, ref message))
+            {
+                result = false;
+            }
+            else
+            {
+                try
+                {
+                    var patientBDO = new PatientBDO();
+                    TranslatePatientDTOToPatientBDO(patient,
+                        patientBDO);
+                    result = patientLogic.InsertPatient(
+                        ref patientBDO, ref message);
+                }
+                catch (Exception e)
+                {
+                    var msg = e.Message;
+                    throw new FaultException<PatientFault>
+                        (new PatientFault(msg), msg);
+                }
+            }
+            return result;
+        }
+
         private bool PatientCheck(ref Patient patient,
             ref string message)
         {

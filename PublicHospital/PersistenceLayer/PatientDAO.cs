@@ -131,6 +131,41 @@ namespace PersistenceLayer
             return patientList;
         }
 
+        public bool InsertPatient(ref PatientBDO patientBDO,
+            ref string massage)
+        {
+            massage = "Patient inserted successfully";
+            var ret = true;
+            Password passObj = new Password();
+            string[] passAndSalt = passObj.getFullyHash(patientBDO.pass);
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                PHEntities.Patient.Add(new Patient
+                {
+                    id = GetNextID(),
+                    firstName = patientBDO.firstName,
+                    lastName = patientBDO.lastName,
+                    city = patientBDO.city,
+                    street = patientBDO.street,
+                    streetNr = patientBDO.streetNr,
+                    phoneNr = patientBDO.phoneNr,
+                    zip = patientBDO.zip,
+                    login = patientBDO.login,
+                    dateOfBirth = patientBDO.dateOfBirth,
+                    rowVersion = patientBDO.RowVersion,
+                    pass = passAndSalt[0],
+                    salt = passAndSalt[1]
+                });
+                var num = PHEntities.SaveChanges();
+                if (num != 1)
+                {
+                    ret = false;
+                    massage = "Patient was not inserted";
+                }
+            }
+            return ret;
+        }
+
         //public DataTable GetAllpatients()
         //{
         //    DataTable patients = null;

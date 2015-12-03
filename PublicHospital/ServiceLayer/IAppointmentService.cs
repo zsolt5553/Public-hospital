@@ -18,6 +18,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(AppointmentFault))]
+        bool SaveAppointment(ref Appointment appointment,
+            ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
         List<Appointment> GetAllAppointments();
 
 
