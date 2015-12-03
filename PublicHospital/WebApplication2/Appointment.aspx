@@ -1,22 +1,16 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Appointment.aspx.cs" Inherits="WebApplication2.Doctors" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Appointment.aspx.cs" Inherits="WebApplication2.Appointment" %>
 
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-     <div>
-    
-    </div>
-       <br> 
-       <br> 
-       <br> 
-    <asp:Label ID="Label1" runat="server" Text="Choose a desired date"></asp:Label>
-       <br> 
+
+   <br /> <br /> <br />
 
     <div>
-           <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-           <br> 
-           <br> 
+    
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
     
     </div>
  
+
 </asp:Content>
