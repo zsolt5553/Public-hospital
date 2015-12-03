@@ -23,6 +23,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -65,6 +68,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -244,6 +260,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -268,6 +287,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -369,6 +401,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.PatientService.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -414,6 +449,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -606,6 +654,9 @@ namespace WindowsFormsClient.PatientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string adviceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -624,6 +675,19 @@ namespace WindowsFormsClient.PatientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -798,6 +862,14 @@ namespace WindowsFormsClient.PatientService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/UpdatePatient", ReplyAction="http://tempuri.org/IPatientService/UpdatePatientResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.PatientService.UpdatePatientResponse> UpdatePatientAsync(WindowsFormsClient.PatientService.UpdatePatientRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/SavePatient", ReplyAction="http://tempuri.org/IPatientService/SavePatientResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.PatientService.PatientFault), Action="http://tempuri.org/IPatientService/SavePatientPatientFaultFault", Name="PatientFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.PatientService.SavePatientResponse SavePatient(WindowsFormsClient.PatientService.SavePatientRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/SavePatient", ReplyAction="http://tempuri.org/IPatientService/SavePatientResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.PatientService.SavePatientResponse> SavePatientAsync(WindowsFormsClient.PatientService.SavePatientRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/GetAllpatients", ReplyAction="http://tempuri.org/IPatientService/GetAllpatientsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.PatientService.PatientFault), Action="http://tempuri.org/IPatientService/GetAllpatientsPatientFaultFault", Name="PatientFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.PatientService.Patient[] GetAllpatients();
@@ -855,6 +927,50 @@ namespace WindowsFormsClient.PatientService {
         public UpdatePatientResponse(bool UpdatePatientResult, WindowsFormsClient.PatientService.Patient Patient, string message) {
             this.UpdatePatientResult = UpdatePatientResult;
             this.Patient = Patient;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SavePatient", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SavePatientRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsClient.PatientService.Patient patient;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public SavePatientRequest() {
+        }
+        
+        public SavePatientRequest(WindowsFormsClient.PatientService.Patient patient, string message) {
+            this.patient = patient;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SavePatientResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SavePatientResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool SavePatientResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WindowsFormsClient.PatientService.Patient patient;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string message;
+        
+        public SavePatientResponse() {
+        }
+        
+        public SavePatientResponse(bool SavePatientResult, WindowsFormsClient.PatientService.Patient patient, string message) {
+            this.SavePatientResult = SavePatientResult;
+            this.patient = patient;
             this.message = message;
         }
     }
@@ -951,6 +1067,25 @@ namespace WindowsFormsClient.PatientService {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.PatientService.UpdatePatientResponse> UpdatePatientAsync(WindowsFormsClient.PatientService.UpdatePatientRequest request) {
             return base.Channel.UpdatePatientAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsClient.PatientService.SavePatientResponse WindowsFormsClient.PatientService.IPatientService.SavePatient(WindowsFormsClient.PatientService.SavePatientRequest request) {
+            return base.Channel.SavePatient(request);
+        }
+        
+        public bool SavePatient(ref WindowsFormsClient.PatientService.Patient patient, ref string message) {
+            WindowsFormsClient.PatientService.SavePatientRequest inValue = new WindowsFormsClient.PatientService.SavePatientRequest();
+            inValue.patient = patient;
+            inValue.message = message;
+            WindowsFormsClient.PatientService.SavePatientResponse retVal = ((WindowsFormsClient.PatientService.IPatientService)(this)).SavePatient(inValue);
+            patient = retVal.patient;
+            message = retVal.message;
+            return retVal.SavePatientResult;
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.PatientService.SavePatientResponse> SavePatientAsync(WindowsFormsClient.PatientService.SavePatientRequest request) {
+            return base.Channel.SavePatientAsync(request);
         }
         
         public WindowsFormsClient.PatientService.Patient[] GetAllpatients() {

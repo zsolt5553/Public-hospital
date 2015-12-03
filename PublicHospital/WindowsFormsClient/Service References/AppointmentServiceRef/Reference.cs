@@ -23,6 +23,9 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.AppointmentServiceRef.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -47,6 +50,19 @@ namespace WindowsFormsClient.AppointmentServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -148,6 +164,12 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsClient.AppointmentServiceRef.Appointment[] appointmentsHistoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -190,6 +212,32 @@ namespace WindowsFormsClient.AppointmentServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsClient.AppointmentServiceRef.Appointment[] appointmentsHistory {
+            get {
+                return this.appointmentsHistoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.appointmentsHistoryField, value) != true)) {
+                    this.appointmentsHistoryField = value;
+                    this.RaisePropertyChanged("appointmentsHistory");
+                }
             }
         }
         
@@ -369,6 +417,9 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WindowsFormsClient.AppointmentServiceRef.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -411,6 +462,19 @@ namespace WindowsFormsClient.AppointmentServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -590,6 +654,9 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string adviceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -608,6 +675,19 @@ namespace WindowsFormsClient.AppointmentServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
             }
         }
         
@@ -729,6 +809,14 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointment", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/SaveAppointment", ReplyAction="http://tempuri.org/IAppointmentService/SaveAppointmentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/SaveAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse SaveAppointment(WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/SaveAppointment", ReplyAction="http://tempuri.org/IAppointmentService/SaveAppointmentResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse> SaveAppointmentAsync(WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAllAppointments();
@@ -743,6 +831,50 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse> UpdateAppointmentAsync(WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SaveAppointment", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SaveAppointmentRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsClient.AppointmentServiceRef.Appointment appointment;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public SaveAppointmentRequest() {
+        }
+        
+        public SaveAppointmentRequest(WindowsFormsClient.AppointmentServiceRef.Appointment appointment, string message) {
+            this.appointment = appointment;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SaveAppointmentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SaveAppointmentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool SaveAppointmentResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WindowsFormsClient.AppointmentServiceRef.Appointment appointment;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string message;
+        
+        public SaveAppointmentResponse() {
+        }
+        
+        public SaveAppointmentResponse(bool SaveAppointmentResult, WindowsFormsClient.AppointmentServiceRef.Appointment appointment, string message) {
+            this.SaveAppointmentResult = SaveAppointmentResult;
+            this.appointment = appointment;
+            this.message = message;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -822,6 +954,25 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id) {
             return base.Channel.GetAppointmentAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse WindowsFormsClient.AppointmentServiceRef.IAppointmentService.SaveAppointment(WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest request) {
+            return base.Channel.SaveAppointment(request);
+        }
+        
+        public bool SaveAppointment(ref WindowsFormsClient.AppointmentServiceRef.Appointment appointment, ref string message) {
+            WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest inValue = new WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest();
+            inValue.appointment = appointment;
+            inValue.message = message;
+            WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse retVal = ((WindowsFormsClient.AppointmentServiceRef.IAppointmentService)(this)).SaveAppointment(inValue);
+            appointment = retVal.appointment;
+            message = retVal.message;
+            return retVal.SaveAppointmentResult;
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse> SaveAppointmentAsync(WindowsFormsClient.AppointmentServiceRef.SaveAppointmentRequest request) {
+            return base.Channel.SaveAppointmentAsync(request);
         }
         
         public WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAllAppointments() {

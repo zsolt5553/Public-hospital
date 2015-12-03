@@ -16,6 +16,15 @@
   <wsdl:message name="IAppointmentService_GetAppointment_AppointmentFaultFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q1:AppointmentFault" />
   </wsdl:message>
+  <wsdl:message name="IAppointmentService_SaveAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_SaveAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_SaveAppointment_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:AppointmentFault" />
+  </wsdl:message>
   <wsdl:message name="IAppointmentService_GetAllAppointments_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAppointments" />
   </wsdl:message>
@@ -23,7 +32,7 @@
     <wsdl:part name="parameters" element="tns:GetAllAppointmentsResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_GetAllAppointments_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q2:AppointmentFault" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:AppointmentFault" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateAppointment" />
@@ -32,13 +41,18 @@
     <wsdl:part name="parameters" element="tns:UpdateAppointmentResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:AppointmentFault" />
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
   </wsdl:message>
   <wsdl:portType name="IAppointmentService">
     <wsdl:operation name="GetAppointment">
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointment" message="tns:IAppointmentService_GetAppointment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentResponse" message="tns:IAppointmentService_GetAppointment_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_GetAppointment_AppointmentFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/SaveAppointment" message="tns:IAppointmentService_SaveAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/SaveAppointmentResponse" message="tns:IAppointmentService_SaveAppointment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/SaveAppointmentAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_SaveAppointment_AppointmentFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllAppointments">
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointments" message="tns:IAppointmentService_GetAllAppointments_InputMessage" />
@@ -55,6 +69,18 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAppointment">
       <soap:operation soapAction="http://tempuri.org/IAppointmentService/GetAppointment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppointment">
+      <soap:operation soapAction="http://tempuri.org/IAppointmentService/SaveAppointment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

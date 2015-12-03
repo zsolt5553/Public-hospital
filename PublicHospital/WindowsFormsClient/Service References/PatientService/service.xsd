@@ -32,6 +32,23 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SavePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="patient" nillable="true" type="q4:Patient" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SavePatientResult" type="xs:boolean" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="patient" nillable="true" type="q5:Patient" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllpatients">
     <xs:complexType>
       <xs:sequence />
@@ -40,7 +57,7 @@
   <xs:element name="GetAllpatientsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllpatientsResult" nillable="true" type="q4:ArrayOfPatient" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllpatientsResult" nillable="true" type="q6:ArrayOfPatient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -55,7 +72,7 @@
   <xs:element name="GetAppointmentsHistoryPatientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsHistoryPatientResult" nillable="true" type="q5:Patient" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsHistoryPatientResult" nillable="true" type="q7:Patient" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

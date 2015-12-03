@@ -15,6 +15,23 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SaveAppointment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="appointment" nillable="true" type="q2:Appointment" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAppointmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveAppointmentResult" type="xs:boolean" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="appointment" nillable="true" type="q3:Appointment" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllAppointments">
     <xs:complexType>
       <xs:sequence />
@@ -23,14 +40,14 @@
   <xs:element name="GetAllAppointmentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllAppointmentsResult" nillable="true" type="q2:ArrayOfAppointment" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAllAppointmentsResult" nillable="true" type="q4:ArrayOfAppointment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateAppointment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q3:Appointment" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q5:Appointment" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -39,7 +56,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateAppointmentResult" type="xs:boolean" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q4:Appointment" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q6:Appointment" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

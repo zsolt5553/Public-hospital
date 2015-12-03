@@ -262,6 +262,9 @@
     <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.Appointment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -309,12 +312,6 @@
     <None Include="Service References\PasswordService\WindowsFormsClient.PasswordService.authenticatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PatientService\DataLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PatientService\DataLayer1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PatientService\service.wsdl" />
     <None Include="Service References\PatientService\service.xsd">
       <SubType>Designer</SubType>
@@ -329,6 +326,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PatientService\WindowsFormsClient.PatientService.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PatientService\WindowsFormsClient.PatientService.SavePatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PatientService\WindowsFormsClient.PatientService.UpdatePatientResponse.datasource">
@@ -378,30 +378,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PatientService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PatientService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PatientService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AppointmentServiceRef\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AppointmentServiceRef\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\AdminServiceRef\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -421,6 +397,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DoctorServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PatientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppointmentServiceRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
