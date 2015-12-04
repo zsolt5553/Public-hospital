@@ -10,10 +10,10 @@ namespace WebApplication2
 {
     public partial class Appointment : System.Web.UI.Page
     {
-        DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
-        AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
-        List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
-        List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
+        DoctorService.IDoctorService doctorService = new DoctorService.DoctorServiceClient();
+        AppointmentService.IAppointmentService appointmentService = new AppointmentService.AppointmentServiceClient();
+        List<AppointmentService.Appointment> appointmentList = new List<AppointmentService.Appointment>();
+        List<DoctorService.Doctor> doctorList = new List<DoctorService.Doctor>();
         List<String> doctorsName = new List<String>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace WebApplication2
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            DoctorServiceRef.Doctor doc;
+            DoctorService.Doctor doc;
               doc = doctorService.GetDoctor(1);
               Label1.Text = doc.firstName;
           

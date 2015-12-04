@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplication2.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.<asp:Label ID="Label1" runat="server" Text="Create a new account"></asp:Label>
+    <br/><br/><br/><br/>
+
+    <h2><asp:Label ID="Label1" runat="server" Text="Create a new account"></asp:Label>
     </h2>
+    <br/><br/>
     <p>
         <asp:Label ID="FNameLb" runat="server" Text="First name:" CssClass="control-label"></asp:Label>
         <asp:TextBox ID="FName" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
