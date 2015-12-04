@@ -11,8 +11,6 @@
         <asp:TextBox ID="FName" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="FName"
             CssClass="text-danger" ErrorMessage="The first name field is required." />
-    </p>
-    <p>
         <asp:Label ID="LNameLb" runat="server" Text="Last name:" CssClass="control-label"></asp:Label>
         <asp:TextBox ID="LName" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="LName"
@@ -30,10 +28,8 @@
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Zip"
             CssClass="text-danger" ErrorMessage="The zip field is required." />
         <asp:RangeValidator runat="server" ControlToValidate="Zip"
-            CssClass="text-danger" MinimumValue="1000" MaximumValue="9999" Type="Integer"
+                                MinimumValue="1000" MaximumValue="9999" Type="Integer"
             Text="The value must be from 1000 to 9999!" />
-    </p>
-    <p>
         <asp:Label ID="CityLb" runat="server" Text="City:"></asp:Label>
         <asp:TextBox ID="City" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="City"
@@ -44,8 +40,6 @@
         <asp:TextBox ID="Street" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Street"
             CssClass="text-danger" ErrorMessage="The street field is required." />
-    </p>
-    <p>
         <asp:Label ID="StreetNrLb" runat="server" Text="Street number:"></asp:Label>
         <asp:TextBox ID="StreetNr" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="StreetNr"
@@ -65,13 +59,13 @@
     </p>
     <p>
         <asp:Label ID="PasswordLb" runat="server" Text="Password"></asp:Label>
-        <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
             CssClass="text-danger" ErrorMessage="The password field is required." />
     </p>
     <p>
         <asp:Label ID="CPasswordLb" runat="server" Text="Confirm password:"></asp:Label>
-        <asp:TextBox ID="ConfPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="ConfPassword" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfPassword"
             CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
         <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfPassword"
