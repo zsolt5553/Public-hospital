@@ -13,15 +13,21 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var client = new DoctorService.DoctorServiceClient();
-            List<DoctorService.Doctor> doctors = client.GetAllDoctors().ToList();
-            populateTreeView(doctors);
+            if (!Page.IsPostBack)
+            {
+                var client = new DoctorService.DoctorServiceClient();
+                List<DoctorService.Doctor> doctors = client.GetAllDoctors().ToList();
+                populateTreeView(doctors);
+            }
+                 
         }
+
+
 
         private void populateTreeView(List<DoctorService.Doctor> doctors)
         {
             sortedDoctors = doctors.OrderBy(doc => doc.specialty).ToList();
-            var topNode = new TreeNode("Select all");
+            var topNode = new TreeNode("Services");
             TreeView1.Nodes.Add(topNode);
             string currentSpecialty = sortedDoctors.First().specialty;
             var treeNodes = new List<TreeNode>();
@@ -60,6 +66,8 @@ namespace WebApplication2
             {
                 TreeView1.Nodes.Add(node);
             }
+            TreeView1.CollapseAll();
+            TreeView1.DataBind();
         }
     }
 }
