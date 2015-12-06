@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using System.Data.Entity;
+
 namespace PersistenceLayer
 {
     public class AppointmentDAO
@@ -99,7 +101,9 @@ namespace PersistenceLayer
                 var listInDb = (from appointment in PHEntities.Appointment
                                 from doctor in PHEntities.Doctor
                                 where appointment.idDoctor == doctor.id &&
-                                appointment.time.ToShortDateString() == date.ToShortDateString()
+                                appointment.time.Year == date.Year &&
+                                appointment.time.Month == date.Month &&
+                                appointment.time.Day == date.Day 
                                 select new
                                 {
                                     appointment.time

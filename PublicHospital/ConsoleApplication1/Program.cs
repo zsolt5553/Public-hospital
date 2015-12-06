@@ -1,19 +1,17 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApplication2.Tests
+namespace ConsoleApplication1
 {
-    [TestClass]
-    public class UnitTest1
+    class Program
     {
-        [TestMethod]
-        public void TestMethod1()
+        static void Main(string[] args)
         {
             DateTime date = new DateTime();
-            date.AddYears(2015);
-            date.AddMonths(12);
-            date.AddDays(12);
+            DateTime.TryParse("2015-12-12 15:00:00.000", out date);
             DoctorServiceRef.Doctor ddd = new DoctorServiceRef.DoctorServiceClient().GetDoctor(1);
             AppointmentServiceRef.Doctor doc = new AppointmentServiceRef.Doctor();
             doc.id = ddd.id;
