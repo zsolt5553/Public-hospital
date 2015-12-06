@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,11 +13,18 @@ namespace WebApplication2
     {
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
-        List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
         List<String> doctorsName = new List<String>();
+        private DateTime selectedDate;
+        AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
+      
 
         protected void Page_Load(object sender, EventArgs e)
+        {
+            addTimeButtons();
+        }
+
+        public void addTimeButtons()
         {
             List<Button> buttons = new List<Button>();
             buttons = new List<Button>();
@@ -39,7 +47,9 @@ namespace WebApplication2
             for (int i = 0; i < buttons.Count; i++)
             {
                 buttons[i].Click += MyButtonClick;
-             }
+            }
+
+
         }
 
         public void getAllDoctorName()
@@ -53,17 +63,42 @@ namespace WebApplication2
             }
         }
 
+        public static string stringUntilThatChar(string s)
+        {
+            int l = s.IndexOf(")");
+            if (l > 0)
+            {
+                return s.Substring(1, l - 1);
+            }
+            return "";
+
+        }
+
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
+            
+            
                 Panel1.Visible = true;
-                Calendar1.Visible = false;            
+                Calendar1.Visible = false;
+
+                selectedDate = Calendar1.SelectedDate;
+                Label1.Text = Calendar1.SelectedDate.ToShortDateString();
+          
+          
         }
 
         void MyButtonClick(object sender, EventArgs e)
         {
             Button myButton = (Button)sender;
-            myButton.Text = "cefe";
+            if (myButton.BackColor == Color.Red)
+            {
+                Label1.Text = "This appointment is not available, please choose another one";
+            }
+            else
+            {
+            
+            }
         }
 
 
@@ -71,7 +106,15 @@ namespace WebApplication2
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Calendar1.Visible = true;
-            Label1.Text = "fasz";
+            string value = stringUntilThatChar(DropDownList1.Text);
+            int value2 = -1;
+            Int32.TryParse(value, out value2);
+            if (value2 != -1)
+            {
+                appointment.doctor.id = value2;
+
+            }
+          Label1.Text = stringUntilThatChar(DropDownList1.Text);
         }
 
         protected void DropDownList1_Load(object sender, EventArgs e)
@@ -85,6 +128,16 @@ namespace WebApplication2
                     DropDownList1.Items.Add(new ListItem(name));
                 }
                 DropDownList1.DataBind();
+            }
+        }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+          
+            if (e.Day.Date < DateTime.Today)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.BackColor = System.Drawing.Color.Silver;
             }
         }
 

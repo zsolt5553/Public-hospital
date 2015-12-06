@@ -37,6 +37,8 @@ namespace PersistenceLayer
             }
             return appointmentBDO;
         }
+
+
         public List<AppointmentBDO> GetAllAppointments()
         {
             List<AppointmentBDO> appointments = null;
@@ -133,7 +135,7 @@ namespace PersistenceLayer
                     time = appointmentBDO.time.Date,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
-                    idDoctor = appointmentBDO.patient.id,
+                    idDoctor = appointmentBDO.doctor.id,
                     rowVersion = appointmentBDO.rowVersion
                 });
                 var num = PHEntities.SaveChanges();
