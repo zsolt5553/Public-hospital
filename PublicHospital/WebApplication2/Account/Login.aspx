@@ -26,6 +26,5 @@
             </div>
         </div>
     </div>
-    <script src="../Scripts/LoginJavaScript.js"></script>
     <link href="../Content/LoginStyleSheet.css" rel="stylesheet" />
 </asp:Content>
