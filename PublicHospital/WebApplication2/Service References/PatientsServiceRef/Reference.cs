@@ -53,6 +53,9 @@ namespace WebApplication2.PatientsServiceRef {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string streetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -197,6 +200,19 @@ namespace WebApplication2.PatientsServiceRef {
                 if ((object.ReferenceEquals(this.phoneNrField, value) != true)) {
                     this.phoneNrField = value;
                     this.RaisePropertyChanged("phoneNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
                 }
             }
         }
@@ -431,6 +447,9 @@ namespace WebApplication2.PatientsServiceRef {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string specialtyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -578,6 +597,19 @@ namespace WebApplication2.PatientsServiceRef {
                 if ((object.ReferenceEquals(this.phoneNrField, value) != true)) {
                     this.phoneNrField = value;
                     this.RaisePropertyChanged("phoneNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
                 }
             }
         }

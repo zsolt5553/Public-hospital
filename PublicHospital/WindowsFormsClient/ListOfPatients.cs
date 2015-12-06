@@ -26,7 +26,7 @@ namespace WindowsFormsClient
         {
             string message = null;
             int id = 0;
-            Int32.TryParse(dataGridView1.SelectedRows[e.RowIndex].Cells[0].Value.ToString(), out id);
+            Int32.TryParse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), out id);
             PatientService.Patient patient = new PatientServiceClient().GetAppointmentsHistoryPatient(id, ref message);
             if (patient != null)
             {
