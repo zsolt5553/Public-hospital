@@ -25,6 +25,11 @@ namespace ServiceLayer
         [FaultContract(typeof(AppointmentFault))]
         List<Appointment> GetAllAppointments();
 
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
+        List<string> getAppointmentsByDocAndDate(DateTime date,
+            ref Doctor doc);
+
 
         [OperationContract]
         [FaultContract(typeof(AppointmentFault))]

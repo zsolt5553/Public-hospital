@@ -856,6 +856,15 @@ namespace WebApplication2.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
         System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate", ReplyAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateAppointmentFaul" +
+            "tFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse getAppointmentsByDocAndDate(WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate", ReplyAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse")]
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse> getAppointmentsByDocAndDateAsync(WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/UpdateAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse UpdateAppointment(WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest request);
@@ -906,6 +915,46 @@ namespace WebApplication2.AppointmentServiceRef {
             this.SaveAppointmentResult = SaveAppointmentResult;
             this.appointment = appointment;
             this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getAppointmentsByDocAndDate", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getAppointmentsByDocAndDateRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.DateTime date;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WebApplication2.AppointmentServiceRef.Doctor doc;
+        
+        public getAppointmentsByDocAndDateRequest() {
+        }
+        
+        public getAppointmentsByDocAndDateRequest(System.DateTime date, WebApplication2.AppointmentServiceRef.Doctor doc) {
+            this.date = date;
+            this.doc = doc;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getAppointmentsByDocAndDateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getAppointmentsByDocAndDateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string[] getAppointmentsByDocAndDateResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WebApplication2.AppointmentServiceRef.Doctor doc;
+        
+        public getAppointmentsByDocAndDateResponse() {
+        }
+        
+        public getAppointmentsByDocAndDateResponse(string[] getAppointmentsByDocAndDateResult, WebApplication2.AppointmentServiceRef.Doctor doc) {
+            this.getAppointmentsByDocAndDateResult = getAppointmentsByDocAndDateResult;
+            this.doc = doc;
         }
     }
     
@@ -1013,6 +1062,24 @@ namespace WebApplication2.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
             return base.Channel.GetAllAppointmentsAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse WebApplication2.AppointmentServiceRef.IAppointmentService.getAppointmentsByDocAndDate(WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest request) {
+            return base.Channel.getAppointmentsByDocAndDate(request);
+        }
+        
+        public string[] getAppointmentsByDocAndDate(System.DateTime date, ref WebApplication2.AppointmentServiceRef.Doctor doc) {
+            WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest inValue = new WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest();
+            inValue.date = date;
+            inValue.doc = doc;
+            WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse retVal = ((WebApplication2.AppointmentServiceRef.IAppointmentService)(this)).getAppointmentsByDocAndDate(inValue);
+            doc = retVal.doc;
+            return retVal.getAppointmentsByDocAndDateResult;
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse> getAppointmentsByDocAndDateAsync(WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateRequest request) {
+            return base.Channel.getAppointmentsByDocAndDateAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

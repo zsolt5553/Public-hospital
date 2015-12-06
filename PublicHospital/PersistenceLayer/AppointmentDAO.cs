@@ -90,6 +90,32 @@ namespace PersistenceLayer
             }
             return appointments;
         }
+
+        public List<string> getAppointmentsByDocAndDate (DateTime date, ref DoctorBDO doc)
+        {
+            List<string> appTimes;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from appointment in PHEntities.Appointment
+                                from doctor in PHEntities.Doctor
+                                where appointment.idDoctor == doctor.id &&
+                                appointment.time.ToShortDateString() == date.ToShortDateString()
+                                select new
+                                {
+                                    appointment.time
+                                }).ToList();
+                appTimes = new List<string>();
+                if (listInDb != null)
+                {
+                    foreach (var d in listInDb)
+                    {
+                        appTimes.Add(d.time.ToShortTimeString());
+                    }
+                }
+            }
+            return appTimes;
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
         ref string massage)
         {

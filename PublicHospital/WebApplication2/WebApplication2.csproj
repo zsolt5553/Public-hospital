@@ -159,6 +159,9 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <None Include="Service References\AppointmentServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\AppointmentServiceRef\service.wsdl" />
     <None Include="Service References\AppointmentServiceRef\service.xsd">
       <SubType>Designer</SubType>
@@ -176,6 +179,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\DoctorServiceRef\service.wsdl" />
