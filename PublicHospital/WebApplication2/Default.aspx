@@ -6,6 +6,7 @@
     </div>
    
     </div>
+    <h1 style="text-align:center"><asp:Literal ID="nameUser" runat="server" /></h1>
     <div class="container" style="background-color: #CCCCCC; margin-bottom: 50px; white-space: nowrap;">
         <div class="row">
             <div class="col-md-9">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication2.PatientServiceRef;
 
 namespace WebApplication2
 {
@@ -11,9 +12,11 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Patient patient = (Patient)Session["patientObj"];
+            if(patient != null)
+            {
+                nameUser.Text = "Hello "+patient.firstName;
+            }
         }
-        
     }
-    
 }
