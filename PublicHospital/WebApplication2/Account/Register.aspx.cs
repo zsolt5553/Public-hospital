@@ -20,7 +20,7 @@ namespace WebApplication2.Account
             int.TryParse(StreetNr.Text,out streetNr);
             DateTime dateOfBirth;
             DateTime.TryParse(DateOfBirth.Text,out dateOfBirth);
-            PatientsServiceRef.Patient patient = new PatientsServiceRef.Patient()
+            PatientServiceRef.Patient patient = new PatientServiceRef.Patient()
             {
                 firstName = FName.Text,
                 lastName = LName.Text,
@@ -33,7 +33,7 @@ namespace WebApplication2.Account
                 login = Username.Text,
                 pass = Password.Text
             };
-            var client = new PatientsServiceRef.PatientServiceClient();
+            var client = new PatientServiceRef.PatientServiceClient();
             client.SavePatient(ref patient,ref message);
         }
 

@@ -127,6 +127,32 @@ namespace ServiceLayer
             return result;
         }
 
+        public List<string> getAppointmentsByDocAndDate(DateTime date, ref Doctor doc)
+        {
+            List<string> appointmentList;
+            DoctorBDO doctor = new DoctorBDO();
+            new DoctorService().TranslateDoctorDTOToDoctorBDO(doc,doctor);
+            try
+            {
+                appointmentList = AppointmentLogic.getAppointmentsByDocAndDate(date, ref doctor);
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "getAppointmentsByDocAndDate exception";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
+            }
+            if (appointmentList == null)
+            {
+                var msg = "getAppointmentsByDocAndDate is empty";
+                var reason = "getAppointmentsByDocAndDate empty";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
+            }
+            return appointmentList;
+        }
+
         public bool UpdateAppointment(ref Appointment Appointment,
         ref string message)
         {

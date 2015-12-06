@@ -5,8 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using WebApplication2.Models;
-using WebApplication2.PasswordServiceRef;
-using WebApplication2.PatientsServiceRef;
+using WebApplication2.PasswordService;
+using WebApplication2.PatientServiceRef;
 
 namespace WebApplication2.Account
 {
