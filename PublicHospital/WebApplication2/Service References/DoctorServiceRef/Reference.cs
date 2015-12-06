@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.DoctorService {
+namespace WebApplication2.DoctorServiceRef {
     using System.Runtime.Serialization;
     using System;
     
@@ -26,7 +26,7 @@ namespace WebApplication2.DoctorService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.DoctorService.Appointment[] appointmentsHistoryField;
+        private WebApplication2.DoctorServiceRef.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
@@ -91,7 +91,7 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.DoctorService.Appointment[] appointmentsHistory {
+        public WebApplication2.DoctorServiceRef.Appointment[] appointmentsHistory {
             get {
                 return this.appointmentsHistoryField;
             }
@@ -295,13 +295,13 @@ namespace WebApplication2.DoctorService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.DoctorService.Doctor doctorField;
+        private WebApplication2.DoctorServiceRef.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.DoctorService.Patient patientField;
+        private WebApplication2.DoctorServiceRef.Patient patientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string serviceTypeField;
@@ -310,7 +310,7 @@ namespace WebApplication2.DoctorService {
         private System.DateTime timeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.DoctorService.Visit visitField;
+        private WebApplication2.DoctorServiceRef.Visit visitField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -336,7 +336,7 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.DoctorService.Doctor doctor {
+        public WebApplication2.DoctorServiceRef.Doctor doctor {
             get {
                 return this.doctorField;
             }
@@ -362,7 +362,7 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.DoctorService.Patient patient {
+        public WebApplication2.DoctorServiceRef.Patient patient {
             get {
                 return this.patientField;
             }
@@ -401,7 +401,7 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.DoctorService.Visit visit {
+        public WebApplication2.DoctorServiceRef.Visit visit {
             get {
                 return this.visitField;
             }
@@ -436,7 +436,7 @@ namespace WebApplication2.DoctorService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.DoctorService.Appointment[] appointmentsHistoryField;
+        private WebApplication2.DoctorServiceRef.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
@@ -498,7 +498,7 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.DoctorService.Appointment[] appointmentsHistory {
+        public WebApplication2.DoctorServiceRef.Appointment[] appointmentsHistory {
             get {
                 return this.appointmentsHistoryField;
             }
@@ -876,69 +876,69 @@ namespace WebApplication2.DoctorService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.IDoctorService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorServiceRef.IDoctorService")]
     public interface IDoctorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctor", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.Doctor GetDoctor(int id);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.Doctor GetDoctor(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctor", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor> GetDoctorAsync(int id);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor> GetDoctorAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorByName", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorByNameResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorByNameDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.Doctor GetDoctorByName(string name);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorByNameDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.Doctor GetDoctorByName(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorByName", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorByNameResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor> GetDoctorByNameAsync(string name);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/DeleteDoctor", ReplyAction="http://tempuri.org/IDoctorService/DeleteDoctorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/DeleteDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.DeleteDoctorResponse DeleteDoctor(WebApplication2.DoctorService.DeleteDoctorRequest request);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/DeleteDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.DeleteDoctorResponse DeleteDoctor(WebApplication2.DoctorServiceRef.DeleteDoctorRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/DeleteDoctor", ReplyAction="http://tempuri.org/IDoctorService/DeleteDoctorResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.DeleteDoctorResponse> DeleteDoctorAsync(WebApplication2.DoctorService.DeleteDoctorRequest request);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.DeleteDoctorResponse> DeleteDoctorAsync(WebApplication2.DoctorServiceRef.DeleteDoctorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/GetAllDoctorsDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.Doctor[] GetAllDoctors();
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetAllDoctorsDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.Doctor[] GetAllDoctors();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor[]> GetAllDoctorsAsync();
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorTableDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorTableDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         System.Data.DataSet GetDoctorTable();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
         System.Threading.Tasks.Task<System.Data.DataSet> GetDoctorTableAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/SaveDoctor", ReplyAction="http://tempuri.org/IDoctorService/SaveDoctorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/SaveDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.SaveDoctorResponse SaveDoctor(WebApplication2.DoctorService.SaveDoctorRequest request);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/SaveDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.SaveDoctorResponse SaveDoctor(WebApplication2.DoctorServiceRef.SaveDoctorRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/SaveDoctor", ReplyAction="http://tempuri.org/IDoctorService/SaveDoctorResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.SaveDoctorResponse> SaveDoctorAsync(WebApplication2.DoctorService.SaveDoctorRequest request);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.SaveDoctorResponse> SaveDoctorAsync(WebApplication2.DoctorServiceRef.SaveDoctorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/UpdateDoctor", ReplyAction="http://tempuri.org/IDoctorService/UpdateDoctorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.DoctorFault), Action="http://tempuri.org/IDoctorService/UpdateDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.UpdateDoctorResponse UpdateDoctor(WebApplication2.DoctorService.UpdateDoctorRequest request);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/UpdateDoctorDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.DoctorServiceRef.UpdateDoctorResponse UpdateDoctor(WebApplication2.DoctorServiceRef.UpdateDoctorRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/UpdateDoctor", ReplyAction="http://tempuri.org/IDoctorService/UpdateDoctorResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.UpdateDoctorResponse> UpdateDoctorAsync(WebApplication2.DoctorService.UpdateDoctorRequest request);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.UpdateDoctorResponse> UpdateDoctorAsync(WebApplication2.DoctorServiceRef.UpdateDoctorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor", ReplyAction="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorService.AppointmentFault), Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorAppointmentFaultFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.AppointmentFault), Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorAppointmentFaultFau" +
             "lt", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.DoctorService.GetAppointmentsHistoryDoctorResponse GetAppointmentsHistoryDoctor(WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest request);
+        WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse GetAppointmentsHistoryDoctor(WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctor", ReplyAction="http://tempuri.org/IDoctorService/GetAppointmentsHistoryDoctorResponse")]
-        System.Threading.Tasks.Task<WebApplication2.DoctorService.GetAppointmentsHistoryDoctorResponse> GetAppointmentsHistoryDoctorAsync(WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest request);
+        System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse> GetAppointmentsHistoryDoctorAsync(WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -947,7 +947,7 @@ namespace WebApplication2.DoctorService {
     public partial class DeleteDoctorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -955,7 +955,7 @@ namespace WebApplication2.DoctorService {
         public DeleteDoctorRequest() {
         }
         
-        public DeleteDoctorRequest(WebApplication2.DoctorService.Doctor doctor, string message) {
+        public DeleteDoctorRequest(WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.doctor = doctor;
             this.message = message;
         }
@@ -970,7 +970,7 @@ namespace WebApplication2.DoctorService {
         public bool DeleteDoctorResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
@@ -978,7 +978,7 @@ namespace WebApplication2.DoctorService {
         public DeleteDoctorResponse() {
         }
         
-        public DeleteDoctorResponse(bool DeleteDoctorResult, WebApplication2.DoctorService.Doctor doctor, string message) {
+        public DeleteDoctorResponse(bool DeleteDoctorResult, WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.DeleteDoctorResult = DeleteDoctorResult;
             this.doctor = doctor;
             this.message = message;
@@ -991,7 +991,7 @@ namespace WebApplication2.DoctorService {
     public partial class SaveDoctorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -999,7 +999,7 @@ namespace WebApplication2.DoctorService {
         public SaveDoctorRequest() {
         }
         
-        public SaveDoctorRequest(WebApplication2.DoctorService.Doctor doctor, string message) {
+        public SaveDoctorRequest(WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.doctor = doctor;
             this.message = message;
         }
@@ -1014,7 +1014,7 @@ namespace WebApplication2.DoctorService {
         public bool SaveDoctorResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
@@ -1022,7 +1022,7 @@ namespace WebApplication2.DoctorService {
         public SaveDoctorResponse() {
         }
         
-        public SaveDoctorResponse(bool SaveDoctorResult, WebApplication2.DoctorService.Doctor doctor, string message) {
+        public SaveDoctorResponse(bool SaveDoctorResult, WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.SaveDoctorResult = SaveDoctorResult;
             this.doctor = doctor;
             this.message = message;
@@ -1035,7 +1035,7 @@ namespace WebApplication2.DoctorService {
     public partial class UpdateDoctorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -1043,7 +1043,7 @@ namespace WebApplication2.DoctorService {
         public UpdateDoctorRequest() {
         }
         
-        public UpdateDoctorRequest(WebApplication2.DoctorService.Doctor doctor, string message) {
+        public UpdateDoctorRequest(WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.doctor = doctor;
             this.message = message;
         }
@@ -1058,7 +1058,7 @@ namespace WebApplication2.DoctorService {
         public bool UpdateDoctorResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WebApplication2.DoctorService.Doctor doctor;
+        public WebApplication2.DoctorServiceRef.Doctor doctor;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
@@ -1066,7 +1066,7 @@ namespace WebApplication2.DoctorService {
         public UpdateDoctorResponse() {
         }
         
-        public UpdateDoctorResponse(bool UpdateDoctorResult, WebApplication2.DoctorService.Doctor doctor, string message) {
+        public UpdateDoctorResponse(bool UpdateDoctorResult, WebApplication2.DoctorServiceRef.Doctor doctor, string message) {
             this.UpdateDoctorResult = UpdateDoctorResult;
             this.doctor = doctor;
             this.message = message;
@@ -1099,7 +1099,7 @@ namespace WebApplication2.DoctorService {
     public partial class GetAppointmentsHistoryDoctorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.DoctorService.Doctor GetAppointmentsHistoryDoctorResult;
+        public WebApplication2.DoctorServiceRef.Doctor GetAppointmentsHistoryDoctorResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -1107,19 +1107,19 @@ namespace WebApplication2.DoctorService {
         public GetAppointmentsHistoryDoctorResponse() {
         }
         
-        public GetAppointmentsHistoryDoctorResponse(WebApplication2.DoctorService.Doctor GetAppointmentsHistoryDoctorResult, string message) {
+        public GetAppointmentsHistoryDoctorResponse(WebApplication2.DoctorServiceRef.Doctor GetAppointmentsHistoryDoctorResult, string message) {
             this.GetAppointmentsHistoryDoctorResult = GetAppointmentsHistoryDoctorResult;
             this.message = message;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDoctorServiceChannel : WebApplication2.DoctorService.IDoctorService, System.ServiceModel.IClientChannel {
+    public interface IDoctorServiceChannel : WebApplication2.DoctorServiceRef.IDoctorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DoctorServiceClient : System.ServiceModel.ClientBase<WebApplication2.DoctorService.IDoctorService>, WebApplication2.DoctorService.IDoctorService {
+    public partial class DoctorServiceClient : System.ServiceModel.ClientBase<WebApplication2.DoctorServiceRef.IDoctorService>, WebApplication2.DoctorServiceRef.IDoctorService {
         
         public DoctorServiceClient() {
         }
@@ -1140,46 +1140,46 @@ namespace WebApplication2.DoctorService {
                 base(binding, remoteAddress) {
         }
         
-        public WebApplication2.DoctorService.Doctor GetDoctor(int id) {
+        public WebApplication2.DoctorServiceRef.Doctor GetDoctor(int id) {
             return base.Channel.GetDoctor(id);
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor> GetDoctorAsync(int id) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor> GetDoctorAsync(int id) {
             return base.Channel.GetDoctorAsync(id);
         }
         
-        public WebApplication2.DoctorService.Doctor GetDoctorByName(string name) {
+        public WebApplication2.DoctorServiceRef.Doctor GetDoctorByName(string name) {
             return base.Channel.GetDoctorByName(name);
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor> GetDoctorByNameAsync(string name) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor> GetDoctorByNameAsync(string name) {
             return base.Channel.GetDoctorByNameAsync(name);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.DoctorService.DeleteDoctorResponse WebApplication2.DoctorService.IDoctorService.DeleteDoctor(WebApplication2.DoctorService.DeleteDoctorRequest request) {
+        WebApplication2.DoctorServiceRef.DeleteDoctorResponse WebApplication2.DoctorServiceRef.IDoctorService.DeleteDoctor(WebApplication2.DoctorServiceRef.DeleteDoctorRequest request) {
             return base.Channel.DeleteDoctor(request);
         }
         
-        public bool DeleteDoctor(ref WebApplication2.DoctorService.Doctor doctor, ref string message) {
-            WebApplication2.DoctorService.DeleteDoctorRequest inValue = new WebApplication2.DoctorService.DeleteDoctorRequest();
+        public bool DeleteDoctor(ref WebApplication2.DoctorServiceRef.Doctor doctor, ref string message) {
+            WebApplication2.DoctorServiceRef.DeleteDoctorRequest inValue = new WebApplication2.DoctorServiceRef.DeleteDoctorRequest();
             inValue.doctor = doctor;
             inValue.message = message;
-            WebApplication2.DoctorService.DeleteDoctorResponse retVal = ((WebApplication2.DoctorService.IDoctorService)(this)).DeleteDoctor(inValue);
+            WebApplication2.DoctorServiceRef.DeleteDoctorResponse retVal = ((WebApplication2.DoctorServiceRef.IDoctorService)(this)).DeleteDoctor(inValue);
             doctor = retVal.doctor;
             message = retVal.message;
             return retVal.DeleteDoctorResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.DeleteDoctorResponse> DeleteDoctorAsync(WebApplication2.DoctorService.DeleteDoctorRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.DeleteDoctorResponse> DeleteDoctorAsync(WebApplication2.DoctorServiceRef.DeleteDoctorRequest request) {
             return base.Channel.DeleteDoctorAsync(request);
         }
         
-        public WebApplication2.DoctorService.Doctor[] GetAllDoctors() {
+        public WebApplication2.DoctorServiceRef.Doctor[] GetAllDoctors() {
             return base.Channel.GetAllDoctors();
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.Doctor[]> GetAllDoctorsAsync() {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync() {
             return base.Channel.GetAllDoctorsAsync();
         }
         
@@ -1192,58 +1192,58 @@ namespace WebApplication2.DoctorService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.DoctorService.SaveDoctorResponse WebApplication2.DoctorService.IDoctorService.SaveDoctor(WebApplication2.DoctorService.SaveDoctorRequest request) {
+        WebApplication2.DoctorServiceRef.SaveDoctorResponse WebApplication2.DoctorServiceRef.IDoctorService.SaveDoctor(WebApplication2.DoctorServiceRef.SaveDoctorRequest request) {
             return base.Channel.SaveDoctor(request);
         }
         
-        public bool SaveDoctor(ref WebApplication2.DoctorService.Doctor doctor, ref string message) {
-            WebApplication2.DoctorService.SaveDoctorRequest inValue = new WebApplication2.DoctorService.SaveDoctorRequest();
+        public bool SaveDoctor(ref WebApplication2.DoctorServiceRef.Doctor doctor, ref string message) {
+            WebApplication2.DoctorServiceRef.SaveDoctorRequest inValue = new WebApplication2.DoctorServiceRef.SaveDoctorRequest();
             inValue.doctor = doctor;
             inValue.message = message;
-            WebApplication2.DoctorService.SaveDoctorResponse retVal = ((WebApplication2.DoctorService.IDoctorService)(this)).SaveDoctor(inValue);
+            WebApplication2.DoctorServiceRef.SaveDoctorResponse retVal = ((WebApplication2.DoctorServiceRef.IDoctorService)(this)).SaveDoctor(inValue);
             doctor = retVal.doctor;
             message = retVal.message;
             return retVal.SaveDoctorResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.SaveDoctorResponse> SaveDoctorAsync(WebApplication2.DoctorService.SaveDoctorRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.SaveDoctorResponse> SaveDoctorAsync(WebApplication2.DoctorServiceRef.SaveDoctorRequest request) {
             return base.Channel.SaveDoctorAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.DoctorService.UpdateDoctorResponse WebApplication2.DoctorService.IDoctorService.UpdateDoctor(WebApplication2.DoctorService.UpdateDoctorRequest request) {
+        WebApplication2.DoctorServiceRef.UpdateDoctorResponse WebApplication2.DoctorServiceRef.IDoctorService.UpdateDoctor(WebApplication2.DoctorServiceRef.UpdateDoctorRequest request) {
             return base.Channel.UpdateDoctor(request);
         }
         
-        public bool UpdateDoctor(ref WebApplication2.DoctorService.Doctor doctor, ref string message) {
-            WebApplication2.DoctorService.UpdateDoctorRequest inValue = new WebApplication2.DoctorService.UpdateDoctorRequest();
+        public bool UpdateDoctor(ref WebApplication2.DoctorServiceRef.Doctor doctor, ref string message) {
+            WebApplication2.DoctorServiceRef.UpdateDoctorRequest inValue = new WebApplication2.DoctorServiceRef.UpdateDoctorRequest();
             inValue.doctor = doctor;
             inValue.message = message;
-            WebApplication2.DoctorService.UpdateDoctorResponse retVal = ((WebApplication2.DoctorService.IDoctorService)(this)).UpdateDoctor(inValue);
+            WebApplication2.DoctorServiceRef.UpdateDoctorResponse retVal = ((WebApplication2.DoctorServiceRef.IDoctorService)(this)).UpdateDoctor(inValue);
             doctor = retVal.doctor;
             message = retVal.message;
             return retVal.UpdateDoctorResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.UpdateDoctorResponse> UpdateDoctorAsync(WebApplication2.DoctorService.UpdateDoctorRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.UpdateDoctorResponse> UpdateDoctorAsync(WebApplication2.DoctorServiceRef.UpdateDoctorRequest request) {
             return base.Channel.UpdateDoctorAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.DoctorService.GetAppointmentsHistoryDoctorResponse WebApplication2.DoctorService.IDoctorService.GetAppointmentsHistoryDoctor(WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest request) {
+        WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse WebApplication2.DoctorServiceRef.IDoctorService.GetAppointmentsHistoryDoctor(WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest request) {
             return base.Channel.GetAppointmentsHistoryDoctor(request);
         }
         
-        public WebApplication2.DoctorService.Doctor GetAppointmentsHistoryDoctor(int id, ref string message) {
-            WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest inValue = new WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest();
+        public WebApplication2.DoctorServiceRef.Doctor GetAppointmentsHistoryDoctor(int id, ref string message) {
+            WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest inValue = new WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest();
             inValue.id = id;
             inValue.message = message;
-            WebApplication2.DoctorService.GetAppointmentsHistoryDoctorResponse retVal = ((WebApplication2.DoctorService.IDoctorService)(this)).GetAppointmentsHistoryDoctor(inValue);
+            WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse retVal = ((WebApplication2.DoctorServiceRef.IDoctorService)(this)).GetAppointmentsHistoryDoctor(inValue);
             message = retVal.message;
             return retVal.GetAppointmentsHistoryDoctorResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.DoctorService.GetAppointmentsHistoryDoctorResponse> GetAppointmentsHistoryDoctorAsync(WebApplication2.DoctorService.GetAppointmentsHistoryDoctorRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorResponse> GetAppointmentsHistoryDoctorAsync(WebApplication2.DoctorServiceRef.GetAppointmentsHistoryDoctorRequest request) {
             return base.Channel.GetAppointmentsHistoryDoctorAsync(request);
         }
     }

@@ -9,14 +9,14 @@ namespace WebApplication2
 {
     public partial class ServicesPage : System.Web.UI.Page
     {
-        List<DoctorService.Doctor> sortedDoctors;
+        List<DoctorServiceRef.Doctor> sortedDoctors;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                var client = new DoctorService.DoctorServiceClient();
-                List<DoctorService.Doctor> doctors = client.GetAllDoctors().ToList();
+                var client = new DoctorServiceRef.DoctorServiceClient();
+                List<DoctorServiceRef.Doctor> doctors = client.GetAllDoctors().ToList();
                 populateTreeView(doctors);
             }
                  
@@ -24,7 +24,7 @@ namespace WebApplication2
 
 
 
-        private void populateTreeView(List<DoctorService.Doctor> doctors)
+        private void populateTreeView(List<DoctorServiceRef.Doctor> doctors)
         {
             sortedDoctors = doctors.OrderBy(doc => doc.specialty).ToList();
             var topNode = new TreeNode("Services");
@@ -32,7 +32,7 @@ namespace WebApplication2
             string currentSpecialty = sortedDoctors.First().specialty;
             var treeNodes = new List<TreeNode>();
             var childNodes = new List<TreeNode>();
-            foreach (DoctorService.Doctor doc in sortedDoctors)
+            foreach (DoctorServiceRef.Doctor doc in sortedDoctors)
             {
                 if (currentSpecialty == doc.specialty)
                     childNodes.Add(new TreeNode(doc.firstName + " " + doc.lastName));

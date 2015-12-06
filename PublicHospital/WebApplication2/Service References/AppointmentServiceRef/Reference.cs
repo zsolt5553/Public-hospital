@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.AppointmentService {
+namespace WebApplication2.AppointmentServiceRef {
     using System.Runtime.Serialization;
     using System;
     
@@ -26,13 +26,13 @@ namespace WebApplication2.AppointmentService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.AppointmentService.Doctor doctorField;
+        private WebApplication2.AppointmentServiceRef.Doctor doctorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.AppointmentService.Patient patientField;
+        private WebApplication2.AppointmentServiceRef.Patient patientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string serviceTypeField;
@@ -41,7 +41,7 @@ namespace WebApplication2.AppointmentService {
         private System.DateTime timeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.AppointmentService.Visit visitField;
+        private WebApplication2.AppointmentServiceRef.Visit visitField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -67,7 +67,7 @@ namespace WebApplication2.AppointmentService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.AppointmentService.Doctor doctor {
+        public WebApplication2.AppointmentServiceRef.Doctor doctor {
             get {
                 return this.doctorField;
             }
@@ -93,7 +93,7 @@ namespace WebApplication2.AppointmentService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.AppointmentService.Patient patient {
+        public WebApplication2.AppointmentServiceRef.Patient patient {
             get {
                 return this.patientField;
             }
@@ -132,7 +132,7 @@ namespace WebApplication2.AppointmentService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.AppointmentService.Visit visit {
+        public WebApplication2.AppointmentServiceRef.Visit visit {
             get {
                 return this.visitField;
             }
@@ -167,7 +167,7 @@ namespace WebApplication2.AppointmentService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.AppointmentService.Appointment[] appointmentsHistoryField;
+        private WebApplication2.AppointmentServiceRef.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
@@ -232,7 +232,7 @@ namespace WebApplication2.AppointmentService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.AppointmentService.Appointment[] appointmentsHistory {
+        public WebApplication2.AppointmentServiceRef.Appointment[] appointmentsHistory {
             get {
                 return this.appointmentsHistoryField;
             }
@@ -436,7 +436,7 @@ namespace WebApplication2.AppointmentService {
         private byte[] RowVersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebApplication2.AppointmentService.Appointment[] appointmentsHistoryField;
+        private WebApplication2.AppointmentServiceRef.Appointment[] appointmentsHistoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cityField;
@@ -498,7 +498,7 @@ namespace WebApplication2.AppointmentService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebApplication2.AppointmentService.Appointment[] appointmentsHistory {
+        public WebApplication2.AppointmentServiceRef.Appointment[] appointmentsHistory {
             get {
                 return this.appointmentsHistoryField;
             }
@@ -831,38 +831,38 @@ namespace WebApplication2.AppointmentService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AppointmentService.IAppointmentService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AppointmentServiceRef.IAppointmentService")]
     public interface IAppointmentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointment", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentService.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.AppointmentService.Appointment GetAppointment(int id);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.Appointment GetAppointment(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointment", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentResponse")]
-        System.Threading.Tasks.Task<WebApplication2.AppointmentService.Appointment> GetAppointmentAsync(int id);
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/SaveAppointment", ReplyAction="http://tempuri.org/IAppointmentService/SaveAppointmentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentService.AppointmentFault), Action="http://tempuri.org/IAppointmentService/SaveAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.AppointmentService.SaveAppointmentResponse SaveAppointment(WebApplication2.AppointmentService.SaveAppointmentRequest request);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/SaveAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.SaveAppointmentResponse SaveAppointment(WebApplication2.AppointmentServiceRef.SaveAppointmentRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/SaveAppointment", ReplyAction="http://tempuri.org/IAppointmentService/SaveAppointmentResponse")]
-        System.Threading.Tasks.Task<WebApplication2.AppointmentService.SaveAppointmentResponse> SaveAppointmentAsync(WebApplication2.AppointmentService.SaveAppointmentRequest request);
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.SaveAppointmentResponse> SaveAppointmentAsync(WebApplication2.AppointmentServiceRef.SaveAppointmentRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentService.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.AppointmentService.Appointment[] GetAllAppointments();
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.Appointment[] GetAllAppointments();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
-        System.Threading.Tasks.Task<WebApplication2.AppointmentService.Appointment[]> GetAllAppointmentsAsync();
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentService.AppointmentFault), Action="http://tempuri.org/IAppointmentService/UpdateAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
-        WebApplication2.AppointmentService.UpdateAppointmentResponse UpdateAppointment(WebApplication2.AppointmentService.UpdateAppointmentRequest request);
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/UpdateAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse UpdateAppointment(WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
-        System.Threading.Tasks.Task<WebApplication2.AppointmentService.UpdateAppointmentResponse> UpdateAppointmentAsync(WebApplication2.AppointmentService.UpdateAppointmentRequest request);
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse> UpdateAppointmentAsync(WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -871,7 +871,7 @@ namespace WebApplication2.AppointmentService {
     public partial class SaveAppointmentRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.AppointmentService.Appointment appointment;
+        public WebApplication2.AppointmentServiceRef.Appointment appointment;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -879,7 +879,7 @@ namespace WebApplication2.AppointmentService {
         public SaveAppointmentRequest() {
         }
         
-        public SaveAppointmentRequest(WebApplication2.AppointmentService.Appointment appointment, string message) {
+        public SaveAppointmentRequest(WebApplication2.AppointmentServiceRef.Appointment appointment, string message) {
             this.appointment = appointment;
             this.message = message;
         }
@@ -894,7 +894,7 @@ namespace WebApplication2.AppointmentService {
         public bool SaveAppointmentResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WebApplication2.AppointmentService.Appointment appointment;
+        public WebApplication2.AppointmentServiceRef.Appointment appointment;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
@@ -902,7 +902,7 @@ namespace WebApplication2.AppointmentService {
         public SaveAppointmentResponse() {
         }
         
-        public SaveAppointmentResponse(bool SaveAppointmentResult, WebApplication2.AppointmentService.Appointment appointment, string message) {
+        public SaveAppointmentResponse(bool SaveAppointmentResult, WebApplication2.AppointmentServiceRef.Appointment appointment, string message) {
             this.SaveAppointmentResult = SaveAppointmentResult;
             this.appointment = appointment;
             this.message = message;
@@ -915,7 +915,7 @@ namespace WebApplication2.AppointmentService {
     public partial class UpdateAppointmentRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public WebApplication2.AppointmentService.Appointment Appointment;
+        public WebApplication2.AppointmentServiceRef.Appointment Appointment;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string message;
@@ -923,7 +923,7 @@ namespace WebApplication2.AppointmentService {
         public UpdateAppointmentRequest() {
         }
         
-        public UpdateAppointmentRequest(WebApplication2.AppointmentService.Appointment Appointment, string message) {
+        public UpdateAppointmentRequest(WebApplication2.AppointmentServiceRef.Appointment Appointment, string message) {
             this.Appointment = Appointment;
             this.message = message;
         }
@@ -938,7 +938,7 @@ namespace WebApplication2.AppointmentService {
         public bool UpdateAppointmentResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public WebApplication2.AppointmentService.Appointment Appointment;
+        public WebApplication2.AppointmentServiceRef.Appointment Appointment;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string message;
@@ -946,7 +946,7 @@ namespace WebApplication2.AppointmentService {
         public UpdateAppointmentResponse() {
         }
         
-        public UpdateAppointmentResponse(bool UpdateAppointmentResult, WebApplication2.AppointmentService.Appointment Appointment, string message) {
+        public UpdateAppointmentResponse(bool UpdateAppointmentResult, WebApplication2.AppointmentServiceRef.Appointment Appointment, string message) {
             this.UpdateAppointmentResult = UpdateAppointmentResult;
             this.Appointment = Appointment;
             this.message = message;
@@ -954,12 +954,12 @@ namespace WebApplication2.AppointmentService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAppointmentServiceChannel : WebApplication2.AppointmentService.IAppointmentService, System.ServiceModel.IClientChannel {
+    public interface IAppointmentServiceChannel : WebApplication2.AppointmentServiceRef.IAppointmentService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AppointmentServiceClient : System.ServiceModel.ClientBase<WebApplication2.AppointmentService.IAppointmentService>, WebApplication2.AppointmentService.IAppointmentService {
+    public partial class AppointmentServiceClient : System.ServiceModel.ClientBase<WebApplication2.AppointmentServiceRef.IAppointmentService>, WebApplication2.AppointmentServiceRef.IAppointmentService {
         
         public AppointmentServiceClient() {
         }
@@ -980,57 +980,57 @@ namespace WebApplication2.AppointmentService {
                 base(binding, remoteAddress) {
         }
         
-        public WebApplication2.AppointmentService.Appointment GetAppointment(int id) {
+        public WebApplication2.AppointmentServiceRef.Appointment GetAppointment(int id) {
             return base.Channel.GetAppointment(id);
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.AppointmentService.Appointment> GetAppointmentAsync(int id) {
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment> GetAppointmentAsync(int id) {
             return base.Channel.GetAppointmentAsync(id);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.AppointmentService.SaveAppointmentResponse WebApplication2.AppointmentService.IAppointmentService.SaveAppointment(WebApplication2.AppointmentService.SaveAppointmentRequest request) {
+        WebApplication2.AppointmentServiceRef.SaveAppointmentResponse WebApplication2.AppointmentServiceRef.IAppointmentService.SaveAppointment(WebApplication2.AppointmentServiceRef.SaveAppointmentRequest request) {
             return base.Channel.SaveAppointment(request);
         }
         
-        public bool SaveAppointment(ref WebApplication2.AppointmentService.Appointment appointment, ref string message) {
-            WebApplication2.AppointmentService.SaveAppointmentRequest inValue = new WebApplication2.AppointmentService.SaveAppointmentRequest();
+        public bool SaveAppointment(ref WebApplication2.AppointmentServiceRef.Appointment appointment, ref string message) {
+            WebApplication2.AppointmentServiceRef.SaveAppointmentRequest inValue = new WebApplication2.AppointmentServiceRef.SaveAppointmentRequest();
             inValue.appointment = appointment;
             inValue.message = message;
-            WebApplication2.AppointmentService.SaveAppointmentResponse retVal = ((WebApplication2.AppointmentService.IAppointmentService)(this)).SaveAppointment(inValue);
+            WebApplication2.AppointmentServiceRef.SaveAppointmentResponse retVal = ((WebApplication2.AppointmentServiceRef.IAppointmentService)(this)).SaveAppointment(inValue);
             appointment = retVal.appointment;
             message = retVal.message;
             return retVal.SaveAppointmentResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.AppointmentService.SaveAppointmentResponse> SaveAppointmentAsync(WebApplication2.AppointmentService.SaveAppointmentRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.SaveAppointmentResponse> SaveAppointmentAsync(WebApplication2.AppointmentServiceRef.SaveAppointmentRequest request) {
             return base.Channel.SaveAppointmentAsync(request);
         }
         
-        public WebApplication2.AppointmentService.Appointment[] GetAllAppointments() {
+        public WebApplication2.AppointmentServiceRef.Appointment[] GetAllAppointments() {
             return base.Channel.GetAllAppointments();
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.AppointmentService.Appointment[]> GetAllAppointmentsAsync() {
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
             return base.Channel.GetAllAppointmentsAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebApplication2.AppointmentService.UpdateAppointmentResponse WebApplication2.AppointmentService.IAppointmentService.UpdateAppointment(WebApplication2.AppointmentService.UpdateAppointmentRequest request) {
+        WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse WebApplication2.AppointmentServiceRef.IAppointmentService.UpdateAppointment(WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest request) {
             return base.Channel.UpdateAppointment(request);
         }
         
-        public bool UpdateAppointment(ref WebApplication2.AppointmentService.Appointment Appointment, ref string message) {
-            WebApplication2.AppointmentService.UpdateAppointmentRequest inValue = new WebApplication2.AppointmentService.UpdateAppointmentRequest();
+        public bool UpdateAppointment(ref WebApplication2.AppointmentServiceRef.Appointment Appointment, ref string message) {
+            WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest inValue = new WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest();
             inValue.Appointment = Appointment;
             inValue.message = message;
-            WebApplication2.AppointmentService.UpdateAppointmentResponse retVal = ((WebApplication2.AppointmentService.IAppointmentService)(this)).UpdateAppointment(inValue);
+            WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse retVal = ((WebApplication2.AppointmentServiceRef.IAppointmentService)(this)).UpdateAppointment(inValue);
             Appointment = retVal.Appointment;
             message = retVal.message;
             return retVal.UpdateAppointmentResult;
         }
         
-        public System.Threading.Tasks.Task<WebApplication2.AppointmentService.UpdateAppointmentResponse> UpdateAppointmentAsync(WebApplication2.AppointmentService.UpdateAppointmentRequest request) {
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse> UpdateAppointmentAsync(WebApplication2.AppointmentServiceRef.UpdateAppointmentRequest request) {
             return base.Channel.UpdateAppointmentAsync(request);
         }
     }
