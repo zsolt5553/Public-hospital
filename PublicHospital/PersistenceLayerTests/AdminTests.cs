@@ -3,9 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataLayer;
 using PersistenceLayer;
 
-namespace PersistenceLayerTests
+namespace PersistenceLayer.Tests
 {
-    [TestClass]
+    [TestClass()]
     public class AdminTests
     {
         [TestMethod()]
