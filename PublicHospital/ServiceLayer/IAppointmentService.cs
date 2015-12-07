@@ -28,7 +28,7 @@ namespace ServiceLayer
         [OperationContract]
         [FaultContract(typeof(AppointmentFault))]
         List<string> getAppointmentsByDocAndDate(DateTime date,
-            ref Doctor doc);
+           int docId);
 
 
         [OperationContract]

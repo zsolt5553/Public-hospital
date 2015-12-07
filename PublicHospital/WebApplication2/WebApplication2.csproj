@@ -181,12 +181,6 @@
     <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.Doctor.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.getAppointmentsByDocAndDateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\DoctorServiceRef\service.wsdl" />
     <None Include="Service References\DoctorServiceRef\service.xsd">
       <SubType>Designer</SubType>

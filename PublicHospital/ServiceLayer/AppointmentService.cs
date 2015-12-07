@@ -127,14 +127,12 @@ namespace ServiceLayer
             return result;
         }
 
-        public List<string> getAppointmentsByDocAndDate(DateTime date, ref Doctor doc)
+        public List<string> getAppointmentsByDocAndDate(DateTime date, int docId)
         {
             List<string> appointmentList;
-            DoctorBDO doctor = new DoctorBDO();
-            new DoctorService().TranslateDoctorDTOToDoctorBDO(doc,doctor);
             try
             {
-                appointmentList = AppointmentLogic.getAppointmentsByDocAndDate(date, ref doctor);
+                appointmentList = AppointmentLogic.getAppointmentsByDocAndDate(date, docId);
             }
             catch (Exception e)
             {

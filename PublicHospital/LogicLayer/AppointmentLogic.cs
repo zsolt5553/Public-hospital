@@ -15,9 +15,9 @@ namespace LogicLayer
             return appointmentDAO.GetAppointment(id);
         }
 
-        public List<string> getAppointmentsByDocAndDate(DateTime date, ref DoctorBDO doc)
+        public List<string> getAppointmentsByDocAndDate(DateTime date, int docId)
         {
-            return appointmentDAO.getAppointmentsByDocAndDate(date, ref doc);
+            return appointmentDAO.getAppointmentsByDocAndDate(date, docId);
         }
 
         public List<AppointmentBDO> GetAllAppointments()

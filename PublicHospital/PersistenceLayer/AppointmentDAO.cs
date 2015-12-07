@@ -95,14 +95,14 @@ namespace PersistenceLayer
             return appointments;
         }
 
-        public List<string> getAppointmentsByDocAndDate (DateTime date, ref DoctorBDO doc)
+        public List<string> getAppointmentsByDocAndDate (DateTime date, int docId)
         {
             List<string> appTimes;
             using (var PHEntities = new PublicHospitalEntities())
             {
                 var listInDb = (from appointment in PHEntities.Appointment
                                 from doctor in PHEntities.Doctor
-                                where appointment.idDoctor == doctor.id &&
+                                where appointment.idDoctor == docId &&
                                 appointment.time.Year == date.Year &&
                                 appointment.time.Month == date.Month &&
                                 appointment.time.Day == date.Day 

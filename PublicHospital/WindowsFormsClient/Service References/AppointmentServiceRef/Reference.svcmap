@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="254bf3d4-3979-4936-9cc7-d6583ccac73f" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="eb2e4d6a-a778-48be-9ec1-84ce36d74853" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
     <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="c765f03c-e247-4b6f-98bf-8a56c3616665" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="85ee52c9-8da9-40fc-895c-070d4114a282" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/AppointmentService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
