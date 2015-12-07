@@ -172,6 +172,7 @@
     <None Include="Service References\AppointmentServiceRef\ServiceLayer.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Images\Bupa-Cromwell-Hospital-Website-Wallpaper-For-Health-Professionals.jpg" />
     <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.Appointment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

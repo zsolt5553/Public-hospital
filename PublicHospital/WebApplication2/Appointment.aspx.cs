@@ -22,6 +22,7 @@ namespace WebApplication2
         protected void Page_Load(object sender, EventArgs e)
         {
             addTimeButtons();
+            DoctorId = 2;
         }
 
         public void addTimeButtons()
@@ -79,7 +80,6 @@ namespace WebApplication2
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             Panel1.Visible = true;
-            Calendar1.Visible = false;
             SelectedDate = Calendar1.SelectedDate;
             SetButtonColor();
         }
@@ -132,8 +132,18 @@ namespace WebApplication2
                 appointment.patient = new AppointmentServiceRef.Patient();
                 appointment.patient.id = 1;
                 appointment.serviceType = doctorService.GetDoctor(DoctorId).specialty;
-                string value = myButton.Text.Substring(0, 2);
-                string value2 = myButton.Text.Substring(3, 2);
+                string value;
+                string value2;
+                if (myButton.Text.Length > 5)
+                {
+                     value = myButton.Text.Substring(0, 2);
+                     value2 = myButton.Text.Substring(3, 2);
+                }
+                else
+                {
+                     value = myButton.Text.Substring(0, 1);
+                     value2 = myButton.Text.Substring(2, 2);
+                }
                 DateTime finalDate;
                 finalDate = SelectedDate.AddHours(convertInt(value));
                 finalDate = finalDate.AddMinutes(convertInt(value2));
@@ -141,16 +151,21 @@ namespace WebApplication2
                 string message = "";
                 var client = new AppointmentServiceRef.AppointmentServiceClient();
                 client.SaveAppointment(ref appointment, ref message);
+                Calendar1.Visible = false;
+                Panel1.Visible = false;
+                DropDownList1.Visible = false;
+                Label2.Visible = false;
+                Label1.Visible = true;
+                Label1.Text = "You have made an appointent on: " + finalDate.ToShortDateString();
             }
         }
-
         
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Calendar1.Visible = true;
             string value = stringUntilThatChar(DropDownList1.Text);
             DoctorId = convertInt(value);
-            Label1.Text = stringUntilThatChar(DropDownList1.Text);
+          
         }
 
         private int convertInt(String convertableString)
@@ -177,6 +192,7 @@ namespace WebApplication2
                 }
                 DropDownList1.DataBind();
             }
+            DropDownList1.SelectedIndex = 0;
         }
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
@@ -189,7 +205,7 @@ namespace WebApplication2
             }
         }
 
-        public int DoctorId
+        public int DoctorId 
         {
             get
             {

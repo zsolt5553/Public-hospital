@@ -6,7 +6,8 @@
 
     <br /> <br /> <br /> <br /> <br />
 
-    <div style="width: 868px">
+    <div style="width: 100%; background-image: url('Images/Bupa-Cromwell-Hospital-Website-Wallpaper-For-Health-Professionals.jpg'); margin-left: 40px;">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label2" runat="server" Text="Please choose your desired doctor"></asp:Label>
         &nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AppendDataBoundItems="True" OnLoad="DropDownList1_Load" AutoPostBack="True" ViewStateMode="Enabled" >
@@ -14,7 +15,8 @@
         <br />
         <br />
         <br />
-        <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" Visible="False" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="277px" ShowGridLines="True" Width="556px" OnDayRender="Calendar1_DayRender">
+        &nbsp;&nbsp;&nbsp;
+        <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="277px" ShowGridLines="True" Width="556px" OnDayRender="Calendar1_DayRender">
             <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
             <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
             <OtherMonthDayStyle ForeColor="#CC9966" />
@@ -23,13 +25,13 @@
             <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
             <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
         </asp:Calendar>
-        &nbsp;<asp:Panel ID="Panel1" runat="server" Height="53px" Visible="False" Width="988px">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;
+        &nbsp;<asp:Panel ID="Panel1" runat="server" Height="27px" Visible="False" Width="988px" BackColor="#CCCCCC" BorderColor="Silver" BorderStyle="Solid" BorderWidth="5px">
             <asp:Button ID="Button730" runat="server" BackColor="Red" Height="22px" Text="7:30" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button800" runat="server" BackColor="#009933" BorderColor="#009933" Height="22px" Text="8:00" Width="47px" />
+            <asp:Button ID="Button800" runat="server" BackColor="#009933" Height="22px" Text="8:00" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button830" runat="server" BackColor="Red" BorderColor="Red" Height="22px" Text="8:30" Width="47px" />
+            <asp:Button ID="Button830" runat="server" BackColor="Red" Height="22px" Text="8:30" Width="47px" />
 &nbsp;
             <asp:Button ID="Button900" runat="server" Height="22px" Text="9:00" Width="47px" />
 &nbsp;
@@ -66,7 +68,8 @@
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="Label" Font-Names="Times New Roman" Font-Size="X-Large" Visible="False"></asp:Label>
     
     </div>
 

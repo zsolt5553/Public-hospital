@@ -11,8 +11,6 @@ namespace WebApplication2 {
     
     
     public partial class Appointment {
-
-
         
         /// <summary>
         /// Label2 control.
