@@ -6,7 +6,7 @@
     <br/><br/>
 
 
-        <asp:TreeView ID="TreeView1" runat="server" ShowLines="True" CssClass="jumbotron" BorderStyle="None" ExpandDepth="1">
+        <asp:TreeView ID="TreeView1" runat="server" ShowLines="True" CssClass="media" BorderStyle="None" ExpandDepth="1" LineImagesFolder="~/TreeLineImages">
         </asp:TreeView>
         
 
