@@ -15,9 +15,11 @@ namespace WebApplication2
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
         List<String> doctorsName = new List<String>();
-        private DateTime selectedDate;
+        protected DateTime selectedDate;
         AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
         List<Button> buttons = new List<Button>();
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -82,26 +84,30 @@ namespace WebApplication2
                 Panel1.Visible = true;
                 Calendar1.Visible = false;
 
-                selectedDate = Calendar1.SelectedDate;
+                SelectedDate = Calendar1.SelectedDate;
                 SetButtonColor();
               
           
           
         }
         private void SetButtonColor()
-        { 
-            appointmentService.getAppointmentsByDocAndDate()
-            for(int i=0; i< buttons.Count; i++)
-            {
-                if (buttons[i].Text.Equals(""))
-                {
-                    buttons[i].BackColor = System.Drawing.Color.Red;
-                }
-                else
-                {
-                    buttons[i].BackColor = System.Drawing.Color.Green;
-                }
-            }
+        {
+            List<String> appointmentDates = new List<String>();
+            appointmentDates.AddRange(appointmentService.getAppointmentsByDocAndDate(SelectedDate, DoctorId));
+         for (int e = 0; e < appointmentDates.Count; e++)
+         {
+             for (int i = 0; i < buttons.Count; i++)
+             {
+                 if (buttons[i].Text.Equals(appointmentDates[e]))
+                 {
+                     buttons[i].BackColor = System.Drawing.Color.Red;
+                 }
+                 else
+                 {
+                     buttons[i].BackColor = System.Drawing.Color.Green;
+                 }
+             }
+         }
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -127,7 +133,8 @@ namespace WebApplication2
             Int32.TryParse(value, out value2);
             if (value2 != -1)
             {
-                appointment.doctor.id = value2;
+                DoctorId = value2;
+               
 
             }
           Label1.Text = stringUntilThatChar(DropDownList1.Text);
@@ -157,8 +164,23 @@ namespace WebApplication2
                 e.Day.IsSelectable = false;
                 e.Cell.BackColor = System.Drawing.Color.Silver;
             }
-        } 
+        }
 
+        public int DoctorId
+        {
+            get
+            {   return (int)this.ViewState["DoctorId"];
+            }
+            set { this.ViewState["DoctorId"] = value; }
+        }
+        public DateTime SelectedDate
+        {
+            get
+            {
+                return (DateTime)this.ViewState["SelectedDate"];
+            }
+            set { this.ViewState["SelectedDate"] = value; }
+        }
 
 
     }
