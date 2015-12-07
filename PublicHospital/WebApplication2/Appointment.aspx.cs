@@ -17,7 +17,7 @@ namespace WebApplication2
         List<String> doctorsName = new List<String>();
         private DateTime selectedDate;
         AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
-      
+        List<Button> buttons = new List<Button>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,7 @@ namespace WebApplication2
 
         public void addTimeButtons()
         {
-            List<Button> buttons = new List<Button>();
+           
             buttons = new List<Button>();
             buttons.Add(Button730);
             buttons.Add(Button800);
@@ -83,11 +83,26 @@ namespace WebApplication2
                 Calendar1.Visible = false;
 
                 selectedDate = Calendar1.SelectedDate;
-                Label1.Text = Calendar1.SelectedDate.ToShortDateString();
+                SetButtonColor();
+              
           
           
         }
-
+        private void SetButtonColor()
+        { 
+            appointmentService.getAppointmentsByDocAndDate()
+            for(int i=0; i< buttons.Count; i++)
+            {
+                if (buttons[i].Text.Equals(""))
+                {
+                    buttons[i].BackColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    buttons[i].BackColor = System.Drawing.Color.Green;
+                }
+            }
+        }
         void MyButtonClick(object sender, EventArgs e)
         {
             Button myButton = (Button)sender;
@@ -105,6 +120,7 @@ namespace WebApplication2
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            appointment.doctor = new AppointmentServiceRef.Doctor();
             Calendar1.Visible = true;
             string value = stringUntilThatChar(DropDownList1.Text);
             int value2 = -1;
@@ -115,6 +131,8 @@ namespace WebApplication2
 
             }
           Label1.Text = stringUntilThatChar(DropDownList1.Text);
+ 
+         
         }
 
         protected void DropDownList1_Load(object sender, EventArgs e)
@@ -139,7 +157,7 @@ namespace WebApplication2
                 e.Day.IsSelectable = false;
                 e.Cell.BackColor = System.Drawing.Color.Silver;
             }
-        }
+        } 
 
 
 
