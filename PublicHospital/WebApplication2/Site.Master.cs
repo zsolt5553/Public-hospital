@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication2.PatientServiceRef;
 
 namespace WebApplication2
 {
@@ -68,12 +69,16 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
-        {
-            Context.GetOwinContext().Authentication.SignOut();
+            Patient patient = (Patient)Session["patientObj"];
+            if (patient == null)
+            {
+                logInOut.Text = "Log in";
+            }
+            else
+            {
+                Session["patientObj"] = null;
+                logInOut.Text = "Log out";
+            }
         }
     }
 
