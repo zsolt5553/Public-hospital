@@ -76,10 +76,8 @@ namespace WebApplication2
             }
             else
             {
-                Session["patientObj"] = null;
                 logInOut.Text = "Log out";
             }
         }
     }
-
 }
