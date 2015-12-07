@@ -14,9 +14,7 @@ namespace WebApplication2
         DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
-        List<String> doctorsName = new List<String>();
-        protected DateTime selectedDate;
-        AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
+        List<String> dropdownListItems = new List<String>();
         List<Button> buttons = new List<Button>();
 
 
@@ -28,7 +26,7 @@ namespace WebApplication2
 
         public void addTimeButtons()
         {
-           
+
             buttons = new List<Button>();
             buttons.Add(Button730);
             buttons.Add(Button800);
@@ -57,13 +55,14 @@ namespace WebApplication2
         public void getAllDoctorName()
         {
             doctorList.AddRange(doctorService.GetAllDoctors());
-            doctorsName = new List<String>();
+            dropdownListItems = new List<String>();
 
             for (int i = 0; i < doctorList.Count; i++)
             {
-                doctorsName.Add("(" + doctorList.ElementAt(i).id + ") " + doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
+                dropdownListItems.Add("(" + doctorList.ElementAt(i).id + ") " + doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
             }
         }
+
 
         public static string stringUntilThatChar(string s)
         {
@@ -79,35 +78,44 @@ namespace WebApplication2
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            
-            
-                Panel1.Visible = true;
-                Calendar1.Visible = false;
-
-                SelectedDate = Calendar1.SelectedDate;
-                SetButtonColor();
-              
-          
-          
+            Panel1.Visible = true;
+            Calendar1.Visible = false;
+            SelectedDate = Calendar1.SelectedDate;
+            SetButtonColor();
         }
         private void SetButtonColor()
         {
             List<String> appointmentDates = new List<String>();
             appointmentDates.AddRange(appointmentService.getAppointmentsByDocAndDate(SelectedDate, DoctorId));
-         for (int e = 0; e < appointmentDates.Count; e++)
-         {
-             for (int i = 0; i < buttons.Count; i++)
-             {
-                 if (buttons[i].Text.Equals(appointmentDates[e]))
-                 {
-                     buttons[i].BackColor = System.Drawing.Color.Red;
-                 }
-                 else
-                 {
-                     buttons[i].BackColor = System.Drawing.Color.Green;
-                 }
-             }
-         }
+            if (appointmentDates.Count < 1)
+            {
+                for (int i = 0; i < buttons.Count; i++)
+                {
+                    buttons[i].BackColor = System.Drawing.Color.Green;
+                }
+            }
+
+            {
+                for (int e = 0; e < appointmentDates.Count; e++)
+                {
+                    for (int i = 0; i < buttons.Count; i++)
+                    {
+                        if (buttons[i].Text.Equals(appointmentDates[e]))
+                        {
+                            buttons[i].BackColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            if (buttons[i].BackColor == System.Drawing.Color.Red)
+                            { }
+                            else
+                            {
+                                buttons[i].BackColor = System.Drawing.Color.Green;
+                            }
+                        }
+                    }
+                }
+            }
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -118,28 +126,43 @@ namespace WebApplication2
             }
             else
             {
-            
+                AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
+                appointment.doctor = new AppointmentServiceRef.Doctor();
+                appointment.doctor.id = DoctorId;
+                appointment.patient = new AppointmentServiceRef.Patient();
+                appointment.patient.id = 1;
+                appointment.serviceType = doctorService.GetDoctor(DoctorId).specialty;
+                string value = myButton.Text.Substring(0, 2);
+                string value2 = myButton.Text.Substring(3, 2);
+                DateTime finalDate;
+                finalDate = SelectedDate.AddHours(convertInt(value));
+                finalDate = finalDate.AddMinutes(convertInt(value2));
+                appointment.time = finalDate;
+                string message = "";
+                var client = new AppointmentServiceRef.AppointmentServiceClient();
+                client.SaveAppointment(ref appointment, ref message);
             }
         }
 
-
-
+        
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            appointment.doctor = new AppointmentServiceRef.Doctor();
             Calendar1.Visible = true;
             string value = stringUntilThatChar(DropDownList1.Text);
+            DoctorId = convertInt(value);
+            Label1.Text = stringUntilThatChar(DropDownList1.Text);
+        }
+
+        private int convertInt(String convertableString)
+        {
+
             int value2 = -1;
-            Int32.TryParse(value, out value2);
+            Int32.TryParse(convertableString, out value2);
             if (value2 != -1)
             {
-                DoctorId = value2;
-               
-
+                return value2;
             }
-          Label1.Text = stringUntilThatChar(DropDownList1.Text);
- 
-         
+            return value2;
         }
 
         protected void DropDownList1_Load(object sender, EventArgs e)
@@ -148,7 +171,7 @@ namespace WebApplication2
             {
                 getAllDoctorName();
 
-                foreach (string name in doctorsName)
+                foreach (string name in dropdownListItems)
                 {
                     DropDownList1.Items.Add(new ListItem(name));
                 }
@@ -158,7 +181,7 @@ namespace WebApplication2
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
         {
-          
+
             if (e.Day.Date < DateTime.Today)
             {
                 e.Day.IsSelectable = false;
@@ -169,7 +192,8 @@ namespace WebApplication2
         public int DoctorId
         {
             get
-            {   return (int)this.ViewState["DoctorId"];
+            {
+                return (int)this.ViewState["DoctorId"];
             }
             set { this.ViewState["DoctorId"] = value; }
         }

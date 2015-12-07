@@ -131,7 +131,7 @@ namespace PersistenceLayer
                 PHEntities.Appointment.Add(new Appointment
                 {
                     id = appointmentBDO.id,
-                    time = appointmentBDO.time.Date,
+                    time = appointmentBDO.time,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
                     idDoctor = appointmentBDO.doctor.id,
