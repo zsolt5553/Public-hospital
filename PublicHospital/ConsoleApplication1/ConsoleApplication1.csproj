@@ -67,12 +67,6 @@
     <None Include="Service References\AppointmentServiceRef\ConsoleApplication1.AppointmentServiceRef.Appointment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AppointmentServiceRef\ConsoleApplication1.AppointmentServiceRef.Doctor.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\AppointmentServiceRef\ConsoleApplication1.AppointmentServiceRef.getAppointmentsByDocAndDateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\AppointmentServiceRef\ConsoleApplication1.AppointmentServiceRef.SaveAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
