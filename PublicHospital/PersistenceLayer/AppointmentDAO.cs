@@ -114,7 +114,7 @@ namespace PersistenceLayer
                 {
                     foreach (var d in listInDb)
                     {
-                        appTimes.Add(d.time.ToShortTimeString());
+                        appTimes.Add(d.time.ToString("HH:mm:ss"));
                     }
                 }
             }
