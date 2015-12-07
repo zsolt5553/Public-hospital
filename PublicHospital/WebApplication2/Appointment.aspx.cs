@@ -82,6 +82,7 @@ namespace WebApplication2
             Panel1.Visible = true;
             SelectedDate = Calendar1.SelectedDate;
             SetButtonColor();
+            Label1.Visible = true;
         }
         private void SetButtonColor()
         {

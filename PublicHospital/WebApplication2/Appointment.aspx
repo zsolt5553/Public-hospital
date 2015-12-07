@@ -8,11 +8,10 @@
 
     <div style="width: 100%; background-image: url('Images/Bupa-Cromwell-Hospital-Website-Wallpaper-For-Health-Professionals.jpg'); margin-left: 40px;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label2" runat="server" Text="Please choose your desired doctor"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Please choose your desired doctor" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large"></asp:Label>
         &nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AppendDataBoundItems="True" OnLoad="DropDownList1_Load" AutoPostBack="True" ViewStateMode="Enabled" >
         </asp:DropDownList>
-        <br />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;
@@ -26,7 +25,11 @@
             <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
         </asp:Calendar>
         &nbsp;&nbsp;&nbsp;
-        &nbsp;<asp:Panel ID="Panel1" runat="server" Height="27px" Visible="False" Width="988px" BackColor="#CCCCCC" BorderColor="Silver" BorderStyle="Solid" BorderWidth="5px">
+        &nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="Choose your desired time" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large" Visible="False"></asp:Label>
+    
+        <asp:Panel ID="Panel1" runat="server" Height="27px" Visible="False" Width="988px" BackColor="#CCCCCC" BorderColor="Silver" BorderStyle="Solid" BorderWidth="5px">
             <asp:Button ID="Button730" runat="server" BackColor="Red" Height="22px" Text="7:30" Width="47px" />
 &nbsp;
             <asp:Button ID="Button800" runat="server" BackColor="#009933" Height="22px" Text="8:00" Width="47px" />
@@ -69,7 +72,6 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         &nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server" Text="Label" Font-Names="Times New Roman" Font-Size="X-Large" Visible="False"></asp:Label>
     
     </div>
 
