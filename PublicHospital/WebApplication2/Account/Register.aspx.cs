@@ -34,7 +34,11 @@ namespace WebApplication2.Account
                 pass = Password.Text
             };
             var client = new PatientServiceRef.PatientServiceClient();
-            client.SavePatient(ref patient,ref message);
+            bool result = client.SavePatient(ref patient,ref message);
+            if (result)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
