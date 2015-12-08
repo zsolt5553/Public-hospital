@@ -14,6 +14,11 @@ namespace WebApplication2.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["patientObj"] != null)
+            {
+                Session.Abandon();
+                Response.Redirect("~/Default.aspx");
+            }
             Labell.Visible = false;
         }
 
@@ -30,7 +35,7 @@ namespace WebApplication2.Account
                 Patient patientClient = new PatientServiceClient().GetPatient(id);
                 patientClient.sessionID = idAndType[2];
                 Session["patientObj"] = patientClient;
-                Response.Redirect("~/Default.aspx");//MyObject obj1 = (MyObject)Session["Passing Object"];
+                Response.Redirect("~/Default.aspx");
             }
             else
             {
