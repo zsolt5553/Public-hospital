@@ -48,6 +48,7 @@ namespace PersistenceLayer
                                 select appointment).ToList();
                 if (listInDb != null)
                 {
+                    appointments = new List<AppointmentBDO>();
                     foreach (Appointment app in listInDb)
                     {
                         appointmentBDO = new AppointmentBDO()

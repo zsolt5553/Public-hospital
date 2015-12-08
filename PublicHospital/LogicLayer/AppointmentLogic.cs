@@ -28,7 +28,7 @@ namespace LogicLayer
                 List<AppointmentBDO> targetList = new List<AppointmentBDO>();
                 foreach (AppointmentBDO app in origList)
                 {
-                    if (app.time < DateTime.Now)
+                    if (app.time > DateTime.Now)
                     {
                         targetList.Add(app);
                     }
