@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace WebApplication2.Account
 {
     public partial class Profile : System.Web.UI.Page
     {
+        PatientServiceRef.Patient pat;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +26,7 @@ namespace WebApplication2.Account
 
         private void SetTextBoxes()
         {
-            PatientServiceRef.Patient pat = (PatientServiceRef.Patient)Session["patientObj"];
+            pat = (PatientServiceRef.Patient)Session["patientObj"];
             FName.Text = pat.firstName;
             LName.Text = pat.lastName;
             City.Text = pat.city;
@@ -35,26 +37,26 @@ namespace WebApplication2.Account
             DateOfBirth.Text = pat.dateOfBirth.ToShortDateString();
             Phone.Text = pat.phoneNr;
 
-            //Session["patientId"] = pat.id;
-            //AppointmentsGridView.DataSource = (int)Session["patientId"];
-            //AppointmentsGridView.DataBind();
-
-            IDField.Text = pat.id.ToString();
-            IDField.Visible = false;
         }
 
-        protected void AppointmentsGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void Appointment_Deleting(object sender, ObjectDataSourceMethodEventArgs e)
         {
-            
-            string id = AppointmentsGridView.Rows[e.RowIndex].Cells[0].Text;
-            int idNum;
-            int.TryParse(id, out idNum);
+            IDictionary paramsFromPage = e.InputParameters;
+
+            paramsFromPage.Remove("Appointment");
+
             AppointmentServiceRef.Appointment app = new AppointmentServiceRef.Appointment();
-            string message = "";
-            var client = new AppointmentServiceRef.AppointmentServiceClient();
-            app = client.GetAppointment(idNum);
-            client.DeleteAppointment(ref app,ref message);
-            Session["appointmentObj"] = app;
+            app.id = (int)paramsFromPage["id"];
+            app.doctor = new AppointmentServiceRef.Doctor();
+            app.patient = new AppointmentServiceRef.Patient();
+
+            paramsFromPage.Add("Appointment",app);
+            paramsFromPage.Remove("id");
+        }
+
+        protected void Appointment_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+            e.InputParameters["id"] = pat.id;
         }
     }
 }

@@ -37,7 +37,8 @@ namespace WebApplication2.Account
             bool result = client.SavePatient(ref patient,ref message);
             if (result)
             {
-                Response.Redirect("~/Account/Login.aspx");
+                Session["patientObj"] = patient;
+                Response.Redirect("~/Default.aspx");
             }
         }
     }

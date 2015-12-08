@@ -6,7 +6,6 @@
     <br />
     <br />
     <div class="container" style="padding-top: 10px;">
-        <asp:TextBox ID="IDField" runat="server"></asp:TextBox>
         <div class="panel panel-default" style="vertical-align:middle;margin:auto;">
             <div class="panel-heading">
                 <h3>Profile page</h3>
@@ -114,7 +113,7 @@
                 </div>
                     </div>
                     <div class="col-md-4 col-lg-4" style="padding-top:40px; padding-left:10px;">
-                        <asp:GridView ID="AppointmentsGridView" runat="server" AutoGenerateColumns="False" DataSourceID="Appointment" Width="400px" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="AppointmentsGridView_RowDeleting">
+                        <asp:GridView ID="AppointmentsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="Appointment" Width="400px" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
@@ -133,13 +132,13 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:ObjectDataSource ID="Appointment" runat="server" SelectMethod="GetAppointmentsAfterCurrentDateByPatient" TypeName="WebApplication2.AppointmentServiceRef.AppointmentServiceClient" DeleteMethod="DeleteAppointment">
+                        <asp:ObjectDataSource ID="Appointment" runat="server" SelectMethod="GetAppointmentsAfterCurrentDateByPatient" TypeName="WebApplication2.AppointmentServiceRef.AppointmentServiceClient" DeleteMethod="DeleteAppointment" OnDeleting="Appointment_Deleting" OnSelecting="Appointment_Selecting">
                             <DeleteParameters>
                                 <asp:Parameter Direction="InputOutput" Name="appointment" Type="Object" />
                                 <asp:Parameter Direction="InputOutput" Name="message" Type="String" />
                             </DeleteParameters>
                             <SelectParameters>
-                                <asp:ControlParameter ControlID="IDField" Name="id" PropertyName="Text" Type="Int32" />
+                                <asp:Parameter Name="id" Type="Int32" />
                             </SelectParameters>
                         </asp:ObjectDataSource>
                     </div>
