@@ -17,6 +17,7 @@ namespace WindowsFormsClient
         AppointmentServiceRef.IAppointmentService appointmentService = new AppointmentServiceRef.AppointmentServiceClient();
         DoctorServiceRef.Doctor doc;
         List<AppointmentServiceRef.Appointment> appointmentList = new List<AppointmentServiceRef.Appointment>();
+
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
         List<String> doctorsName = new List<String>();
         private int doctorId=1;
@@ -30,6 +31,7 @@ namespace WindowsFormsClient
             CreateRows();
             CreateColumns();
             CalculateWeekNumber();
+            appointmentList.AddRange(appointmentService.GetAllAppointments());
         }
 
 
@@ -87,7 +89,7 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-            appointmentList.AddRange(appointmentService.GetAllAppointments());
+           
 
             doc = doctorService.GetDoctor(id);
 
@@ -98,8 +100,10 @@ namespace WindowsFormsClient
                     for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
                     {
                         dataGridView1.Rows[i2].Cells[0].Style.BackColor = Color.FromArgb(208, 221, 238);
-                        for (int i3 = 0; i3 < appointmentList.Count; i3++)
-                        {
+                        int i3 = 0;
+                        Boolean found = false;
+                        while (i3 < appointmentList.Count && found==false)
+                            {
                             if (appointmentList.ElementAt(i3).doctor.id == doc.id)
                             {
                                 string row = dataGridView1.Rows[i2].Cells[0].Value.ToString();
@@ -108,10 +112,12 @@ namespace WindowsFormsClient
                                 if (myDate.Equals(appointmentList.ElementAt(i3).time))
                                 {
                                     dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
+                                    found = true;
                                 }
                                 else
                                 {
                                     dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
+                                    i3++;
                                 }
 
                             }

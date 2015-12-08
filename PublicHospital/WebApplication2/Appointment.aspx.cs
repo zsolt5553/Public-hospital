@@ -183,8 +183,10 @@ namespace WebApplication2
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Calendar1.Visible = true;
+            
             string value = stringUntilThatChar(DropDownList1.Text);
             DoctorId = convertInt(value);
+
 
         }
 
@@ -211,8 +213,9 @@ namespace WebApplication2
                     DropDownList1.Items.Add(new ListItem(name));
                 }
                 DropDownList1.DataBind();
+                DropDownList1.SelectedIndex = 0;
             }
-            DropDownList1.SelectedIndex = 0;
+           
         }
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
