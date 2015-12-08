@@ -24,7 +24,9 @@ namespace WebApplication2
             if (Session["patientObj"] != null)
             {
                 addTimeButtons();
-                DoctorId = 2;
+                string value = stringUntilThatChar(DropDownList1.Text);
+                DoctorId = convertInt(value);
+                //DoctorId = 2;
             }
             else
             {

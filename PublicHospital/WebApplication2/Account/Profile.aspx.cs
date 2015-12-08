@@ -34,7 +34,7 @@ namespace WebApplication2.Account
             StreetNr.Text = pat.streetNr.ToString();
             Zip.Text = pat.zip.ToString();
             Username.Text = pat.login;
-            DateOfBirth.Text = pat.dateOfBirth.ToShortDateString();
+            DateOfBirth.Text = pat.dateOfBirth.ToString("MM:dd:yyyy");
             Phone.Text = pat.phoneNr;
 
         }
