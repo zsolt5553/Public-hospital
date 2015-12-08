@@ -27,18 +27,18 @@
         &nbsp;&nbsp;&nbsp;
         &nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server" Text="Choose your desired time" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large" Visible="False"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Choose your desired time" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large" Visible="False" BorderStyle="None"></asp:Label>
     
         <asp:Panel ID="Panel1" runat="server" Height="27px" Visible="False" Width="988px" BackColor="#CCCCCC" BorderColor="Silver" BorderStyle="Solid" BorderWidth="5px">
             <asp:Button ID="Button730" runat="server" Height="22px" Text="07:30" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button800" runat="server" Height="22px" Text="8:00" Width="47px" />
+            <asp:Button ID="Button800" runat="server" Height="22px" Text="08:00" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button830" runat="server" BackColor="Red" Height="22px" Text="8:30" Width="47px" />
+            <asp:Button ID="Button830" runat="server" BackColor="Red" Height="22px" Text="08:30" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button900" runat="server" Height="22px" Text="9:00" Width="47px" />
+            <asp:Button ID="Button900" runat="server" Height="22px" Text="09:00" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button930" runat="server" Height="22px" Text="9:30" Width="47px" />
+            <asp:Button ID="Button930" runat="server" Height="22px" Text="09:30" Width="47px" />
             &nbsp;
             <asp:Button ID="Button1000" runat="server" Height="22px" Text="10:00" Width="47px" />
 &nbsp;
@@ -69,7 +69,11 @@
         
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button1502" runat="server" OnClick="Button1502_Click" Text="Yes" Visible="False" BackColor="#999999" Font-Bold="True" Font-Size="Large" />
+        &nbsp;
+        <asp:Button ID="Button1501" runat="server" OnClick="Button1501_Click" Text="No" Visible="False" BackColor="#999999" Font-Bold="True" Font-Size="Large" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         &nbsp;&nbsp;&nbsp;
     

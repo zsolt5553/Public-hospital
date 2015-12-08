@@ -136,39 +136,48 @@ namespace WebApplication2
             }
             else
             {
-                AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
-                appointment.doctor = new AppointmentServiceRef.Doctor();
-                appointment.doctor.id = DoctorId;
-                PatientServiceRef.Patient pat = (PatientServiceRef.Patient)Session["patientObj"];
-                appointment.patient = new AppointmentServiceRef.Patient();
-                appointment.patient.id = pat.id;
-                appointment.serviceType = doctorService.GetDoctor(DoctorId).specialty;
-                string value;
-                string value2;
-                if (myButton.Text.Length > 5)
-                {
-                    value = myButton.Text.Substring(0, 2);
-                    value2 = myButton.Text.Substring(3, 2);
-                }
-                else
-                {
-                    value = myButton.Text.Substring(0, 1);
-                    value2 = myButton.Text.Substring(2, 2);
-                }
-                DateTime finalDate;
-                finalDate = SelectedDate.AddHours(convertInt(value));
-                finalDate = finalDate.AddMinutes(convertInt(value2));
-                appointment.time = finalDate;
-                string message = "";
-                var client = new AppointmentServiceRef.AppointmentServiceClient();
-                client.SaveAppointment(ref appointment, ref message);
+               
                 Calendar1.Visible = false;
                 Panel1.Visible = false;
                 DropDownList1.Visible = false;
                 Label2.Visible = false;
                 Label1.Visible = true;
-                Label1.Text = "You have made an appointent on: " + finalDate.ToShortDateString();
+                Button1501.Visible = true;
+                Button1502.Visible = true;
+                 string value;
+            string value2;
+            value = myButton.Text.Substring(0, 2);
+            value2 = myButton.Text.Substring(3, 2);
+         
+            DateTime finalDate;
+            finalDate = SelectedDate.AddHours(convertInt(value));
+            finalDate = finalDate.AddMinutes(convertInt(value2));
+            FinalDate = finalDate;
+              Label1.Text = "Do you want to make an appointment on " + FinalDate + " ?";
             }
+        }
+
+        private void MakeAppointment()
+        {
+
+            AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
+            appointment.doctor = new AppointmentServiceRef.Doctor();
+            appointment.doctor.id = DoctorId;
+            PatientServiceRef.Patient pat = (PatientServiceRef.Patient)Session["patientObj"];
+            appointment.patient = new AppointmentServiceRef.Patient();
+            appointment.patient.id = pat.id;
+            appointment.serviceType = doctorService.GetDoctor(DoctorId).specialty;
+
+            appointment.time = FinalDate;
+            string message = "";
+            var client = new AppointmentServiceRef.AppointmentServiceClient();
+            client.SaveAppointment(ref appointment, ref message);
+            Calendar1.Visible = false;
+            Panel1.Visible = false;
+            DropDownList1.Visible = false;
+            Label2.Visible = false;
+            Label1.Visible = true;
+            Label1.Text = "You have made an appointent on: " + FinalDate.ToShortDateString();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,6 +240,28 @@ namespace WebApplication2
                 return (DateTime)this.ViewState["SelectedDate"];
             }
             set { this.ViewState["SelectedDate"] = value; }
+        }
+
+        public DateTime FinalDate
+        {
+            get
+            {
+                return (DateTime)this.ViewState["FinalDate"];
+            }
+            set { this.ViewState["FinalDate"] = value; }
+        }
+
+
+        protected void Button1502_Click(object sender, EventArgs e)
+        {
+            MakeAppointment();
+            Button1501.Visible = false;
+            Button1502.Visible = false;
+        }
+
+        protected void Button1501_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Appointment.aspx");
         }
 
 
