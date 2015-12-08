@@ -13,7 +13,7 @@
         </asp:DropDownList>
         <br />
         <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" Visible="False"></asp:Calendar>
-        <asp:GridView ID="GridView1" runat="server" >
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
         </asp:GridView>
         <br />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
