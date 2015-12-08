@@ -12,11 +12,7 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Patient patient = (Patient)Session["patientObj"];
-            if(patient != null)
-            {
-                nameUser.Text = "Hello "+patient.firstName;
-            }
+           
         }
     }
 }
