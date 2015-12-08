@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplication2.Account.Register" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="WebApplication2.Account.Profile" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <br />
@@ -6,9 +6,10 @@
     <br />
     <br />
     <div class="container" style="padding-top: 10px;">
+        <asp:TextBox ID="IDField" runat="server"></asp:TextBox>
         <div class="panel panel-default" style="vertical-align:middle;margin:auto;">
             <div class="panel-heading">
-                <h3>Account Registration</h3>
+                <h3>Profile page</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -107,7 +108,7 @@
                     </div>
                     <div class="row" style="padding-top: 20px;">
                         <div class="col-md-12 col-lg-12">
-                            <asp:Button ID="RegisterBth" runat="server" Text="Register" OnClick="RegisterPatient" CssClass="btn btn-default" />
+                            <asp:Button ID="UpdateBth" runat="server" Text="Update" CssClass="btn btn-default" />
                         </div>
                     </div>
                 </div>
@@ -122,7 +123,7 @@
                         </asp:GridView>
                         <asp:ObjectDataSource ID="Appointment" runat="server" SelectMethod="GetAppointmentsAfterCurrentDateByPatient" TypeName="WebApplication2.AppointmentServiceRef.AppointmentServiceClient">
                             <SelectParameters>
-                                <asp:SessionParameter Name="id" SessionField="PatientObj" Type="Int32" />
+                                <asp:ControlParameter ControlID="IDField" Name="id" PropertyName="Text" Type="Int32" />
                             </SelectParameters>
                         </asp:ObjectDataSource>
                     </div>

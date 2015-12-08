@@ -22,7 +22,7 @@
                 <div class="col-md-4">
                     <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;" itemscope="itemscope">Service type</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/servicetype.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Services.aspx" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/servicetype.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/ServicesPage.aspx" />
                     </p>
                       </div>
                 <div class="col-md-4">
@@ -47,9 +47,9 @@
 
         </div>
                     <div class="col-md-4">
-                   <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">History</h2>
+                   <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">Profile</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Images/history.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" />
+                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Images/history.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Account/Profile.aspx" />
                     </p>
                       </div>
                 <div class="col-md-4">
