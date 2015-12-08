@@ -21,8 +21,16 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            addTimeButtons();
-            DoctorId = 2;
+            if (Session["patientObj"] != null)
+            {
+                addTimeButtons();
+                DoctorId = 2;
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
+            
         }
 
         public void addTimeButtons()
@@ -122,8 +130,9 @@ namespace WebApplication2
                 AppointmentServiceRef.Appointment appointment = new AppointmentServiceRef.Appointment();
                 appointment.doctor = new AppointmentServiceRef.Doctor();
                 appointment.doctor.id = DoctorId;
+                PatientServiceRef.Patient pat = (PatientServiceRef.Patient)Session["patientObj"];
                 appointment.patient = new AppointmentServiceRef.Patient();
-                appointment.patient.id = 1;
+                appointment.patient.id = pat.id;
                 appointment.serviceType = doctorService.GetDoctor(DoctorId).specialty;
                 string value;
                 string value2;
