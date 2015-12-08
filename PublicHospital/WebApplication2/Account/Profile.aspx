@@ -112,7 +112,7 @@
                     </div>
                 </div>
                     </div>
-                    <div class="col-md-4 col-lg-4" style="padding-top:40px; padding-left:10px;">
+                    <div class="col-md-4 col-lg-4 text-center" style="padding-top:40px; padding-left:10px;">
                         <asp:GridView ID="AppointmentsGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="Appointment" Width="400px" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
