@@ -42,7 +42,7 @@
                      <div class="col-md-6 col-lg-6 text-center" >
                           <h2 style="font-family: 'times New Roman', Times, serif; font-size: x-large; color: #000000; font-style: inherit; text-transform: uppercase;">Profile</h2>
                     <p>
-                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Images/history.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Account/Profile.aspx" />
+                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Images/profile.jpg" BorderStyle="Ridge" BorderWidth="5px" BorderColor="#0033CC" PostBackUrl="~/Account/Profile.aspx" />
                     </p>
                     </div>
                 </div>
