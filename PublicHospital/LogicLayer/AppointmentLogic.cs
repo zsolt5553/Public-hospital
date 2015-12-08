@@ -20,6 +20,12 @@ namespace LogicLayer
             return appointmentDAO.getAppointmentsByDocAndDate(date, docId);
         }
 
+        public bool DeleteAppointment(ref AppointmentBDO app,
+            ref string message)
+        {
+            return appointmentDAO.DeleteAppointment(ref app,ref message);
+        }
+
         public List<AppointmentBDO> GetAppointmentsAfterCurrentDateByPatient(int id)
         {
             List<AppointmentBDO> origList = appointmentDAO.GetAllAppointmentsByPatient(id);

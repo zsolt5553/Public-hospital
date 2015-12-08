@@ -35,6 +35,15 @@
   <wsdl:message name="IAppointmentService_GetAllAppointments_AppointmentFaultFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:AppointmentFault" />
   </wsdl:message>
+  <wsdl:message name="IAppointmentService_DeleteAppointment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppointment" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_DeleteAppointment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppointmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_DeleteAppointment_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
+  </wsdl:message>
   <wsdl:message name="IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAppointmentsAfterCurrentDateByPatient" />
   </wsdl:message>
@@ -42,7 +51,7 @@
     <wsdl:part name="parameters" element="tns:GetAppointmentsAfterCurrentDateByPatientResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:AppointmentFault" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_getAppointmentsByDocAndDate_InputMessage">
     <wsdl:part name="parameters" element="tns:getAppointmentsByDocAndDate" />
@@ -51,7 +60,7 @@
     <wsdl:part name="parameters" element="tns:getAppointmentsByDocAndDateResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_getAppointmentsByDocAndDate_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:AppointmentFault" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:AppointmentFault" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateAppointment" />
@@ -60,7 +69,7 @@
     <wsdl:part name="parameters" element="tns:UpdateAppointmentResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:AppointmentFault" />
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q7:AppointmentFault" />
   </wsdl:message>
   <wsdl:portType name="IAppointmentService">
     <wsdl:operation name="GetAppointment">
@@ -77,6 +86,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointments" message="tns:IAppointmentService_GetAllAppointments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse" message="tns:IAppointmentService_GetAllAppointments_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_GetAllAppointments_AppointmentFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/DeleteAppointment" message="tns:IAppointmentService_DeleteAppointment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/DeleteAppointmentResponse" message="tns:IAppointmentService_DeleteAppointment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/DeleteAppointmentAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_DeleteAppointment_AppointmentFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAppointmentsAfterCurrentDateByPatient">
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient" message="tns:IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_InputMessage" />
@@ -122,6 +136,18 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllAppointments">
       <soap:operation soapAction="http://tempuri.org/IAppointmentService/GetAllAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppointment">
+      <soap:operation soapAction="http://tempuri.org/IAppointmentService/DeleteAppointment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

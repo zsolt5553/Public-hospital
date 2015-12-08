@@ -13,7 +13,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div style="width:600px; padding-left:10px">
+                    <div class="col-md-8 col-lg-8" style="width:600px; padding-left:10px">
                         <div class="form-group">
                     <label for="FName" class="control-label">Name:</label>
                     <div class="row">
@@ -113,15 +113,31 @@
                     </div>
                 </div>
                     </div>
-                    <div>
-                        <asp:GridView ID="AppointmentsGridView" runat="server" AutoGenerateColumns="False" DataSourceID="Appointment" Width="314px">
+                    <div class="col-md-4 col-lg-4" style="padding-top:40px; padding-left:10px;">
+                        <asp:GridView ID="AppointmentsGridView" runat="server" AutoGenerateColumns="False" DataSourceID="Appointment" Width="400px" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="AppointmentsGridView_RowDeleting">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
                                 <asp:BoundField DataField="serviceType" HeaderText="serviceType" SortExpression="serviceType" />
                                 <asp:BoundField DataField="time" HeaderText="time" SortExpression="time" />
+                                <asp:CommandField ButtonType="Button"  ShowDeleteButton="True" ControlStyle-CssClass="btn btn-default" DeleteText="Delete"/>
                             </Columns>
+                            <EditRowStyle BackColor="#999999" />
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:ObjectDataSource ID="Appointment" runat="server" SelectMethod="GetAppointmentsAfterCurrentDateByPatient" TypeName="WebApplication2.AppointmentServiceRef.AppointmentServiceClient">
+                        <asp:ObjectDataSource ID="Appointment" runat="server" SelectMethod="GetAppointmentsAfterCurrentDateByPatient" TypeName="WebApplication2.AppointmentServiceRef.AppointmentServiceClient" DeleteMethod="DeleteAppointment">
+                            <DeleteParameters>
+                                <asp:Parameter Direction="InputOutput" Name="appointment" Type="Object" />
+                                <asp:Parameter Direction="InputOutput" Name="message" Type="String" />
+                            </DeleteParameters>
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="IDField" Name="id" PropertyName="Text" Type="Int32" />
                             </SelectParameters>

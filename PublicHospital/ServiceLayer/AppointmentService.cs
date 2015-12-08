@@ -127,6 +127,27 @@ namespace ServiceLayer
             return result;
         }
 
+        public bool DeleteAppointment(ref Appointment appointment,
+            ref string message)
+        {
+            AppointmentBDO app = new AppointmentBDO();
+            TranslateAppointmentDTOToAppointmentBDO(appointment,app);
+            bool ret = false;
+            try
+            {
+                 ret = AppointmentLogic.DeleteAppointment(ref app, ref message);
+            } 
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "DeleteAppointment exception";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
+            }
+            
+            return ret;
+        }
+
         public List<Appointment> GetAppointmentsAfterCurrentDateByPatient(int id)
         {
             List<Appointment> appointmentList;

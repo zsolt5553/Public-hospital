@@ -265,6 +265,9 @@
     <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.Appointment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.SaveAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

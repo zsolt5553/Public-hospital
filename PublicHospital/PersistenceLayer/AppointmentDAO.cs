@@ -37,6 +37,35 @@ namespace PersistenceLayer
             }
             return appointmentBDO;
         }
+
+        public bool DeleteAppointment(ref AppointmentBDO app, ref string message)
+        {
+            message = "Doctor deleted successfully";
+            var ret = true;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var appId = app.id;
+                var appointmentInDb = (from a in PHEntities.Appointment
+                             where a.id == appId
+                             select a).FirstOrDefault();
+                if (appointmentInDb != null)
+                {
+                    PHEntities.Appointment.Remove(appointmentInDb);
+                    var num = PHEntities.SaveChanges();
+                    if (num != 1)
+                    {
+                        ret = false;
+                    }
+                } 
+                else
+                {
+                    ret = false;
+                    message = "Appointment not found";
+                }
+                return ret;
+            }
+        }
+
         public List<AppointmentBDO> GetAllAppointmentsByPatient(int patientId)
         {
             List<AppointmentBDO> appointments = null;

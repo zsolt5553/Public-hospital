@@ -45,6 +45,23 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DeleteAppointment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="appointment" nillable="true" type="q5:Appointment" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAppointmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAppointmentResult" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="appointment" nillable="true" type="q6:Appointment" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAppointmentsAfterCurrentDateByPatient">
     <xs:complexType>
       <xs:sequence>
@@ -55,7 +72,7 @@
   <xs:element name="GetAppointmentsAfterCurrentDateByPatientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsAfterCurrentDateByPatientResult" nillable="true" type="q5:ArrayOfAppointment" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="GetAppointmentsAfterCurrentDateByPatientResult" nillable="true" type="q7:ArrayOfAppointment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,14 +87,14 @@
   <xs:element name="getAppointmentsByDocAndDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getAppointmentsByDocAndDateResult" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getAppointmentsByDocAndDateResult" nillable="true" type="q8:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateAppointment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q7:Appointment" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q9:Appointment" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -86,7 +103,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateAppointmentResult" type="xs:boolean" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q8:Appointment" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ServiceLayer" minOccurs="0" name="Appointment" nillable="true" type="q10:Appointment" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

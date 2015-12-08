@@ -856,6 +856,14 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/DeleteAppointment", ReplyAction="http://tempuri.org/IAppointmentService/DeleteAppointmentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/DeleteAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse DeleteAppointment(WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/DeleteAppointment", ReplyAction="http://tempuri.org/IAppointmentService/DeleteAppointmentResponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse> DeleteAppointmentAsync(WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientRe" +
             "sponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientAp" +
@@ -922,6 +930,50 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         public SaveAppointmentResponse(bool SaveAppointmentResult, WindowsFormsClient.AppointmentServiceRef.Appointment appointment, string message) {
             this.SaveAppointmentResult = SaveAppointmentResult;
+            this.appointment = appointment;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAppointment", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteAppointmentRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsClient.AppointmentServiceRef.Appointment appointment;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string message;
+        
+        public DeleteAppointmentRequest() {
+        }
+        
+        public DeleteAppointmentRequest(WindowsFormsClient.AppointmentServiceRef.Appointment appointment, string message) {
+            this.appointment = appointment;
+            this.message = message;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAppointmentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteAppointmentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool DeleteAppointmentResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public WindowsFormsClient.AppointmentServiceRef.Appointment appointment;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string message;
+        
+        public DeleteAppointmentResponse() {
+        }
+        
+        public DeleteAppointmentResponse(bool DeleteAppointmentResult, WindowsFormsClient.AppointmentServiceRef.Appointment appointment, string message) {
+            this.DeleteAppointmentResult = DeleteAppointmentResult;
             this.appointment = appointment;
             this.message = message;
         }
@@ -1031,6 +1083,25 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
             return base.Channel.GetAllAppointmentsAsync();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse WindowsFormsClient.AppointmentServiceRef.IAppointmentService.DeleteAppointment(WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest request) {
+            return base.Channel.DeleteAppointment(request);
+        }
+        
+        public bool DeleteAppointment(ref WindowsFormsClient.AppointmentServiceRef.Appointment appointment, ref string message) {
+            WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest inValue = new WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest();
+            inValue.appointment = appointment;
+            inValue.message = message;
+            WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse retVal = ((WindowsFormsClient.AppointmentServiceRef.IAppointmentService)(this)).DeleteAppointment(inValue);
+            appointment = retVal.appointment;
+            message = retVal.message;
+            return retVal.DeleteAppointmentResult;
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentResponse> DeleteAppointmentAsync(WindowsFormsClient.AppointmentServiceRef.DeleteAppointmentRequest request) {
+            return base.Channel.DeleteAppointmentAsync(request);
         }
         
         public WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAppointmentsAfterCurrentDateByPatient(int id) {

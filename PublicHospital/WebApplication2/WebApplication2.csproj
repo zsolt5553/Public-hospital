@@ -183,6 +183,9 @@
     <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\AppointmentServiceRef\WebApplication2.AppointmentServiceRef.DeleteAppointmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\DoctorServiceRef\Arrays1.xsd">
       <SubType>Designer</SubType>
     </None>

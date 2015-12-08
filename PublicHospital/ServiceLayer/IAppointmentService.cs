@@ -27,6 +27,11 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(AppointmentFault))]
+        bool DeleteAppointment(ref Appointment appointment,
+            ref string message);
+
+        [OperationContract]
+        [FaultContract(typeof(AppointmentFault))]
         List<Appointment> GetAppointmentsAfterCurrentDateByPatient(int id);
 
         [OperationContract]
