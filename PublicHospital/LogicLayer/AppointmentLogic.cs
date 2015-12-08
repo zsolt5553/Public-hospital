@@ -14,6 +14,40 @@ namespace LogicLayer
         {
             return appointmentDAO.GetAppointment(id);
         }
+
+        public List<string> getAppointmentsByDocAndDate(DateTime date, int docId)
+        {
+            return appointmentDAO.getAppointmentsByDocAndDate(date, docId);
+        }
+
+        public List<AppointmentBDO> GetAppointmentsAfterCurrentDateByPatient(int id)
+        {
+            List<AppointmentBDO> origList = appointmentDAO.GetAllAppointmentsByPatient(id);
+            if (origList != null)
+            {
+                List<AppointmentBDO> targetList = new List<AppointmentBDO>();
+                foreach (AppointmentBDO app in origList)
+                {
+                    if (app.time < DateTime.Now)
+                    {
+                        targetList.Add(app);
+                    }
+                }
+                if (targetList != null)
+                {
+                    return targetList;
+                }
+                else
+                {
+                    return null;
+                }   
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public List<AppointmentBDO> GetAllAppointments()
         {
             return appointmentDAO.GetAllAppointments();

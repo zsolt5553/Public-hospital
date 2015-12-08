@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAppointmentService_GetAppointment_InputMessage">
@@ -34,6 +35,24 @@
   <wsdl:message name="IAppointmentService_GetAllAppointments_AppointmentFaultFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q3:AppointmentFault" />
   </wsdl:message>
+  <wsdl:message name="IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsAfterCurrentDateByPatient" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppointmentsAfterCurrentDateByPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_getAppointmentsByDocAndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAppointmentsByDocAndDate" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_getAppointmentsByDocAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAppointmentsByDocAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppointmentService_getAppointmentsByDocAndDate_AppointmentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q5:AppointmentFault" />
+  </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateAppointment" />
   </wsdl:message>
@@ -41,7 +60,7 @@
     <wsdl:part name="parameters" element="tns:UpdateAppointmentResponse" />
   </wsdl:message>
   <wsdl:message name="IAppointmentService_UpdateAppointment_AppointmentFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q4:AppointmentFault" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceLayer" name="detail" element="q6:AppointmentFault" />
   </wsdl:message>
   <wsdl:portType name="IAppointmentService">
     <wsdl:operation name="GetAppointment">
@@ -58,6 +77,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointments" message="tns:IAppointmentService_GetAllAppointments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse" message="tns:IAppointmentService_GetAllAppointments_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/GetAllAppointmentsAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_GetAllAppointments_AppointmentFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsAfterCurrentDateByPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient" message="tns:IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientResponse" message="tns:IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_GetAppointmentsAfterCurrentDateByPatient_AppointmentFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAppointmentsByDocAndDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate" message="tns:IAppointmentService_getAppointmentsByDocAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse" message="tns:IAppointmentService_getAppointmentsByDocAndDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateAppointmentFaultFault" name="AppointmentFaultFault" message="tns:IAppointmentService_getAppointmentsByDocAndDate_AppointmentFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateAppointment">
       <wsdl:input wsaw:Action="http://tempuri.org/IAppointmentService/UpdateAppointment" message="tns:IAppointmentService_UpdateAppointment_InputMessage" />
@@ -93,6 +122,30 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllAppointments">
       <soap:operation soapAction="http://tempuri.org/IAppointmentService/GetAllAppointments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppointmentsAfterCurrentDateByPatient">
+      <soap:operation soapAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AppointmentFaultFault">
+        <soap:fault use="literal" name="AppointmentFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAppointmentsByDocAndDate">
+      <soap:operation soapAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

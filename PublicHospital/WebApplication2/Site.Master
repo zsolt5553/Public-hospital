@@ -10,7 +10,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -48,32 +48,21 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                                            <li><a runat="server" href="~/" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; margin-right: 30px; background-image: url('http://localhost:56391/Images/hosplogo.png'); padding-right: 46px; padding-left: 20px; padding-bottom: 34px;"></a></li>
+                        <li><a runat="server" href="~/" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; margin-right: 30px; background-image: url('http://localhost:56391/Images/hosplogo.png'); padding-right: 46px; padding-left: 20px; padding-bottom: 34px;"></a></li>
                         <li><a runat="server" href="~/" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; margin-right: 5px; background-color: #0099CC;">Home</a></li>
-                                        <li><a runat="server" href="~/About" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC; margin-right: 5px;" aria-orientation="horizontal" draggable="auto" itemscope="itemscope">About</a></li>
-                         <li><a runat="server" href="~/Contact" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC; margin-right: 5px;">Contaact</a></li>
-                           <li><a runat="server" href="~/ServiceList.aspx" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC;margin-right: 5px;">Services</a></li>
-                           <li><a runat="server" href="~/Doctors" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC;">Doctors</a></li>
+                        <li><a runat="server" href="~/About" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC; margin-right: 5px;" aria-orientation="horizontal" draggable="auto" itemscope="itemscope">About</a></li>
+                        <li><a runat="server" href="~/Contact" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC; margin-right: 5px;">Contaact</a></li>
+                        <li><a runat="server" href="~/ServicesPage.aspx" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC; margin-right: 5px;">Services</a></li>
+                        <li><a runat="server" href="~/Doctors" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #0099CC;">Doctors</a></li>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; margin-right: 5px;">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login" style="font-size: large; font-weight: lighter; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; font-family: 'times New Roman', Times, serif; font-variant: normal;">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Register" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; margin-right: 5px;">Register</a></li>
+                        <li><a runat="server" href="~/Account/Login" style="font-size: large; font-weight: lighter; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; font-family: 'times New Roman', Times, serif; font-variant: normal;"><asp:Literal ID="logInOut" runat="server"/></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -83,5 +72,5 @@
         </div>
     </form>
     <hr />
-            </body>
+</body>
 </html>

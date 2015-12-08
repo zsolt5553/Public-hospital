@@ -20,7 +20,7 @@ namespace WebApplication2.Account
             int.TryParse(StreetNr.Text,out streetNr);
             DateTime dateOfBirth;
             DateTime.TryParse(DateOfBirth.Text,out dateOfBirth);
-            PatientsServiceRef.Patient patient = new PatientsServiceRef.Patient()
+            PatientServiceRef.Patient patient = new PatientServiceRef.Patient()
             {
                 firstName = FName.Text,
                 lastName = LName.Text,
@@ -33,13 +33,12 @@ namespace WebApplication2.Account
                 login = Username.Text,
                 pass = Password.Text
             };
-            var client = new PatientsServiceRef.PatientServiceClient();
-            client.SavePatient(ref patient,ref message);
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
+            var client = new PatientServiceRef.PatientServiceClient();
+            bool result = client.SavePatient(ref patient,ref message);
+            if (result)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
     }
 }

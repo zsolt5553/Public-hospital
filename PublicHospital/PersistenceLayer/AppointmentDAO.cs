@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using System.Data.Entity;
+
 namespace PersistenceLayer
 {
     public class AppointmentDAO
@@ -35,6 +37,41 @@ namespace PersistenceLayer
             }
             return appointmentBDO;
         }
+        public List<AppointmentBDO> GetAllAppointmentsByPatient(int patientId)
+        {
+            List<AppointmentBDO> appointments = null;
+            AppointmentBDO appointmentBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from appointment in PHEntities.Appointment
+                                where appointment.idPatient == patientId
+                                select appointment).ToList();
+                if (listInDb != null)
+                {
+                    foreach (Appointment app in listInDb)
+                    {
+                        appointmentBDO = new AppointmentBDO()
+                        {
+                            id = app.id,
+                            time = Convert.ToDateTime(app.time),
+                            serviceType = app.serviceType,
+                            patient = new PatientBDO(),
+                            doctor = new DoctorBDO(),
+                            rowVersion = app.rowVersion
+                        };
+                        appointmentBDO.patient.id = (int)app.idPatient;
+                        appointmentBDO.doctor.id = (int)app.idDoctor;
+                        appointments.Add(appointmentBDO);
+                    }
+                    return appointments;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public List<AppointmentBDO> GetAllAppointments()
         {
             List<AppointmentBDO> appointments = null;
@@ -90,6 +127,33 @@ namespace PersistenceLayer
             }
             return appointments;
         }
+
+        public List<string> getAppointmentsByDocAndDate (DateTime date, int docId)
+        {
+            List<string> appTimes;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from appointment in PHEntities.Appointment
+                                where appointment.idDoctor == docId &&
+                                appointment.time.Year == date.Year &&
+                                appointment.time.Month == date.Month &&
+                                appointment.time.Day == date.Day 
+                                select new
+                                {
+                                    appointment.time
+                                }).ToList();
+                appTimes = new List<string>();
+                if (listInDb != null)
+                {
+                    foreach (var d in listInDb)
+                    {
+                        appTimes.Add(d.time.ToString("HH:mm"));
+                    }
+                }
+            }
+            return appTimes;
+        }
+
         public bool InsertAppointment(ref AppointmentBDO appointmentBDO,
         ref string massage)
         {
@@ -100,10 +164,10 @@ namespace PersistenceLayer
                 PHEntities.Appointment.Add(new Appointment
                 {
                     id = appointmentBDO.id,
-                    time = appointmentBDO.time.Date,
+                    time = appointmentBDO.time,
                     serviceType = appointmentBDO.serviceType,
                     idPatient = appointmentBDO.patient.id,
-                    idDoctor = appointmentBDO.patient.id,
+                    idDoctor = appointmentBDO.doctor.id,
                     rowVersion = appointmentBDO.rowVersion
                 });
                 var num = PHEntities.SaveChanges();

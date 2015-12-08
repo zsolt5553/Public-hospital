@@ -1,14 +1,17 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplication2.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.<asp:Label ID="Label1" runat="server" Text="Create a new account"></asp:Label>
+    <br/><br/><br/><br/>
+
+    <h2><asp:Label ID="Label1" runat="server" Text="Create a new account"></asp:Label>
     </h2>
+    <br/><br/>
     <p>
         <asp:Label ID="FNameLb" runat="server" Text="First name:" CssClass="control-label"></asp:Label>
         <asp:TextBox ID="FName" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="FName"
             CssClass="text-danger" ErrorMessage="The first name field is required." />
-    </p>
+        </p>
     <p>
         <asp:Label ID="LNameLb" runat="server" Text="Last name:" CssClass="control-label"></asp:Label>
         <asp:TextBox ID="LName" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
@@ -26,10 +29,10 @@
         <asp:TextBox ID="Zip" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Zip"
             CssClass="text-danger" ErrorMessage="The zip field is required." />
-        <asp:RangeValidator runat="server" ControlToValidate="Zip"
-            CssClass="text-danger" MinimumValue="1000" MaximumValue="9999" Type="Integer"
+        <asp:RangeValidator runat="server" ControlToValidate="Zip" CssClass="text-danger"
+                                MinimumValue="1000" MaximumValue="9999" Type="Integer"
             Text="The value must be from 1000 to 9999!" />
-    </p>
+        </p>
     <p>
         <asp:Label ID="CityLb" runat="server" Text="City:"></asp:Label>
         <asp:TextBox ID="City" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
@@ -41,7 +44,7 @@
         <asp:TextBox ID="Street" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Street"
             CssClass="text-danger" ErrorMessage="The street field is required." />
-    </p>
+        </p>
     <p>
         <asp:Label ID="StreetNrLb" runat="server" Text="Street number:"></asp:Label>
         <asp:TextBox ID="StreetNr" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>

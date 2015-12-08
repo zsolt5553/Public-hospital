@@ -194,6 +194,9 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string specialtyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -346,6 +349,19 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string specialty {
             get {
                 return this.specialtyField;
@@ -445,6 +461,9 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string phoneNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string streetField;
@@ -591,6 +610,19 @@ namespace WindowsFormsClient.AppointmentServiceRef {
                 if ((object.ReferenceEquals(this.phoneNrField, value) != true)) {
                     this.phoneNrField = value;
                     this.RaisePropertyChanged("phoneNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
                 }
             }
         }
@@ -824,6 +856,24 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
         System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientRe" +
+            "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientAp" +
+            "pointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAppointmentsAfterCurrentDateByPatient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAppointmentsAfterCurrentDateByPatientAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate", ReplyAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateAppointmentFaul" +
+            "tFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        string[] getAppointmentsByDocAndDate(System.DateTime date, int docId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate", ReplyAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse")]
+        System.Threading.Tasks.Task<string[]> getAppointmentsByDocAndDateAsync(System.DateTime date, int docId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/UpdateAppointment", ReplyAction="http://tempuri.org/IAppointmentService/UpdateAppointmentResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WindowsFormsClient.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/UpdateAppointmentAppointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse UpdateAppointment(WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentRequest request);
@@ -981,6 +1031,22 @@ namespace WindowsFormsClient.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
             return base.Channel.GetAllAppointmentsAsync();
+        }
+        
+        public WindowsFormsClient.AppointmentServiceRef.Appointment[] GetAppointmentsAfterCurrentDateByPatient(int id) {
+            return base.Channel.GetAppointmentsAfterCurrentDateByPatient(id);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsClient.AppointmentServiceRef.Appointment[]> GetAppointmentsAfterCurrentDateByPatientAsync(int id) {
+            return base.Channel.GetAppointmentsAfterCurrentDateByPatientAsync(id);
+        }
+        
+        public string[] getAppointmentsByDocAndDate(System.DateTime date, int docId) {
+            return base.Channel.getAppointmentsByDocAndDate(date, docId);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getAppointmentsByDocAndDateAsync(System.DateTime date, int docId) {
+            return base.Channel.getAppointmentsByDocAndDateAsync(date, docId);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
