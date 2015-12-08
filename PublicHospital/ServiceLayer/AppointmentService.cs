@@ -127,6 +127,39 @@ namespace ServiceLayer
             return result;
         }
 
+        public List<Appointment> GetAppointmentsAfterCurrentDateByPatient(int id)
+        {
+            List<Appointment> appointmentList;
+            List<AppointmentBDO> origAppointmentList;
+            try
+            {
+                origAppointmentList = AppointmentLogic.GetAppointmentsAfterCurrentDateByPatient(id);
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetAppointmentsAfterCurrentDateByPatient exception";
+                throw new FaultException<AppointmentFault>
+                (new AppointmentFault(msg), reason);
+            }
+            if (origAppointmentList == null)
+            {
+                return null;
+            }
+            else
+            {
+                appointmentList = new List<Appointment>();
+                Appointment appointment;
+                foreach (AppointmentBDO app in origAppointmentList)
+                {
+                    appointment = new Appointment();
+                    TranslateAppointmentBDOToAppointmentDTO(app, appointment);
+                    appointmentList.Add(appointment);
+                }
+                return appointmentList;
+            }
+        }
+
         public List<string> getAppointmentsByDocAndDate(DateTime date, int docId)
         {
             List<string> appointmentList;

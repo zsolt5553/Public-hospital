@@ -856,6 +856,16 @@ namespace WebApplication2.AppointmentServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAllAppointments", ReplyAction="http://tempuri.org/IAppointmentService/GetAllAppointmentsResponse")]
         System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientRe" +
+            "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientAp" +
+            "pointmentFaultFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        WebApplication2.AppointmentServiceRef.Appointment[] GetAppointmentsAfterCurrentDateByPatient(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatient", ReplyAction="http://tempuri.org/IAppointmentService/GetAppointmentsAfterCurrentDateByPatientRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAppointmentsAfterCurrentDateByPatientAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDate", ReplyAction="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.AppointmentServiceRef.AppointmentFault), Action="http://tempuri.org/IAppointmentService/getAppointmentsByDocAndDateAppointmentFaul" +
             "tFault", Name="AppointmentFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
@@ -1021,6 +1031,14 @@ namespace WebApplication2.AppointmentServiceRef {
         
         public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAllAppointmentsAsync() {
             return base.Channel.GetAllAppointmentsAsync();
+        }
+        
+        public WebApplication2.AppointmentServiceRef.Appointment[] GetAppointmentsAfterCurrentDateByPatient(int id) {
+            return base.Channel.GetAppointmentsAfterCurrentDateByPatient(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication2.AppointmentServiceRef.Appointment[]> GetAppointmentsAfterCurrentDateByPatientAsync(int id) {
+            return base.Channel.GetAppointmentsAfterCurrentDateByPatientAsync(id);
         }
         
         public string[] getAppointmentsByDocAndDate(System.DateTime date, int docId) {

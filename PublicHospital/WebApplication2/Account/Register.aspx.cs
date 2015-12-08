@@ -40,10 +40,5 @@ namespace WebApplication2.Account
                 Response.Redirect("~/Account/Login.aspx");
             }
         }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

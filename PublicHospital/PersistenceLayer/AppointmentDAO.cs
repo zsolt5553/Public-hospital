@@ -37,7 +37,40 @@ namespace PersistenceLayer
             }
             return appointmentBDO;
         }
-
+        public List<AppointmentBDO> GetAllAppointmentsByPatient(int patientId)
+        {
+            List<AppointmentBDO> appointments = null;
+            AppointmentBDO appointmentBDO = null;
+            using (var PHEntities = new PublicHospitalEntities())
+            {
+                var listInDb = (from appointment in PHEntities.Appointment
+                                where appointment.idPatient == patientId
+                                select appointment).ToList();
+                if (listInDb != null)
+                {
+                    foreach (Appointment app in listInDb)
+                    {
+                        appointmentBDO = new AppointmentBDO()
+                        {
+                            id = app.id,
+                            time = Convert.ToDateTime(app.time),
+                            serviceType = app.serviceType,
+                            patient = new PatientBDO(),
+                            doctor = new DoctorBDO(),
+                            rowVersion = app.rowVersion
+                        };
+                        appointmentBDO.patient.id = (int)app.idPatient;
+                        appointmentBDO.doctor.id = (int)app.idDoctor;
+                        appointments.Add(appointmentBDO);
+                    }
+                    return appointments;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
         public List<AppointmentBDO> GetAllAppointments()
         {
