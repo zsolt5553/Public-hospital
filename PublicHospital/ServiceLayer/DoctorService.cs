@@ -151,6 +151,44 @@ namespace ServiceLayer
             return doctors;
         }
 
+        public List<List<String>> GetAllDoctorsSafe()
+        {
+            List<DoctorBDO> doctorsList;
+            try
+            {
+                doctorsList = doctorLogic.GetAllDoctors();
+            }
+            catch (Exception e)
+            {
+                var msg = e.Message;
+                var reason = "GetAllDoctors exception";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            if (doctorsList == null)
+            {
+                var msg = "ListOfDoctors is empty";
+                var reason = "ListOfDoctors empty";
+                throw new FaultException<DoctorFault>
+                    (new DoctorFault(msg), reason);
+            }
+            List<List<String>> doctors = new List<List<String>>();
+            foreach (DoctorBDO doc in doctorsList)
+            {
+
+                var doctor = new Doctor();
+                TranslateDoctorBDOToDoctorDTO(doc,
+                    doctor);
+                List<String> auxDoctorInfo = new List<String>();
+                auxDoctorInfo.Add(doc.lastName + doc.firstName);
+                auxDoctorInfo.Add(doc.specialty);
+                auxDoctorInfo.Add(doc.city);
+                auxDoctorInfo.Add(doc.phoneNr);
+                doctors.Add(auxDoctorInfo);
+            }
+            return doctors;
+        }
+
         private bool DoctorCheck(ref Doctor doctor,
             ref string message)
         {

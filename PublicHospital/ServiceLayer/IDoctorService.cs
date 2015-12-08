@@ -31,6 +31,10 @@ namespace ServiceLayer
 
         [OperationContract]
         [FaultContract(typeof(DoctorFault))]
+        List<List<String>> GetAllDoctorsSafe();
+
+        [OperationContract]
+        [FaultContract(typeof(DoctorFault))]
         DataSet GetDoctorTable();
 
         [OperationContract]

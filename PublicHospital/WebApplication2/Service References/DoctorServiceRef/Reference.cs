@@ -908,6 +908,13 @@ namespace WebApplication2.DoctorServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctors", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsResponse")]
         System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctorsSafe", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsSafeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetAllDoctorsSafeDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
+        string[][] GetAllDoctorsSafe();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetAllDoctorsSafe", ReplyAction="http://tempuri.org/IDoctorService/GetAllDoctorsSafeResponse")]
+        System.Threading.Tasks.Task<string[][]> GetAllDoctorsSafeAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/GetDoctorTable", ReplyAction="http://tempuri.org/IDoctorService/GetDoctorTableResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(WebApplication2.DoctorServiceRef.DoctorFault), Action="http://tempuri.org/IDoctorService/GetDoctorTableDoctorFaultFault", Name="DoctorFault", Namespace="http://schemas.datacontract.org/2004/07/ServiceLayer")]
         System.Data.DataSet GetDoctorTable();
@@ -1181,6 +1188,14 @@ namespace WebApplication2.DoctorServiceRef {
         
         public System.Threading.Tasks.Task<WebApplication2.DoctorServiceRef.Doctor[]> GetAllDoctorsAsync() {
             return base.Channel.GetAllDoctorsAsync();
+        }
+        
+        public string[][] GetAllDoctorsSafe() {
+            return base.Channel.GetAllDoctorsSafe();
+        }
+        
+        public System.Threading.Tasks.Task<string[][]> GetAllDoctorsSafeAsync() {
+            return base.Channel.GetAllDoctorsSafeAsync();
         }
         
         public System.Data.DataSet GetDoctorTable() {
