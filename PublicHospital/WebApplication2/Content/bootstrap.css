@@ -5227,6 +5227,7 @@ a.thumbnail:focus {
 
 .media:first-child {
   margin-top: 0;
+    margin-left: 277px;
 }
 
 .media-object {

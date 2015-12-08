@@ -6,7 +6,7 @@
 
     <br /> <br /> <br /> <br /> <br />
 
-    <div style="width: 100%; background-image: url('Images/Bupa-Cromwell-Hospital-Website-Wallpaper-For-Health-Professionals.jpg'); margin-left: 40px;">
+    <div style="width: 100%; background-image: url('Images/Bupa-Cromwell-Hospital-Website-Wallpaper-For-Health-Professionals.jpg'); margin-left: 40px; height: 610px;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label2" runat="server" Text="Please choose your desired doctor" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large"></asp:Label>
         &nbsp;&nbsp;&nbsp;
@@ -30,9 +30,9 @@
         <asp:Label ID="Label1" runat="server" Text="Choose your desired time" Font-Bold="True" Font-Names="Times New Roman" Font-Size="Large" Visible="False"></asp:Label>
     
         <asp:Panel ID="Panel1" runat="server" Height="27px" Visible="False" Width="988px" BackColor="#CCCCCC" BorderColor="Silver" BorderStyle="Solid" BorderWidth="5px">
-            <asp:Button ID="Button730" runat="server" BackColor="Red" Height="22px" Text="7:30" Width="47px" />
+            <asp:Button ID="Button730" runat="server" Height="22px" Text="07:30" Width="47px" />
 &nbsp;
-            <asp:Button ID="Button800" runat="server" BackColor="#009933" Height="22px" Text="8:00" Width="47px" />
+            <asp:Button ID="Button800" runat="server" Height="22px" Text="8:00" Width="47px" />
 &nbsp;
             <asp:Button ID="Button830" runat="server" BackColor="Red" Height="22px" Text="8:30" Width="47px" />
 &nbsp;

@@ -88,35 +88,27 @@ namespace WebApplication2
         {
             List<String> appointmentDates = new List<String>();
             appointmentDates.AddRange(appointmentService.getAppointmentsByDocAndDate(SelectedDate, DoctorId));
-            if (appointmentDates.Count < 1)
-            {
-                for (int i = 0; i < buttons.Count; i++)
-                {
-                    buttons[i].BackColor = System.Drawing.Color.Green;
-                }
-            }
 
+            for (int i = 0; i < buttons.Count; i++)
             {
-                for (int e = 0; e < appointmentDates.Count; e++)
+                int e = 0;
+                Boolean found = false;
+                while (e < appointmentDates.Count && found == false)
                 {
-                    for (int i = 0; i < buttons.Count; i++)
+                    if (appointmentDates[e].Equals(buttons[i].Text))
                     {
-                        if (buttons[i].Text.Equals(appointmentDates[e]))
-                        {
-                            buttons[i].BackColor = System.Drawing.Color.Red;
-                        }
-                        else
-                        {
-                            if (buttons[i].BackColor == System.Drawing.Color.Red)
-                            { }
-                            else
-                            {
-                                buttons[i].BackColor = System.Drawing.Color.Green;
-                            }
-                        }
+                        buttons[i].BackColor = System.Drawing.Color.Red;
+                        found = true;
+                    }
+
+                    else
+                    {
+                        buttons[i].BackColor = System.Drawing.Color.Green;
+                        e++;
                     }
                 }
             }
+
         }
         void MyButtonClick(object sender, EventArgs e)
         {
@@ -137,13 +129,13 @@ namespace WebApplication2
                 string value2;
                 if (myButton.Text.Length > 5)
                 {
-                     value = myButton.Text.Substring(0, 2);
-                     value2 = myButton.Text.Substring(3, 2);
+                    value = myButton.Text.Substring(0, 2);
+                    value2 = myButton.Text.Substring(3, 2);
                 }
                 else
                 {
-                     value = myButton.Text.Substring(0, 1);
-                     value2 = myButton.Text.Substring(2, 2);
+                    value = myButton.Text.Substring(0, 1);
+                    value2 = myButton.Text.Substring(2, 2);
                 }
                 DateTime finalDate;
                 finalDate = SelectedDate.AddHours(convertInt(value));
@@ -160,13 +152,13 @@ namespace WebApplication2
                 Label1.Text = "You have made an appointent on: " + finalDate.ToShortDateString();
             }
         }
-        
+
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Calendar1.Visible = true;
             string value = stringUntilThatChar(DropDownList1.Text);
             DoctorId = convertInt(value);
-          
+
         }
 
         private int convertInt(String convertableString)
@@ -206,7 +198,7 @@ namespace WebApplication2
             }
         }
 
-        public int DoctorId 
+        public int DoctorId
         {
             get
             {
