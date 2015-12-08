@@ -97,26 +97,35 @@ namespace WebApplication2
             List<String> appointmentDates = new List<String>();
             appointmentDates.AddRange(appointmentService.getAppointmentsByDocAndDate(SelectedDate, DoctorId));
 
-            for (int i = 0; i < buttons.Count; i++)
+            if (appointmentDates.Count<1)
             {
-                int e = 0;
-                Boolean found = false;
-                while (e < appointmentDates.Count && found == false)
+                for (int i = 0; i < buttons.Count; i++)
                 {
-                    if (appointmentDates[e].Equals(buttons[i].Text))
+                    buttons[i].BackColor = System.Drawing.Color.Green;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < buttons.Count; i++)
+                {
+                    int e = 0;
+                    Boolean found = false;
+                    while (e < appointmentDates.Count && found == false)
                     {
-                        buttons[i].BackColor = System.Drawing.Color.Red;
-                        found = true;
-                    }
+                        if (appointmentDates[e].Equals(buttons[i].Text))
+                        {
+                            buttons[i].BackColor = System.Drawing.Color.Red;
+                            found = true;
+                        }
 
-                    else
-                    {
-                        buttons[i].BackColor = System.Drawing.Color.Green;
-                        e++;
+                        else
+                        {
+                            buttons[i].BackColor = System.Drawing.Color.Green;
+                            e++;
+                        }
                     }
                 }
             }
-
         }
         void MyButtonClick(object sender, EventArgs e)
         {
