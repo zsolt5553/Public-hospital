@@ -16,7 +16,7 @@ namespace WebApplication2.Account
         {
             if (Session["patientObj"] != null)
             {
-                Session["patientObj"] = null;
+                Session.Abandon();
                 Response.Redirect("~/Default.aspx");
             }
             Labell.Visible = false;
