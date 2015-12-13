@@ -20,7 +20,7 @@ namespace WindowsFormsClient
 
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
         List<String> doctorsName = new List<String>();
-        private int doctorId=1;
+        private int doctorId = 1;
         private string serviceType;
         private int patientId;
         public Schedule()
@@ -38,7 +38,7 @@ namespace WindowsFormsClient
         private void CalculateWeekNumber()
         {
             label1.Text = "Week" + (1 + (dateTimePicker1.Value.DayOfYear / 7)).ToString("0");
-        
+
         }
 
 
@@ -54,7 +54,7 @@ namespace WindowsFormsClient
             {
                 if (startM == 0)
                     dataGridView1.Rows.Add(new string[] { startH + ":00" });
-                   
+
                 else
                     dataGridView1.Rows.Add(new string[] { startH + ":" + startM });
                 startM += timeVisitM;
@@ -89,43 +89,47 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-           
+
 
             doc = doctorService.GetDoctor(id);
 
 
             for (int i = 1; i < 8; i++)
             {
-             
-                    for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
-                    {
-                        dataGridView1.Rows[i2].Cells[0].Style.BackColor = Color.FromArgb(208, 221, 238);
-                        int i3 = 0;
-                        Boolean found = false;
-                        while (i3 < appointmentList.Count && found==false)
-                            {
-                            if (appointmentList.ElementAt(i3).doctor.id == doc.id)
-                            {
-                                string row = dataGridView1.Rows[i2].Cells[0].Value.ToString();
-                                string colum = dataGridView1.Columns[i].HeaderCell.Value.ToString();
-                                DateTime myDate = DateTime.Parse(colum + row);
-                                if (myDate.Equals(appointmentList.ElementAt(i3).time))
-                                {
-                                    dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
-                                    found = true;
-                                }
-                                else
-                                {
-                                    dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
-                                    i3++;
-                                }
 
+                for (int i2 = 0; i2 < dataGridView1.RowCount; i2++)
+                {
+                    dataGridView1.Rows[i2].Cells[0].Style.BackColor = Color.FromArgb(208, 221, 238);
+                    int i3 = 0;
+                    Boolean found = false;
+                    while (i3 < appointmentList.Count && found == false)
+                    {
+                        if (appointmentList.ElementAt(i3).doctor.id == doc.id)
+                        {
+                            string row = dataGridView1.Rows[i2].Cells[0].Value.ToString();
+                            string colum = dataGridView1.Columns[i].HeaderCell.Value.ToString();
+                            DateTime myDate = DateTime.Parse(colum + row);
+                            if (myDate.Equals(appointmentList.ElementAt(i3).time))
+                            {
+                                dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Red;
+                                found = true;
                             }
+                            else
+                            {
+                                dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
+                                i3++;
+                            }
+                        }
+                        else
+                        {
+                            dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
+                            i3++;
                         }
                     }
                 }
             }
-        
+        }
+
 
         private void UpdateColumns()
         {
@@ -164,10 +168,10 @@ namespace WindowsFormsClient
                     new Thread(() => new Appointment(myDate, doctorId, patientId, serviceType).ShowDialog()).Start();
                 }
             }
-            
-             
-             new Thread(() => new ErrorWindow("Choose a date"));
-            
+
+
+            new Thread(() => new ErrorWindow("Choose a date"));
+
         }
         private void WeekForward(object sender, EventArgs e)
         {
@@ -183,10 +187,10 @@ namespace WindowsFormsClient
             UpdateColumns();
             CalculateWeekNumber();
             CreateCells(doctorId);
-           
+
         }
 
-      
+
 
 
         private int CheckIfNotMonday()
@@ -212,9 +216,9 @@ namespace WindowsFormsClient
 
         private DoctorServiceRef.Doctor GetDoctor(int id)
         {
-           
+
             DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
-          
+
             return doc;
         }
 
@@ -222,8 +226,8 @@ namespace WindowsFormsClient
         {
             if (e.RowIndex >= 0)
             {
-               dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
-               dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.LightBlue;
+                dataGridView1.Rows[e.RowIndex].Cells[0].Style.BackColor = Color.LightBlue;
+                dataGridView1.Columns[e.ColumnIndex].HeaderCell.Style.BackColor = Color.LightBlue;
             }
         }
 
@@ -238,7 +242,7 @@ namespace WindowsFormsClient
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             string value = stringUntilThatChar(comboBox1.Text);
             int value2 = -1;
             Int32.TryParse(value, out value2);
@@ -258,7 +262,7 @@ namespace WindowsFormsClient
             int l = s.IndexOf(")");
             if (l > 0)
             {
-                return s.Substring(1, l-1);
+                return s.Substring(1, l - 1);
             }
             return "";
 
@@ -266,16 +270,16 @@ namespace WindowsFormsClient
         public void getAllDoctorName()
         {
             doctorList.AddRange(doctorService.GetAllDoctors());
-           
+
             doctorsName = new List<String>();
 
-            for (int i =0; i < doctorList.Count; i++)
+            for (int i = 0; i < doctorList.Count; i++)
             {
-                doctorsName.Add("(" + doctorList.ElementAt(i).id +") " + doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
+                doctorsName.Add("(" + doctorList.ElementAt(i).id + ") " + doctorList.ElementAt(i).firstName + " " + doctorList.ElementAt(i).lastName);
             }
         }
 
-      
+
 
 
     }

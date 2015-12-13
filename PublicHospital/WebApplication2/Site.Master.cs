@@ -81,6 +81,7 @@ namespace WebApplication2
                 logInOut.Text = "Log out";
                 Literal222.Visible = true;
                 Literal1.Text = patient.firstName;
+
                
             }
         }
