@@ -89,8 +89,6 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-
-
             doc = doctorService.GetDoctor(id);
 
 
