@@ -89,9 +89,7 @@ namespace WindowsFormsClient
         }
         private void CreateCells(int id)
         {
-           
-
-            doc = doctorService.GetDoctor(id);
+           doc = doctorService.GetDoctor(id);
 
 
             for (int i = 1; i < 8; i++)
@@ -120,6 +118,11 @@ namespace WindowsFormsClient
                                     i3++;
                                 }
 
+                            }
+                            else
+                            {
+                                dataGridView1.Rows[i2].Cells[i].Style.BackColor = Color.Green;
+                                i3++;
                             }
                         }
                     }

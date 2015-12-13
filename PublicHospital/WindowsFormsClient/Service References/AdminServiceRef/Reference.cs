@@ -47,6 +47,9 @@ namespace WindowsFormsClient.AdminServiceRef {
         private string phoneNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sessionIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string streetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -170,6 +173,19 @@ namespace WindowsFormsClient.AdminServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sessionID {
+            get {
+                return this.sessionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionIDField, value) != true)) {
+                    this.sessionIDField = value;
+                    this.RaisePropertyChanged("sessionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string street {
             get {
                 return this.streetField;
@@ -207,9 +223,7 @@ namespace WindowsFormsClient.AdminServiceRef {
                 }
             }
         }
-
-        public string sessionID { get; internal set; }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
