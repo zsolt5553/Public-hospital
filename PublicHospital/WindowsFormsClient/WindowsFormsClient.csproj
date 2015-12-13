@@ -274,6 +274,9 @@
     <None Include="Service References\AppointmentServiceRef\WindowsFormsClient.AppointmentServiceRef.UpdateAppointmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\DoctorServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\DoctorServiceRef\service.wsdl" />
     <None Include="Service References\DoctorServiceRef\service.xsd">
       <SubType>Designer</SubType>

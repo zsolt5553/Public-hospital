@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7af4ed1c-bbdf-4422-a528-b6a6253b2e22" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ea17573e-3e78-48c6-b898-80a776fa398e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
     <MetadataFile FileName="ServiceLayer.xsd" MetadataType="Schema" ID="2daeefd1-f3d6-44bd-af7f-43bdd0657a06" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="6aac69db-83b2-4857-b1d2-c21405fc5cfb" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
     <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="be6e47f9-5fbd-424c-ac16-eb859372432e" SourceId="1" SourceUrl="http://localhost:8080/ServiceLayer/DoctorService/mex" />
   </Metadata>
   <Extensions>

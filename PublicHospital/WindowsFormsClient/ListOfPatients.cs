@@ -50,6 +50,7 @@ namespace WindowsFormsClient
                     List<DoctorServiceRef.Patient> patientList = new List<DoctorServiceRef.Patient>();
                     foreach (var appointment in doctor.appointmentsHistory)
                         patientList.Add(appointment.patient);
+                    patientList = patientList.GroupBy(p => p.id).Select(g => g.First()).ToList();
                     for (int i = 0; i < patientList.Count; i++)
                     {
                         dataGridView1.Rows.Add(patientList[i].id, patientList[i].firstName, patientList[i].lastName,

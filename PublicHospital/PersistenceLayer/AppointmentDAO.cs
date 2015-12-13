@@ -232,7 +232,6 @@ namespace PersistenceLayer
                 appointmentInDb.idPatient = appointmentBDO.patient.id;
                 appointmentInDb.idDoctor = appointmentBDO.patient.id;
                 appointmentInDb.rowVersion = appointmentBDO.rowVersion;
-                //without username and pass
                 PHEntites.Appointment.Attach(appointmentInDb);
                 PHEntites.Entry(appointmentInDb).State = System.Data.Entity.EntityState.Modified;
                 var num = PHEntites.SaveChanges();

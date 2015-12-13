@@ -22,13 +22,13 @@ namespace PersistenceLayer
                     switch (dbData[3])
                     {
                         case "admin":
-                            idAndType = new string[] { dbData[2], "0", setSessionIdDB(dbData[2]) };
+                            idAndType = new string[] { dbData[2], "0", setSessionIdDB(dbData[2], 0) };
                             break;
                         case "doctor":
-                            idAndType = new string[] { dbData[2], "1", setSessionIdDB(dbData[2]) };
+                            idAndType = new string[] { dbData[2], "1", setSessionIdDB(dbData[2], 1) };
                             break;
                         case "patient":
-                            idAndType = new string[] { dbData[2], "2", setSessionIdDB(dbData[2]) };
+                            idAndType = new string[] { dbData[2], "2", setSessionIdDB(dbData[2], 2) };
                             break;
                     }
                     return idAndType;
@@ -62,13 +62,32 @@ namespace PersistenceLayer
             }
         }
 
-        private string setSessionIdDB(string id)
+        private string setSessionIdDB(string idd, int type)
         {
             string sessionID = getSessionID();
+            int changes = 0;
             using (var PHEntities = new PublicHospitalEntities())
             {
-                string sql = @"UPDATE Admin SET sessionID = {0} WHERE Id = {1}";
-                int changes = PHEntities.Database.ExecuteSqlCommand(sql, sessionID, id);
+                int id = 0;
+                Int32.TryParse(idd, out id);
+                switch (type)
+                {
+                    case 0:
+                        var admin = (from a in PHEntities.Admin where a.id == id select a).FirstOrDefault();
+                        admin.sessionID = sessionID;
+                        changes = PHEntities.SaveChanges();
+                        break;
+                    case 1:
+                        var doctor = (from a in PHEntities.Doctor where a.id == id select a).FirstOrDefault();
+                        doctor.sessionID = sessionID;
+                        changes = PHEntities.SaveChanges();
+                        break;
+                    case 2:
+                        var patient = (from a in PHEntities.Patient where a.id == id select a).FirstOrDefault();
+                        patient.sessionID = sessionID;
+                        changes = PHEntities.SaveChanges();
+                        break;
+                }
                 if (changes != 1)
                     sessionID = null;
             }
