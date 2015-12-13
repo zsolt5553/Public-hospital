@@ -69,20 +69,20 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                       Patient patient = (Patient)Session["patientObj"];
+            Patient patient = (Patient)Session["patientObj"];
             if (patient == null)
             {
                 logInOut.Text = "Log in";
-               
-            
+                regButton.Visible = true;
+
             }
             else
             {
                 logInOut.Text = "Log out";
                 Literal222.Visible = true;
                 Literal1.Text = patient.firstName;
+                regButton.Visible = false;
 
-               
             }
         }
     }

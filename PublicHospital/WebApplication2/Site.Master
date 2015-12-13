@@ -59,7 +59,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                          <li><a runat="server" href="~/Account/Profile" style="font-size: large; font-weight: lighter; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #C0C0C0; font-family: 'times New Roman', Times, serif; font-variant: normal; margin-right: 5px;" id="Literal222" visible="False"><asp:Literal ID="Literal1" runat="server"/></a></li>
-                        <li><a runat="server" href="~/Account/Register" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; margin-right: 5px;">Register</a></li>
+                        <li><a runat="server" href="~/Account/Register" style="font-size: large; font-weight: normal; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; margin-right: 5px;" id="regButton">Register</a></li>
                         <li><a runat="server" href="~/Account/Login" style="font-size: large; font-weight: lighter; font-style: normal; color: #FFFFFF; text-transform: uppercase; background-color: #000080; font-family: 'times New Roman', Times, serif; font-variant: normal;"><asp:Literal ID="logInOut" runat="server"/></a></li>
                     </ul>
                 </div>
