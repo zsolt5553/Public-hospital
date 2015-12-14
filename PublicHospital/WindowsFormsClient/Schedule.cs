@@ -148,6 +148,10 @@ namespace WindowsFormsClient
                     new Thread(() => new ErrorWindow("You dont have any appointment on this date").ShowDialog()).Start();
 
                 }
+                else if ((dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor.ToString().Equals("Color [Empty]")))
+                {
+                    new Thread(() => new ErrorWindow("First, you need to choose a doctor !").ShowDialog()).Start();
+                }
                 else
                 {
                     string row = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
