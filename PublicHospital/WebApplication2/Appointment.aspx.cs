@@ -188,7 +188,7 @@ namespace WebApplication2
             
             string value = stringUntilThatChar(DropDownList1.Text);
             DoctorId = convertInt(value);
-
+            SetButtonColor();
 
         }
 
