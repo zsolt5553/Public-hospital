@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -173,13 +174,25 @@ namespace WebApplication2
             appointment.time = FinalDate;
             string message = "";
             var client = new AppointmentServiceRef.AppointmentServiceClient();
-            client.SaveAppointment(ref appointment, ref message);
             Calendar1.Visible = false;
             Panel1.Visible = false;
             DropDownList1.Visible = false;
             Label2.Visible = false;
             Label1.Visible = true;
+            try { client.SaveAppointment(ref appointment, ref message);
             Label1.Text = "You have made an appointent on: " + FinalDate.ToShortDateString();
+            }
+
+            catch (FaultException )
+            {
+               
+                Label1.Text = "An error occured while saving the appointment. " ;
+            }
+                
+                
+                
+          
+          
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
