@@ -106,14 +106,11 @@ namespace WindowsFormsClient
             var doctorService = new DoctorServiceRef.DoctorServiceClient();
             try
             {
-                if (doctorService.UpdateDoctor(ref doc, ref message))
-                {
+                doctorService.UpdateDoctor(ref doc, ref message);
+                
                     new Thread(() => new ErrorWindow("The update was successful !").ShowDialog()).Start();
-                }
-                else
-                {
-                    new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
-                }
+                
+               
             } 
             catch (FaultException)
             {
