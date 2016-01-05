@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,7 +15,7 @@ namespace WindowsFormsClient
 {
     public partial class DoctorUpdate : Form
     {
-        DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+        DoctorServiceRef.Doctor doc;
         public DoctorUpdate(int id)
         {
             InitializeComponent();
@@ -22,8 +24,8 @@ namespace WindowsFormsClient
 
         private void setDoctor(int id)
         {
-          
-            DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
+            var doctorService = new DoctorServiceRef.DoctorServiceClient();
+            doc = doctorService.GetDoctor(id);
 
             firstname.Text = doc.firstName;
             lastname.Text = doc.lastName;
@@ -84,7 +86,39 @@ namespace WindowsFormsClient
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string message = "";
+            int zipNr;
+            Int32.TryParse(zip.Text, out zipNr);
+            int streetNr;
+            Int32.TryParse(streetnr.Text, out streetNr);
+            doc.firstName = firstname.Text;
+            doc.lastName = lastname.Text;
+            doc.city = city.Text;
+            doc.zip = zipNr;
+            doc.street = street.Text;
+            doc.streetNr = streetNr;
+            doc.phoneNr = phonenr.Text;
+            doc.specialty = speciality.Text;
+            doc.description = description.Text;
+            doc.login = username.Text;
+            doc.pass = password.Text;
 
+            var doctorService = new DoctorServiceRef.DoctorServiceClient();
+            try
+            {
+                if (doctorService.UpdateDoctor(ref doc, ref message))
+                {
+                    new Thread(() => new ErrorWindow("The update was successful !").ShowDialog()).Start();
+                }
+                else
+                {
+                    new Thread(() => new ErrorWindow(message).ShowDialog()).Start();
+                }
+            } 
+            catch (FaultException)
+            {
+                new Thread(() => new ErrorWindow("The update was unsuccessful due to inconsistent data !").ShowDialog()).Start();
+            }
             
         }
     }
