@@ -281,6 +281,13 @@ namespace WindowsFormsClient
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            appointmentList.AddRange(appointmentService.GetAllAppointments());
+            CreateCells(doctorId);
+
+        }
+
 
 
 

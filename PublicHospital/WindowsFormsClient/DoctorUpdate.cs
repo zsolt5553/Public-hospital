@@ -13,6 +13,7 @@ namespace WindowsFormsClient
 {
     public partial class DoctorUpdate : Form
     {
+        DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
         public DoctorUpdate(int id)
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace WindowsFormsClient
 
         private void setDoctor(int id)
         {
-            DoctorServiceRef.IDoctorService doctorService = new DoctorServiceRef.DoctorServiceClient();
+          
             DoctorServiceRef.Doctor doc = doctorService.GetDoctor(id);
 
             firstname.Text = doc.firstName;
@@ -79,6 +80,12 @@ namespace WindowsFormsClient
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }
