@@ -100,23 +100,20 @@ namespace WindowsFormsClient
             doc.phoneNr = phonenr.Text;
             doc.specialty = speciality.Text;
             doc.description = description.Text;
-            doc.login = username.Text;
-            doc.pass = password.Text;
 
             var doctorService = new DoctorServiceRef.DoctorServiceClient();
             try
             {
                 doctorService.UpdateDoctor(ref doc, ref message);
-                
-                    new Thread(() => new ErrorWindow("The update was successful !").ShowDialog()).Start();
-                
-               
-            } 
+
+                new Thread(() => new ErrorWindow("The update was successful !").ShowDialog()).Start();
+
+            }
             catch (FaultException)
             {
                 new Thread(() => new ErrorWindow("The update was unsuccessful due to inconsistent data !").ShowDialog()).Start();
             }
-            
+
         }
     }
 }

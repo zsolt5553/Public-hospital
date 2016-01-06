@@ -14,6 +14,7 @@ namespace WindowsFormsClient
 {
     public partial class ListOfDoctors : Form
     {
+        
         private int docId = -1;
 
         public ListOfDoctors()
@@ -28,10 +29,10 @@ namespace WindowsFormsClient
             FillTable();
         }
 
-        private void FillTable()
+        public void FillTable()
         {
             List<Doctor> docList = new DoctorServiceClient().GetAllDoctors().ToList();
-            
+
 
             for (int i = 0; i < docList.Count; i++)
             {
