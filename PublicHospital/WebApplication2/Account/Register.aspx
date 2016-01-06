@@ -6,7 +6,7 @@
     <br />
     <br />
     <div class="container" style="padding-top: 10px;">
-        <div class="panel panel-default" style="width:600px; vertical-align:middle;margin:auto;">
+        <div class="panel panel-default" style="width: 600px; vertical-align: middle; margin: auto;">
             <div class="panel-heading">
                 <h3>Account Registration</h3>
             </div>
@@ -89,8 +89,24 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" Display="Dynamic"
                                 CssClass="text-danger" ErrorMessage="The password field is required." />
+                            <script type="text/javascript">
+                                function ClientValidate(source, clientside_arguments) {
+                                    if (clientside_arguments.Value.length >= 6) {
+                                        clientside_arguments.IsValid = true;
+                                    }
+                                    else { clientside_arguments.IsValid = false };
+                                }
+                            </script>
+                            <asp:CustomValidator ID="CustomValidator1" ClientValidationFunction="ClientValidate"
+                                ControlToValidate="Password" runat="server" CssClass="text-danger" ErrorMessage="The password must be more than 6 characters."
+                                Display="Dynamic"></asp:CustomValidator>
+                            <asp:RegularExpressionValidator ID="regexpName" runat="server"
+                                CssClass="text-danger"
+                                ErrorMessage="The password has to contain at least one digit and one alphabetic character, and must not contain special characters."
+                                ControlToValidate="Password"
+                                ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,16})$" />
                         </div>
                     </div>
                     <label for="ConfPassword" class="control-label">Confirm password:</label>
