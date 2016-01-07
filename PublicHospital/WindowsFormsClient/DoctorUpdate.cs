@@ -34,7 +34,6 @@ namespace WindowsFormsClient
             street.Text = doc.street;
             streetnr.Text = doc.streetNr.ToString();
             phonenr.Text = doc.phoneNr;
-            username.Text = doc.login;
             description.Text = doc.description;
             speciality.Text = doc.specialty;
         }
