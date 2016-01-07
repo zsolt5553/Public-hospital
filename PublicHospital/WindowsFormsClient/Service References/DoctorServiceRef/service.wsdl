@@ -38,7 +38,7 @@
                             </sp:ProtectionToken>
                             <sp:AlgorithmSuite>
                               <wsp:Policy>
-                                <sp:Basic256 />
+                                <sp:Basic256Rsa15 />
                               </wsp:Policy>
                             </sp:AlgorithmSuite>
                             <sp:Layout>
@@ -69,7 +69,7 @@
             </sp:ProtectionToken>
             <sp:AlgorithmSuite>
               <wsp:Policy>
-                <sp:Basic256 />
+                <sp:Basic256Rsa15 />
               </wsp:Policy>
             </sp:AlgorithmSuite>
             <sp:Layout>
