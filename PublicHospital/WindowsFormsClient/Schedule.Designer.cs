@@ -76,7 +76,7 @@ namespace WindowsFormsClient
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel2.Controls.Add(this.button2, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 4, 0);
@@ -97,7 +97,7 @@ namespace WindowsFormsClient
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(481, 3);
+            this.button2.Location = new System.Drawing.Point(480, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(49, 37);
             this.button2.TabIndex = 4;
@@ -107,11 +107,11 @@ namespace WindowsFormsClient
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(689, 3);
+            this.dateTimePicker1.Location = new System.Drawing.Point(688, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(3, 20);
             this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.Value = new System.DateTime(2015, 11, 24, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2016, 1, 7, 0, 0, 0, 0);
             this.dateTimePicker1.Visible = false;
             // 
             // label1
@@ -119,7 +119,7 @@ namespace WindowsFormsClient
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(379, 11);
+            this.label1.Location = new System.Drawing.Point(378, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 22);
             this.label1.TabIndex = 2;
@@ -130,7 +130,7 @@ namespace WindowsFormsClient
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(293, 3);
+            this.button1.Location = new System.Drawing.Point(292, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(43, 37);
             this.button1.TabIndex = 3;
@@ -141,7 +141,7 @@ namespace WindowsFormsClient
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(64, 11);
+            this.comboBox1.Location = new System.Drawing.Point(63, 11);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(164, 21);
             this.comboBox1.TabIndex = 8;
@@ -151,7 +151,7 @@ namespace WindowsFormsClient
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Location = new System.Drawing.Point(8, 3);
+            this.panel2.Location = new System.Drawing.Point(7, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(41, 37);
             this.panel2.TabIndex = 10;
@@ -162,7 +162,7 @@ namespace WindowsFormsClient
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(594, 3);
+            this.button3.Location = new System.Drawing.Point(593, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(59, 37);
             this.button3.TabIndex = 11;

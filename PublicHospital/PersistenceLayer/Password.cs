@@ -131,6 +131,7 @@ namespace PersistenceLayer
             RNGCryptoServiceProvider generate = new RNGCryptoServiceProvider();
             byte[] number = new byte[byteSize];
             generate.GetBytes(number);
+           
             return Convert.ToBase64String(number);  
         }
 

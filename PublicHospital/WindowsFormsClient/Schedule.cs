@@ -20,7 +20,7 @@ namespace WindowsFormsClient
 
         List<DoctorServiceRef.Doctor> doctorList = new List<DoctorServiceRef.Doctor>();
         List<String> doctorsName = new List<String>();
-        private int doctorId = 1;
+        private int doctorId = 10;
         private string serviceType;
         private int patientId;
         public Schedule()
